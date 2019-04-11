@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: ATTACHED-JAR: com.jwebmp.inject:guice:0.0.0_0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/JWebMPParent/JWebMPBuilder/JPMSPending/guice-parent/guice/guice-core/target/original-guice-0.0.0_0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

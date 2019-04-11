@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Annotation profile for JWebMP Development Kit" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <option name="addGeneratedAnnotation" value="false" />
+        <option name="debug" value="true" />
+        <processor name="lombok.launch.AnnotationProcessorHider$AnnotationProcessor" />
+        <processorPath useClasspath="false">
+          <entry name="$PROJECT_DIR$/../Maven Repository/org/projectlombok/lombok/1.18.6/lombok-1.18.6.jar" />
+          <entry name="$PROJECT_DIR$/../Maven Repository/javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0.jar" />
+        </processorPath>
+        <module name="commons-lang3" />
+        <module name="jackson-datatype-datetime" />
+        <module name="guice-grapher" />
+        <module name="json" />
+        <module name="javax.inject" />
+        <module name="jackson-core" />
+        <module name="guice-jmx" />
+        <module name="guice-assistedinject" />
+        <module name="guice-dagger-adapter" />
+        <module name="guice-testlib" />
+        <module name="jackson-annotations" />
+        <module name="guice" />
+        <module name="commons-text" />
+        <module name="uadetector-core" />
+        <module name="uadetector-resources" />
+        <module name="guice-spring" />
+        <module name="guice-throwingproviders" />
+        <module name="jackson-datatype-jdk8" />
+        <module name="guice-jndi" />
+        <module name="jackson-databind" />
+        <module name="commons-fileupload" />
+        <module name="guice-servlet" />
+        <module name="commons-io" />
+        <module name="guice-persist" />
+        <module name="aopalliance-core" />
+        <module name="jackson-module-guice" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="aopalliance-core" target="1.11" />
+      <module name="commons-fileupload" target="1.11" />
+      <module name="commons-io" target="1.11" />
+      <module name="commons-lang3" target="1.11" />
+      <module name="commons-text" target="1.11" />
+      <module name="extensions-parent" target="1.11" />
+      <module name="guice" target="1.11" />
+      <module name="guice-assistedinject" target="1.11" />
+      <module name="guice-bom" target="1.11" />
+      <module name="guice-dagger-adapter" target="1.11" />
+      <module name="guice-grapher" target="1.11" />
+      <module name="guice-jmx" target="1.11" />
+      <module name="guice-jndi" target="1.11" />
+      <module name="guice-multibindings" target="1.11" />
+      <module name="guice-parent" target="1.11" />
+      <module name="guice-parent (1) (com.google.inject)" target="1.11" />
+      <module name="guice-parent (1) (com.jwebmp.inject)" target="1.11" />
+      <module name="guice-persist" target="1.11" />
+      <module name="guice-servlet" target="1.11" />
+      <module name="guice-spring" target="1.11" />
+      <module name="guice-struts2" target="1.11" />
+      <module name="guice-testlib" target="1.11" />
+      <module name="guice-throwingproviders" target="1.11" />
+      <module name="guiced-ee-modules" target="1.11" />
+      <module name="jackson-annotations" target="1.11" />
+      <module name="jackson-base" target="1.11" />
+      <module name="jackson-bom" target="1.11" />
+      <module name="jackson-core" target="1.11" />
+      <module name="jackson-databind" target="1.11" />
+      <module name="jackson-datatype-datetime" target="1.11" />
+      <module name="jackson-datatype-jdk8" target="1.11" />
+      <module name="jackson-module-guice" target="1.11" />
+      <module name="jackson-module-jaxb-annotations" target="1.11" />
+      <module name="jackson-module-parameter-names" target="1.11" />
+      <module name="jackson-modules-base" target="1.11" />
+      <module name="jackson-modules-java8" target="1.11" />
+      <module name="jackson-parent" target="1.11" />
+      <module name="javax-inject" target="1.8" />
+      <module name="javax.inject" target="1.11" />
+      <module name="jdk8-tests" target="8" />
+      <module name="jpms-pending-modules" target="1.11" />
+      <module name="json" target="1.11" />
+      <module name="jwebmp-bom" target="1.5" />
+      <module name="jwebmp-builder" target="1.11" />
+      <module name="jwebmp-core-modules" target="1.11" />
+      <module name="jwebmp-dev-kit" target="1.5" />
+      <module name="jwebmp-parent" target="1.8" />
+      <module name="jwebmp-plugins-modules" target="1.11" />
+      <module name="jwebmp-ua-detector" target="1.11" />
+      <module name="third-party-modules" target="1.11" />
+      <module name="uadetector-core" target="1.11" />
+      <module name="uadetector-resources" target="1.11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="aopalliance-core" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="commons-fileupload" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="commons-io" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="commons-lang3" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="commons-text" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="guice" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="guice-assistedinject" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="guice-dagger-adapter" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="guice-grapher" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="guice-jmx" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="guice-jndi" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="guice-parent" options="" />
+      <module name="guice-persist" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="guice-servlet" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="guice-spring" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="guice-testlib" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="guice-throwingproviders" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="jackson-annotations" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="jackson-core" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="jackson-databind" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="jackson-datatype-datetime" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="jackson-datatype-jdk8" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="jackson-module-guice" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="jackson-module-jaxb-annotations" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="jackson-module-parameter-names" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="javax.inject" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="json" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="uadetector-core" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+      <module name="uadetector-resources" options="-AaddGeneratedAnnotation=false -Adebug=true" />
+    </option>
+  </component>
+</project>

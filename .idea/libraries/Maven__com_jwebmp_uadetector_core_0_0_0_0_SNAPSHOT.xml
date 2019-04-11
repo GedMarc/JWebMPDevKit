@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.jwebmp:uadetector-core:0.0.0_0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Maven Repository/com/jwebmp/uadetector-core/0.0.0_0-SNAPSHOT/uadetector-core-0.0.0_0-20190410.102731-75.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../Maven Repository/com/jwebmp/uadetector-core/0.0.0_0-SNAPSHOT/uadetector-core-0.0.0_0-20190410.102731-75-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../Maven Repository/com/jwebmp/uadetector-core/0.0.0_0-SNAPSHOT/uadetector-core-0.0.0_0-20190410.102731-75-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
