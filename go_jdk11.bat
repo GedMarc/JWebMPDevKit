@@ -1,1 +1,1 @@
-mvn clean compile install -P devkit,jdk11,guice-enabled -T 8
+mvn clean compile install -P devkit,jdk11,enable-guice -T 8
