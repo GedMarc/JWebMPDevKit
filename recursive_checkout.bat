@@ -1,1 +1,1 @@
-git submodule foreach --recursive git checkout 
+git submodule foreach --recursive git checkout .
