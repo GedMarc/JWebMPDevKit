@@ -1,6 +1,8 @@
 [submodule "JWebMPBOM"]
 	path = JWebMPBOM
 	url = https://github.com/GedMarc/JWebMP-Bom.git
+	ignore = dirty
 [submodule "JWebMPParent"]
 	path = JWebMPParent
 	url = https://github.com/GedMarc/JWebMP-Parent.git
+	ignore = dirty
