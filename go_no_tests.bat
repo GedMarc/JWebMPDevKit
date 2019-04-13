@@ -1,1 +1,1 @@
-mvn clean compile install -P devkit,jdk8,enable-guice -T 8  -Dmaven.test.skip-true -DskipTests=true
+mvn compile install -P jdk8,enable-commons,enable-guice,enable-jackson,enable-thirdparty,devkit -Dmaven.test.skip-true -DskipTests=true

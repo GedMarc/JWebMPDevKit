@@ -1,1 +1,1 @@
-mvn clean -P devkit,jdk8,enable-guice
+mvn clean -P jdk8,enable-commons,enable-guice,enable-jackson,enable-thirdparty,devkit -T 8

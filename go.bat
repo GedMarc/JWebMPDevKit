@@ -1,1 +1,1 @@
-mvn clean compile install -P devkit,jdk8,enable-guice -T 8
+mvn compile install -P jdk8,enable-commons,enable-guice,enable-jackson,enable-thirdparty,devkit
