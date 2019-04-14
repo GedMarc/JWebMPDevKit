@@ -1,1 +1,1 @@
-mvn clean -P enabled-guicedee,jdk8,enable-commons,enable-guice,enable-jackson,enable-thirdparty,devkit -T 8
+mvn clean -P enable-plugins,enable-jqxwidgets,enabled-guicedee,jdk8,enable-commons,enable-guice,enable-jackson,enable-thirdparty,devkit -T 8
