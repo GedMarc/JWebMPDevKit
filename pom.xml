@@ -161,7 +161,12 @@
         <profile>
             <id>enable-plugins</id>
         </profile>
-
+        <profile>
+            <id>enable-examples</id>
+        </profile>
+        <profile>
+            <id>enable-apps</id>
+        </profile>
     </profiles>
 
 </project>
