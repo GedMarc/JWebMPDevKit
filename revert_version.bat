@@ -1,0 +1,1 @@
+./set_version.bat 0.0.0_0-SNAPSHOT
