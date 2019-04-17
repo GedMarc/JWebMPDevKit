@@ -9,6 +9,7 @@
 
     <name>JWebMP Development Kit</name>
     <description>The root folder for JWebMP Build libraries</description>
+    <url>https://jwebmp.com</url>
 
     <modules>
 		<module>JWebMPBOM</module>
