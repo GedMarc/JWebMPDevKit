@@ -206,6 +206,13 @@
         <profile>
             <id>enable-apps</id>
         </profile>
+
+        <profile>
+            <id>devkit</id>
+            <modules>
+                <module>ComponentTemplate</module>
+            </modules>
+        </profile>
     </profiles>
 
 </project>
