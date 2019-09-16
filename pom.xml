@@ -180,9 +180,6 @@
         </profile>
 
         <profile>
-            <id>enable-jackson</id>
-        </profile>
-        <profile>
             <id>enable-guice</id>
         </profile>
         <profile>
@@ -210,7 +207,7 @@
         <profile>
             <id>devkit</id>
             <modules>
-                <module>ComponentTemplate</module>
+                <!--<module>ComponentTemplate</module>-->
             </modules>
         </profile>
     </profiles>
