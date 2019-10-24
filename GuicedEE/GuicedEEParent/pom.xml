@@ -20,7 +20,8 @@
                 <groupId>com.guicedee</groupId>
                 <artifactId>guicedee-bom</artifactId>
                 <version>${project.version}</version>
-                <type>import</type>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

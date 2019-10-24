@@ -7,10 +7,116 @@
         <artifactId>guicedee-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
+
     <artifactId>guicedee-projects</artifactId>
     <packaging>pom</packaging>
 
     <name>Guiced EE Projects</name>
 
+    <profiles>
+        <profile>
+            <id>enable-jsf</id>
+            <modules>
+                <module>Guiced-Servlets-JSF</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>enable-guiced-hazelcast</id>
+            <modules>
+                <module>GuicedHazelcast</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>enable-guiced-injection</id>
+            <modules>
+                <module>GuicedInjection</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>enable-guiced-persistence</id>
+            <modules>
+                <module>GuicedPersistence</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>enable-guiced-persistence-btm</id>
+            <modules>
+                <module>GuicedPersistence-BTM</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>enable-guiced-rest</id>
+            <modules>
+                <module>GuicedRestServices</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>enable-guiced-servlets</id>
+            <modules>
+                <module>GuicedServlets</module>
+            </modules>
+        </profile>
+
+
+        <profile>
+            <id>enable-guiced-servlets-scoped</id>
+            <modules>
+                <module>GuicedServletsRequestScoping</module>
+            </modules>
+        </profile>
+
+
+        <profile>
+            <id>enable-guiced-swagger</id>
+            <modules>
+                <module>GuicedSwagger</module>
+            </modules>
+        </profile>
+
+
+        <profile>
+            <id>enable-guiced-swagger-ui</id>
+            <modules>
+                <module>GuicedSwagger</module>
+            </modules>
+        </profile>
+
+
+        <profile>
+            <id>enable-guiced-undertow</id>
+            <modules>
+                <module>GuicedUndertow</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>enable-guiced-webservices</id>
+            <modules>
+                <module>GuicedWebServices</module>
+            </modules>
+        </profile>
+
+
+        <profile>
+            <id>enable-guiced-websockets</id>
+            <modules>
+                <module>GuicedWebSockets</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>enable-guiced-logmaster</id>
+            <modules>
+                <module>LogMaster</module>
+            </modules>
+        </profile>
+
+    </profiles>
 
 </project>

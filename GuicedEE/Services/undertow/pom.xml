@@ -25,9 +25,7 @@
          <artifactId>services-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
-	
-	
-    
+
     <artifactId>undertow-parent</artifactId>
 	
     <name>Undertow</name>
@@ -61,7 +59,7 @@
             For example: <version.org.jboss.as.console>
          -->
         <version.com.h2database>1.4.197</version.com.h2database>
-        <version.easymock>3.6</version.easymock>
+
         <version.io.undertow.jastow>2.0.8.Final</version.io.undertow.jastow>
         <version.junit>4.12</version.junit>
         <version.netty>4.1.8.Final</version.netty>
@@ -82,7 +80,7 @@
 
         <!-- jacoco -->
         <version.org.jacoco>0.7.9</version.org.jacoco>
-        <jacoco.agent.argLine></jacoco.agent.argLine>
+
 
         <!-- Surefire args -->
         <surefire.jpda.args/>

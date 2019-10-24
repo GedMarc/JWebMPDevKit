@@ -16,14 +16,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.easymock</groupId>
-            <artifactId>easymock</artifactId>
-
-            <scope>test</scope>
-            <type>jar</type>
-        </dependency>
-
-        <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <type>jar</type>

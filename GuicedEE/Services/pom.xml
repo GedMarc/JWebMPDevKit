@@ -10,6 +10,7 @@
 
     <groupId>com.guicedee.services</groupId>
     <artifactId>services-parent</artifactId>
+    <packaging>pom</packaging>
 
     <properties>
         <skipTests>true</skipTests>
@@ -100,6 +101,7 @@
         <profile>
             <id>enable-standalone-services</id>
             <modules>
+                <module>btm</module>
                 <module>aop</module>
                 <module>guava</module>
                 <module>javassist</module>

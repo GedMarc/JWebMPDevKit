@@ -15,9 +15,12 @@
     <description>The Parent Holder for the Guiced EE JMPS System</description>
     <url>https://guicedee.com</url>
 
+    <properties>
+        <cglib.version>3.3.0</cglib.version>
+    </properties>
+
     <modules>
         <module>GuicedEEBOM</module>
-        <module>GuicedEEParent</module>
     </modules>
 
     <profiles>

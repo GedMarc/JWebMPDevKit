@@ -24,3 +24,7 @@ persistence.xml
 /.settings
 *.factorypath
 **/*.factorypath
+
+**/target/**
+/target/*
+**/target

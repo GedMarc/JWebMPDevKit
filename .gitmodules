@@ -9,3 +9,54 @@
 [submodule "ComponentTemplate"]
 	path = ComponentTemplate
 	url = https://github.com/GedMarc/JWebMP-ComponentTemplate.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedInjection"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedInjection
+	url = https://github.com/GedMarc/GuiceInjection.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/LogMaster"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/LogMaster
+	url = https://github.com/GedMarc/LogMaster.git
+[submodule "GuicedEE/Services/btm"]
+	path = GuicedEE/Services/btm
+	url = https://github.com/GedMarc/jpms-btm.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedHazelcast"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedHazelcast
+	url = https://github.com/GedMarc/GuicedHazelcast.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedPersistence"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedPersistence
+	url = https://github.com/GedMarc/GuicedPersistence.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedPersistence-BTM"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedPersistence-BTM
+	url = https://github.com/GedMarc/GuicedPersistence-BTM.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/HibernatePropertiesReader"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/HibernatePropertiesReader
+	url = https://github.com/GedMarc/GuicedPersistence-HibernatePropertiesReader.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/SystemPropertiesReader"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/SystemPropertiesReader
+	url = https://github.com/GedMarc/GuicedPersistence-SystemPropertiesReader.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedServlets"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedServlets
+	url = https://github.com/GedMarc/GuicedServlets.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/Guiced-Servlets-JSF"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/Guiced-Servlets-JSF
+	url = https://github.com/GedMarc/Guiced-Servlets-JSF.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedServletsRequestScoping"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedServletsRequestScoping
+	url = https://github.com/GedMarc/GuicedServletsRequestScoping.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedRestServices"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedRestServices
+	url = https://github.com/GedMarc/GuicedRestServices.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedSwagger"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedSwagger
+	url = https://github.com/GedMarc/GuicedSwagger.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedSwaggerUI"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedSwaggerUI
+	url = https://github.com/GedMarc/Guiced-SwaggerUI.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedUndertow"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedUndertow
+	url = https://github.com/GedMarc/Guiced-Undertow.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedWebServices"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedWebServices
+	url = https://github.com/GedMarc/GuicedWebServices.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedWebSockets"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedWebSockets
+	url = https://github.com/GedMarc/Guiced-WebSockets.git

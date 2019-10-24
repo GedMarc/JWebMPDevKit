@@ -58,7 +58,7 @@
             </dependency>
 
             <dependency>
-                <groupId>com.guicedee.servlets</groupId>
+                <groupId>com.guicedee.services</groupId>
                 <artifactId>guiced-servlets</artifactId>
                 <version>${project.version}</version>
                 <type>jar</type>
@@ -78,6 +78,36 @@
                 <type>jar</type>
             </dependency>
 
+            <dependency>
+                <groupId>com.guicedee.persistence</groupId>
+                <artifactId>guiced-persistence-c3p0</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+                <scope>compile</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.guicedee.persistence</groupId>
+                <artifactId>guiced-persistence-jpa</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+                <scope>compile</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.guicedee.persistence</groupId>
+                <artifactId>guiced-persistence-eclipselink-reader</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.guicedee.persistence</groupId>
+                <artifactId>guiced-persistence-ehcache</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+                <scope>compile</scope>
+            </dependency>
 
 
             <!-- Web Service Modules-->
@@ -636,7 +666,6 @@
                 <type>jar</type>
                 <version>${project.version}</version>
             </dependency>
-
 
             <dependency>
                 <groupId>com.guicedee.services</groupId>
