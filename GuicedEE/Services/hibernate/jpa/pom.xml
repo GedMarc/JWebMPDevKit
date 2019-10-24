@@ -1,0 +1,21 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.guicedee.services</groupId>
+        <artifactId>hibernate-parent</artifactId>
+        <version>0.0.0_0-SNAPSHOT</version>
+    </parent>
+
+   
+    <artifactId>jpa-parent</artifactId>
+    <packaging>pom</packaging>
+
+    <name>javax.jpa.parent</name>
+    <description>JPMS Module-Info's for a few of the Jakarta Libraries just until they add them in themselves</description>
+
+    <modules>
+        <module>api</module>
+    </modules>
+
+</project>

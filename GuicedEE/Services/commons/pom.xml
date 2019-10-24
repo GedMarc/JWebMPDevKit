@@ -1,0 +1,36 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.guicedee.services</groupId>
+        <artifactId>services-parent</artifactId>
+        <version>0.0.0_0-SNAPSHOT</version>
+    </parent>
+	
+	
+    <artifactId>commons-parent</artifactId>
+    <packaging>pom</packaging>
+
+    <name>commons.parent</name>
+    <description>JPMS Module-Info's for a few of the Jakarta Libraries. These will be removed as time goes by</description>
+    
+	<modules>
+        <module>commons-codec</module>
+        <module>commons-collections</module>
+        <module>commons-fileupload</module>
+        <module>commons-io</module>
+        <module>commons-lang3</module>
+        <module>commons-logging</module>
+        <module>commons-math</module>
+        <module>commons-text</module>
+		<module>apache-poi</module>
+		<module>apache-poi-ooxml</module>
+
+		<module>apache-cxf</module>
+
+
+		<module>commons-compress</module>
+		<module>xmlbeans</module>
+	</modules>
+	
+</project>

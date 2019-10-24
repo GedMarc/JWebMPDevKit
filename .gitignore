@@ -22,3 +22,5 @@ persistence.xml
 **/*.classpath
 **/.settings
 /.settings
+*.factorypath
+**/*.factorypath

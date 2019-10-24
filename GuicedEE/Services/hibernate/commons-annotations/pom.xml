@@ -1,0 +1,57 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.guicedee.services</groupId>
+        <artifactId>hibernate-parent</artifactId>
+        <version>0.0.0_0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>hibernate-commons-annotations</artifactId>
+    <packaging>jar</packaging>
+
+    <name>hibernate.commons.annotations</name>
+    <description>JPMS Module-Info's for a few of the Jakarta Libraries just until they add them in themselves</description>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>jboss-logmanager</artifactId>
+            <type>jar</type>
+        </dependency>
+
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${jdk.release}</source>
+                    <target>${jdk.release}</target>
+                    <release>${jdk.release}</release>
+                    <annotationProcessorPaths>
+                        <annotationProcessorPath>
+                            <groupId>com.guicedee.services</groupId>
+                            <artifactId>jboss-logmanager</artifactId>
+                            <version>${project.version}</version>
+                        </annotationProcessorPath>
+                    </annotationProcessorPaths>
+                    <annotationProcessors>
+                        <annotationProcessor>org.jboss.logging.processor.apt.LoggingToolsProcessor</annotationProcessor>
+                    </annotationProcessors>
+                    <compilerArguments>
+                        <AaddGeneratedAnnotation>false</AaddGeneratedAnnotation>
+                        <Adebug>true</Adebug>
+                        <Aorg.jboss.logging.tools.addGeneratedAnnotation>false</Aorg.jboss.logging.tools.addGeneratedAnnotation>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

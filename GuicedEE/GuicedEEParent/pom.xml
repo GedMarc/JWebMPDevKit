@@ -1,0 +1,91 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.guicedee</groupId>
+        <artifactId>guicedee-group</artifactId>
+        <version>0.0.0_0-SNAPSHOT</version>
+    </parent>
+    <artifactId>guicedee-parent</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>GuicedEEProjects</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.guicedee</groupId>
+                <artifactId>guicedee-bom</artifactId>
+                <version>${project.version}</version>
+                <type>import</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>.gitignore</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/jre11/resources</directory>
+                <excludes>
+                    <exclude>.gitignore</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>.gitignore</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>*.properties</include>
+                    <include>*.xsd</include>
+                    <include>*.xml</include>
+                    <include>*.json</include>
+                    <include>*.txt</include>
+                    <include>*.sql</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/jre11/java</directory>
+                <includes>
+                    <include>*.properties</include>
+                    <include>*.xsd</include>
+                    <include>*.xml</include>
+                    <include>*.json</include>
+                    <include>*.txt</include>
+                    <include>*.sql</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/jre11/webapp</directory>
+                <targetPath>${project.build.outputDirectory}/META-INF/resources</targetPath>
+                <excludes>
+                    <exclude>**/*.gzip</exclude>
+                    <exclude>**/*.map</exclude>
+                    <exclude>**/*.md</exclude>
+                    <exclude>**/*.md</exclude>
+                    <exclude>**/package.json</exclude>
+                    <exclude>**/bower.json</exclude>
+                    <exclude>**/.bower.json</exclude>
+                    <exclude>**/.gitignore</exclude>
+                    <exclude>**/.jshint</exclude>
+                    <exclude>**/.jshint</exclude>
+                    <exclude>**/Gruntfile.js</exclude>
+                    <exclude>**/*.sh</exclude>
+                </excludes>
+            </resource>
+        </resources>
+    </build>
+
+</project>

@@ -1,0 +1,40 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.guicedee</groupId>
+        <artifactId>dev-kit</artifactId>
+        <version>0.0.0_0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>guicedee-group</artifactId>
+    <packaging>pom</packaging>
+
+    <name>GuicedEE Master POM</name>
+    <description>The Parent Holder for the Guiced EE JMPS System</description>
+    <url>https://guicedee.com</url>
+
+    <modules>
+        <module>GuicedEEBOM</module>
+        <module>GuicedEEParent</module>
+    </modules>
+
+    <profiles>
+        <profile>
+            <id>enable-guicedee-services</id>
+            <modules>
+                <module>Services</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>enable-guicedee-projects</id>
+            <modules>
+                <module>GuicedEEParent</module>
+            </modules>
+        </profile>
+    </profiles>
+
+    <!-- Any maven root config changes go here -->
+
+</project>
