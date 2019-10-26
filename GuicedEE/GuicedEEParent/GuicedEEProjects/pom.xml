@@ -39,6 +39,8 @@
             <id>enable-guiced-persistence</id>
             <modules>
                 <module>GuicedPersistence</module>
+                <module>HibernatePropertiesReader</module>
+                <module>SystemPropertiesReader</module>
             </modules>
         </profile>
 
@@ -83,10 +85,9 @@
         <profile>
             <id>enable-guiced-swagger-ui</id>
             <modules>
-                <module>GuicedSwagger</module>
+                <module>GuicedSwaggerUI</module>
             </modules>
         </profile>
-
 
         <profile>
             <id>enable-guiced-undertow</id>
@@ -101,7 +102,6 @@
                 <module>GuicedWebServices</module>
             </modules>
         </profile>
-
 
         <profile>
             <id>enable-guiced-websockets</id>

@@ -27,13 +27,13 @@
             </dependency>
 
             <dependency>
-                <groupId>com.guicedee.services</groupId>
+                <groupId>com.guicedee</groupId>
                 <artifactId>guiced-log-master</artifactId>
                 <version>${project.version}</version>
                 <type>jar</type>
             </dependency>
             <dependency>
-                <groupId>com.guicedee.services</groupId>
+                <groupId>com.guicedee</groupId>
                 <artifactId>guiced-injection</artifactId>
                 <version>${project.version}</version>
                 <type>jar</type>
@@ -51,14 +51,14 @@
                 <type>jar</type>
             </dependency>
             <dependency>
-                <groupId>com.guicedee.servlets</groupId>
+                <groupId>com.guicedee</groupId>
                 <artifactId>guiced-undertow</artifactId>
                 <version>${project.version}</version>
                 <type>jar</type>
             </dependency>
 
             <dependency>
-                <groupId>com.guicedee.services</groupId>
+                <groupId>com.guicedee.servlets</groupId>
                 <artifactId>guiced-servlets</artifactId>
                 <version>${project.version}</version>
                 <type>jar</type>
@@ -310,14 +310,14 @@
             </dependency>
 
             <dependency>
-                <groupId>com.guicedee.services</groupId>
+                <groupId>com.guicedee.persistence</groupId>
                 <artifactId>guiced-hazelcast</artifactId>
                 <version>${project.version}</version>
                 <type>jar</type>
             </dependency>
 
             <dependency>
-                <groupId>com.guicedee.services</groupId>
+                <groupId>com.guicedee.persistence</groupId>
                 <artifactId>guiced-persistence</artifactId>
                 <type>jar</type>
                 <version>${project.version}</version>
@@ -353,14 +353,14 @@
             </dependency>
 
             <dependency>
-                <groupId>com.guicedee.services</groupId>
+                <groupId>com.guicedee.persistence</groupId>
                 <artifactId>guiced-persistence-btm</artifactId>
                 <type>jar</type>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.guicedee.services</groupId>
+                <groupId>com.guicedee.persistence</groupId>
                 <artifactId>guiced-persistence-hibernateproperties-reader</artifactId>
                 <version>${project.version}</version>
                 <type>jar</type>

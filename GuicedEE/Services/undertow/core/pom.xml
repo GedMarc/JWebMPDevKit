@@ -51,7 +51,6 @@
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>undertow-parser-generator</artifactId>
-            <type>jar</type>
         </dependency>
 
         <dependency>

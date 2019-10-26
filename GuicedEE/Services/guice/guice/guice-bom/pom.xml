@@ -17,74 +17,88 @@
             <dependency>
                 <groupId>com.guicedee.services</groupId>
                 <artifactId>guice</artifactId>
-                <version>${project.version}</version><type>jar</type>
+                <version>${project.version}</version>
+                <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>com.guicedee.services</groupId>
                 <artifactId>guice</artifactId>
                 <version>${project.version}</version>
-                <classifier>no_aop</classifier><type>jar</type>
+                <classifier>no_aop</classifier>
+                <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>com.guicedee.services</groupId>
                 <artifactId>guice</artifactId>
                 <version>${project.version}</version>
-                <classifier>classes</classifier><type>jar</type>
+                <classifier>classes</classifier>
+                <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>com.guicedee.services.extensions</groupId>
                 <artifactId>guice-assistedinject</artifactId>
-                <version>${project.version}</version><type>jar</type>
+                <version>${project.version}</version>
+                <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>com.guicedee.services.extensions</groupId>
                 <artifactId>guice-dagger-adapter</artifactId>
-                <version>${project.version}</version><type>jar</type>
+                <version>${project.version}</version>
+                <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>com.guicedee.services.extensions</groupId>
                 <artifactId>guice-grapher</artifactId>
-                <version>${project.version}</version><type>jar</type>
+                <version>${project.version}</version>
+                <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>com.guicedee.services.extensions</groupId>
                 <artifactId>guice-jmx</artifactId>
-                <version>${project.version}</version><type>jar</type>
+                <version>${project.version}</version>
+                <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>com.guicedee.services.extensions</groupId>
                 <artifactId>guice-jndi</artifactId>
-                <version>${project.version}</version><type>jar</type>
+                <version>${project.version}</version>
+                <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>com.guicedee.services.extensions</groupId>
                 <artifactId>guice-persist</artifactId>
-                <version>${project.version}</version><type>jar</type>
+                <version>${project.version}</version>
+                <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>com.guicedee.services.extensions</groupId>
                 <artifactId>guice-servlet</artifactId>
-                <version>${project.version}</version><type>jar</type>
+                <version>${project.version}</version>
+                <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>com.guicedee.services.extensions</groupId>
                 <artifactId>guice-spring</artifactId>
-                <version>${project.version}</version><type>jar</type>
+                <version>${project.version}</version>
+                <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>com.guicedee.services.extensions</groupId>
                 <artifactId>guice-struts2</artifactId>
-                <version>${project.version}</version><type>jar</type>
+                <version>${project.version}</version>
+                <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>com.guicedee.services.extensions</groupId>
                 <artifactId>guice-testlib</artifactId>
-                <version>${project.version}</version><type>jar</type>
+                <version>${project.version}</version>
+                <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>com.guicedee.services.extensions</groupId>
                 <artifactId>guice-throwingproviders</artifactId>
-                <version>${project.version}</version><type>jar</type>
+                <version>${project.version}</version>
+                <type>jar</type>
             </dependency>
             <!--
              |  not yet promoted...

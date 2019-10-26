@@ -34,6 +34,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <site.deploy.url>scp://people.apache.org/www/cxf.apache.org/maven-site</site.deploy.url>
         <maven-owasp-plugin-version>4.0.2</maven-owasp-plugin-version>
+
+        <jetty.version>9.4.21.v20190926</jetty.version> <!-- 8.1.15.v20140411 -->
     </properties>
 
     <dependencies>
@@ -123,7 +125,7 @@
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
-            <version>8.1.15.v20140411</version>
+            <version>${jetty.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>javax.servlet</artifactId>
@@ -136,31 +138,31 @@
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-continuation</artifactId>
-            <version>8.1.15.v20140411</version>
+            <version>${jetty.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-http</artifactId>
-            <version>8.1.15.v20140411</version>
+            <version>${jetty.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-io</artifactId>
-            <version>8.1.15.v20140411</version>
+            <version>${jetty.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-util</artifactId>
-            <version>8.1.15.v20140411</version>
+            <version>${jetty.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-security</artifactId>
-            <version>8.1.15.v20140411</version>
+            <version>${jetty.version}</version>
             <optional>true</optional>
         </dependency>
 
@@ -467,12 +469,12 @@
                         <configuration>
                             <target>
 
-                                <zip destfile="${build.directory}/org.apache.cxf-${project.version}-temp.jar">
-                                    <zipfileset src="${build.directory}/org.apache.cxf-${project.version}.jar">
+                                <zip destfile="${project.build.directory}/org.apache.cxf-${project.version}-temp.jar">
+                                    <zipfileset src="${project.build.directory}/org.apache.cxf-${project.version}.jar">
                                         <exclude name="1.class" />
                                     </zipfileset>
                                 </zip>
-                                <move file="${build.directory}/org.apache.cxf-${project.version}-temp.jar" tofile="${build.directory}/org.apache.cxf-${project.version}.jar" />
+                                <move file="${project.build.directory}/org.apache.cxf-${project.version}-temp.jar" tofile="${project.build.directory}/org.apache.cxf-${project.version}.jar" />
                             </target>
                         </configuration>
                     </execution>
