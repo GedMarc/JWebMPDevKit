@@ -46,11 +46,11 @@
           <relocations>
             <relocation>
               <pattern>com.lowagie</pattern>
-              <shadedPattern>com.guicedee.jpms.services.primefaces.itext2</shadedPattern>
+              <shadedPattern>com.guicedee.services.primefaces.itext2</shadedPattern>
             </relocation>
             <relocation>
               <pattern>com.rometools</pattern>
-              <shadedPattern>com.guicedee.jpms.services.primefaces.rometools</shadedPattern>
+              <shadedPattern>com.guicedee.services.primefaces.rometools</shadedPattern>
             </relocation>
           </relocations>
         </configuration>

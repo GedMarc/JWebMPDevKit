@@ -39,6 +39,8 @@
             <id>enable-guiced-persistence</id>
             <modules>
                 <module>GuicedPersistence</module>
+                <module>GuicedPersistenceJPA</module>
+                <module>GuicedPersistenceC3P0</module>
                 <module>HibernatePropertiesReader</module>
                 <module>SystemPropertiesReader</module>
             </modules>

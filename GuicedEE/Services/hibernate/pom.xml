@@ -6,15 +6,6 @@
         <artifactId>services-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
-
-    <properties>
-        <maven.hibernate.version>5.4.6.Final</maven.hibernate.version>
-        <maven.hibernate.validator.version>6.0.16.Final</maven.hibernate.validator.version>
-        <maven.hibernate.annotations.version>5.1.0.Final</maven.hibernate.annotations.version>
-        <maven.hibernate.jpa.persistence.version>1.0.2.Final</maven.hibernate.jpa.persistence.version>
-        <maven.hibernate.enhance.version>5.4.3.Final</maven.hibernate.enhance.version>
-
-    </properties>
 	
     <artifactId>hibernate-parent</artifactId>
     <packaging>pom</packaging>

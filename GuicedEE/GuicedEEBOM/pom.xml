@@ -119,7 +119,7 @@
 
             <!-- Applications -->
             <dependency>
-                <groupId>com.guicedee.jpms.applications</groupId>
+                <groupId>com.guicedee.applications</groupId>
                 <artifactId>guicedee-bayfin-ui</artifactId>
                 <version>${project.version}</version>
             </dependency>

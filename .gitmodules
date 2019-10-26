@@ -60,3 +60,9 @@
 [submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedWebSockets"]
 	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedWebSockets
 	url = https://github.com/GedMarc/Guiced-WebSockets.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedPersistenceJPA"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedPersistenceJPA
+	url = https://github.com/GedMarc/GuicedPersistence-JPA.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedPersistenceC3P0"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedPersistenceC3P0
+	url = https://github.com/GedMarc/GuicedPersistence-C3P0
