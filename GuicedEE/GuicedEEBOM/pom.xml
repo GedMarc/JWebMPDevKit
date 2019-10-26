@@ -301,9 +301,8 @@
                 <type>jar</type>
             </dependency>
 
-
             <dependency>
-                <groupId>com.guicedee.services</groupId>
+                <groupId>com.entityassist</groupId>
                 <artifactId>entity-assist</artifactId>
                 <version>${project.version}</version>
                 <type>jar</type>

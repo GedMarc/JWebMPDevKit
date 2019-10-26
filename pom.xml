@@ -60,6 +60,7 @@
         <sonar.exclusions>**bower_components,**src/test,**/test/**,**/module-info.java</sonar.exclusions>
 
         <nexus.staging.maven.plugin.version>1.6.8</nexus.staging.maven.plugin.version>
+
         <jdk.release>12</jdk.release>
 
         <lombok.version>1.18.8</lombok.version>
@@ -180,6 +181,13 @@
                 <module>JWebMPBOM</module>
             </modules>
         </profile>
+        <profile>
+            <id>enable-entityassist</id>
+            <modules>
+                <module>EntityAssist</module>
+            </modules>
+        </profile>
+
 
         <profile>
             <id>jwebmp-distribution</id>
