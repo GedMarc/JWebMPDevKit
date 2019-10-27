@@ -8,7 +8,7 @@
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
 
-    
+
     <artifactId>jboss-logmanager</artifactId>
     <packaging>jar</packaging>
 
@@ -18,8 +18,9 @@
     <dependencies>
         <dependency>
             <groupId>javax.json</groupId>
-            <artifactId>javax.json-api</artifactId><type>jar</type>
-            </dependency>
+            <artifactId>javax.json-api</artifactId>
+            <type>jar</type>
+        </dependency>
 
     </dependencies>
 

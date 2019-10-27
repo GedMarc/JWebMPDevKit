@@ -16,6 +16,11 @@
     <dependencies>
         <dependency>
             <groupId>com.guicedee.services</groupId>
+            <artifactId>jboss-logmanager</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
             <type>jar</type>
         </dependency>

@@ -13,24 +13,27 @@
 
     <name>commons.parent</name>
     <description>JPMS Module-Info's for a few of the Jakarta Libraries. These will be removed as time goes by</description>
-    
-	<modules>
-        <module>commons-codec</module>
-        <module>commons-collections</module>
-        <module>commons-fileupload</module>
-        <module>commons-io</module>
-        <module>commons-lang3</module>
-        <module>commons-logging</module>
-        <module>commons-math</module>
-        <module>commons-text</module>
-		<module>apache-poi</module>
-		<module>apache-poi-ooxml</module>
 
-		<module>apache-cxf</module>
+    <profiles>
+        <profile>
+            <id>enable-commons</id>
+            <modules>
+                <module>commons-codec</module>
+                <module>commons-collections</module>
+                <module>commons-fileupload</module>
+                <module>commons-io</module>
+                <module>commons-lang3</module>
+                <module>commons-logging</module>
+                <module>commons-math</module>
+                <module>commons-text</module>
+                <module>apache-poi</module>
+                <module>apache-poi-ooxml</module>
 
+                <module>apache-cxf</module>
 
-		<module>commons-compress</module>
-		<module>xmlbeans</module>
-	</modules>
-	
+                <module>commons-compress</module>
+                <module>xmlbeans</module>
+            </modules>
+        </profile>
+    </profiles>
 </project>

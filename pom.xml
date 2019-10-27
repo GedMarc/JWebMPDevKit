@@ -174,13 +174,14 @@
                 <module>GuicedEE</module>
             </modules>
         </profile>
+
         <profile>
             <id>enable-jwebmp</id>
             <modules>
-                <module>JWebMPParent</module>
-                <module>JWebMPBOM</module>
+                <module>JWebMP</module>
             </modules>
         </profile>
+
         <profile>
             <id>enable-entityassist</id>
             <modules>

@@ -112,9 +112,23 @@
         </profile>
 
         <profile>
+            <id>enable-uadetector</id>
+            <modules>
+                <module>uadetector</module>
+            </modules>
+        </profile>
+
+        <profile>
             <id>enable-hibernate</id>
             <modules>
                 <module>hibernate</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>enable-xnio</id>
+            <modules>
+                <module>xnio</module>
             </modules>
         </profile>
 

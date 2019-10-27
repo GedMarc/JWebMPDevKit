@@ -12,16 +12,21 @@
 
     <name>GEE4J Parent</name>
     <description>JPMS Module-Info's for a few of the Jakarta Libraries. These will be removed as time goes by</description>
-    
-	<modules>
-        <module>cdi</module>
-        <module>ejb-api</module>
-        <module>interceptor-api</module>
-        <module>javax.el</module>
-        <module>javax.faces</module>
-        <module>jsp</module>
-        <module>jstl</module>
-        <module>primefaces</module>
-	</modules>
-	
+
+    <profiles>
+        <profile>
+            <id>enable-ee4j</id>
+            <modules>
+                <module>cdi</module>
+                <module>ejb-api</module>
+                <module>interceptor-api</module>
+                <module>javax.el</module>
+                <module>javax.faces</module>
+                <module>jsp</module>
+                <module>jstl</module>
+                <module>primefaces</module>
+            </modules>
+        </profile>
+    </profiles>
+
 </project>

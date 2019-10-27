@@ -17,7 +17,8 @@
 
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"> <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>com.guicedee.services</groupId>
@@ -85,13 +86,13 @@
         <url>https://github.com/eclipse-ee4j/interceptor-api</url>
         <tag>HEAD</tag>
     </scm>
-    
+
     <dependencies>
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>jakarta.ejb-api</artifactId>
             <type>jar</type>
-            </dependency>
+        </dependency>
     </dependencies>
 
     <build>
@@ -118,13 +119,13 @@
                 </excludes>
             </resource>
         </resources>
-        
+
         <plugins>
             <!-- First sets properties for the maven-bundle-plugin and later checks if they are indeed used. -->
             <!-- Creates the OSGi MANIFEST.MF file -->
             <!-- Adds the manifest file created by the org.apache.felix:maven-bundle-plugin -->
         </plugins>
-        
+
     </build>
-    
+
 </project>

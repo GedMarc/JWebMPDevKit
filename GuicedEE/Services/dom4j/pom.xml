@@ -18,15 +18,17 @@
 
         <dependency>
             <groupId>com.guicedee.services</groupId>
-            <artifactId>jakarta.xml.bind-api</artifactId><type>jar</type>
-            </dependency>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <type>jar</type>
+        </dependency>
 
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>jaxen</artifactId>
             <optional>true</optional>
-            <scope>compile</scope><type>jar</type>
-            </dependency>
+            <scope>compile</scope>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 
 </project>

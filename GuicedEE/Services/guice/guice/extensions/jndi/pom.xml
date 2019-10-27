@@ -8,7 +8,7 @@
         <artifactId>extensions-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
-    
+
     <artifactId>guice-jndi</artifactId>
 
     <name>google.guice.extensions.jndi</name>
@@ -19,7 +19,7 @@
             <artifactId>guice</artifactId>
 
             <type>jar</type>
-            </dependency>
+        </dependency>
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>guava</artifactId>
@@ -28,9 +28,9 @@
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>javax.inject</artifactId>
-           
+
             <type>jar</type>
-            </dependency>
+        </dependency>
 
 
     </dependencies>

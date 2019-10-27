@@ -108,20 +108,10 @@
     </build>
 
     <dependencies>
-   <!--     <dependency>
-            <groupId>com.guicedee.services</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <type>jar</type>
-        </dependency>-->
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>jakarta.servlet.jsp-api</artifactId>
             <type>jar</type>
         </dependency>
-  <!--      <dependency>
-            <groupId>com.guicedee.services</groupId>
-            <artifactId>jakarta.el</artifactId>
-            <type>jar</type>
-        </dependency>-->
     </dependencies>
 </project>

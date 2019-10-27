@@ -7,7 +7,7 @@
         <artifactId>cache-annotations-ri</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
-    
+
     <artifactId>cache-annotations-ri-common</artifactId>
     <packaging>jar</packaging>
 
@@ -20,8 +20,9 @@
     <dependencies>
         <dependency>
             <groupId>com.guicedee.services</groupId>
-            <artifactId>cache-api</artifactId><type>jar</type>
-            </dependency>
+            <artifactId>cache-api</artifactId>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 
 </project>

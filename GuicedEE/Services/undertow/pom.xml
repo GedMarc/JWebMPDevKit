@@ -106,12 +106,17 @@
         <version.checkstyle>7.1</version.checkstyle>
     </properties>
 
-    <modules>
-        <module>parser-generator</module>
-        <module>core</module>
-        <module>servlet</module>
-        <module>websockets-jsr</module>
-    </modules>
+    <profiles>
+        <profile>
+            <id>enable-undertow</id>
+            <modules>
+                <module>parser-generator</module>
+                <module>core</module>
+                <module>servlet</module>
+                <module>websockets-jsr</module>
+            </modules>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>

@@ -69,3 +69,9 @@
 [submodule "EntityAssist"]
 	path = EntityAssist
 	url = https://github.com/GedMarc/EntityAssist.git
+[submodule "JWebMP/JWebMPParent"]
+	path = JWebMP/JWebMPParent
+	url = https://github.com/GedMarc/JWebMP-Parent.git
+[submodule "JWebMP/JWebMPBOM"]
+	path = JWebMP/JWebMPBOM
+	url = https://github.com/GedMarc/JWebMP-Bom.git

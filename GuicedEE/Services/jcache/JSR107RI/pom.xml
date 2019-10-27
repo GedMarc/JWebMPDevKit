@@ -20,10 +20,15 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
-    <modules>
-        <module>cache-annotations-ri</module>
-        <module>cache-ri-impl</module>
-    </modules>
+    <profiles>
+        <profile>
+            <id>enable-jcache</id>
+            <modules>
+                <module>cache-annotations-ri</module>
+                <module>cache-ri-impl</module>
+            </modules>
+        </profile>
+    </profiles>
 
     <licenses>
         <license>

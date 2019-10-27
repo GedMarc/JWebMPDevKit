@@ -74,14 +74,10 @@ he.org/maven-v4_0_0.xsd">
         <findbugs.version>3.0.5</findbugs.version>
     </properties>
 
-    <profiles>
-        <profile>
-            <id>enable-jstl</id>
-            <modules>
-                <module>api</module>
-                <module>impl</module>
-            </modules>
-        </profile>
-    </profiles>
+    <modules>
+        <module>api</module>
+        <module>impl</module>
+    </modules>
+
 </project>
 

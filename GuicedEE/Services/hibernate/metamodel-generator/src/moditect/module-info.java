@@ -7,5 +7,5 @@ module org.hibernate.orm.jpamodelgen {
 
 	requires java.desktop;
 
-	//provides javax.annotation.processing.Processor with org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor;
+	provides javax.annotation.processing.Processor with org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor;
 }
