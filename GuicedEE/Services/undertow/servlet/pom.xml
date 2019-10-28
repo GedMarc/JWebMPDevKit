@@ -65,7 +65,7 @@
         <dependency>
             <groupId>io.undertow</groupId>
             <artifactId>undertow-servlet</artifactId>
-            <version>${io.undertow.version}</version>
+            <version>${undertow.version}</version>
             <optional>true</optional>
         </dependency>
 

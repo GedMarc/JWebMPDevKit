@@ -48,35 +48,66 @@
             <artifactId>xnio-api</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.jboss.xnio</groupId>
+            <artifactId>xnio-nio</artifactId>
+            <version>3.3.8.Final</version>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
+
+
     <build>
-        <resources>
-            <resource>
-                <directory>${project.basedir}/src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <inherited>true</inherited>
-                <configuration>
-                    <source>${jdk.release}</source>
-                    <target>${jdk.release}</target>
-                    <release>${jdk.release}</release>
-                    <annotationProcessorPaths>
-                        <annotationProcessorPath>
-                            <groupId>com.guicedee.services</groupId>
-                            <artifactId>jboss-logmanager</artifactId>
-                            <version>${project.version}</version>
-                        </annotationProcessorPath>
-                    </annotationProcessorPaths>
-                    <compilerArguments>
-                        <AaddGeneratedAnnotation>false</AaddGeneratedAnnotation>
-                        <Adebug>true</Adebug>
-                    </compilerArguments>
-                </configuration>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>org.jboss.xnio:xnio-nio</include>
+                                </includes>
+                            </artifactSet>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>module-info.java</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.moditect</groupId>
+                <artifactId>moditect-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-module-infos</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>add-module-info</goal>
+                        </goals>
+                        <configuration>
+                            <overwriteExistingFiles>true</overwriteExistingFiles>
+                            <module>
+                                <moduleInfoFile>
+                                    src/moditect/module-info.java
+                                </moduleInfoFile>
+                            </module>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

@@ -105,7 +105,6 @@
                 <module>aop</module>
                 <module>guava</module>
                 <module>javassist</module>
-                <module>uadetector</module>
                 <module>json</module>
                 <module>mssql-jdbc</module>
             </modules>

@@ -1,4 +1,3 @@
-
 <!--
   ~ JBoss, Home of Professional Open Source
   ~
@@ -28,19 +27,23 @@
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
 
-    
+
     <artifactId>xnio-all</artifactId>
     <packaging>pom</packaging>
     <name>xnio.parent</name>
 
-	
+
     <description>The aggregator POM of the XNIO project</description>
 
-    <modules>
-        <module>api</module>
-        <module>nio-impl</module>
-    </modules>
 
-    <properties>
-    </properties>
+
+    <profiles>
+        <profile>
+            <id>enable-xnio</id>
+            <modules>
+                <module>api</module>
+                <module>nio-impl</module>
+            </modules>
+        </profile>
+    </profiles>
 </project>

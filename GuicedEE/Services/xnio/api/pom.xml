@@ -46,11 +46,6 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>com.guicedee.services</groupId>
-            <artifactId>jboss-logmanager</artifactId>
-        </dependency>
-
     </dependencies>
 
     <build>
