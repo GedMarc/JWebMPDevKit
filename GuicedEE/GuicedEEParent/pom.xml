@@ -15,7 +15,7 @@
     </modules>
 
     <properties>
-        <fastclasspath.version>4.8.43</fastclasspath.version>
+
         <jackson.version>2.10.0</jackson.version>
         <io.swagger.version>2.0.8</io.swagger.version>
     </properties>
