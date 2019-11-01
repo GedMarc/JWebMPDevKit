@@ -277,7 +277,6 @@
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>commons-xmlbeans</artifactId>
-            <optional>true</optional>
         </dependency>
 
         <dependency>
@@ -386,8 +385,8 @@
                             <include>org.apache.ws.xmlschema:xmlschema-core:*</include>
                             <include>org.apache.httpcomponents:httpcore:*</include>
                             <include>org.apache.httpcomponents:httpcore-nio:*</include>
-                            <include>org.apache.xmlbeans:*:*</include>
-                            <include>com.guicedee.services:commons-xmlbeans:*</include>
+                            <!--<include>org.apache.xmlbeans:*:*</include>
+                            <include>com.guicedee.services:commons-xmlbeans:*</include>-->
                             <include>org.opensaml:opensaml:*</include>
                             <include>org.apache.velocity:velocity:*</include>
                             <include>org.owasp.esapi:esapi:*</include>
@@ -433,8 +432,8 @@
                             <shadedPattern>org.apache.cxf.common.util.rel.antlr</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>org.apache.xmlbeans</pattern>
-                            <shadedPattern>org.apache.cxf.common.util.rel.xmlbeans</shadedPattern>
+                            <pattern>net.sf.saxon</pattern>
+                            <shadedPattern>org.apache.cxf.common.util.rel.saxon</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>

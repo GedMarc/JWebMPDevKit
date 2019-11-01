@@ -99,7 +99,27 @@ limitations under the License.
             <goals>
               <goal>shade</goal>
             </goals>
+              <configuration>
+                  <filters>
+                      <filter>
+                          <artifact>*:*</artifact>
+                          <excludes>
+                              <exclude>module-info.java</exclude>
+                              <exclude>META-INF/*.SF</exclude>
+                              <exclude>META-INF/*.DSA</exclude>
+                              <exclude>META-INF/*.RSA</exclude>
+                          </excludes>
+                      </filter>
+                  </filters>
+                  <relocations>
+                      <relocation>
+                          <pattern>org.owasp.esapi</pattern>
+                          <shadedPattern>org.apache.cxf.common.util.rel.esapi</shadedPattern>
+                      </relocation>
+                  </relocations>
+              </configuration>
           </execution>
+
         </executions>
       </plugin>
 

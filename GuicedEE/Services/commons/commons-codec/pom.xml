@@ -202,37 +202,69 @@ limitations under the License.
     </contributor>
   </contributors>
   <!-- Codec only has test dependencies ATM -->
+
   <dependencies>
+      <dependency>
+          <groupId>commons-codec</groupId>
+          <artifactId>commons-codec</artifactId>
+          <version>1.13</version>
+          <optional>true</optional>
+      </dependency>
 
   </dependencies>
-  <properties>
-    <!-- Fix to build on JDK 7: version 4.0.0 requires Java 8. -->
-    <!-- Can be dropped when CP 49 is released -->
-    <commons.felix.version>3.5.1</commons.felix.version>
-    <commons.componentid>codec</commons.componentid>
-    <commons.module.name>org.apache.commons.codec</commons.module.name>
-    <commons.jira.id>CODEC</commons.jira.id>
-    <commons.jira.pid>12310464</commons.jira.pid>
-    <!-- Ensure copies work OK (can be removed later when this is in parent POM) -->
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <commons.encoding>UTF-8</commons.encoding>
-    <checkstyle.header.file>${basedir}/LICENSE-header.txt</checkstyle.header.file>
-    <checkstyle.version>2.17</checkstyle.version>
-    <commons.japicmp.version>0.14.1</commons.japicmp.version>
-    <commons.jacoco.version>0.8.4</commons.jacoco.version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <configuration>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <filters>
+                                <filter>
+                                    <artifact>commons-codec:commons-codec:*</artifact>
+                                    <excludes>
+                                        <exclude>module-info.java</exclude>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
+                    </execution>
 
-    <!-- generate report even if there are binary incompatible changes -->
-    <commons.japicmp.breakBuildOnBinaryIncompatibleModifications>false</commons.japicmp.breakBuildOnBinaryIncompatibleModifications>
-    <japicmp.skip>false</japicmp.skip>
+                </executions>
+            </plugin>
 
-    <!-- Commons Release Plugin -->
-    <commons.bc.version>1.12</commons.bc.version>
-    <commons.rc.version>RC1</commons.rc.version>
-    <commons.release-plugin.version>1.5</commons.release-plugin.version>
-    <commons.release.isDistModule>true</commons.release.isDistModule>
-    <commons.distSvnStagingUrl>scm:svn:https://dist.apache.org/repos/dist/dev/commons/${commons.componentid}</commons.distSvnStagingUrl>
-    <commons.releaseManagerName>Gary Gregory</commons.releaseManagerName>    
-    <commons.releaseManagerKey>86fdc7e2a11262cb</commons.releaseManagerKey>
-  </properties>
+            <plugin>
+                <groupId>org.moditect</groupId>
+                <artifactId>moditect-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-module-infos</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>add-module-info</goal>
+                        </goals>
+                        <configuration>
+                            <overwriteExistingFiles>true</overwriteExistingFiles>
+                            <module>
+                                <moduleInfoFile>
+                                    src/moditect/module-info.java
+                                </moduleInfoFile>
+                            </module>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
 </project>
