@@ -39,7 +39,6 @@ module org.apache.cxf {
 	exports org.apache.cxf.transport.http_undertow;
 	exports org.glassfish.jersey.internal to java.ws.rs;
 
-
 	//Filters and Providers
 	opens org.apache.cxf.jaxrs.provider.json to com.google.guice;
 	opens org.apache.cxf.jaxrs.provider.xmlbeans to com.google.guice;

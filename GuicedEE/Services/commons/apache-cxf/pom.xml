@@ -404,7 +404,6 @@
                             <include>ca.juliusdavies:not-yet-commons-ssl:*</include>
 
                             <include>org.glassfish.jersey*:*:*</include>
-
                         </includes>
                     </artifactSet>
                     <filters>

@@ -38,6 +38,10 @@ module java.xml.bind {
     requires static org.jvnet.staxex;
     requires com.sun.istack.runtime;*/
 
+	//For CXF
+	exports org.codehaus.stax2;
+	exports org.codehaus.stax2.ri;
+
     exports com.sun.xml.bind;
     exports com.sun.xml.bind.annotation;
     exports com.sun.xml.bind.api;
