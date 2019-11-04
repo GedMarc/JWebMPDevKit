@@ -1,12 +1,10 @@
-module org.apache.poi.ooxml {
+open module org.apache.poi.ooxml {
 	requires org.apache.poi;
 	requires static org.apache.xmlbeans;
 
 	requires static poi.ooxml.schemas;
 	requires static java.desktop;
 	requires org.apache.commons.collections4;
-
-	opens schemaorg_apache_xmlbeans.system.sD023D6490046BA0250A839A9AD24C443 to org.apache.xmlbeans;
 
 	exports org.apache.poi.ooxml;
 	exports org.apache.poi.ooxml.util;
