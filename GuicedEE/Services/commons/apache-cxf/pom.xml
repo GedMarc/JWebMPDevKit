@@ -54,10 +54,21 @@
         </dependency>
 
         <dependency>
+            <groupId>org.jvnet.staxex</groupId>
+            <artifactId>stax-ex</artifactId>
+            <version>1.8.2</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.fasterxml.woodstox</groupId>
             <artifactId>woodstox-core</artifactId>
             <version>6.0.2</version>
-            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.woodstox</groupId>
+            <artifactId>stax2-api</artifactId>
+            <version>4.2</version>
         </dependency>
 
         <dependency>
@@ -365,7 +376,7 @@
                     <artifactSet>
                         <includes>
                             <!--<include>org.codehaus.woodstox:stax2-api:*</include>-->
-                            <include>org.jvnet.staxex:stax-ex:*</include>
+                            <!--<include>org.jvnet.staxex:stax-ex:*</include>-->
                             <include>org.eclipse.jetty:*:*</include>
                             <include>org.apache.cxf:cxf-bundle:*</include>
                             <include>wsdl4j:wsdl4j:*</include>
@@ -391,7 +402,7 @@
                             <include>org.apache.velocity:velocity:*</include>
                             <include>org.owasp.esapi:esapi:*</include>
                             <include>xerces:xercesImpl:*</include>
-                            <include>com.fasterxml.woodstox:woodstox-core:*</include>
+                            <!--<include>com.fasterxml.woodstox:woodstox-core:*</include>-->
                             <include>xalan:xalan:*</include>
                             <include>org.apache.santuario:xmlsec:*</include>
                             <include>org.apache.cxf:cxf-rt-transports-http-undertow:*</include>

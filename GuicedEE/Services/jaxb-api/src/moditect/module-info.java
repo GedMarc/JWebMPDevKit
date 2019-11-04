@@ -33,14 +33,12 @@ module java.xml.bind {
 
     requires java.compiler;
 
+    requires org.codehaus.stax2;
+
 /*    requires com.sun.xml.txw2;
     requires static com.sun.xml.fastinfoset;
     requires static org.jvnet.staxex;
     requires com.sun.istack.runtime;*/
-
-	//For CXF
-	exports org.codehaus.stax2;
-	exports org.codehaus.stax2.ri;
 
     exports com.sun.xml.bind;
     exports com.sun.xml.bind.annotation;

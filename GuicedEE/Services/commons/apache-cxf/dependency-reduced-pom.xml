@@ -123,8 +123,8 @@
         <configuration>
           <artifactSet>
             <includes>
-              <include>org.codehaus.woodstox:stax2-api:*</include>
-              <include>org.jvnet.staxex:stax-ex:*</include>
+              <!--<include>org.codehaus.woodstox:stax2-api:*</include>
+              <include>org.jvnet.staxex:stax-ex:*</include>-->
               <include>org.eclipse.jetty:*:*</include>
               <include>org.apache.cxf:cxf-bundle:*</include>
               <include>wsdl4j:wsdl4j:*</include>

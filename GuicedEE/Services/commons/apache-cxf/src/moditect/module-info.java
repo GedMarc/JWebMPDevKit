@@ -15,6 +15,8 @@ module org.apache.cxf {
 	requires java.ws.rs;
 	requires java.xml.ws;
 
+	requires org.codehaus.stax2;
+
 	exports org.apache.cxf.phase;
 	exports org.apache.cxf.interceptor;
 	exports org.apache.cxf.message;

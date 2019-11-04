@@ -83,7 +83,11 @@
             <groupId>org.codehaus.woodstox</groupId>
             <artifactId>stax2-api</artifactId>
             <version>4.2</version>
-            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.jvnet.staxex</groupId>
+            <artifactId>stax-ex</artifactId>
+            <version>1.8.2</version>
         </dependency>
 
 
@@ -127,10 +131,9 @@
                             <include>javax.xml.bind:jaxb-api:*</include>
                             <include>org.glassfish.jaxb:txw2:*</include>
                             <include>com.sun.istack:istack-commons-runtime:*</include>
-                            <include>org.jvnet.staxex:stax-ex:*</include>
+                            <!--<include>org.jvnet.staxex:stax-ex:*</include>-->
                             <include>com.sun.xml.fastinfoset:FastInfoset:*</include>
                             <include>com.sun.xml.bind:jaxb-impl:*</include>
-                            <include>org.codehaus.woodstox:stax2-api:*</include>
                         </includes>
                     </artifactSet>
                     <filters>
