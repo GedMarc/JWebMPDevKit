@@ -104,9 +104,14 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>org.apache.commons:commons-text:*</include>
+                                </includes>
+                            </artifactSet>
                             <filters>
                                 <filter>
-                                    <artifact>org.apache.commons:commons-text:*</artifact>
+                                    <artifact>*:*</artifact>
                                     <excludes>
                                         <exclude>module-info.java</exclude>
                                         <exclude>META-INF/*.SF</exclude>

@@ -245,10 +245,14 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>commons-fileupload:commons-fileupload:*</include>
+                                    <include>portlet-api:portlet-api:*</include>
+                                </includes>
+                            </artifactSet>
                             <filters>
                                 <filter>
-                                    <artifact>commons-fileupload:commons-fileupload:*</artifact>
-                                    <artifact>portlet-api:portlet-api:*</artifact>
                                     <excludes>
                                         <exclude>module-info.java</exclude>
                                         <exclude>META-INF/*.SF</exclude>

@@ -271,9 +271,14 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>commons-io:commons-io:*</include>
+                                </includes>
+                            </artifactSet>
                             <filters>
                                 <filter>
-                                    <artifact>commons-io:commons-io:*</artifact>
+                                    <artifact>*:*</artifact>
                                     <excludes>
                                         <exclude>module-info.java</exclude>
                                         <exclude>META-INF/*.SF</exclude>
