@@ -1,4 +1,4 @@
-module org.apache.xmlbeans {
+open module org.apache.xmlbeans {
 	requires java.xml;
 	requires jdk.javadoc;
 
