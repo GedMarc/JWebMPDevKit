@@ -434,6 +434,10 @@
                             <shadedPattern>org.apache.cxf.common.util.rel.esapi</shadedPattern>
                         </relocation>
                         <relocation>
+                            <pattern>org.objectweb.asm</pattern>
+                            <shadedPattern>org.apache.cxf.common.util.rel.asm</shadedPattern>
+                        </relocation>
+                        <relocation>
                             <pattern>org.w3c.dom.html</pattern>
                             <shadedPattern>org.apache.cxf.common.util.rel.dom</shadedPattern>
                         </relocation>
