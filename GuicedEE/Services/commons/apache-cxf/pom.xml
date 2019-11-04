@@ -410,7 +410,7 @@
 
                             <include>org.apache.wss4j:*</include>
                             <include>org.jasypt:*</include>
-                            <include>org.codehaus.woodstox:woodstox-core-asl:*</include>
+                            <!--<include>org.codehaus.woodstox:woodstox-core-asl:*</include>-->
                             <include>org.bouncycastle:bcprov-jdk15:*</include>
                             <include>ca.juliusdavies:not-yet-commons-ssl:*</include>
 
