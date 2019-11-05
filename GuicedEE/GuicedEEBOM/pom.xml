@@ -280,7 +280,7 @@
             </dependency>
 
 
-            <dependency>
+                  <dependency>
                 <groupId>com.guicedee.services</groupId>
                 <artifactId>jakarta.xml.bind-api</artifactId>
                 <version>${project.version}</version>
