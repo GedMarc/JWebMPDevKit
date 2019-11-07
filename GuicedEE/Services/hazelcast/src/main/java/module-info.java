@@ -5,5 +5,4 @@ module com.hazelcast.all {
 	requires static java.management;
 
 	requires java.xml;
-	requires static org.hibernate.orm.core;
 }
