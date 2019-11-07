@@ -23,6 +23,12 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                    <createSourcesJar>true</createSourcesJar>
+                    <shadeSourcesContent>true</shadeSourcesContent>
+                    <shadeTestJar>true</shadeTestJar>
+                    <keepDependenciesWithProvidedScope>false</keepDependenciesWithProvidedScope>
+
                     <artifactSet>
                         <includes>
                             <include>com.lowagie:itextpdf:*</include>

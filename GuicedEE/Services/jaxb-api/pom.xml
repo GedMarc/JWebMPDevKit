@@ -124,6 +124,12 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                    <createSourcesJar>true</createSourcesJar>
+                    <shadeSourcesContent>true</shadeSourcesContent>
+                    <shadeTestJar>true</shadeTestJar>
+                    <keepDependenciesWithProvidedScope>false</keepDependenciesWithProvidedScope>
+
                     <artifactSet>
                         <includes>
                             <include>jakarta.xml.bind:jakarta.xml.bind-api:*</include>

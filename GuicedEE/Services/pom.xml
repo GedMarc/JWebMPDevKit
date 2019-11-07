@@ -44,8 +44,7 @@
         <eclipselink.version>2.7.4</eclipselink.version>
 
         <h2.db.api>1.4.199</h2.db.api>
-        <bytebuddy.version>1.9.14</bytebuddy.version>
-
+        <bytebuddy.version>1.10.2</bytebuddy.version>
         <jpa21.version>1.0.2.Final</jpa21.version>
         <hazelcast.version>3.12.1</hazelcast.version>
         <ehcache.version>3.8.0</ehcache.version>

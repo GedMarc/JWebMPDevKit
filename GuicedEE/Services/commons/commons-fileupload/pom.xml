@@ -245,6 +245,12 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <createSourcesJar>true</createSourcesJar>
+                            <shadeSourcesContent>true</shadeSourcesContent>
+                            <shadeTestJar>true</shadeTestJar>
+                            <keepDependenciesWithProvidedScope>false</keepDependenciesWithProvidedScope>
+
                             <artifactSet>
                                 <includes>
                                     <include>commons-fileupload:commons-fileupload:*</include>
