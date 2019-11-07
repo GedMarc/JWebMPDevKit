@@ -70,7 +70,7 @@
         <jboss.annotations.spec.version>1.0.1.Final</jboss.annotations.spec.version>
 
         <jpa21.version>1.0.2.Final</jpa21.version>
-        <hazelcast.version>3.12.1</hazelcast.version>
+        <hazelcast.version>3.12.4</hazelcast.version>
 
     </properties>
 
@@ -101,6 +101,7 @@
         <profile>
             <id>enable-standalone-services</id>
             <modules>
+
                 <module>btm</module>
                 <module>aop</module>
                 <module>guava</module>

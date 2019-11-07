@@ -365,26 +365,11 @@
                         <target>${jdk.release}</target>
                         <release>${jdk.release}</release>
                         <annotationProcessorPaths>
-                          <!--  <annotationProcessorPath>
-                                <groupId>com.guicedee.services</groupId>
-                                <artifactId>hibernate-jpamodelgen</artifactId>
-                                <version>${project.version}</version>
-                            </annotationProcessorPath>-->
                             <annotationProcessorPath>
                                 <groupId>org.projectlombok</groupId>
                                 <artifactId>lombok</artifactId>
                                 <version>1.18.8</version>
                             </annotationProcessorPath>
-                        <!--    <path>
-                                <groupId>com.guicedee.services</groupId>
-                                <artifactId>jakarta.xml.bind-api</artifactId>
-                                <version>${project.version}</version>
-                            </path>
-                            <path>
-                                <groupId>com.guicedee.services</groupId>
-                                <artifactId>jakarta.annotation-api</artifactId>
-                                <version>${project.version}</version>
-                            </path>-->
                             <path>
                                 <groupId>org.mapstruct</groupId>
                                 <artifactId>mapstruct-processor</artifactId>
