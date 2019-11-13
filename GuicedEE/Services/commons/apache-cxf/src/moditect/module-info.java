@@ -1,11 +1,11 @@
 module org.apache.cxf {
 
 	requires com.fasterxml.jackson.databind;
+	requires com.fasterxml.jackson.jaxrs.json;
 
 	requires javax.servlet.api;
 
 	requires com.google.common;
-
 
 	requires java.annotation;
 	requires java.management;
@@ -53,10 +53,8 @@ module org.apache.cxf {
 	opens org.apache.cxf.rs.security.oauth2.filters to com.google.guice;
 
 
-
 	opens org.apache.cxf.rs.security.oauth2.common;
 	opens org.apache.cxf.rs.security.oauth2.client;
-
 
 	uses javax.ws.rs.ext.MessageBodyWriter;
 	uses javax.ws.rs.ext.MessageBodyReader;
