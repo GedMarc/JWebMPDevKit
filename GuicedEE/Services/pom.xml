@@ -103,6 +103,7 @@
 
                 <module>btm</module>
                 <module>aop</module>
+                <module>jackson-jaxrs</module>
                 <module>guava</module>
                 <module>javassist</module>
                 <module>json</module>

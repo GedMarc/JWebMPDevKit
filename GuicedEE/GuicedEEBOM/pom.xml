@@ -19,6 +19,14 @@
     <dependencyManagement>
         <dependencies>
 
+            <!-- Jackson 2.10.1.1 update-->
+            <dependency>
+                <groupId>com.guicedee.services</groupId>
+                <artifactId>jackson-jaxrs-json-provider</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+            </dependency>
+
             <dependency>
                 <groupId>com.guicedee.services</groupId>
                 <artifactId>cache-api</artifactId>
