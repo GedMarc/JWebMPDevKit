@@ -2,6 +2,7 @@
 module com.fasterxml.jackson.jaxrs.json {
 
 	//CXF, RESTEasy, and OpenAPI require reflective access
+	exports com.fasterxml.jackson.jaxrs.json;
 	opens com.fasterxml.jackson.jaxrs.json;
 
     requires com.fasterxml.jackson.annotation;

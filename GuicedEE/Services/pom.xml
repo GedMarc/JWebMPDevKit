@@ -98,12 +98,20 @@
 
 
         <profile>
+            <id>enable-jackson</id>
+            <modules>
+                <module>jackson-jaxrs</module>
+                <module>jackson-jaxrs-base</module>
+            </modules>
+        </profile>
+
+
+        <profile>
             <id>enable-standalone-services</id>
             <modules>
 
                 <module>btm</module>
                 <module>aop</module>
-                <module>jackson-jaxrs</module>
                 <module>guava</module>
                 <module>javassist</module>
                 <module>json</module>

@@ -29,6 +29,13 @@
 
             <dependency>
                 <groupId>com.guicedee.services</groupId>
+                <artifactId>jackson-jaxrs-base</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+            </dependency>
+
+            <dependency>
+                <groupId>com.guicedee.services</groupId>
                 <artifactId>cache-api</artifactId>
                 <version>${project.version}</version>
                 <type>jar</type>
@@ -288,7 +295,7 @@
             </dependency>
 
 
-                  <dependency>
+            <dependency>
                 <groupId>com.guicedee.services</groupId>
                 <artifactId>jakarta.xml.bind-api</artifactId>
                 <version>${project.version}</version>
@@ -430,7 +437,6 @@
                 <version>${project.version}</version>
                 <type>jar</type>
             </dependency>
-
 
 
             <dependency>
