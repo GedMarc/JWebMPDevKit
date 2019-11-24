@@ -1,1 +1,1 @@
-enable-jwebmp,enable-jwebmp-core,enable-plugins,enable-examples
+enable-jwebmp,enable-jwebmp-core,enable-plugins,enable-angular,enable-bootstrap,enable-jquery,enable-security,enable-javascript,enable-ion,enable-blueimp,enable-iconsets,enable-forms,enable-graphing,enable-effects,enable-jqxwidgets
