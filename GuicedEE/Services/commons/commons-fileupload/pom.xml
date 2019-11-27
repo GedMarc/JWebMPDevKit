@@ -210,12 +210,14 @@
             <artifactId>javax.servlet-api</artifactId>
             <type>jar</type>
         </dependency>
+
         <dependency>
             <groupId>portlet-api</groupId>
             <artifactId>portlet-api</artifactId>
             <version>1.0</version>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>commons-io</artifactId>
@@ -267,6 +269,9 @@
                                     </excludes>
                                 </filter>
                             </filters>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                            </transformers>
                         </configuration>
                     </execution>
 

@@ -123,6 +123,9 @@ limitations under the License.
                           <shadedPattern>org.apache.cxf.common.util.rel.esapi</shadedPattern>
                       </relocation>
                   </relocations>
+                  <transformers>
+                      <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                  </transformers>
               </configuration>
           </execution>
 

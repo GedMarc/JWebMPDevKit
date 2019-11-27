@@ -43,6 +43,7 @@
                 <module>GuicedPersistenceC3P0</module>
                 <module>HibernatePropertiesReader</module>
                 <module>SystemPropertiesReader</module>
+                <module>WildflyReader</module>
             </modules>
         </profile>
 

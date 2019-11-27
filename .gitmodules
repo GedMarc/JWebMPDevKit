@@ -75,3 +75,6 @@
 [submodule "JWebMP/JWebMPBOM"]
 	path = JWebMP/JWebMPBOM
 	url = https://github.com/GedMarc/JWebMP-Bom.git
+[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/WildflyReader"]
+	path = GuicedEE/GuicedEEParent/GuicedEEProjects/WildflyReader
+	url = https://github.com/GedMarc/GuicedPersistence-Wildfly.git

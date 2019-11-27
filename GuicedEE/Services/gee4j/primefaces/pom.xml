@@ -59,6 +59,9 @@
                             <shadedPattern>com.guicedee.services.primefaces.rometools</shadedPattern>
                         </relocation>
                     </relocations>
+                    <transformers>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                    </transformers>
                 </configuration>
             </plugin>
             <plugin>

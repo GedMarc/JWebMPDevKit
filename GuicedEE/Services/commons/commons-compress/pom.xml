@@ -223,7 +223,9 @@
                             <shadeSourcesContent>true</shadeSourcesContent>
                             <shadeTestJar>true</shadeTestJar>
                             <keepDependenciesWithProvidedScope>false</keepDependenciesWithProvidedScope>
-
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                            </transformers>
                         </configuration>
                     </execution>
                 </executions>

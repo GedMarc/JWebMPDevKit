@@ -34,6 +34,41 @@
                 <type>jar</type>
             </dependency>
 
+            <!-- Here -->
+
+            <dependency>
+                <groupId>com.guicedee.services</groupId>
+                <artifactId>jakarta.mail</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.guicedee.servlets</groupId>
+                <artifactId>guiced-servlets-request-scoper</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.guicedee.persistence</groupId>
+                <artifactId>guiced-persistence-systemproperties-reader</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.guicedee.persistence</groupId>
+                <artifactId>guiced-persistence-wildfly</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+            </dependency>
+
+
+
             <dependency>
                 <groupId>com.guicedee.services</groupId>
                 <artifactId>cache-api</artifactId>

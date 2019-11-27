@@ -472,6 +472,9 @@
                             <shadedPattern>org.apache.cxf.common.util.rel.saxon</shadedPattern>
                         </relocation>
                     </relocations>
+                    <transformers>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                    </transformers>
                 </configuration>
             </plugin>
             <plugin>
