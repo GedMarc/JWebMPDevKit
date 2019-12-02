@@ -35,7 +35,7 @@
         <site.deploy.url>scp://people.apache.org/www/cxf.apache.org/maven-site</site.deploy.url>
         <maven-owasp-plugin-version>4.0.2</maven-owasp-plugin-version>
 
-        <jetty.version>9.4.21.v20190926</jetty.version> <!-- 8.1.15.v20140411 -->
+        <jetty.version>9.4.24.v20191120</jetty.version> <!-- 8.1.15.v20140411 -->
     </properties>
 
     <dependencies>
