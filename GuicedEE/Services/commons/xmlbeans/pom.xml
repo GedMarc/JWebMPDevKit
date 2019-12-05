@@ -100,32 +100,12 @@ limitations under the License.
               <goal>shade</goal>
             </goals>
               <configuration>
-                  <createDependencyReducedPom>false</createDependencyReducedPom>
-                  <createSourcesJar>true</createSourcesJar>
-                  <shadeSourcesContent>true</shadeSourcesContent>
-                  <shadeTestJar>true</shadeTestJar>
-                  <keepDependenciesWithProvidedScope>false</keepDependenciesWithProvidedScope>
-
-                  <filters>
-                      <filter>
-                          <artifact>*:*</artifact>
-                          <excludes>
-                              <exclude>module-info.java</exclude>
-                              <exclude>META-INF/*.SF</exclude>
-                              <exclude>META-INF/*.DSA</exclude>
-                              <exclude>META-INF/*.RSA</exclude>
-                          </excludes>
-                      </filter>
-                  </filters>
                   <relocations>
                       <relocation>
                           <pattern>org.owasp.esapi</pattern>
                           <shadedPattern>org.apache.cxf.common.util.rel.esapi</shadedPattern>
                       </relocation>
                   </relocations>
-                  <transformers>
-                      <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                  </transformers>
               </configuration>
           </execution>
 

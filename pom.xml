@@ -398,6 +398,7 @@
                             <filter>
                                 <artifact>*:*</artifact>
                                 <excludes>
+                                    <exclude>module-info.java</exclude>
                                     <exclude>1.java</exclude>
                                     <exclude>META-INF/*.SF</exclude>
                                     <exclude>META-INF/*.DSA</exclude>
@@ -409,6 +410,11 @@
                             <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                         </transformers>
                     </configuration>
+                    <executions>
+                        <execution>
+                            <id>shade</id>
+                        </execution>
+                    </executions>
                     <dependencies>
                         <dependency>
                             <groupId>org.ow2.asm</groupId>
@@ -463,6 +469,22 @@
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
                     <version>${maven.versions.version}</version>
+                    <configuration>
+                        <properties>
+                            <property>
+                                <name>project.version</name>
+                                <autoLinkDependencies>true</autoLinkDependencies>
+                            </property>
+                            <property>
+                                <name>guicedee.version</name>
+                                <autoLinkDependencies>true</autoLinkDependencies>
+                            </property>
+                            <property>
+                                <name>jackson.version</name>
+                                <autoLinkDependencies>true</autoLinkDependencies>
+                            </property>
+                        </properties>
+                    </configuration>
                 </plugin>
 
                 <plugin>
@@ -573,6 +595,9 @@
                     <executions>
                         <execution>
                             <id>attach-javadoc</id>
+                            <goals>
+                                <goal>aggregate-jar</goal>
+                            </goals>
                         </execution>
                     </executions>
                 </plugin>

@@ -96,45 +96,21 @@
          <plugin>
              <groupId>org.apache.maven.plugins</groupId>
              <artifactId>maven-shade-plugin</artifactId>
-             <configuration>
-                 <createDependencyReducedPom>false</createDependencyReducedPom>
-                 <createSourcesJar>true</createSourcesJar>
-                 <shadeSourcesContent>true</shadeSourcesContent>
-                 <shadeTestJar>true</shadeTestJar>
-                 <keepDependenciesWithProvidedScope>false</keepDependenciesWithProvidedScope>
-
-                 <artifactSet>
-                     <includes>
-                         <include>com.microsoft.sqlserver:mssql-jdbc:*</include>
-                     </includes>
-                 </artifactSet>
-                 <filters>
-                     <filter>
-                         <artifact>*:*</artifact>
-                         <excludes>
-                             <exclude>module-info.java</exclude>
-                         </excludes>
-                     </filter>
-                     <filter>
-                         <artifact>*:*</artifact>
-                         <excludes>
-                             <exclude>1.java</exclude>
-                             <exclude>META-INF/*.SF</exclude>
-                             <exclude>META-INF/*.DSA</exclude>
-                             <exclude>META-INF/*.RSA</exclude>
-                         </excludes>
-                     </filter>
-                 </filters>
-                 <transformers>
-                     <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                 </transformers>
-             </configuration>
              <executions>
                  <execution>
+                     <id>shade</id>
                      <phase>package</phase>
                      <goals>
                          <goal>shade</goal>
                      </goals>
+                     <configuration>
+
+                         <artifactSet>
+                             <includes>
+                                 <include>com.microsoft.sqlserver:mssql-jdbc:*</include>
+                             </includes>
+                         </artifactSet>
+                     </configuration>
                  </execution>
              </executions>
          </plugin>

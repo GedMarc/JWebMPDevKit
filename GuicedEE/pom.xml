@@ -19,11 +19,11 @@
         <cglib.version>3.3.0</cglib.version>
         <fastclasspath.version>4.8.54</fastclasspath.version>
 
-        <maven.hibernate.version>5.4.8.Final</maven.hibernate.version>
+        <maven.hibernate.version>5.4.9.Final</maven.hibernate.version>
         <maven.hibernate.validator.version>6.0.17.Final</maven.hibernate.validator.version>
         <maven.hibernate.annotations.version>5.1.0.Final</maven.hibernate.annotations.version>
         <maven.hibernate.jpa.persistence.version>1.0.2.Final</maven.hibernate.jpa.persistence.version>
-        <maven.hibernate.enhance.version>5.4.3.Final</maven.hibernate.enhance.version>
+        <maven.hibernate.enhance.version>5.4.9.Final</maven.hibernate.enhance.version>
 
     </properties>
 
