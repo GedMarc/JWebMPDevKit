@@ -35,7 +35,6 @@
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
             <optional>true</optional>
-            <scope>provided</scope>
             <type>jar</type>
         </dependency>
 
@@ -89,14 +88,18 @@
                         <configuration>
                             <artifactSet>
                                 <includes>
-                                    <include>com.google.inject:guice</include>
                                     <include>org.ow2.asm:asm</include>
+                                    <include>cglib:cglib</include>
                                 </includes>
                             </artifactSet>
                             <relocations>
                                 <relocation>
                                     <pattern>org.objectweb.asm</pattern>
                                     <shadedPattern>com.google.inject.internal.asm</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>net.sf.cglib</pattern>
+                                    <shadedPattern>com.google.inject.internal.cglib</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>
