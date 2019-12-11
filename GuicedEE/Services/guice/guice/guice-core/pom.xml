@@ -90,6 +90,7 @@
                             <artifactSet>
                                 <includes>
                                     <include>com.google.inject:guice</include>
+                                    <include>org.ow2.asm:asm</include>
                                 </includes>
                             </artifactSet>
                             <relocations>

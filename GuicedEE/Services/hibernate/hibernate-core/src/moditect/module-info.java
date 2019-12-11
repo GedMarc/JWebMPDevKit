@@ -769,6 +769,7 @@ module org.hibernate.orm.core {
 	provides javax.persistence.spi.PersistenceProvider with org.hibernate.jpa.HibernatePersistenceProvider;
 
 	opens org.hibernate.cache.spi.entry;
+	opens org.hibernate.query.criteria.internal.path;
 	exports org.hibernate.cache.internal;
 	exports org.hibernate.internal.util;
 }

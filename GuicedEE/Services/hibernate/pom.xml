@@ -6,7 +6,7 @@
         <artifactId>services-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
-	
+
     <artifactId>hibernate-parent</artifactId>
     <packaging>pom</packaging>
 
@@ -33,7 +33,7 @@
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
-                <version>5.4.6.Final</version>
+                <version>${maven.hibernate.version}</version>
                 <exclusions>
                     <exclusion>
                         <artifactId>jaxb-api</artifactId>
@@ -93,5 +93,5 @@
 
         </dependencies>
     </dependencyManagement>
-	
+
 </project>
