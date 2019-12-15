@@ -445,6 +445,8 @@ module org.hibernate.orm.core {
 	uses org.hibernate.bytecode.enhance.spi.interceptor.LazyFetchGroupMetadata;
 	uses org.hibernate.bytecode.enhance.spi.interceptor.SessionAssociableInterceptor;
 
+
+
 	uses org.hibernate.cache.spi.CacheImplementor;
 	uses org.hibernate.cache.spi.CacheKeysFactory;
 	uses org.hibernate.cache.spi.CacheTransactionSynchronization;
