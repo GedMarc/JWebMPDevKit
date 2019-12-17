@@ -230,7 +230,7 @@ module org.hibernate.orm.core {
 	//exports org.hibernate.loader.plan.exec.process.internal;
 
 	exports org.hibernate.lob;
-	exports org.hibernate.mapping;
+	opens org.hibernate.mapping;
 	exports org.hibernate.metadata;
 	exports org.hibernate.metamodel.spi;
 	//exports org.hibernate.metamodel.internal;
@@ -287,9 +287,9 @@ module org.hibernate.orm.core {
 	exports org.hibernate.tool.schema.extract.internal;
 	exports org.hibernate.tool.schema.extract.spi;*/
 	exports org.hibernate.transform;
-	exports org.hibernate.tuple;
+/*	exports org.hibernate.tuple;
 	exports org.hibernate.tuple.component;
-	exports org.hibernate.tuple.entity;
+	exports org.hibernate.tuple.entity;*/
 	exports org.hibernate.type;
 //	exports org.hibernate.type.internal;
 	exports org.hibernate.type.spi;
@@ -774,4 +774,8 @@ module org.hibernate.orm.core {
 	opens org.hibernate.query.criteria.internal.path;
 	exports org.hibernate.cache.internal;
 	exports org.hibernate.internal.util;
+
+	opens org.hibernate.tuple;
+	opens org.hibernate.tuple.component;
+	opens org.hibernate.tuple.entity;
 }
