@@ -16,10 +16,6 @@
     <description>The Parent Holder for JWebMP</description>
     <url>https://jwebmp.com</url>
 
-    <properties>
-        <guicedee.version>${project.version}</guicedee.version>
-    </properties>
-
     <profiles>
         <profile>
             <id>enable-jwebmp</id>

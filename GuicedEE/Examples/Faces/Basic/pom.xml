@@ -5,10 +5,6 @@
     <artifactId>jsf-example</artifactId>
     <version>1.0.0.0</version>
 
-    <properties>
-        <guicedee.version>1.0.1.0</guicedee.version>
-    </properties>
-
     <modules>
         <module>App</module>
         <module>JLink</module>

@@ -476,7 +476,7 @@
                                 <autoLinkDependencies>true</autoLinkDependencies>
                             </property>
                             <property>
-                                <name>guicedee.version</name>
+                                <name>project.version</name>
                                 <autoLinkDependencies>true</autoLinkDependencies>
                             </property>
                             <property>
