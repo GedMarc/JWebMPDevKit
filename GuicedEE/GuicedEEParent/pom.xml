@@ -15,9 +15,12 @@
     </modules>
 
     <properties>
-
         <jackson.version>2.10.1</jackson.version>
         <io.swagger.version>2.1.0</io.swagger.version>
+        <h2.version>1.4.200</h2.version>
+        <classgraph.version>4.8.59</classgraph.version>
+        <bytebuddy.version>1.10.6</bytebuddy.version>
+        <jakarta.ws.rs-api.version>2.1.6</jakarta.ws.rs-api.version>
     </properties>
 
     <dependencyManagement>
@@ -34,14 +37,14 @@
             <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
-                <version>1.4.200</version>
+                <version>${h2.version}</version>
                 <scope>test</scope>
             </dependency>
 
             <dependency>
                 <groupId>io.github.classgraph</groupId>
                 <artifactId>classgraph</artifactId>
-                <version>${fastclasspath.version}</version>
+                <version>${classgraph.version}</version>
                 <type>jar</type>
             </dependency>
 
@@ -68,7 +71,7 @@
             <dependency>
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy</artifactId>
-                <version>1.10.4</version>
+                <version>${bytebuddy.version}</version>
             </dependency>
 
             <dependency>
@@ -92,11 +95,10 @@
                 <type>jar</type>
             </dependency>
 
-
             <dependency>
                 <groupId>jakarta.ws.rs</groupId>
                 <artifactId>jakarta.ws.rs-api</artifactId>
-                <version>2.1.6</version>
+                <version>${jakarta.ws.rs-api.version}</version>
                 <exclusions>
                     <exclusion>
                         <artifactId>validation-api</artifactId>

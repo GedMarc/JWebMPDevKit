@@ -50,12 +50,16 @@ limitations under the License.
         <url>https://github.com/apache/commons-codec</url>
     </scm>
 
+    <properties>
+        <poi.version>4.1.1</poi.version>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi-ooxml</artifactId>
-                <version>4.1.0</version>
+                <version>${poi.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.xmlbeans</groupId>
@@ -80,7 +84,7 @@ limitations under the License.
             <dependency>
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi-ooxml-schemas</artifactId>
-                <version>4.1.0</version>
+                <version>${poi.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.xmlbeans</groupId>
@@ -97,7 +101,7 @@ limitations under the License.
             <dependency>
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi-scratchpad</artifactId>
-                <version>4.1.0</version>
+                <version>${poi.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.xmlbeans</groupId>

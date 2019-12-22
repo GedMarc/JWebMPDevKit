@@ -35,7 +35,32 @@
         <site.deploy.url>scp://people.apache.org/www/cxf.apache.org/maven-site</site.deploy.url>
         <maven-owasp-plugin-version>4.0.2</maven-owasp-plugin-version>
 
-        <jetty.version>9.4.24.v20191120</jetty.version> <!-- 8.1.15.v20140411 -->
+        <jetty.version>9.4.24.v20191120</jetty.version>
+
+        <stax.version>1.8.2</stax.version>
+        <stax2.api.version>4.2</stax2.api.version>
+        <woodstox.version>6.0.2</woodstox.version>
+        <wsdl4j.version>1.6.3</wsdl4j.version>
+        <opensaml.openws.version>1.5.0</opensaml.openws.version>
+        <neethi.version>3.0.3</neethi.version>
+
+        <jersey.version>2.29.1</jersey.version>
+        <oauth.version>20100527</oauth.version>
+
+        <xmlschema.core.version>2.2.4</xmlschema.core.version>
+        <jasypt.version>1.9.0</jasypt.version>
+
+        <cxf.rt.version>3.3.4</cxf.rt.version>
+        <cxf.bundle.version>3.0.0-milestone2</cxf.bundle.version>
+        <wss4j.policy.version>2.2.4</wss4j.policy.version>
+        <wss4j.imp.version>2.0.0-rc1</wss4j.imp.version>
+
+        <http.core.version>4.4.11</http.core.version>
+        <http.nio.version>4.2.4</http.nio.version>
+
+        <opensaml.version>2.6.1</opensaml.version>
+        <xmlsec.version>2.1.4</xmlsec.version>
+
     </properties>
 
     <dependencies>
@@ -66,32 +91,32 @@
         <dependency>
             <groupId>org.jvnet.staxex</groupId>
             <artifactId>stax-ex</artifactId>
-            <version>1.8.2</version>
+            <version>${stax.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.fasterxml.woodstox</groupId>
             <artifactId>woodstox-core</artifactId>
-            <version>6.0.2</version>
+            <version>${woodstox.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.codehaus.woodstox</groupId>
             <artifactId>stax2-api</artifactId>
-            <version>4.2</version>
+            <version>${stax2.api.version}</version>
         </dependency>
 
         <dependency>
             <groupId>wsdl4j</groupId>
             <artifactId>wsdl4j</artifactId>
-            <version>1.6.3</version>
+            <version>${wsdl4j.version}</version>
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.opensaml</groupId>
             <artifactId>openws</artifactId>
-            <version>1.5.0</version>
+            <version>${opensaml.openws.version}</version>
             <optional>true</optional>
             <exclusions>
                 <exclusion>
@@ -124,7 +149,7 @@
         <dependency>
             <groupId>org.apache.neethi</groupId>
             <artifactId>neethi</artifactId>
-            <version>3.0.3</version>
+            <version>${neethi.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>stax2-api</artifactId>
@@ -191,7 +216,7 @@
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-server</artifactId>
-            <version>2.29.1</version>
+            <version>${jersey.version}</version>
             <optional>true</optional>
             <exclusions>
                 <exclusion>
@@ -219,20 +244,20 @@
         <dependency>
             <groupId>net.oauth.core</groupId>
             <artifactId>oauth-provider</artifactId>
-            <version>20100527</version>
+            <version>${oauth.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>net.oauth.core</groupId>
             <artifactId>oauth</artifactId>
-            <version>20100527</version>
+            <version>${oauth.version}</version>
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.apache.ws.xmlschema</groupId>
             <artifactId>xmlschema-core</artifactId>
-            <version>2.2.4</version>
+            <version>${xmlschema.core.version}</version>
             <optional>true</optional>
         </dependency>
 
@@ -281,7 +306,7 @@
         <dependency>
             <groupId>org.jasypt</groupId>
             <artifactId>jasypt</artifactId>
-            <version>1.9.0</version>
+            <version>${jasypt.version}</version>
             <optional>true</optional>
         </dependency>
 
@@ -326,21 +351,25 @@
             <groupId>org.apache.wss4j</groupId>
             <artifactId>wss4j-bindings-wss10</artifactId>
             <optional>true</optional>
+            <version>${wss4j.imp.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.wss4j</groupId>
             <artifactId>wss4j-bindings-wsu10</artifactId>
             <optional>true</optional>
+            <version>${wss4j.imp.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.wss4j</groupId>
             <artifactId>wss4j-bindings-wss11</artifactId>
             <optional>true</optional>
+            <version>${wss4j.imp.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.wss4j</groupId>
             <artifactId>wss4j-bindings-wssc</artifactId>
             <optional>true</optional>
+            <version>${wss4j.imp.version}</version>
         </dependency>
 
         <dependency>
@@ -602,7 +631,7 @@
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-transports-http-undertow</artifactId>
-                <version>3.3.3</version>
+                <version>${cxf.rt.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.aries.blueprint</groupId>
@@ -694,7 +723,7 @@
             <dependency>
                 <groupId>org.apache.wss4j</groupId>
                 <artifactId>wss4j-policy</artifactId>
-                <version>2.0.0-rc1</version>
+                <version>${wss4j.policy.version}</version>
                 <optional>true</optional>
                 <exclusions>
                     <exclusion>
@@ -935,7 +964,7 @@
             <dependency>
                 <groupId>org.apache.wss4j</groupId>
                 <artifactId>wss4j-ws-security-stax</artifactId>
-                <version>2.0.0-rc1</version>
+                <version>${wss4j.policy.version}</version>
                 <optional>true</optional>
                 <exclusions>
                     <exclusion>
@@ -1172,7 +1201,7 @@
             <dependency>
                 <groupId>org.apache.wss4j</groupId>
                 <artifactId>wss4j-bindings-wss10</artifactId>
-                <version>2.0.0-rc1</version>
+                <version>${wss4j.imp.version}</version>
                 <optional>true</optional>
                 <exclusions>
                     <exclusion>
@@ -1409,7 +1438,7 @@
             <dependency>
                 <groupId>org.apache.wss4j</groupId>
                 <artifactId>wss4j-bindings-wsu10</artifactId>
-                <version>2.0.0-rc1</version>
+                <version>${wss4j.imp.version}</version>
                 <optional>true</optional>
                 <exclusions>
                     <exclusion>
@@ -1646,7 +1675,7 @@
             <dependency>
                 <groupId>org.apache.wss4j</groupId>
                 <artifactId>wss4j-bindings-wss11</artifactId>
-                <version>2.0.0-rc1</version>
+                <version>${wss4j.imp.version}</version>
                 <optional>true</optional>
                 <exclusions>
                     <exclusion>
@@ -1883,7 +1912,7 @@
             <dependency>
                 <groupId>org.apache.wss4j</groupId>
                 <artifactId>wss4j-bindings-wssc</artifactId>
-                <version>2.0.0-rc1</version>
+                <version>${wss4j.imp.version}</version>
                 <optional>true</optional>
                 <exclusions>
                     <exclusion>
@@ -2121,7 +2150,7 @@
             <dependency>
                 <groupId>org.apache.wss4j</groupId>
                 <artifactId>wss4j-ws-security-policy-stax</artifactId>
-                <version>2.0.0-rc1</version>
+                <version>${wss4j.policy.version}</version>
                 <optional>true</optional>
                 <exclusions>
                     <exclusion>
@@ -2362,14 +2391,14 @@
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpcore</artifactId>
-                <version>4.4.11</version>
+                <version>${http.core.version}</version>
                 <optional>true</optional>
             </dependency>
 
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpcore-nio</artifactId>
-                <version>4.2.4</version>
+                <version>${http.nio.version}</version>
                 <exclusions>
                     <exclusion>
                         <artifactId>httpcore</artifactId>
@@ -2382,7 +2411,7 @@
             <dependency>
                 <groupId>org.opensaml</groupId>
                 <artifactId>opensaml</artifactId>
-                <version>2.6.1</version>
+                <version>${opensaml.version}</version>
                 <optional>true</optional>
                 <exclusions>
                     <exclusion>
@@ -2410,7 +2439,7 @@
             <dependency>
                 <groupId>org.apache.santuario</groupId>
                 <artifactId>xmlsec</artifactId>
-                <version>2.1.4</version>
+                <version>${xmlsec.version}</version>
                 <exclusions>
                     <exclusion>
                         <artifactId>woodstox-core</artifactId>
@@ -2431,7 +2460,7 @@
             <dependency>
                 <groupId>org.apache.wss4j</groupId>
                 <artifactId>wss4j-ws-security-dom</artifactId>
-                <version>2.0.0-rc1</version>
+                <version>${wss4j.policy.version}</version>
                 <optional>true</optional>
                 <exclusions>
                     <exclusion>
@@ -2668,7 +2697,7 @@
             <dependency>
                 <groupId>org.apache.wss4j</groupId>
                 <artifactId>wss4j-ws-security-common</artifactId>
-                <version>2.0.0-rc1</version>
+                <version>${wss4j.policy.version}</version>
                 <optional>true</optional>
                 <exclusions>
                     <exclusion>
@@ -2906,7 +2935,7 @@
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-bundle</artifactId>
-                <version>3.0.0-milestone2</version>
+                <version>${cxf.bundle.version}</version>
                 <optional>true</optional>
                 <exclusions>
                     <exclusion>
@@ -3144,7 +3173,7 @@
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-core</artifactId>
-                <version>3.3.2</version>
+                <version>${cxf.rt.version}</version>
                 <exclusions>
                     <exclusion>
                         <artifactId>jakarta.activation-api</artifactId>
@@ -3160,7 +3189,7 @@
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-frontend-jaxws</artifactId>
-                <version>3.3.2</version>
+                <version>${cxf.rt.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.geronimo.specs</groupId>
@@ -3191,7 +3220,7 @@
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-transports-http</artifactId>
-                <version>3.3.2</version>
+                <version>${cxf.rt.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.geronimo.specs</groupId>
@@ -3220,7 +3249,7 @@
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-transports-http-jetty</artifactId>
-                <version>3.3.2</version>
+                <version>${cxf.rt.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.geronimo.specs</groupId>

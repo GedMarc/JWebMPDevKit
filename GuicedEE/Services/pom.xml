@@ -614,7 +614,7 @@
             <dependency>
                 <groupId>io.github.classgraph</groupId>
                 <artifactId>classgraph</artifactId>
-                <version>${fastclasspath.version}</version>
+                <version>${classgraph.version}</version>
                 <type>jar</type>
             </dependency>
 

@@ -49,6 +49,39 @@ limitations under the License.
         <url>https://github.com/apache/commons-codec</url>
     </scm>
 
+    <properties>
+        <poi.version>4.1.1</poi.version>
+
+        <!-- Fix to build on JDK 7: version 4.0.0 requires Java 8. -->
+        <!-- Can be dropped when CP 49 is released -->
+        <commons.felix.version>3.5.1</commons.felix.version>
+        <commons.componentid>codec</commons.componentid>
+        <commons.module.name>org.apache.commons.codec</commons.module.name>
+        <commons.jira.id>CODEC</commons.jira.id>
+        <commons.jira.pid>12310464</commons.jira.pid>
+        <!-- Ensure copies work OK (can be removed later when this is in parent POM) -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <commons.encoding>UTF-8</commons.encoding>
+        <checkstyle.header.file>${basedir}/LICENSE-header.txt</checkstyle.header.file>
+        <checkstyle.version>2.17</checkstyle.version>
+        <commons.japicmp.version>0.14.1</commons.japicmp.version>
+        <commons.jacoco.version>0.8.4</commons.jacoco.version>
+
+        <!-- generate report even if there are binary incompatible changes -->
+        <commons.japicmp.breakBuildOnBinaryIncompatibleModifications>false</commons.japicmp.breakBuildOnBinaryIncompatibleModifications>
+        <japicmp.skip>false</japicmp.skip>
+
+        <!-- Commons Release Plugin -->
+        <commons.bc.version>1.12</commons.bc.version>
+        <commons.rc.version>RC1</commons.rc.version>
+        <commons.release-plugin.version>1.5</commons.release-plugin.version>
+        <commons.release.isDistModule>true</commons.release.isDistModule>
+        <commons.distSvnStagingUrl>scm:svn:https://dist.apache.org/repos/dist/dev/commons/${commons.componentid}</commons.distSvnStagingUrl>
+        <commons.releaseManagerName>Gary Gregory</commons.releaseManagerName>
+        <commons.releaseManagerKey>86fdc7e2a11262cb</commons.releaseManagerKey>
+    </properties>
+
     <developers>
         <developer>
             <name>Henri Yandell</name>
@@ -208,7 +241,7 @@ limitations under the License.
             <dependency>
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi-ooxml</artifactId>
-                <version>4.1.0</version>
+                <version>${poi.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.xmlbeans</groupId>
@@ -233,7 +266,7 @@ limitations under the License.
             <dependency>
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi-ooxml-schemas</artifactId>
-                <version>4.1.0</version>
+                <version>${poi.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.xmlbeans</groupId>
@@ -250,7 +283,7 @@ limitations under the License.
             <dependency>
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi-scratchpad</artifactId>
-                <version>4.1.0</version>
+                <version>${poi.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.xmlbeans</groupId>
@@ -309,36 +342,6 @@ limitations under the License.
             <optional>true</optional>
         </dependency>
     </dependencies>
-    <properties>
-        <!-- Fix to build on JDK 7: version 4.0.0 requires Java 8. -->
-        <!-- Can be dropped when CP 49 is released -->
-        <commons.felix.version>3.5.1</commons.felix.version>
-        <commons.componentid>codec</commons.componentid>
-        <commons.module.name>org.apache.commons.codec</commons.module.name>
-        <commons.jira.id>CODEC</commons.jira.id>
-        <commons.jira.pid>12310464</commons.jira.pid>
-        <!-- Ensure copies work OK (can be removed later when this is in parent POM) -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <commons.encoding>UTF-8</commons.encoding>
-        <checkstyle.header.file>${basedir}/LICENSE-header.txt</checkstyle.header.file>
-        <checkstyle.version>2.17</checkstyle.version>
-        <commons.japicmp.version>0.14.1</commons.japicmp.version>
-        <commons.jacoco.version>0.8.4</commons.jacoco.version>
-
-        <!-- generate report even if there are binary incompatible changes -->
-        <commons.japicmp.breakBuildOnBinaryIncompatibleModifications>false</commons.japicmp.breakBuildOnBinaryIncompatibleModifications>
-        <japicmp.skip>false</japicmp.skip>
-
-        <!-- Commons Release Plugin -->
-        <commons.bc.version>1.12</commons.bc.version>
-        <commons.rc.version>RC1</commons.rc.version>
-        <commons.release-plugin.version>1.5</commons.release-plugin.version>
-        <commons.release.isDistModule>true</commons.release.isDistModule>
-        <commons.distSvnStagingUrl>scm:svn:https://dist.apache.org/repos/dist/dev/commons/${commons.componentid}</commons.distSvnStagingUrl>
-        <commons.releaseManagerName>Gary Gregory</commons.releaseManagerName>
-        <commons.releaseManagerKey>86fdc7e2a11262cb</commons.releaseManagerKey>
-    </properties>
 
     <build>
         <plugins>

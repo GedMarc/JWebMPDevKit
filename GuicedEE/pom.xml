@@ -17,7 +17,7 @@
 
     <properties>
         <cglib.version>3.3.0</cglib.version>
-        <fastclasspath.version>4.8.54</fastclasspath.version>
+        <classgraph.version>4.8.59</classgraph.version>
 
         <maven.hibernate.version>5.4.10.Final</maven.hibernate.version>
         <maven.hibernate.validator.version>6.0.17.Final</maven.hibernate.validator.version>
