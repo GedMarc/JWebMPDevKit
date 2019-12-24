@@ -6,8 +6,8 @@
         <artifactId>services-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
-	
-	
+
+
     <artifactId>commons-parent</artifactId>
     <packaging>pom</packaging>
 
@@ -32,6 +32,7 @@
                 <module>apache-cxf</module>
 
                 <module>commons-compress</module>
+                <module>commons-csv</module>
                 <module>xmlbeans</module>
             </modules>
         </profile>
