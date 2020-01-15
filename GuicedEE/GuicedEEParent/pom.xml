@@ -15,7 +15,7 @@
     </modules>
 
     <properties>
-        <jackson.version>2.10.1</jackson.version>
+        <jackson.version>2.10.2</jackson.version>
         <io.swagger.version>2.1.0</io.swagger.version>
         <h2.version>1.4.200</h2.version>
         <classgraph.version>4.8.59</classgraph.version>
