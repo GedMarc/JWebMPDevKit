@@ -48,9 +48,9 @@
         <oauth.version>20100527</oauth.version>
 
         <xmlschema.core.version>2.2.4</xmlschema.core.version>
-        <jasypt.version>1.9.0</jasypt.version>
+        <jasypt.version>1.9.3</jasypt.version>
 
-        <cxf.rt.version>3.3.4</cxf.rt.version>
+        <cxf.rt.version>3.3.5</cxf.rt.version>
         <cxf.bundle.version>3.0.0-milestone2</cxf.bundle.version>
         <wss4j.policy.version>2.2.4</wss4j.policy.version>
         <wss4j.imp.version>2.0.0-rc1</wss4j.imp.version>
@@ -87,6 +87,12 @@
             <artifactId>jackson-jaxrs-json-provider</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>2.10.6</version>
+            <optional>true</optional>
+        </dependency>
 
         <dependency>
             <groupId>org.jvnet.staxex</groupId>
@@ -238,6 +244,12 @@
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-bundle</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jasypt</artifactId>
+                    <groupId>org.jasypt</groupId>
+                </exclusion>
+            </exclusions>
             <optional>true</optional>
         </dependency>
 
@@ -310,10 +322,12 @@
             <optional>true</optional>
         </dependency>
 
+
         <dependency>
             <groupId>javax.jws</groupId>
             <artifactId>javax.jws-api</artifactId>
         </dependency>
+
 
         <dependency>
             <groupId>com.guicedee.services</groupId>

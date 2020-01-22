@@ -147,7 +147,7 @@
                         <includes>
                             <include>jakarta.xml.bind:jakarta.xml.bind-api:*</include>
                             <include>org.glassfish.jaxb:jaxb-runtime:*</include>
-                            <include>javax.xmlProSidebarHeaderUserStatus.bind:jaxb-api:*</include>
+                            <!--<include>javax.xml.bind:jaxb-api:*</include>-->
                             <include>org.glassfish.jaxb:txw2:*</include>
                             <include>com.sun.istack:istack-commons-runtime:*</include>
                             <!--<include>org.jvnet.staxex:stax-ex:*</include>-->
