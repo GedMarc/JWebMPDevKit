@@ -222,6 +222,7 @@
                                     <gpgArguments>
                                         <arg>--pinentry-mode</arg>
                                         <arg>loopback</arg>
+                                        <arg>--batch-mode</arg>
                                     </gpgArguments>
                                     <passphrase>${gpg.passphrase}</passphrase>
                                 </configuration>
@@ -270,6 +271,7 @@
                                     <gpgArguments>
                                         <arg>--pinentry-mode</arg>
                                         <arg>loopback</arg>
+                                        <arg>--batch-mode</arg>
                                     </gpgArguments>
                                     <passphrase>${gpg.passphrase}</passphrase>
                                 </configuration>
@@ -334,12 +336,12 @@
                                     <annotationProcessorPath>
                                         <groupId>org.projectlombok</groupId>
                                         <artifactId>lombok</artifactId>
-                                        <version>1.18.10</version>
+                                        <version>${lombok.version}</version>
                                     </annotationProcessorPath>
                                     <path>
                                         <groupId>org.mapstruct</groupId>
                                         <artifactId>mapstruct-processor</artifactId>
-                                        <version>1.3.1.Final</version>
+                                        <version>${mapstruct.version}</version>
                                     </path>
                                 </annotationProcessorPaths>
                                 <compilerArguments>
