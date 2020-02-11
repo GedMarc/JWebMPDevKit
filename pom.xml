@@ -222,7 +222,7 @@
                                     <gpgArguments>
                                         <arg>--pinentry-mode</arg>
                                         <arg>loopback</arg>
-                                        <arg>--batch-mode</arg>
+                                        <arg>--batch</arg>
                                     </gpgArguments>
                                     <passphrase>${gpg.passphrase}</passphrase>
                                 </configuration>
@@ -271,7 +271,7 @@
                                     <gpgArguments>
                                         <arg>--pinentry-mode</arg>
                                         <arg>loopback</arg>
-                                        <arg>--batch-mode</arg>
+                                        <arg>--batch</arg>
                                     </gpgArguments>
                                     <passphrase>${gpg.passphrase}</passphrase>
                                 </configuration>
