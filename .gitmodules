@@ -54,9 +54,6 @@
 [submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedUndertow"]
 	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedUndertow
 	url = https://github.com/GedMarc/Guiced-Undertow.git
-[submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedWebServices"]
-	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedWebServices
-	url = https://github.com/GedMarc/GuicedWebServices.git
 [submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedWebSockets"]
 	path = GuicedEE/GuicedEEParent/GuicedEEProjects/GuicedWebSockets
 	url = https://github.com/GedMarc/Guiced-WebSockets.git
