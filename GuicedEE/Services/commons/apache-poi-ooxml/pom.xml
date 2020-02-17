@@ -51,7 +51,7 @@ limitations under the License.
     </scm>
 
     <properties>
-        <poi.version>4.1.1</poi.version>
+        <poi.version>4.1.2</poi.version>
     </properties>
 
     <dependencyManagement>

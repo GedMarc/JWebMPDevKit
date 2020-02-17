@@ -88,7 +88,7 @@
         <dependency>
             <groupId>com.github.luben</groupId>
             <artifactId>zstd-jni</artifactId>
-            <version>1.4.3-1</version>
+            <version>1.4.4-7</version>
             <optional>true</optional>
         </dependency>
         <dependency>
@@ -107,7 +107,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-compress</artifactId>
-            <version>1.19</version>
+            <version>1.20</version>
             <optional>true</optional>
         </dependency>
 
