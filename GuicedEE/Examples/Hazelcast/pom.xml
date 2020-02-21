@@ -1,0 +1,32 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.guicedee.examples</groupId>
+        <artifactId>examples-parent</artifactId>
+        <version>0.0.0_0-SNAPSHOT</version>
+    </parent>
+
+	<groupId>com.guicedee.examples.hazelcast</groupId>
+    <artifactId>examples-hazelcast-parent</artifactId>
+
+    <packaging>pom</packaging>
+
+    <name>GuicedEE Hazelcast Examples</name>
+    <description>Examples for Hazelcast</description>
+
+    <dependencies>
+
+    </dependencies>
+
+    <scm>
+        <url>https://github.com/GedMarc/JWebMP-Undertow.git</url>
+    </scm>
+
+    <ciManagement>
+        <system>TeamCity</system>
+        <url>http://jwebmp.com/teamcity</url>
+    </ciManagement>
+
+</project>

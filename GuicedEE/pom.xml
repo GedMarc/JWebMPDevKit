@@ -43,6 +43,12 @@
                 <module>GuicedEEParent</module>
             </modules>
         </profile>
+        <profile>
+            <id>enable-examples</id>
+            <modules>
+                <module>Examples</module>
+            </modules>
+        </profile>
     </profiles>
 
     <!-- Any maven root config changes go here -->

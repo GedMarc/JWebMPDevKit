@@ -85,6 +85,16 @@
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>jackson-jaxrs-json-provider</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jakarta.ws.rs-api</artifactId>
+                    <groupId>jakarta.ws.rs</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jakarta.ws.rs-api</artifactId>
+                    <groupId>jakarta.ws.rs</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -183,6 +193,10 @@
                     <artifactId>javax.servlet</artifactId>
                     <groupId>org.eclipse.jetty.orbit</groupId>
                 </exclusion>
+                <exclusion>
+                    <artifactId>jakarta.ws.rs-api</artifactId>
+                    <groupId>jakarta.ws.rs</groupId>
+                </exclusion>
             </exclusions>
             <optional>true</optional>
         </dependency>
@@ -237,6 +251,34 @@
                     <groupId>jakarta.annotation</groupId>
                     <artifactId>jakarta.annotation-api</artifactId>
                 </exclusion>
+                <exclusion>
+                    <artifactId>jakarta.ws.rs-api</artifactId>
+                    <groupId>jakarta.ws.rs</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jakarta.xml.bind-api</artifactId>
+                    <groupId>jakarta.xml.bind</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <version>2.1.6</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>validation-api</artifactId>
+                    <groupId>javax.validation</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jakarta.activation-api</artifactId>
+                    <groupId>jakarta.activation</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jakarta.annotation-api</artifactId>
+                    <groupId>jakarta.annotation</groupId>
+                </exclusion>
             </exclusions>
         </dependency>
 
@@ -248,6 +290,18 @@
                 <exclusion>
                     <artifactId>jasypt</artifactId>
                     <groupId>org.jasypt</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jakarta.ws.rs-api</artifactId>
+                    <groupId>jakarta.ws.rs</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>ehcache</artifactId>
+                    <groupId>net.sf.ehcache</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>ehcache</artifactId>
+                    <groupId>net.sf.ehcache</groupId>
                 </exclusion>
             </exclusions>
             <optional>true</optional>
@@ -298,6 +352,10 @@
                 <exclusion>
                     <artifactId>stax-ex</artifactId>
                     <groupId>org.jvnet.staxex</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jaxb-runtime</artifactId>
+                    <groupId>org.glassfish.jaxb</groupId>
                 </exclusion>
             </exclusions>
             <optional>true</optional>
