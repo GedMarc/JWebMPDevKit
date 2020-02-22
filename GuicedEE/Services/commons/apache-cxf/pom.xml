@@ -197,6 +197,10 @@
                     <artifactId>jakarta.ws.rs-api</artifactId>
                     <groupId>jakarta.ws.rs</groupId>
                 </exclusion>
+                <exclusion>
+                    <artifactId>javax.servlet-api</artifactId>
+                    <groupId>javax.servlet</groupId>
+                </exclusion>
             </exclusions>
             <optional>true</optional>
         </dependency>
@@ -395,6 +399,10 @@
                 <exclusion>
                     <artifactId>jakarta.xml.bind-api</artifactId>
                     <groupId>jakarta.xml.bind</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>guava</artifactId>
+                    <groupId>com.google.guava</groupId>
                 </exclusion>
             </exclusions>
             <optional>true</optional>
