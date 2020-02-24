@@ -92,16 +92,6 @@
             </modules>
         </profile>
 
-
-        <profile>
-            <id>enable-jackson</id>
-            <modules>
-                <module>jackson-jaxrs</module>
-                <module>jackson-jaxrs-base</module>
-            </modules>
-        </profile>
-
-
         <profile>
             <id>enable-standalone-services</id>
             <modules>
@@ -572,7 +562,17 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.jaxrs</groupId>
                 <artifactId>jackson-jaxrs-json-provider</artifactId>
-                <version>${jackson.version}</version>
+                <version>2.10.2.1</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>jakarta.xml.bind-api</artifactId>
+                        <groupId>jakarta.xml.bind</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>jakarta.activation-api</artifactId>
+                        <groupId>jakarta.activation</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <dependency>

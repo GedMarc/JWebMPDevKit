@@ -1,6 +1,7 @@
 package com.guicedee.examples.jaxrs.basic;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
+
 import com.guicedee.guicedinjection.GuiceContext;
 import com.guicedee.guicedservlets.rest.RESTContext;
 import com.guicedee.guicedservlets.undertow.GuicedUndertow;

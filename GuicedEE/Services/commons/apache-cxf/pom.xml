@@ -83,18 +83,10 @@
             <artifactId>jackson-jaxrs-json-provider</artifactId>
         </dependency>-->
         <dependency>
-            <groupId>com.guicedee.services</groupId>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
             <artifactId>jackson-jaxrs-json-provider</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>jakarta.ws.rs-api</artifactId>
-                    <groupId>jakarta.ws.rs</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>jakarta.ws.rs-api</artifactId>
-                    <groupId>jakarta.ws.rs</groupId>
-                </exclusion>
-            </exclusions>
+            <version>2.10.2.1</version>
+
         </dependency>
 
         <dependency>
