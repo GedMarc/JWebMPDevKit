@@ -53,8 +53,8 @@
 
         <io.swagger.version>2.1.0</io.swagger.version>
 
-        <undertow.version>1.4.29.Final</undertow.version>
-        <io.undertow.version>1.4.29.Final</io.undertow.version>
+        <undertow.version>1.4.28.Final</undertow.version>
+        <io.undertow.version>1.4.28.Final</io.undertow.version>
         <xnio.version>3.3.8.Final</xnio.version>
 
         <jsr.250>1.0</jsr.250>
