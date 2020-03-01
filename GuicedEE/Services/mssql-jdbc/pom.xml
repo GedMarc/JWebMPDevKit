@@ -9,7 +9,7 @@
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
 
-    
+
     <artifactId>mssql-jdbc</artifactId>
     <packaging>jar</packaging>
 
@@ -144,9 +144,41 @@
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
-            <version>8.1.0.jre11-preview</version>
+            <version>8.2.1.jre11</version>
             <optional>true</optional>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>jdk13</id>
+            <activation>
+                <jdk>13</jdk>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.microsoft.sqlserver</groupId>
+                    <artifactId>mssql-jdbc</artifactId>
+                    <version>8.2.1.jre13</version>
+                    <optional>true</optional>
+                </dependency>
+            </dependencies>
+
+        </profile>
+        <profile>
+            <id>jdk8</id>
+            <activation>
+                <jdk>1.8</jdk>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.microsoft.sqlserver</groupId>
+                    <artifactId>mssql-jdbc</artifactId>
+                    <version>8.2.1.jre8</version>
+                    <optional>true</optional>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 
 </project>

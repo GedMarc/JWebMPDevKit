@@ -475,6 +475,15 @@
                 <version>${project.version}</version>
             </dependency>
 
+
+            <dependency>
+                <groupId>com.guicedee.services</groupId>
+                <artifactId>log4j-core</artifactId>
+                <type>jar</type>
+                <version>${project.version}</version>
+            </dependency>
+
+
             <dependency>
                 <groupId>com.guicedee.services</groupId>
                 <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>

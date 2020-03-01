@@ -67,6 +67,8 @@
         <jpa21.version>1.0.2.Final</jpa21.version>
         <hazelcast.version>3.12.6</hazelcast.version>
 
+        <log4j2.version>2.13.1</log4j2.version>
+
     </properties>
 
     <profiles>
@@ -101,6 +103,7 @@
                 <module>guava</module>
                 <module>javassist</module>
                 <module>json</module>
+                <module>log4j2</module>
                 <module>mssql-jdbc</module>
             </modules>
         </profile>

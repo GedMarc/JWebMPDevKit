@@ -39,7 +39,7 @@
 
         <stax.version>1.8.2</stax.version>
         <stax2.api.version>4.2</stax2.api.version>
-        <woodstox.version>6.0.2</woodstox.version>
+        <woodstox.version>6.1.1</woodstox.version>
         <wsdl4j.version>1.6.3</wsdl4j.version>
         <opensaml.openws.version>1.5.0</opensaml.openws.version>
         <neethi.version>3.0.3</neethi.version>
