@@ -100,11 +100,12 @@
             <type>jar</type>
         </dependency>
 
-        <!--      <dependency>
-                  <groupId>com.hazelcast</groupId>
-                  <artifactId>hazelcast</artifactId>
-                  <optional>true</optional>
-              </dependency>-->
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <dependency>
             <groupId>com.hazelcast</groupId>
             <artifactId>hazelcast-client</artifactId>
