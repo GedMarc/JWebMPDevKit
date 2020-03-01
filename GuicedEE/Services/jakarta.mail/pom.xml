@@ -18,14 +18,14 @@
         <dependency>
             <groupId>jakarta.mail</groupId>
             <artifactId>jakarta.mail-api</artifactId>
-            <version>1.6.4</version>
+            <version>${java.mail.version}</version>
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>com.sun.mail</groupId>
             <artifactId>imap</artifactId>
-            <version>1.6.4</version>
+            <version>${java.mail.version}</version>
             <optional>true</optional>
             <exclusions>
                 <exclusion>
@@ -41,7 +41,7 @@
         <dependency>
             <groupId>com.sun.mail</groupId>
             <artifactId>smtp</artifactId>
-            <version>1.6.4</version>
+            <version>${java.mail.version}</version>
             <optional>true</optional>
             <exclusions>
                 <exclusion>
@@ -57,7 +57,7 @@
         <dependency>
             <groupId>com.sun.mail</groupId>
             <artifactId>dsn</artifactId>
-            <version>1.6.4</version>
+            <version>${java.mail.version}</version>
             <optional>true</optional>
             <exclusions>
                 <exclusion>
@@ -73,7 +73,7 @@
         <dependency>
             <groupId>com.sun.mail</groupId>
             <artifactId>pop3</artifactId>
-            <version>1.6.4</version>
+            <version>${java.mail.version}</version>
             <optional>true</optional>
             <exclusions>
                 <exclusion>
@@ -89,7 +89,7 @@
         <dependency>
             <groupId>com.sun.mail</groupId>
             <artifactId>gimap</artifactId>
-            <version>1.6.4</version>
+            <version>${java.mail.version}</version>
             <optional>true</optional>
             <exclusions>
                 <exclusion>
