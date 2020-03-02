@@ -1,6 +1,6 @@
 module org.apache.xmlbeans {
 	requires java.xml;
-	requires jdk.javadoc;
+	requires static jdk.javadoc;
 
 	requires static Saxon.B;
 	requires static saxon.dom;

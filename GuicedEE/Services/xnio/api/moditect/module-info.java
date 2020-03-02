@@ -8,14 +8,14 @@ module xnio.api {
 	exports org.xnio.http;
 
 
-	requires java.management;
-	requires java.security.sasl;
+	requires static java.management;
+	requires static java.security.sasl;
 	requires org.jboss.logging;
 
 	requires java.logging;
-	requires java.compiler;
+	requires static java.compiler;
 
-	opens  org.xnio._private to org.jboss.logging;
+	opens org.xnio._private to org.jboss.logging;
 
 	uses org.xnio.XnioProvider;
 }

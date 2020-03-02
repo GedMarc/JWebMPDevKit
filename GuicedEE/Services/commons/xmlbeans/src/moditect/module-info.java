@@ -1,6 +1,6 @@
 open module org.apache.xmlbeans {
 	requires java.xml;
-	requires jdk.javadoc;
+	requires static jdk.javadoc;
 
 	exports org.apache.xmlbeans;
 

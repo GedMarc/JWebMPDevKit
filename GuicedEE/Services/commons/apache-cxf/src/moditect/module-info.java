@@ -8,9 +8,9 @@ module org.apache.cxf {
 	requires com.google.common;
 
 	requires java.annotation;
-	requires java.management;
+	requires static java.management;
 	requires java.logging;
-	requires java.desktop;
+	requires static java.desktop;
 
 	requires java.ws.rs;
 	requires java.xml.ws;

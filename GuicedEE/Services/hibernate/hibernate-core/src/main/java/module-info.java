@@ -1,6 +1,6 @@
 module org.hibernate.orm.core {
-	requires java.sql;
-	requires java.naming;
+	requires transitive java.sql;
+	requires static java.naming;
 	requires java.transaction;
 	requires java.persistence;
 
@@ -11,10 +11,10 @@ module org.hibernate.orm.core {
 	requires javassist;
 	requires static antlr;
 	requires java.xml.bind;
-	requires java.desktop;
+	requires static java.desktop;
 	requires net.bytebuddy;
-	requires java.instrument;
-	requires java.management;
+	requires static  java.instrument;
+	requires static java.management;
 	requires dom4j;
 
 	requires static java.compiler;
@@ -23,7 +23,7 @@ module org.hibernate.orm.core {
 	requires java.validation;
 	requires javax.inject;
 
-	requires jdk.unsupported;
+	requires static jdk.unsupported;
 
 	requires static ant;
 	requires static javax.security.jacc.api;

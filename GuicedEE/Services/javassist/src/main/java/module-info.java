@@ -1,7 +1,7 @@
 open module javassist {
-	requires java.instrument;
-	requires java.management;
-	requires jdk.attach;
-	requires jdk.jdi;
-	requires java.desktop;
+	requires static java.instrument;
+	requires static java.management;
+	requires static jdk.attach;
+	requires static jdk.jdi;
+	requires static java.desktop;
 }
