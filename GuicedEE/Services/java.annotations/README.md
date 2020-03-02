@@ -4,6 +4,8 @@
 semantic concepts that enable a declarative style of programming that applies
 across a variety of Java technologies.
 
+This package contains findbugs jsr305 so that packages are not shared across libraries 
+
 This standalone release of Jakarta Annotations uses a
 [Java Platform Module System](http://openjdk.java.net/projects/jigsaw/spec/)
 "automatic" module name of `java.annotation`, to match the module name

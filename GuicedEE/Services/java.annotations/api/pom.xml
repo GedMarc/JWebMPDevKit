@@ -25,7 +25,7 @@
         <artifactId>ca-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
-	
+
     <artifactId>jakarta.annotation-api</artifactId>
 
     <properties>
@@ -86,15 +86,60 @@
         </mailingList>
     </mailingLists>
 
-    <build>
-        <pluginManagement>
-            <plugins>
-              
-            </plugins>
-        </pluginManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.2</version>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
 
+    <build>
         <plugins>
-          
+            <plugin>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                    <createSourcesJar>true</createSourcesJar>
+                    <shadeSourcesContent>true</shadeSourcesContent>
+                    <shadeTestJar>true</shadeTestJar>
+                    <keepDependenciesWithProvidedScope>false</keepDependenciesWithProvidedScope>
+                    <artifactSet>
+                        <includes>
+                            <include>com.google.code.findbugs:jsr305:*</include>
+                        </includes>
+                    </artifactSet>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.moditect</groupId>
+                <artifactId>moditect-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-module-infos</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>add-module-info</goal>
+                        </goals>
+                        <configuration>
+                            <overwriteExistingFiles>true</overwriteExistingFiles>
+                            <module>
+                                <moduleInfoFile>src/main/moditect/module-info.java</moduleInfoFile>
+                            </module>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 </project>
