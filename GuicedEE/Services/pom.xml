@@ -22,7 +22,7 @@
         <jackson.version>2.10.2</jackson.version>
         <faces.version>2.3.9</faces.version>
 
-        <guava.version>26.0-jre</guava.version>
+        <guava.version>28.2-jre</guava.version>
         <servlet.api.version>3.1.0</servlet.api.version>
         <javassist.version>3.25.0-GA</javassist.version>
         <jcabi.aspects.version>0.22.6</jcabi.aspects.version>
