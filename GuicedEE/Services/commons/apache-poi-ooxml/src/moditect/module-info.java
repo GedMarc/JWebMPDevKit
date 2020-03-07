@@ -1,10 +1,11 @@
 open module org.apache.poi.ooxml {
-	requires org.apache.poi;
+	requires transitive org.apache.poi;
 	requires static org.apache.xmlbeans;
 
 	requires static poi.ooxml.schemas;
 	requires static java.desktop;
-	requires org.apache.commons.collections4;
+
+	requires transitive org.apache.commons.collections4;
 
 	exports org.apache.poi.ooxml;
 	exports org.apache.poi.ooxml.util;
@@ -39,7 +40,6 @@ open module org.apache.poi.ooxml {
 	exports org.apache.poi.xslf.model;
 	exports org.apache.poi.xslf.usermodel;
 
-
 	exports org.apache.poi.xssf;
 	exports org.apache.poi.xssf.util;
 	exports org.apache.poi.xssf.binary;
@@ -56,5 +56,4 @@ open module org.apache.poi.ooxml {
 	exports org.apache.poi.xwpf.usermodel;
 
 	requires org.apache.commons.compress;
-
 }

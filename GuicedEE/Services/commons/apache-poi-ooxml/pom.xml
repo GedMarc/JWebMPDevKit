@@ -147,6 +147,7 @@ limitations under the License.
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-scratchpad</artifactId>
             <optional>true</optional>
+
         </dependency>
 
         <dependency>

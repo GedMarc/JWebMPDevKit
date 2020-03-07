@@ -147,6 +147,7 @@
             <version>8.2.1.jre11</version>
             <optional>true</optional>
         </dependency>
+
     </dependencies>
 
     <profiles>

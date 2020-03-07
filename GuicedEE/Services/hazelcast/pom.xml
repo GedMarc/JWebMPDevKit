@@ -109,7 +109,7 @@
         <dependency>
             <groupId>com.hazelcast</groupId>
             <artifactId>hazelcast-client</artifactId>
-            <version>${hazelcast.version}</version>
+            <version>${hazelcast.client.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>

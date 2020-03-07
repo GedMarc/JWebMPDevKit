@@ -1,9 +1,8 @@
-module org.apache.cxf {
+open module org.apache.cxf {
 
-	requires com.fasterxml.jackson.databind;
-	requires com.fasterxml.jackson.jaxrs.json;
-
-	requires javax.servlet.api;
+	requires transitive com.fasterxml.jackson.databind;
+	requires transitive com.fasterxml.jackson.jaxrs.json;
+	requires transitive javax.servlet.api;
 
 	requires com.google.common;
 

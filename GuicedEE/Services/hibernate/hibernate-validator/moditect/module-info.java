@@ -32,6 +32,7 @@ module org.hibernate.validator {
 	exports org.hibernate.validator.parameternameprovider;
 	exports org.hibernate.validator.path;
 	exports org.hibernate.validator.resourceloading;
+	exports org.hibernate.validator.internal.util.logging to module org.jboss.logging;
 
 	uses org.hibernate.validator.spi.cfg.ConstraintMappingContributor;
 	uses org.hibernate.validator.spi.group.DefaultGroupSequenceProvider;
