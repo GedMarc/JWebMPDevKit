@@ -1,13 +1,13 @@
 module org.hibernate.validator {
-	requires java.validation;
+	requires transitive java.validation;
 	requires org.jboss.logging;
-	requires java.xml;
+	requires transitive java.xml;
 	requires com.fasterxml.classmate;
 	requires java.persistence;
-	requires java.scripting;
-	requires javax.el;
-	requires java.desktop;
-	requires java.compiler;
+	requires static java.scripting;
+	requires static javax.el;
+	requires static java.desktop;
+	requires static java.compiler;
 
 	exports org.hibernate.validator;
 

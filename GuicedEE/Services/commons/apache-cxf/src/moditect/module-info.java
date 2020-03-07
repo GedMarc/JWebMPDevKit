@@ -1,4 +1,4 @@
-open module org.apache.cxf {
+module org.apache.cxf {
 
 	requires transitive com.fasterxml.jackson.databind;
 	requires transitive com.fasterxml.jackson.jaxrs.json;
