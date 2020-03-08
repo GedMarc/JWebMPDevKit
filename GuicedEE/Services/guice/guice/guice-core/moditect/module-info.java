@@ -14,11 +14,11 @@ module com.google.guice {
 	exports com.google.inject.internal;
 	exports com.google.inject.internal.util;
 
-	requires com.google.common;
-	requires javax.inject;
 	requires java.logging;
-	requires static org.apache.commons.lang3;
 
-	requires aopalliance;
-	requires java.xml;
+	requires transitive com.google.common;
+	requires transitive javax.inject;
+	requires transitive org.apache.commons.lang3;
+	requires transitive aopalliance;
+	requires transitive java.xml;
 }

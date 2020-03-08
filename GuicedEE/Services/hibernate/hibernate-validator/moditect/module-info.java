@@ -3,7 +3,7 @@ module org.hibernate.validator {
 	requires org.jboss.logging;
 	requires transitive java.xml;
 	requires com.fasterxml.classmate;
-	requires java.persistence;
+	requires transitive java.persistence;
 	requires static java.scripting;
 	requires static javax.el;
 	requires static java.desktop;

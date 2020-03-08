@@ -1,12 +1,13 @@
 open module org.apache.poi {
 	requires static java.desktop;
 	requires java.xml.bind;
-	requires org.apache.commons.math3;
-	requires org.apache.commons.codec;
-	requires org.apache.commons.collections4;
+	requires static org.apache.commons.math3;
+	requires static org.apache.commons.codec;
+	requires static org.apache.commons.collections4;
 	requires java.logging;
 
 	requires org.apache.commons.logging;
+
 	exports org.apache.poi.common.usermodel;
 	exports org.apache.poi.common.usermodel.fonts;
 	exports org.apache.poi.ddf;

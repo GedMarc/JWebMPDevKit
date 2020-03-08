@@ -1,5 +1,5 @@
 module org.apache.commons.math3 {
-	requires java.desktop;
+	requires static java.desktop;
 	//exports org.apache.commons.math3;
 
 	exports org.apache.commons.math3.analysis;

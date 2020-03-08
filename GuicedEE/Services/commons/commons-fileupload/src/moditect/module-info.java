@@ -6,6 +6,6 @@ module org.apache.commons.fileupload {
 
 	requires static javax.servlet.api;
 
-	requires org.apache.commons.io;
+	requires transitive org.apache.commons.io;
 
 }

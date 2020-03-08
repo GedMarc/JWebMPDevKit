@@ -21,7 +21,7 @@ module com.google.common {
 	exports com.google.common.util.concurrent;
 	exports com.google.common.xml;
 
-	requires jakarta.activation;
+	requires transitive jakarta.activation;
 	//requires java.validation;
-	requires jdk.unsupported;
+	requires static jdk.unsupported;
 }

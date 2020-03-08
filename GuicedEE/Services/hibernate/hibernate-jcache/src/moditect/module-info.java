@@ -1,7 +1,7 @@
 module org.hibernate.orm.jcache {
-	requires org.hibernate.orm.core;
-	requires org.hibernate.commons.annotations;
-	requires cache.api;
+	requires transitive org.hibernate.orm.core;
+	requires transitive org.hibernate.commons.annotations;
+	requires transitive cache.api;
 
 	opens org.hibernate.cache.jcache.internal to org.hibernate.orm.core;
 

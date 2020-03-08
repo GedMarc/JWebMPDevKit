@@ -1,7 +1,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-   <parent>
+    <parent>
         <groupId>com.guicedee.services</groupId>
         <artifactId>hibernate-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
@@ -17,14 +17,12 @@
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>hibernate-core</artifactId>
-            <type>jar</type>
-            </dependency>
+        </dependency>
 
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>cache-api</artifactId>
-            <type>jar</type>
-            </dependency>
+        </dependency>
 
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -32,6 +30,34 @@
             <version>${maven.hibernate.version}</version>
             <optional>true</optional>
         </dependency>
+
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>javax.inject</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>javax.transaction</artifactId>
+        </dependency>
+
 
     </dependencies>
 
