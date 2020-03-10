@@ -70,8 +70,9 @@
         <jboss.annotations.spec.version>1.0.1.Final</jboss.annotations.spec.version>
 
         <jpa21.version>1.0.2.Final</jpa21.version>
-        <hazelcast.version>3.12.4</hazelcast.version>
-        <hazelcast.client.version>3.12.4</hazelcast.client.version>
+        <hazelcast.version>4.0</hazelcast.version>
+        <hazelcast.hibernate.version>2.0.0</hazelcast.hibernate.version>
+        <hazelcast.client.version>3.12.6</hazelcast.client.version>
 
         <log4j2.version>2.13.1</log4j2.version>
         <woodstox.version>6.1.1</woodstox.version>
