@@ -5,7 +5,7 @@ open module org.apache.poi.ooxml {
 	requires static poi.ooxml.schemas;
 	requires static java.desktop;
 
-	requires static org.apache.commons.collections4;
+	requires org.apache.commons.collections4;
 
 	exports org.apache.poi.ooxml;
 	exports org.apache.poi.ooxml.util;

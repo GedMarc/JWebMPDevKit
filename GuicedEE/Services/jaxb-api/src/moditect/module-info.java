@@ -19,8 +19,8 @@ module java.xml.bind {
     requires transitive java.xml;
 
     requires java.logging;
-    requires java.desktop;
-    requires java.validation;
+    requires static java.desktop;
+    requires transitive java.validation;
 
     exports javax.xml.bind;
     exports javax.xml.bind.annotation;
@@ -31,7 +31,7 @@ module java.xml.bind {
 
     uses javax.xml.bind.JAXBContextFactory;
 
-    requires java.compiler;
+    requires static java.compiler;
 
     requires org.codehaus.stax2;
 
