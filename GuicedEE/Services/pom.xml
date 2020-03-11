@@ -32,8 +32,6 @@
 
         <jakarta.activation.version>2.0.0-rc1</jakarta.activation.version>
 
-
-
         <jaxb.version>2.3.2</jaxb.version>
         <glassfish.jaxb.version>2.4.0-b180830.0359</glassfish.jaxb.version>
 
@@ -65,7 +63,7 @@
         <jsr.250>1.0</jsr.250>
 
         <tica.version>1.22</tica.version>
-        <java.mail.version>1.6.4</java.mail.version>
+        <java.mail.version>1.6.5</java.mail.version>
 
         <jboss.annotations.spec.version>1.0.1.Final</jboss.annotations.spec.version>
 
