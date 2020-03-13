@@ -26,7 +26,6 @@
             <type>jar</type>
         </dependency>
 
-
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>guava</artifactId>

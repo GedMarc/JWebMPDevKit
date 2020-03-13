@@ -7,6 +7,5 @@ module com.google.guice {
 	requires aopalliance;
 	requires java.xml;
 
-	requires static cglib;
 	requires static org.objectweb.asm;
 }
