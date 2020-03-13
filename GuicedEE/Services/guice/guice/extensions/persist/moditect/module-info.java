@@ -9,6 +9,5 @@ module com.google.guice.extensions.persist {
 	requires static hibernate.jpa;
 
 	//Test Dependencies
-
 	requires static java.naming;
 }

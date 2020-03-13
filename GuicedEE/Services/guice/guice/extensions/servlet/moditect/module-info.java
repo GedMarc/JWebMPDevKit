@@ -7,7 +7,8 @@ module com.google.guice.extensions.servlet {
 	requires static javax.servlet.api;
 	//Servlet 2.5
 	requires static servlet.api;
-	requires com.google.guice;
+	requires transitive com.google.guice;
 
+    opens com.google.inject.servlet to com.google.guice;
 	requires java.logging;
 }
