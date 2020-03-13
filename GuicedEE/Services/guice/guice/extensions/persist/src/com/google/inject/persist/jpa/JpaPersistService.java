@@ -43,7 +43,7 @@ class JpaPersistService implements Provider<EntityManager>, UnitOfWork, PersistS
 
   @Inject
   public JpaPersistService(
-      @Jpa String persistenceUnitName,  @Jpa Map<?, ?> persistenceProperties) {
+      @Jpa String persistenceUnitName, @Nullable @Jpa Map<?, ?> persistenceProperties) {
     this.persistenceUnitName = persistenceUnitName;
     this.persistenceProperties = persistenceProperties;
   }

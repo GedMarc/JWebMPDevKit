@@ -14,20 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.inject.servlet;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-import javax.inject.Scope;
-
 /**
- * Apply this to implementation classes when you want one instance per request.
+ * Servlet API scopes, bindings and registration; this extension requires {@code guice-servlet.jar}.
  *
- * @author crazybob@google.com (Bob Lee)
+ * <p>Apply {@link com.google.inject.servlet.GuiceFilter} to any servlets which will use the servlet
+ * scopes. Install {@link com.google.inject.servlet.ServletModule} into your {@link
+ * com.google.inject.Injector} to install everything at once.
  */
-@Target({ElementType.TYPE, ElementType.METHOD})
-@Retention(RetentionPolicy.RUNTIME)
-@Scope
-public @interface RequestScoped {}
+package com.google.inject.servlet;

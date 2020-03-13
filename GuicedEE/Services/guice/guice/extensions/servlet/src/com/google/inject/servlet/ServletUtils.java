@@ -47,9 +47,9 @@ final class ServletUtils {
    *
    * <p>Also performs url decoding and normalization of the path.
    */
-  //
+  // @Nullable
   static String getContextRelativePath(
-      //
+      // @Nullable
       final HttpServletRequest request) {
     if (request != null) {
       String contextPath = request.getContextPath();

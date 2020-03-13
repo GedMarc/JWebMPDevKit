@@ -3,7 +3,6 @@ module com.google.guice.extensions.persist {
 
 	requires transitive com.google.guice;
 	requires transitive java.persistence;
-	requires transitive java.sql;
 
 	requires static javax.servlet.api;
 	requires static hibernate.jpa;
@@ -13,5 +12,6 @@ module com.google.guice.extensions.persist {
 	opens com.google.inject.persist.jpa to com.google.guice;
 
 	//Test Dependencies
+	requires static java.sql;
 	requires static java.naming;
 }
