@@ -17,7 +17,7 @@
         <profile>
             <id>enable-guice</id>
             <modules>
-                <module>assistedinject</module>
+                <!--<module>assistedinject</module>-->
                 <module>grapher</module>
                 <module>jmx</module>
                 <module>jndi</module>

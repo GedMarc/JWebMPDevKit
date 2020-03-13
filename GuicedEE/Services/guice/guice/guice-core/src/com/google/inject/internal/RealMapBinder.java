@@ -1,4 +1,3 @@
-
 package com.google.inject.internal;
 
 import static com.google.inject.internal.Element.Type.MAPBINDER;
@@ -473,13 +472,10 @@ public final class RealMapBinder<K, V> implements Module {
 
             // Don't do extra work unless we need to
             if (permitsDuplicates) {
-              // Create a set builder for this key if it's the first time we've seen it
-              if (!bindingMultimapMutable.containsKey(key)) {
-                bindingMultimapMutable.put(key, ImmutableSet.<Binding<V>>builder());
-              }
-
-              // Add the Binding<V>
-              bindingMultimapMutable.get(key).add(valueBinding);
+              // Add the binding, creating a set builder if it's the first time we've seen it
+              bindingMultimapMutable
+                  .computeIfAbsent(key, k -> ImmutableSet.builder())
+                  .add(valueBinding);
             }
           }
         }
@@ -521,13 +517,13 @@ public final class RealMapBinder<K, V> implements Module {
 
         if (first) {
           first = false;
-          sb.append("\"" + dupKey + "\", from bindings:\n");
+          sb.append("\"").append(dupKey).append("\", from bindings:\n");
         } else {
-          sb.append("\n and key: \"" + dupKey + "\", from bindings:\n");
+          sb.append("\n and key: \"").append(dupKey).append("\", from bindings:\n");
         }
 
         for (Binding<V> dup : entry.getValue()) {
-          sb.append("\t at " + Errors.convert(dup.getSource()) + "\n");
+          sb.append("\t at ").append(Errors.convert(dup.getSource())).append("\n");
         }
       }
 
@@ -824,6 +820,18 @@ public final class RealMapBinder<K, V> implements Module {
     @Override
     public Key<Map<K, V>> getMapKey() {
       return bindingSelection.getMapKey();
+    }
+
+    @Override
+    public Set<Key<?>> getAlternateMapKeys() {
+      return ImmutableSet.of(
+          (Key<?>) bindingSelection.getJavaxProviderMapKey(),
+          (Key<?>) bindingSelection.getProviderMapKey(),
+          (Key<?>) bindingSelection.getProviderSetMultimapKey(),
+          (Key<?>) bindingSelection.getJavaxProviderSetMultimapKey(),
+          (Key<?>) bindingSelection.getProviderCollectionMultimapKey(),
+          (Key<?>) bindingSelection.getJavaxProviderCollectionMultimapKey(),
+          (Key<?>) bindingSelection.getMultimapKey());
     }
 
     @Override
@@ -1168,7 +1176,7 @@ public final class RealMapBinder<K, V> implements Module {
   }
 
   /** A factory for a {@code Map.Entry<K, Provider<V>>}. */
-  //VisibleForTesting
+  // VisibleForTesting
   static final class ProviderMapEntry<K, V>
       extends InternalProviderInstanceBindingImpl.Factory<Map.Entry<K, Provider<V>>> {
     private final K key;

@@ -16,14 +16,18 @@
 
 package com.google.inject.internal;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Multimaps;
 import com.google.common.collect.Sets;
 import com.google.inject.Binder;
 import com.google.inject.Binding;
@@ -42,6 +46,7 @@ import com.google.inject.internal.util.SourceProvider;
 import com.google.inject.spi.BindingTargetVisitor;
 import com.google.inject.spi.ConvertedConstantBinding;
 import com.google.inject.spi.Dependency;
+import com.google.inject.spi.Element;
 import com.google.inject.spi.HasDependencies;
 import com.google.inject.spi.InjectionPoint;
 import com.google.inject.spi.InstanceBinding;
@@ -125,6 +130,9 @@ final class InjectorImpl implements Injector, Lookups {
 
   Lookups lookups = new DeferredLookups(this);
 
+  /** The set of types passed to {@link #getMembersInjector} and {@link #injectMembers}. */
+  final Set<TypeLiteral<?>> userRequestedMembersInjectorTypes = Sets.newConcurrentHashSet();
+
   InjectorImpl(InjectorImpl parent, State state, InjectorOptions injectorOptions) {
     this.parent = parent;
     this.state = state;
@@ -150,14 +158,15 @@ final class InjectorImpl implements Injector, Lookups {
   @Override
   public <T> List<Binding<T>> findBindingsByType(TypeLiteral<T> type) {
     @SuppressWarnings("unchecked") // safe because we only put matching entries into the map
-    List<Binding<T>> list = (List<Binding<T>>) (List) bindingsMultimap.get(type);
+    List<Binding<T>> list =
+        (List<Binding<T>>) (List) bindingsMultimap.get(checkNotNull(type, "type"));
     return Collections.unmodifiableList(list);
   }
 
   /** Returns the binding for {@code key} */
   @Override
   public <T> BindingImpl<T> getBinding(Key<T> key) {
-    Errors errors = new Errors(key);
+    Errors errors = new Errors(checkNotNull(key, "key"));
     try {
       BindingImpl<T> result = getBindingOrThrow(key, errors, JitLimitation.EXISTING_JIT);
       errors.throwConfigurationExceptionIfErrorsExist();
@@ -170,7 +179,7 @@ final class InjectorImpl implements Injector, Lookups {
   @Override
   public <T> BindingImpl<T> getExistingBinding(Key<T> key) {
     // Check explicit bindings, i.e. bindings created by modules.
-    BindingImpl<T> explicitBinding = state.getExplicitBinding(key);
+    BindingImpl<T> explicitBinding = state.getExplicitBinding(checkNotNull(key, "key"));
     if (explicitBinding != null) {
       return explicitBinding;
     }
@@ -224,7 +233,7 @@ final class InjectorImpl implements Injector, Lookups {
 
   @Override
   public <T> Binding<T> getBinding(Class<T> type) {
-    return getBinding(Key.get(type));
+    return getBinding(Key.get(checkNotNull(type, "type")));
   }
 
   @Override
@@ -860,11 +869,11 @@ final class InjectorImpl implements Injector, Lookups {
    * create just-in-time bindings are:
    *
    * <ol>
-   * <li>Internalizing Providers. If the requested binding is for {@code Provider<T>}, we delegate
-   *     to the binding for {@code T}.
-   * <li>Converting constants.
-   * <li>ImplementedBy and ProvidedBy annotations. Only for unannotated keys.
-   * <li>The constructor of the raw type. Only for unannotated keys.
+   *   <li>Internalizing Providers. If the requested binding is for {@code Provider<T>}, we delegate
+   *       to the binding for {@code T}.
+   *   <li>Converting constants.
+   *   <li>ImplementedBy and ProvidedBy annotations. Only for unannotated keys.
+   *   <li>The constructor of the raw type. Only for unannotated keys.
    * </ol>
    *
    * @throws com.google.inject.internal.ErrorsException if the binding cannot be created.
@@ -963,6 +972,36 @@ final class InjectorImpl implements Injector, Lookups {
     return ImmutableSet.copyOf(state.getConvertersThisLevel());
   }
 
+  @Override
+  public List<Element> getElements() {
+    ImmutableList.Builder<Element> elements = ImmutableList.builder();
+    elements.addAll(getAllBindings().values());
+    elements.addAll(state.getProviderLookupsThisLevel());
+    elements.addAll(state.getConvertersThisLevel());
+    elements.addAll(state.getScopeBindingsThisLevel());
+    elements.addAll(state.getTypeListenerBindingsThisLevel());
+    elements.addAll(state.getProvisionListenerBindingsThisLevel());
+    elements.addAll(state.getScannerBindingsThisLevel());
+    elements.addAll(state.getStaticInjectionRequestsThisLevel());
+    elements.addAll(state.getMembersInjectorLookupsThisLevel());
+    elements.addAll(state.getInjectionRequestsThisLevel());
+
+    return elements.build();
+  }
+
+  @Override
+  public Map<TypeLiteral<?>, List<InjectionPoint>> getAllMembersInjectorInjectionPoints() {
+    // Note, this is a safe cast per the ListMultimap javadocs.
+    // We could use Multimaps.asMap to avoid the cast, but unfortunately it's a @Beta method.
+    return (Map<TypeLiteral<?>, List<InjectionPoint>>)
+        (Map<TypeLiteral<?>, ?>)
+            ImmutableListMultimap.copyOf(
+                    Multimaps.filterKeys(
+                        membersInjectorStore.getAllInjectionPoints(),
+                        userRequestedMembersInjectorTypes::contains))
+                .asMap();
+  }
+
   /** Returns parameter injectors, or {@code null} if there are no parameters. */
   SingleParameterInjector<?>[] getParametersInjectors(List<Dependency<?>> parameters, Errors errors)
       throws ErrorsException {
@@ -1016,6 +1055,9 @@ final class InjectorImpl implements Injector, Lookups {
 
   @Override
   public <T> MembersInjector<T> getMembersInjector(TypeLiteral<T> typeLiteral) {
+    checkNotNull(typeLiteral, "typeLiteral");
+    userRequestedMembersInjectorTypes.add(typeLiteral);
+
     Errors errors = new Errors(typeLiteral);
     try {
       return membersInjectorStore.get(typeLiteral, errors);
@@ -1031,7 +1073,7 @@ final class InjectorImpl implements Injector, Lookups {
 
   @Override
   public <T> Provider<T> getProvider(Class<T> type) {
-    return getProvider(Key.get(type));
+    return getProvider(Key.get(checkNotNull(type, "type")));
   }
 
   <T> Provider<T> getProviderOrThrow(final Dependency<T> dependency, Errors errors)
@@ -1066,6 +1108,7 @@ final class InjectorImpl implements Injector, Lookups {
 
   @Override
   public <T> Provider<T> getProvider(final Key<T> key) {
+    checkNotNull(key, "key");
     Errors errors = new Errors(key);
     try {
       Provider<T> result = getProviderOrThrow(Dependency.get(key), errors);
