@@ -10,7 +10,4 @@ module com.google.guice.extensions.servlet {
 	requires com.google.guice;
 
 	requires java.logging;
-	requires javax.inject;
-
-	opens com.google.inject.servlet to com.google.guice;
 }

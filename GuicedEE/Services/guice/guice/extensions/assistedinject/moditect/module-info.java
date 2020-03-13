@@ -4,6 +4,4 @@ module com.google.guice.extensions.assistedinject {
 	requires javax.inject;
 	requires java.logging;
 	exports com.google.inject.assistedinject;
-
-	opens com.google.inject.assistedinject to com.google.guice;
 }

@@ -5,6 +5,4 @@ module com.google.guice.extensions.jndi {
 	requires javax.inject;
 
 	requires java.naming;
-
-	opens com.google.inject.jndi to com.google.guice;
 }

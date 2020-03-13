@@ -34,13 +34,6 @@
         </dependency>
 
         <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib</artifactId>
-            <optional>true</optional>
-            <type>jar</type>
-        </dependency>
-
-        <dependency>
             <groupId>org.ow2.asm</groupId>
             <artifactId>asm</artifactId>
             <optional>true</optional>
@@ -91,17 +84,12 @@
                             <artifactSet>
                                 <includes>
                                     <include>org.ow2.asm:asm</include>
-                                    <include>cglib:cglib</include>
                                 </includes>
                             </artifactSet>
                             <relocations>
                                 <relocation>
                                     <pattern>org.objectweb.asm</pattern>
                                     <shadedPattern>com.google.inject.internal.asm</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>net.sf.cglib</pattern>
-                                    <shadedPattern>com.google.inject.internal.cglib</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>

@@ -41,16 +41,6 @@ module org.apache.cxf {
 	exports org.glassfish.jersey.internal to java.ws.rs;
 
 	//Filters and Providers
-	opens org.apache.cxf.jaxrs.provider.json to com.google.guice;
-	opens org.apache.cxf.jaxrs.provider.xmlbeans to com.google.guice;
-	opens org.apache.cxf.jaxrs.provider to com.google.guice;
-	opens org.apache.cxf.jaxrs.ext.search to com.google.guice;
-	opens org.apache.cxf.jaxrs.validation to com.google.guice;
-	opens org.apache.cxf.rs.security.oauth2.provider to com.google.guice;
-	opens org.apache.cxf.jaxrs.provider.aegis to com.google.guice;
-	opens org.apache.cxf.rs.security.oauth.filters to com.google.guice;
-	opens org.apache.cxf.rs.security.oauth2.filters to com.google.guice;
-
 
 	opens org.apache.cxf.rs.security.oauth2.common;
 	opens org.apache.cxf.rs.security.oauth2.client;

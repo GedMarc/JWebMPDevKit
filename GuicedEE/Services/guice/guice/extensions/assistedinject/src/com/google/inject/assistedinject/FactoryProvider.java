@@ -29,7 +29,6 @@ import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.Provider;
 import com.google.inject.TypeLiteral;
-import com.google.inject.internal.BytecodeGen;
 import com.google.inject.internal.Errors;
 import com.google.inject.internal.ErrorsException;
 import com.google.inject.spi.Dependency;
@@ -83,7 +82,7 @@ import java.util.Set;
  *   }
  * }</pre>
  *
- * Any parameter that permits a null value should also be annotated {@code }.
+ * Any parameter that permits a null value should also be annotated {@code @Nullable}.
  *
  * <h3>Configuring factories</h3>
  *
@@ -402,7 +401,7 @@ public class FactoryProvider<F> implements Provider<F>, HasDependencies {
     Class<F> factoryRawType = (Class<F>) (Class<?>) factoryType.getRawType();
     return factoryRawType.cast(
         Proxy.newProxyInstance(
-            BytecodeGen.getClassLoader(factoryRawType),
+            factoryRawType.getClassLoader(),
             new Class[] {factoryRawType},
             invocationHandler));
   }

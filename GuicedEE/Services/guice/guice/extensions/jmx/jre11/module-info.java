@@ -4,6 +4,4 @@ module com.google.guice.extensions.jmx {
 	requires com.google.guice;
 	requires static java.management;
 	requires javax.inject;
-
-	opens com.google.inject.tools.jmx to com.google.guice;
 }
