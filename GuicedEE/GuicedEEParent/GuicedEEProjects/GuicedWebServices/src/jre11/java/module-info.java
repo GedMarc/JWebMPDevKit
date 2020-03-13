@@ -22,4 +22,7 @@ module com.guicedee.guicedservlets.webservices {
 
 	provides com.guicedee.guicedservlets.services.IGuiceSiteBinder with com.guicedee.guicedservlets.webservices.implementations.WebServiceServletModule;
 	provides com.guicedee.guicedinjection.interfaces.IGuiceConfigurator with com.guicedee.guicedservlets.webservices.implementations.WebServiceScannerConfig;
+
+	opens  com.guicedee.guicedservlets.webservices.implementations to com.google.guice;
+	opens  com.guicedee.guicedservlets.webservices to com.google.guice;
 }

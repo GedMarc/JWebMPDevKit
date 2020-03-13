@@ -7,5 +7,7 @@ module cache.annotations.ri.guice {
 	requires javax.inject;
 
 	exports org.jsr107.ri.annotations.guice.module;
-    exports org.jsr107.ri.annotations.guice to com.google.guice;
+
+	opens org.jsr107.ri.annotations.guice.module to com.google.guice;
+	opens org.jsr107.ri.annotations.guice to com.google.guice;
 }

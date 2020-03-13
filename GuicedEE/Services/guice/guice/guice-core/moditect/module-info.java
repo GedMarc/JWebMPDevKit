@@ -7,6 +7,10 @@ module com.google.guice {
 	exports com.google.inject.spi;
 	exports com.google.inject.multibindings;
 
+	exports com.google.inject.internal.cglib.core;
+	exports com.google.inject.internal.cglib.proxy;
+	exports com.google.inject.internal.cglib.reflect;
+
 	exports com.google.inject.internal;
 	exports com.google.inject.internal.util;
 
