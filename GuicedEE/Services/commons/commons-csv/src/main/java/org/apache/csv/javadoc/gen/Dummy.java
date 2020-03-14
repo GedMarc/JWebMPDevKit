@@ -1,4 +1,4 @@
-package org.apache.commons.codec.javadoc.gen;
+package org.apache.csv.javadoc.gen;
 
 /**
  * Some Javadoc....
