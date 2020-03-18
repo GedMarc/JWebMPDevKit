@@ -37,7 +37,6 @@
                 <groupId>com.guicedee.servlets</groupId>
                 <artifactId>guiced-servlets-request-scoper</artifactId>
                 <version>${project.version}</version>
-
             </dependency>
 
 

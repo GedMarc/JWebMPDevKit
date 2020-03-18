@@ -13,7 +13,7 @@ module org.hibernate.orm.core {
 	requires transitive java.xml.bind;
 	requires static java.desktop;
 	requires net.bytebuddy;
-	requires static java.instrument;
+
 	requires static java.management;
 	requires dom4j;
 
@@ -23,7 +23,8 @@ module org.hibernate.orm.core {
 	requires transitive java.validation;
 	requires transitive javax.inject;
 
-	requires static  jdk.unsupported;
+	requires jdk.unsupported;
+	requires java.instrument;
 
 	requires static ant;
 	requires static javax.security.jacc.api;
