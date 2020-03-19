@@ -63,7 +63,7 @@ public class Stream {
                     @Override
                     public void doItem(Object item) {
                         if ((Boolean) predicate.invoke(item)) {
-                            yield(item);
+	                        yieldStream(item);
                         }
                     }
                 };
@@ -93,7 +93,7 @@ public class Stream {
                     @Override
                     void doItem(Object item) {
                         comsumer.invoke(item);
-                        yield(item);
+	                    yieldStream(item);
                     }
                 };
             }
@@ -157,7 +157,7 @@ public class Stream {
                     @Override
                     public void doItem(Object item) {
                         if (set.add(item)) {
-                            yield(item);
+	                        yieldStream(item);
                         }
                     }
                 };
@@ -516,7 +516,7 @@ public class Stream {
             return yielded;
         }
 
-        void yield(Object current) {
+        void yieldStream(Object current) {
             this.current = current;
             yielded = true;
         }
