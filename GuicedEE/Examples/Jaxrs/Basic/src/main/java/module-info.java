@@ -11,5 +11,5 @@ module com.guicedee.examples.jaxrs.basic {
 
 	provides IGuiceModule with RestBinding;
 
-	opens com.guicedee.examples.jaxrs.basic.resources to com.fasterxml.jackson.databind,org.apache.cxf;
+	opens com.guicedee.examples.jaxrs.basic.resources to com.google.guice,com.fasterxml.jackson.databind,org.apache.cxf;
 }

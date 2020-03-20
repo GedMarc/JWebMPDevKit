@@ -10,6 +10,10 @@ module com.google.guice.extensions.persist {
 
 	requires javax.inject;
 
+	opens com.google.inject.persist to com.google.guice;
+	opens com.google.inject.persist.finder to com.google.guice;
+	opens com.google.inject.persist.jpa to com.google.guice;
+
 	//Test Dependencies
 	requires java.sql;
 	requires static java.logging;

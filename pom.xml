@@ -565,7 +565,7 @@
                         </dependency>
                     </dependencies>
                     <configuration>
-                        <argLine>--add-opens java.base/java.lang=javassist ${surefireArgLine}
+                        <argLine>--add-opens java.base/java.lang=com.google.guice,javassist ${surefireArgLine}
                         </argLine>
                         <testFailureIgnore>true</testFailureIgnore>
                     </configuration>
