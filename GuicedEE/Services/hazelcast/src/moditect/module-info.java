@@ -43,6 +43,8 @@ module com.hazelcast.all {
 
 	exports com.hazelcast.client;
 
+	exports com.hazelcast.hibernate to org.hibernate.orm.core;
+
 	exports com.hazelcast.config;
 	exports com.hazelcast.config.matcher;
 	exports com.hazelcast.config.properties;

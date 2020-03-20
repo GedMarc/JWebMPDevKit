@@ -308,6 +308,8 @@ module org.hibernate.orm.core {
 	opens org.hibernate.xsd.cfg;
 	opens org.hibernate.xsd.mapping;
 
+	 exports org.hibernate.internal.util.config to com.hazelcast.all;
+
 
 	//exports org.hibernate.cache.internal;
 	//exports org.hibernate.internal.util;
