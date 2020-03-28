@@ -360,6 +360,12 @@
 
             <dependency>
                 <groupId>com.guicedee.persistence</groupId>
+                <artifactId>guiced-hazelcast-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.guicedee.persistence</groupId>
                 <artifactId>guiced-persistence</artifactId>
 
                 <version>${project.version}</version>
@@ -369,6 +375,13 @@
             <dependency>
                 <groupId>com.guicedee.services</groupId>
                 <artifactId>hazelcast-all</artifactId>
+
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.guicedee.services</groupId>
+                <artifactId>hazelcast-client</artifactId>
 
                 <version>${project.version}</version>
             </dependency>

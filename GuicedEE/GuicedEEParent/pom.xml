@@ -184,6 +184,7 @@
                     <include>*.json</include>
                     <include>*.txt</include>
                     <include>*.sql</include>
+                    <include>*.html</include>
                 </includes>
             </resource>
             <resource>
@@ -195,6 +196,7 @@
                     <include>*.json</include>
                     <include>*.txt</include>
                     <include>*.sql</include>
+                    <include>*.html</include>
                 </includes>
             </resource>
             <resource>

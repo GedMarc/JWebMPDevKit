@@ -42,6 +42,7 @@ module com.hazelcast.all {
 	exports com.hazelcast.client.cache.impl;
 
 	exports com.hazelcast.client;
+	exports com.hazelcast.collection;
 
 	exports com.hazelcast.hibernate to org.hibernate.orm.core;
 
@@ -52,6 +53,7 @@ module com.hazelcast.all {
 	exports com.hazelcast.core;
 	exports com.hazelcast.topic;
 	exports com.hazelcast.core.server;
+	exports com.hazelcast.cluster;
 
 	exports com.hazelcast.instance;
 }
