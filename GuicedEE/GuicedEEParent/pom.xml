@@ -19,7 +19,7 @@
         <io.swagger.version>2.1.1</io.swagger.version>
         <h2.version>1.4.200</h2.version>
         <classgraph.version>4.8.65</classgraph.version>
-        <bytebuddy.version>1.10.8</bytebuddy.version>
+        <bytebuddy.version>1.10.9</bytebuddy.version>
         <jakarta.ws.rs-api.version>2.1.6</jakarta.ws.rs-api.version>
     </properties>
 

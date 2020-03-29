@@ -32,7 +32,7 @@
         <maven.release.version>3.0.0-M1</maven.release.version>
         <maven.versions.version>2.7</maven.versions.version>
         <maven.verifyier.version>1.1</maven.verifyier.version>
-        <maven.asm.version>7.3.1</maven.asm.version>
+        <maven.asm.version>8.0</maven.asm.version>
         <maven.gpg.version>1.6</maven.gpg.version>
 
         <maven.war.version>3.2.3</maven.war.version>
@@ -705,7 +705,7 @@
                 <plugin>
                     <groupId>org.moditect</groupId>
                     <artifactId>moditect-maven-plugin</artifactId>
-                    <version>1.0.0.Beta2</version>
+                    <version>1.0.0.RC1</version>
                 </plugin>
 
 
