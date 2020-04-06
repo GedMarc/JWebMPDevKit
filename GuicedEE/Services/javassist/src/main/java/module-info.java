@@ -4,4 +4,6 @@ open module javassist {
 	requires static jdk.attach;
 	requires static jdk.jdi;
 	requires static java.desktop;
+
+	requires static java.sql;
 }
