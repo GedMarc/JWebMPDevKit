@@ -10,6 +10,7 @@ module org.apache.cxf {
 	requires static java.management;
 	requires java.logging;
 	requires static java.desktop;
+	requires static java.validation;
 
 	requires java.ws.rs;
 	requires java.xml.ws;
@@ -33,6 +34,7 @@ module org.apache.cxf {
 	exports org.apache.cxf.transport.servlet;
 	exports org.apache.cxf.jaxrs.servlet;
 	exports org.apache.cxf.jaxrs.impl;
+	exports org.apache.cxf.jaxrs.validation;
 
 	opens org.apache.cxf.rs.security.oauth2.services;
 	opens org.apache.cxf.rs.security.oauth.services;
