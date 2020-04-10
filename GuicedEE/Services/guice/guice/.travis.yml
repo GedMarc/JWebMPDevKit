@@ -24,6 +24,6 @@ branches:
   only:
     - master
 install: true
-script: mvn clean source:jar javadoc:jar install -DskipTests=true -Penable-guice
+script: mvn clean install -DskipTests=true -Penable-guice
 after_success:
   - bash <(curl -s https://codecov.io/bash)
