@@ -1,9 +1,23 @@
 language: java
+sudo: false
+cache:
+  directories:
+    - $HOME/.m2
 jdk:
   - openjdk11
   - openjdk12
   - openjdk13
   - openjdk14
+matrix:
+  include:
+    - jdk:
+      - openjdk11
+      - openjdk12
+      - openjdk13
+      - openjdk14
+      before_install:
+        - rm "${JAVA_HOME}/lib/security/cacerts"
+        - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
 branches:
   only:
     - master
