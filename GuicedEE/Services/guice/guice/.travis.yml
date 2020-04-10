@@ -21,6 +21,6 @@ matrix:
 branches:
   only:
     - master
-script: ./mvnw clean source:jar javadoc:jar install deploy -DskipTests=true -Penable-guice
+script: mvn clean source:jar javadoc:jar install deploy -DskipTests=true -Penable-guice
 after_success:
   - bash <(curl -s https://codecov.io/bash)
