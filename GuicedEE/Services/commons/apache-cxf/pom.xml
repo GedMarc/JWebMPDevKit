@@ -35,7 +35,7 @@
         <site.deploy.url>scp://people.apache.org/www/cxf.apache.org/maven-site</site.deploy.url>
         <maven-owasp-plugin-version>4.0.2</maven-owasp-plugin-version>
 
-        <jetty.version>9.4.24.v20191120</jetty.version>
+        <jetty.version>9.4.27.v20200227</jetty.version>
 
         <stax.version>1.8.2</stax.version>
         <stax2.api.version>4.2</stax2.api.version>
@@ -679,10 +679,10 @@
 
                                 <zip destfile="${project.build.directory}/org.apache.cxf-${project.version}-temp.jar">
                                     <zipfileset src="${project.build.directory}/org.apache.cxf-${project.version}.jar">
-                                        <exclude name="1.class" />
+                                        <exclude name="1.class"/>
                                     </zipfileset>
                                 </zip>
-                                <move file="${project.build.directory}/org.apache.cxf-${project.version}-temp.jar" tofile="${project.build.directory}/org.apache.cxf-${project.version}.jar" />
+                                <move file="${project.build.directory}/org.apache.cxf-${project.version}-temp.jar" tofile="${project.build.directory}/org.apache.cxf-${project.version}.jar"/>
                             </target>
                         </configuration>
                     </execution>
