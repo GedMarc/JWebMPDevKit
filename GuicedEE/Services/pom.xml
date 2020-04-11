@@ -15,66 +15,6 @@
     <properties>
         <skipTests>true</skipTests>
         <sonar.skip>true</sonar.skip>
-
-        <lombok.version>1.18.12</lombok.version>
-        <mapstruct.version>1.3.1.Final</mapstruct.version>
-
-        <jackson.version>2.10.3</jackson.version>
-        <faces.version>2.3.9</faces.version>
-
-        <guava.version>28.2-jre</guava.version>
-        <servlet.api.version>3.1.0</servlet.api.version>
-        <javassist.version>3.25.0-GA</javassist.version>
-        <jcabi.aspects.version>0.22.6</jcabi.aspects.version>
-        <javax.cache.api.version>1.1.0</javax.cache.api.version>
-        <javax.activation.version>1.2.0</javax.activation.version>
-
-
-        <jakarta.activation.version>2.0.0-rc1</jakarta.activation.version>
-
-        <jaxb.version>2.3.2</jaxb.version>
-        <glassfish.jaxb.version>2.4.0-b180830.0359</glassfish.jaxb.version>
-
-        <jsr305.version>2.0.3</jsr305.version>
-        <jsr311.api.version>1.1.1</jsr311.api.version>
-
-        <javax.persistence.api>2.2</javax.persistence.api>
-        <javax.transaction.api>1.1</javax.transaction.api>
-        <javax.transaction.transactionapi>1.3</javax.transaction.transactionapi>
-        <eclipselink.version>2.7.4</eclipselink.version>
-
-        <h2.db.api>1.4.200</h2.db.api>
-        <bytebuddy.version>1.10.9</bytebuddy.version>
-        <jpa21.version>1.0.2.Final</jpa21.version>
-        <ehcache.version>3.8.0</ehcache.version>
-
-        <quality.check.version>1.3</quality.check.version>
-        <uadetector.core.version>0.9.22</uadetector.core.version>
-        <uadetector.json.version>0.1.22</uadetector.json.version>
-        <uadetector.detector.version>2014.10</uadetector.detector.version>
-        <sl4j.version>1.7.30</sl4j.version>
-
-        <io.swagger.version>2.1.0</io.swagger.version>
-
-        <undertow.version>1.4.28.Final</undertow.version>
-        <io.undertow.version>1.4.28.Final</io.undertow.version>
-        <xnio.version>3.3.8.Final</xnio.version>
-
-        <jsr.250>1.0</jsr.250>
-
-        <tica.version>1.22</tica.version>
-        <java.mail.version>1.6.5</java.mail.version>
-
-        <jboss.annotations.spec.version>1.0.1.Final</jboss.annotations.spec.version>
-
-        <jpa21.version>1.0.2.Final</jpa21.version>
-        <hazelcast.version>4.0.1</hazelcast.version>
-        <hazelcast.hibernate.version>2.0.0</hazelcast.hibernate.version>
-        <hazelcast.client.version>3.12.6</hazelcast.client.version>
-
-        <log4j2.version>2.13.1</log4j2.version>
-        <woodstox.version>6.1.1</woodstox.version>
-
     </properties>
 
     <profiles>
