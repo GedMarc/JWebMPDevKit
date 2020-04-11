@@ -15,11 +15,6 @@
     </modules>
 
     <properties>
-        <jackson.version>2.10.3</jackson.version>
-        <io.swagger.version>2.1.2</io.swagger.version>
-        <h2.version>1.4.200</h2.version>
-        <classgraph.version>4.8.68</classgraph.version>
-        <bytebuddy.version>1.10.9</bytebuddy.version>
         <jakarta.ws.rs-api.version>2.1.6</jakarta.ws.rs-api.version>
     </properties>
 
@@ -37,7 +32,7 @@
             <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
-                <version>${h2.version}</version>
+                <version>${h2.db.api}</version>
                 <scope>test</scope>
             </dependency>
 

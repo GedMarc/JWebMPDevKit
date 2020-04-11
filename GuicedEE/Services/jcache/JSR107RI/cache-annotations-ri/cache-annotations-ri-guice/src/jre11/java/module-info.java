@@ -1,10 +1,7 @@
 module cache.annotations.ri.guice {
 	requires com.google.guice;
 
-	requires aopalliance;
-	requires cache.annotations.ri.common;
-	requires cache.api;
-	requires javax.inject;
+	requires transitive cache.annotations.ri.common;
 
 	exports org.jsr107.ri.annotations.guice.module;
 
