@@ -44,7 +44,7 @@
         <opensaml.openws.version>1.5.4</opensaml.openws.version>
         <neethi.version>3.1.1</neethi.version>
 
-        <jersey.version>2.29.1</jersey.version>
+        <jersey.version>2.30.1</jersey.version>
         <oauth.version>20100527</oauth.version>
 
         <xmlschema.core.version>2.2.4</xmlschema.core.version>
