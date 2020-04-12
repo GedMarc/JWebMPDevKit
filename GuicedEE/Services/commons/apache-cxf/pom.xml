@@ -59,7 +59,7 @@
         <http.nio.version>4.4.13</http.nio.version>
 
         <opensaml.version>2.6.4</opensaml.version>
-        <xmlsec.version>2.1.4</xmlsec.version>
+        <xmlsec.version>2.1.5</xmlsec.version>
 
     </properties>
 
@@ -686,10 +686,10 @@
 
                                 <zip destfile="${project.build.directory}/org.apache.cxf-${project.version}-temp.jar">
                                     <zipfileset src="${project.build.directory}/org.apache.cxf-${project.version}.jar">
-                                        <exclude name="1.class" />
+                                        <exclude name="1.class"/>
                                     </zipfileset>
                                 </zip>
-                                <move file="${project.build.directory}/org.apache.cxf-${project.version}-temp.jar" tofile="${project.build.directory}/org.apache.cxf-${project.version}.jar" />
+                                <move file="${project.build.directory}/org.apache.cxf-${project.version}-temp.jar" tofile="${project.build.directory}/org.apache.cxf-${project.version}.jar"/>
                             </target>
                         </configuration>
                     </execution>
