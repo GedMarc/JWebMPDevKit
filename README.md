@@ -10,16 +10,27 @@ V1.0.7.4 - 12th April 2020
 * Added the travis build and security sniffer to git. Many security updates.
 
 fix: upgrade org.apache.ws.xmlschema:xmlschema-core from 2.2.4 to 2.2.5 
-fix: upgrade org.apache.santuario:xmlsec from 2.1.4 to 2.1.5 
+
+fix: upgrade org.apache.santuario:xmlsec from 2.1.4 to 2.1.5
+ 
 fix: upgrade org.glassfish.jersey.core:jersey-server from 2.29.1 to 2.30.0
-fix: upgrade org.apache.httpcomponents:httpcore from 4.4.11 to 4.4.13 
-fix: upgrade org.apache.neethi:neethi from 3.0.3 to 3.1.1 
-fix: upgrade org.checkerframework:checker-qual from 2.10.0 to 2.11.1 
+
+fix: upgrade org.apache.httpcomponents:httpcore from 4.4.11 to 4.4.13
+ 
+fix: upgrade org.apache.neethi:neethi from 3.0.3 to 3.1.1
+ 
+fix: upgrade org.checkerframework:checker-qual from 2.10.0 to 2.11.1
+ 
 fix: upgrade org.codehaus.mojo:animal-sniffer-annotations from 1.14 to 1.15
+
 fix: upgrade jakarta.xml.bind:jakarta.xml.bind-api from 2.3.2 to 2.3.3
+
 fix: upgrade org.jvnet.staxex:stax-ex from 1.8.2 to 1.8.3
+
 fix: upgrade org.apache.commons:commons-csv from 1.7 to 1.8
+
 fix: upgrade org.jboss.logmanager:jboss-logmanager from 2.0.11.Final to 2.1.14.Final
+
 
 
 V1.0.7.0 - 9th April 2020
