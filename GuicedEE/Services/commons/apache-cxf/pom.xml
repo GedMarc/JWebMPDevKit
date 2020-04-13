@@ -52,7 +52,7 @@
 
         <cxf.rt.version>3.3.6</cxf.rt.version>
         <cxf.bundle.version>3.0.0-milestone2</cxf.bundle.version>
-        <wss4j.policy.version>2.2.4</wss4j.policy.version>
+        <wss4j.policy.version>2.2.5</wss4j.policy.version>
         <wss4j.imp.version>2.0.0-rc1</wss4j.imp.version>
 
         <http.core.version>4.4.13</http.core.version>
