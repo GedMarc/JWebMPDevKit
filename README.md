@@ -6,7 +6,6 @@ Use profiles to manage the open projects
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
 V1.0.7.6 - 13th April 2020
-More and more version updates. Pity they didn't all come through first time round.
 * EntityAssist - Update inDateRange() for better understanding
 * Guice - enable anonymous classes and more updates - https://github.com/google/guice/pull/1298
 * upgrade commons-codec:commons-codec from 1.13 to 1.14 
