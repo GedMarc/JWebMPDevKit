@@ -5,33 +5,28 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
+V1.0.7.6 - 13th April 2020
+More and more version updates. Pity they didn't all come through first time round.
+* EntityAssist - Update inDateRange() for better understanding
+* Guice - enable anonymous classes and more updates - https://github.com/google/guice/pull/1298
+* upgrade commons-codec:commons-codec from 1.13 to 1.14 
+* upgrade com.rometools:rome from 1.9.0 to 1.12.2
+* upgrade jakarta.xml.ws:jakarta.xml.ws-api from 2.3.2 to 2.3.3
+* upgrade org.apache.wss4j:wss4j-ws-security-dom from 2.2.4 to 2.2.5 
+
 V1.0.7.4 - 12th April 2020
-
 * Added the travis build and security sniffer to git. Many security updates.
-
-fix: upgrade org.apache.ws.xmlschema:xmlschema-core from 2.2.4 to 2.2.5 
-
-fix: upgrade org.apache.santuario:xmlsec from 2.1.4 to 2.1.5
- 
-fix: upgrade org.glassfish.jersey.core:jersey-server from 2.29.1 to 2.30.0
-
-fix: upgrade org.apache.httpcomponents:httpcore from 4.4.11 to 4.4.13
- 
-fix: upgrade org.apache.neethi:neethi from 3.0.3 to 3.1.1
- 
-fix: upgrade org.checkerframework:checker-qual from 2.10.0 to 2.11.1
- 
-fix: upgrade org.codehaus.mojo:animal-sniffer-annotations from 1.14 to 1.15
-
-fix: upgrade jakarta.xml.bind:jakarta.xml.bind-api from 2.3.2 to 2.3.3
-
-fix: upgrade org.jvnet.staxex:stax-ex from 1.8.2 to 1.8.3
-
-fix: upgrade org.apache.commons:commons-csv from 1.7 to 1.8
-
-fix: upgrade org.jboss.logmanager:jboss-logmanager from 2.0.11.Final to 2.1.14.Final
-
-
+* upgrade org.apache.ws.xmlschema:xmlschema-core from 2.2.4 to 2.2.5 
+* upgrade org.apache.santuario:xmlsec from 2.1.4 to 2.1.5
+* upgrade org.glassfish.jersey.core:jersey-server from 2.29.1 to 2.30.
+* upgrade org.apache.httpcomponents:httpcore from 4.4.11 to 4.4.13
+* upgrade org.apache.neethi:neethi from 3.0.3 to 3.1.1
+* upgrade org.checkerframework:checker-qual from 2.10.0 to 2.11.1
+* upgrade org.codehaus.mojo:animal-sniffer-annotations from 1.14 to 1.15
+* upgrade jakarta.xml.bind:jakarta.xml.bind-api from 2.3.2 to 2.3.3
+* upgrade org.jvnet.staxex:stax-ex from 1.8.2 to 1.8.3
+* upgrade org.apache.commons:commons-csv from 1.7 to 1.8
+* upgrade org.jboss.logmanager:jboss-logmanager from 2.0.11.Final to 2.1.14.Final
 
 V1.0.7.0 - 9th April 2020
 
