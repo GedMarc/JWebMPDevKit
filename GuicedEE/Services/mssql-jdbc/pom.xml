@@ -144,7 +144,7 @@
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
-            <version>8.2.2.jre11</version>
+            <version>8.2.2.jre8</version>
             <optional>true</optional>
         </dependency>
 
@@ -160,7 +160,7 @@
                 <dependency>
                     <groupId>com.microsoft.sqlserver</groupId>
                     <artifactId>mssql-jdbc</artifactId>
-                    <version>8.2.2.jre13</version>
+                    <version>8.2.2.jre8</version>
                     <optional>true</optional>
                 </dependency>
             </dependencies>
