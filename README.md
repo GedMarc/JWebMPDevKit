@@ -5,6 +5,16 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
+
+V1.0.7.10 - 18th April 2020 
+* Classgraph to .71 for JPMS
+* Guava to 29.0-jre
+
+V1.0.7.8 - 14th April 2020 (BDAY!)
+* jboss-logging and jlink cannot build as JLink cannot read META-INF/versions locations
+* version jump for failed deploy to sonar nexus
+Fix by shading version 9 over JDK 8 as the library only works on JDK 11 and newer.
+
 V1.0.7.6 - 13th April 2020
 * EntityAssist - Update inDateRange() for better understanding
 * Guice - enable anonymous classes and more updates - https://github.com/google/guice/pull/1298
