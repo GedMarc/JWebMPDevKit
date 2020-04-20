@@ -5,6 +5,9 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
+V1.0.7.11 - 20th April
+* upgrade com.github.luben:zstd-jni from 1.4.4-7 to 1.4.4-8 
+* Hibernate Validator to 6.1.4 
 
 V1.0.7.10 - 18th April 2020 
 * Classgraph to .71 for JPMS
