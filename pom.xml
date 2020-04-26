@@ -68,7 +68,7 @@
         <lombok.version>1.18.12</lombok.version>
         <mapstruct.version>1.3.1.Final</mapstruct.version>
 
-        <jackson.version>2.10.3</jackson.version>
+        <jackson.version>2.11.0</jackson.version>
         <faces.version>2.3.9</faces.version>
 
         <guava.version>29.0-jre</guava.version>

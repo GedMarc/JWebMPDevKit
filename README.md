@@ -5,7 +5,15 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
-V1.0.7.11 - 20th April
+V1.0.8.0 - 26th April 2020
+* Woodstox to 6.2.0
+* Primefaces to 9.0 Snapshot
+* Jackson JSON to 2.11.0
+* JSF much more stable - binding for @Named, @ManagedBean and @ManagedProperty
+* Automated configuration for JSF requirements
+
+
+V1.0.7.11 - 20th April 2020
 * upgrade com.github.luben:zstd-jni from 1.4.4-7 to 1.4.4-8 
 * Hibernate Validator to 6.1.4 
 

@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -39,7 +39,7 @@
 
         <stax.version>1.8.2</stax.version>
         <stax2.api.version>4.2</stax2.api.version>
-        <woodstox.version>6.1.1</woodstox.version>
+        <woodstox.version>6.2.0</woodstox.version>
         <wsdl4j.version>1.6.3</wsdl4j.version>
         <opensaml.openws.version>1.5.4</opensaml.openws.version>
         <neethi.version>3.1.1</neethi.version>
@@ -91,12 +91,12 @@
             <optional>true</optional>
         </dependency>
 
-       <!-- <dependency>
-            <groupId>org.ehcache</groupId>
-            <artifactId>ehcache</artifactId>
-            <version>3.8.1</version>
-            <optional>true</optional>
-        </dependency>-->
+        <!-- <dependency>
+             <groupId>org.ehcache</groupId>
+             <artifactId>ehcache</artifactId>
+             <version>3.8.1</version>
+             <optional>true</optional>
+         </dependency>-->
 
         <dependency>
             <groupId>org.jvnet.staxex</groupId>
@@ -673,7 +673,7 @@
                     </execution>
                 </executions>
             </plugin>
-          <plugin>
+            <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
                     <execution>
