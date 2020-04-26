@@ -12,11 +12,10 @@ open module primefaces {
 	requires java.sql;
 	requires java.scripting;
 	requires static java.desktop;
-	requires org.apache.poi;
-	requires org.apache.poi.ooxml;
+	requires static org.apache.poi;
+	requires static org.apache.poi.ooxml;
 
 	requires com.google.common;
-
 
 	requires static itext;
 	requires java.xml.bind;
@@ -209,7 +208,6 @@ open module primefaces {
 	exports org.primefaces.metadata;
 	exports org.primefaces.metadata.transformer;
 	exports org.primefaces.metadata.transformer.impl;
-
 	exports org.primefaces.model;
 	exports org.primefaces.model.chart;
 	exports org.primefaces.model.diagram;
@@ -222,6 +220,33 @@ open module primefaces {
 	exports org.primefaces.model.mindmap;
 	exports org.primefaces.model.tagcloud;
 	exports org.primefaces.model.timeline;
+	exports org.primefaces.model.file;
+	exports org.primefaces.model.terminal;
+	exports org.primefaces.model.charts.pie;
+	exports org.primefaces.model.charts.optionconfig.tooltip;
+	exports org.primefaces.model.charts.optionconfig.title;
+	exports org.primefaces.model.charts.polar;
+	exports org.primefaces.model.charts.radar;
+	exports org.primefaces.model.charts.scatter;
+	exports org.primefaces.model.charts.optionconfig.legend;
+	exports org.primefaces.model.charts.optionconfig.elements;
+	exports org.primefaces.model.charts.line;
+	exports org.primefaces.model.charts.hbar;
+	exports org.primefaces.model.charts.donut;
+	exports org.primefaces.model.charts.data;
+	exports org.primefaces.model.charts.bubble;
+	exports org.primefaces.model.charts.bar;
+	exports org.primefaces.model.charts.axes.radial.linear;
+	exports org.primefaces.model.charts.axes.radial;
+	exports org.primefaces.model.charts.axes.cartesian.linear;
+	exports org.primefaces.model.charts.axes.cartesian;
+	exports org.primefaces.model.charts;
+	exports org.primefaces.component.datatable.export;
+
+
+	exports org.primefaces.component.organigram;
+	exports org.primefaces.event.organigram;
+
 
 	exports org.primefaces.renderkit;
 	exports org.primefaces.util;

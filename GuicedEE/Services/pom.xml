@@ -93,6 +93,19 @@
             <id>enable-ee4j</id>
             <modules>
                 <module>gee4j</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>enable-guice</id>
+            <modules>
+                <module>guice</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>enable-jakarta</id>
+            <modules>
                 <module>jaxb-api</module>
                 <module>java.activation</module>
                 <module>javax.activation</module>
@@ -106,12 +119,6 @@
             </modules>
         </profile>
 
-        <profile>
-            <id>enable-guice</id>
-            <modules>
-                <module>guice</module>
-            </modules>
-        </profile>
     </profiles>
 
     <dependencyManagement>
