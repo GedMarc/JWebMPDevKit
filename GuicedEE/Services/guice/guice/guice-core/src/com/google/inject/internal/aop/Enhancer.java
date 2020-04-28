@@ -23,10 +23,13 @@ import static com.google.inject.internal.aop.BytecodeTasks.packArguments;
 import static com.google.inject.internal.aop.BytecodeTasks.pushInteger;
 import static com.google.inject.internal.aop.BytecodeTasks.unbox;
 import static com.google.inject.internal.aop.BytecodeTasks.unpackArguments;
+import static java.lang.reflect.Modifier.ABSTRACT;
 import static java.lang.reflect.Modifier.FINAL;
+import static java.lang.reflect.Modifier.NATIVE;
 import static java.lang.reflect.Modifier.PRIVATE;
 import static java.lang.reflect.Modifier.PUBLIC;
 import static java.lang.reflect.Modifier.STATIC;
+import static java.lang.reflect.Modifier.SYNCHRONIZED;
 import static org.objectweb.asm.ClassWriter.COMPUTE_MAXS;
 import static org.objectweb.asm.Opcodes.AALOAD;
 import static org.objectweb.asm.Opcodes.ACC_SUPER;
@@ -66,6 +69,17 @@ import org.objectweb.asm.Type;
 
 /**
  * Generates enhanced classes.
+ *
+ * <p>Each enhancer has the same number of constructors as the class it enhances, but each
+ * constructor takes an additional handler array before the rest of the expected arguments.
+ *
+ * <p>Enhanced methods are overridden to call the handler with the same index as the method. The
+ * handler delegates to the interceptor stack. Once the last interceptor returns the handler will
+ * call back into the trampoline with the method index, which invokes the superclass method.
+ *
+ * <p>The trampoline also provides access to constructor invokers that take a context object (the
+ * handler array) with an argument array and invokes the appropriate enhanced constructor. These
+ * invokers are used in the proxy factory to create enhanced instances.
  *
  * @author mcculls@gmail.com (Stuart McCulloch)
  */
@@ -109,30 +123,72 @@ final class Enhancer extends AbstractGlueGenerator {
 
   private final Map<Method, Method> bridgeDelegates;
 
+  private final String checkcastToProxy;
+
   public Enhancer(Class<?> hostClass, Map<Method, Method> bridgeDelegates) {
     super(hostClass, ENHANCER_BY_GUICE_MARKER);
     this.bridgeDelegates = bridgeDelegates;
+
+    // CHECKCAST(proxyName) fails when hosted anonymously; hostName works in that scenario
+    this.checkcastToProxy = ClassDefining.isAnonymousHost(hostClass) ? hostName : proxyName;
   }
 
   @Override
   protected byte[] generateGlue(Collection<Executable> members) {
     ClassWriter cw = new ClassWriter(COMPUTE_MAXS);
-    MethodVisitor mv;
 
     cw.visit(V1_8, PUBLIC | ACC_SUPER, proxyName, null, hostName, null);
+    cw.visitSource(GENERATED_SOURCE, null);
 
+    // this shared field either contains the trampoline or glue to make it into an invoker table
     cw.visitField(PUBLIC | STATIC | FINAL, INVOKERS_NAME, INVOKERS_DESCRIPTOR, null, null)
         .visitEnd();
+
+    setupInvokerTable(cw);
+
+    generateTrampoline(cw, members);
+
+    // this field will hold the handlers configured for this particular enhanced instance
+    cw.visitField(PRIVATE | FINAL, HANDLERS_NAME, HANDLERS_DESCRIPTOR, null, null).visitEnd();
+
+    Set<Method> remainingBridgeMethods = new HashSet<>(bridgeDelegates.keySet());
+
+    int methodIndex = 0;
+    for (Executable member : members) {
+      if (member instanceof Constructor<?>) {
+        enhanceConstructor(cw, (Constructor<?>) member);
+      } else {
+        enhanceMethod(cw, (Method) member, methodIndex++);
+        remainingBridgeMethods.remove(member);
+      }
+    }
+
+    // replace any remaining bridge methods with virtual dispatch to their non-bridge targets
+    for (Method method : remainingBridgeMethods) {
+      Method target = bridgeDelegates.get(method);
+      if (target != null) {
+        generateVirtualBridge(cw, method, target);
+      }
+    }
+
+    cw.visitEnd();
+    return cw.toByteArray();
+  }
+
+  /** Generate static initializer to setup invoker table based on the trampoline. */
+  private void setupInvokerTable(ClassWriter cw) {
+    MethodVisitor mv = cw.visitMethod(PRIVATE | STATIC, "<clinit>", "()V", null, null);
+    mv.visitCode();
 
     Handle trampolineHandle =
         new Handle(H_INVOKESTATIC, proxyName, TRAMPOLINE_NAME, TRAMPOLINE_DESCRIPTOR, false);
 
-    mv = cw.visitMethod(PRIVATE | STATIC, "<clinit>", "()V", null, null);
-    mv.visitCode();
-
-    if (ClassDefining.hasPackageAccess()) {
+    if (ClassDefining.isAnonymousHost(hostClass)) {
+      // proxy class is anonymous we can't create our lambda glue, store raw trampoline instead
       mv.visitLdcInsn(trampolineHandle);
     } else {
+      // otherwise generate lambda glue to make the raw trampoline look like an invoker table
+
       mv.visitMethodInsn(
           INVOKESTATIC,
           "java/lang/invoke/MethodHandles",
@@ -166,34 +222,9 @@ final class Enhancer extends AbstractGlueGenerator {
     mv.visitInsn(RETURN);
     mv.visitMaxs(0, 0);
     mv.visitEnd();
-
-    generateTrampoline(cw, members);
-
-    Set<Method> remainingBridgeMethods = new HashSet<>(bridgeDelegates.keySet());
-
-    int methodIndex = 0;
-    cw.visitField(PRIVATE | FINAL, HANDLERS_NAME, HANDLERS_DESCRIPTOR, null, null).visitEnd();
-    for (Executable member : members) {
-      if (member instanceof Constructor<?>) {
-        enhanceConstructor(cw, (Constructor<?>) member);
-      } else {
-        enhanceMethod(cw, (Method) member, methodIndex++);
-        remainingBridgeMethods.remove(member);
-      }
-    }
-
-    // replace any remaining bridge methods with virtual dispatch to their non-bridge targets
-    for (Method method : remainingBridgeMethods) {
-      Method target = bridgeDelegates.get(method);
-      if (target != null) {
-        generateVirtualBridge(cw, method, target);
-      }
-    }
-
-    cw.visitEnd();
-    return cw.toByteArray();
   }
 
+  /** Generate enhanced constructor that takes a handler array along with the expected arguments. */
   private void enhanceConstructor(ClassWriter cw, Constructor<?> constructor) {
     String descriptor = Type.getConstructorDescriptor(constructor);
     String enhancedDescriptor = '(' + HANDLERS_DESCRIPTOR + descriptor.substring(1);
@@ -206,6 +237,7 @@ final class Enhancer extends AbstractGlueGenerator {
     mv.visitVarInsn(ALOAD, 0);
     mv.visitInsn(DUP);
     mv.visitVarInsn(ALOAD, 1);
+    // store handlers before invoking the superclass constructor (JVM allows this)
     mv.visitFieldInsn(PUTFIELD, proxyName, HANDLERS_NAME, HANDLERS_DESCRIPTOR);
 
     int slot = 2;
@@ -220,10 +252,11 @@ final class Enhancer extends AbstractGlueGenerator {
     mv.visitEnd();
   }
 
+  /** Generate enhanced method that calls the handler with the same index. */
   private void enhanceMethod(ClassWriter cw, Method method, int methodIndex) {
     MethodVisitor mv =
         cw.visitMethod(
-            PUBLIC,
+            FINAL | (method.getModifiers() & ~(ABSTRACT | NATIVE | SYNCHRONIZED)),
             method.getName(),
             Type.getMethodDescriptor(method),
             null,
@@ -281,8 +314,7 @@ final class Enhancer extends AbstractGlueGenerator {
 
     mv.visitInsn(ACONST_NULL);
     mv.visitVarInsn(ALOAD, 1);
-    // proxy is not visible by name when hosted anonymously; casting to host works as a fallback
-    mv.visitTypeInsn(CHECKCAST, ClassDefining.isAnonymousHost(hostClass) ? hostName : proxyName);
+    mv.visitTypeInsn(CHECKCAST, checkcastToProxy);
     unpackArguments(mv, target.getParameterTypes());
 
     mv.visitMethodInsn(
@@ -300,19 +332,19 @@ final class Enhancer extends AbstractGlueGenerator {
   private void generateVirtualBridge(ClassWriter cw, Method bridge, Method target) {
     MethodVisitor mv =
         cw.visitMethod(
-            PUBLIC,
+            FINAL | (bridge.getModifiers() & ~(ABSTRACT | NATIVE | SYNCHRONIZED)),
             bridge.getName(),
             Type.getMethodDescriptor(bridge),
             null,
             exceptionNames(bridge));
 
     mv.visitVarInsn(ALOAD, 0);
-    mv.visitTypeInsn(CHECKCAST, hostName);
-    int slot = 1;
+    mv.visitTypeInsn(CHECKCAST, checkcastToProxy);
 
     Class<?>[] bridgeParameterTypes = bridge.getParameterTypes();
     Class<?>[] targetParameterTypes = target.getParameterTypes();
 
+    int slot = 1;
     for (int i = 0, len = targetParameterTypes.length; i < len; i++) {
       Class<?> parameterType = targetParameterTypes[i];
       slot += loadArgument(mv, parameterType, slot);

@@ -28,12 +28,12 @@ import com.google.inject.internal.BytecodeGen;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Executable;
 import java.lang.reflect.Method;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.HashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
@@ -128,10 +128,16 @@ public final class ClassBuilding {
 
   /** Visit the method hierarchy for the host class. */
   private static void visitMethodHierarchy(Class<?> hostClass, Consumer<Method> visitor) {
+    // this is an iterative form of the following recursive search:
+    // 1. visit declared methods
+    // 2. recursively visit superclass
+    // 3. visit declared interfaces
+
+    // stack of interface declarations, from host class (bottom) to superclass (top)
+    Deque<Class<?>[]> interfaceStack = new ArrayDeque<>();
 
     // only try to match package-private methods if the class-definer has package-access
     String hostPackage = hasPackageAccess() ? packageName(hostClass.getName()) : null;
-    Set<Class<?>> interfaces = new LinkedHashSet<>();
 
     for (Class<?> clazz = hostClass;
         clazz != Object.class && clazz != null;
@@ -139,33 +145,59 @@ public final class ClassBuilding {
 
       // optionally visit package-private methods matching the same package as the host
       boolean samePackage = hostPackage != null && hostPackage.equals(packageName(clazz.getName()));
-      visitMembers(clazz.getDeclaredMethods(), samePackage, visitor);
 
-      // remember so we can visit them last
-      collectInterfaces(clazz, interfaces);
+      visitMembers(clazz.getDeclaredMethods(), samePackage, visitor);
+      pushInterfaces(interfaceStack, clazz.getInterfaces());
     }
 
     for (Method method : OVERRIDABLE_OBJECT_METHODS) {
       visitor.accept(method);
     }
 
+    // work our way back down the class hierarchy, merging and flattening interfaces into a list
+    List<Class<?>> interfaces = new ArrayList<>();
+    while (!interfaceStack.isEmpty()) {
+      for (Class<?> intf : interfaceStack.pop()) {
+        if (mergeInterface(interfaces, intf)) {
+          pushInterfaces(interfaceStack, intf.getInterfaces());
+        }
+      }
+    }
+
+    // finally visit the methods declared in the flattened interface hierarchy
     for (Class<?> intf : interfaces) {
       visitMembers(intf.getDeclaredMethods(), false, visitor);
     }
   }
 
+  /** Pushes the interface declaration onto the stack if it's not empty. */
+  private static void pushInterfaces(Deque<Class<?>[]> interfaceStack, Class<?>[] interfaces) {
+    if (interfaces.length > 0) {
+      interfaceStack.push(interfaces);
+    }
+  }
+
+  /** Attempts to merge the interface with the current flattened hierarchy. */
+  private static boolean mergeInterface(List<Class<?>> interfaces, Class<?> candidate) {
+    // work along the flattened hierarchy to find the appropriate merge point
+    for (int i = 0, len = interfaces.size(); i < len; i++) {
+      Class<?> existingInterface = interfaces.get(i);
+      if (existingInterface == candidate) {
+        // already seen this interface, skip further processing
+        return false;
+      } else if (existingInterface.isAssignableFrom(candidate)) {
+        // extends existing interface, insert just before it in the flattened hierarchy
+        interfaces.add(i, candidate);
+        return true;
+      }
+    }
+    // unrelated or a superinterface, in both cases append to the flattened hierarchy
+    return interfaces.add(candidate);
+  }
+
   /** Extract the package name from a class name. */
   private static String packageName(String className) {
     return className.substring(0, className.lastIndexOf('.') + 1);
-  }
-
-  /** Collect all interfaces implemented by the given class. */
-  private static void collectInterfaces(Class<?> clazz, Set<Class<?>> interfaces) {
-    for (Class<?> intf : clazz.getInterfaces()) {
-      if (interfaces.add(intf)) {
-        collectInterfaces(intf, interfaces);
-      }
-    }
   }
 
   /** Cache common overridable Object methods. */
