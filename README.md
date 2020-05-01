@@ -5,6 +5,11 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
+V1.0.8.5 - 
+* ByteBuddy to 1.10.10
+* JSF Fixes
+* Undertow much more configurable
+
 V1.0.8.2 - 28th April 2020
 * ClassGraph to 4.8.77
 *  Minor logging for Expression Language

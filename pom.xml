@@ -92,7 +92,7 @@
         <eclipselink.version>2.7.4</eclipselink.version>
 
         <h2.db.api>1.4.200</h2.db.api>
-        <bytebuddy.version>1.10.9</bytebuddy.version>
+        <bytebuddy.version>1.10.10</bytebuddy.version>
         <jpa21.version>1.0.2.Final</jpa21.version>
         <ehcache.version>3.8.0</ehcache.version>
 
@@ -775,7 +775,6 @@
                 </plugin>
 
 
-
             </plugins>
         </pluginManagement>
 
@@ -862,7 +861,6 @@
                 <scope>test</scope>
                 <type>jar</type>
             </dependency>
-
 
 
         </dependencies>
