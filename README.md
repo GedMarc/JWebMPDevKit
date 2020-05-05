@@ -5,7 +5,7 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
-V1.0.8.5 - 1st May 2020
+V1.0.8.5 - 2nd May 2020
 * ByteBuddy to 1.10.10
 * Hibernate to 5.4.15
 * Web Services API to  2.4.4
