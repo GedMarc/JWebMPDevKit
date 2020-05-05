@@ -486,7 +486,7 @@
                         <createDependencyReducedPom>false</createDependencyReducedPom>
                         <createSourcesJar>true</createSourcesJar>
                         <shadeSourcesContent>true</shadeSourcesContent>
-                        <shadeTestJar>true</shadeTestJar>
+                        <shadeTestJar>false</shadeTestJar>
                         <keepDependenciesWithProvidedScope>false</keepDependenciesWithProvidedScope>
                         <filters>
                             <filter>

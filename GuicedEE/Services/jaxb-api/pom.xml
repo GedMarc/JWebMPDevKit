@@ -11,7 +11,7 @@
 
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>com.guicedee.services</groupId>
@@ -140,7 +140,7 @@
                     <createDependencyReducedPom>false</createDependencyReducedPom>
                     <createSourcesJar>true</createSourcesJar>
                     <shadeSourcesContent>true</shadeSourcesContent>
-                    <shadeTestJar>true</shadeTestJar>
+                    <shadeTestJar>false</shadeTestJar>
                     <keepDependenciesWithProvidedScope>false</keepDependenciesWithProvidedScope>
 
                     <artifactSet>
@@ -165,9 +165,9 @@
                         </filter>
                     </filters>
                     <!-- Dont transform the service resources -->
-                <!--    <transformers>
-                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                    </transformers>-->
+                    <!--    <transformers>
+                            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                        </transformers>-->
                 </configuration>
             </plugin>
             <plugin>
