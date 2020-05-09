@@ -37,7 +37,7 @@
 
         <jetty.version>9.4.28.v20200408</jetty.version>
 
-        <stax.version>1.8.2</stax.version>
+        <stax.version>1.8.3</stax.version>
         <stax2.api.version>4.2</stax2.api.version>
         <woodstox.version>6.2.0</woodstox.version>
         <wsdl4j.version>1.6.3</wsdl4j.version>
