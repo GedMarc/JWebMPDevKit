@@ -5,6 +5,13 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
+V1.0.8.19 - 10th May 2020
+* fix: upgrade org.owasp.encoder:encoder from 1.2.1 to 1.2.2
+* fix: upgrade org.jvnet.staxex:stax-ex from 1.8.2 to 1.8.3
+* fix: upgrade org.glassfish.jaxb:jaxb-runtime from 2.3.3-b02 to 2.3.3
+* fix: upgrade org.jboss.logmanager:jboss-logmanager from 2.1.14.Final to 2.1.15.Final
+* Primefaces 9 fixes
+
 V1.0.8.5 - 2nd May 2020
 * ByteBuddy to 1.10.10
 * Hibernate to 5.4.15
