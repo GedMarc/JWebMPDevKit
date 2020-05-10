@@ -33,7 +33,6 @@ import javax.validation.ConstraintTarget;
 import javax.validation.ConstraintValidator;
 import javax.validation.Payload;
 import javax.validation.metadata.ConstraintDescriptor;
-import javax.validation.metadata.ValidateUnwrappedValue;
 
 public class ConstraintDescriptorWrapper<T extends Annotation> implements ConstraintDescriptor<T>, FacesWrapper<ConstraintDescriptor<T>> {
 
@@ -78,19 +77,7 @@ public class ConstraintDescriptorWrapper<T extends Annotation> implements Constr
         return wrapped.isReportAsSingleViolation();
     }
 
-	@Override
-	public ValidateUnwrappedValue getValueUnwrapping()
-	{
-		return wrapped.getValueUnwrapping();
-	}
-
-	@Override
-	public <U> U unwrap(Class<U> type)
-	{
-		return wrapped.unwrap(type);
-	}
-
-	@Override
+    @Override
     public ConstraintDescriptor<T> getWrapped() {
         return wrapped;
     }

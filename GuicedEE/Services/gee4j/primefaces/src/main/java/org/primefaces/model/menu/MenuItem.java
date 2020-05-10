@@ -26,8 +26,6 @@ package org.primefaces.model.menu;
 import java.util.List;
 import java.util.Map;
 import javax.el.MethodExpression;
-
-import lombok.Builder;
 import org.primefaces.component.api.Confirmable;
 import org.primefaces.util.SerializableFunction;
 
