@@ -24,7 +24,7 @@
                 <module>javax.faces</module>
                 <module>jsp</module>
                 <module>jstl</module>
-                 <module>primefaces</module>
+                <module>primefaces</module>
             </modules>
         </profile>
 
