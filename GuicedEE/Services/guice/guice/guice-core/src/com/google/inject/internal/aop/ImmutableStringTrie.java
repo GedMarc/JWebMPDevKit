@@ -22,9 +22,9 @@ import java.util.Collection;
 import java.util.function.ToIntFunction;
 
 /**
- * Immutable space-efficient trie that provides a quick lookup index for a sorted array of strings.
- * It assumes only those strings will be queried and therefore may produce false-positive results
- * for strings not in the array.
+ * Immutable space-efficient trie that provides a quick lookup index for a sorted set of non empty
+ * strings. It assumes only those strings will be queried and therefore may produce false-positive
+ * results for strings not in the array.
  *
  * <p>Each node of the tree is represented as a series of {@code char}s using this layout:
  *
@@ -52,7 +52,7 @@ import java.util.function.ToIntFunction;
  * the trie for branch 0 immediately follows the current node. The entire jump section is omitted
  * when all the branches from a node are leaves.
  *
- * <p>Simple example: getValue, setValue
+ * <p>Simple example trie with 2 strings "getValue" and "setValue":
  *
  * <pre>
  * +---+---+---+--------+--------+
@@ -62,7 +62,7 @@ import java.util.function.ToIntFunction;
  *
  * In this case the first character is enough to determine the index result.
  *
- * <p>Example of a trie with a 'bud': getName, getNameAndValue
+ * <p>Example of a trie with a 'bud' that contains 2 strings "getName" and "getNameAndValue":
  *
  * <pre>
  * +---+---+---+---+---+--------+---+---+--------+
@@ -73,7 +73,7 @@ import java.util.function.ToIntFunction;
  * After matching 'g' we skip to the end of 'getName' before checking if there are any more
  * characters to match.
  *
- * <p>More complex example: getName, getValue, getVersion
+ * <p>More complex example with 3 strings "getName", "getValue", "getVersion":
  *
  * <pre>
  * +---+---+---+---+---+---+--------+---+---+---+---+---+--------+--------+
@@ -201,58 +201,62 @@ final class ImmutableStringTrie implements ToIntFunction<String> {
 
     int trieStart = buf.length();
 
-    int lastRow = row;
+    int prevRow = row;
     int branchCount = 0;
     int nextJump = 0;
 
     boolean allLeaves = true;
 
-    while (lastRow < rowLimit) {
-      String cells = table[lastRow];
+    while (prevRow < rowLimit) {
+      String cells = table[prevRow];
       int columnLimit = cells.length();
 
       char pivot = cells.charAt(column);
 
       // find the row that marks the start of the next branch, and the end of this one
-      int nextRow = nextPivotRow(table, pivot, column, lastRow, rowLimit);
+      int nextRow = nextPivotRow(table, pivot, column, prevRow, rowLimit);
 
       // find the column along this branch that marks the next decision point/pivot
-      int nextColumn = nextPivotColumn(table, column, lastRow, nextRow);
+      int nextColumn = nextPivotColumn(table, column, prevRow, nextRow);
 
-      // at the end of our row, check in case there are further rows that we'd normally
-      // handle with a bud, but we can't because our branch spans more than one column
-      if (nextColumn == columnLimit && nextColumn - column > 1 && nextRow - lastRow > 1) {
-        // set the next column to just before the end of our row so we can insert a bud
+      // adjust pivot point if it would involve adding a bud spanning more than one column
+      if (nextColumn == columnLimit && nextColumn - column > 1 && nextRow - prevRow > 1) {
+        // move it back so this becomes a jump branch followed immediately by sub-trie bud
         nextColumn--;
       }
 
+      // record the character for this branch
       int branchIndex = trieStart + branchCount;
       buf.insert(branchIndex, pivot);
 
       int resultIndex = branchIndex + 1 + branchCount;
 
-      // sub trie will start after the result (to be inserted)
+      // any sub tries will start after the result (to be inserted)
       int subTrieStart = buf.length() + 1;
 
       if (nextColumn < columnLimit) {
+        // record key-delta and process rest of the row as sub trie
         buf.insert(resultIndex, (char) (nextColumn - column));
-        buildSubTrie(buf, table, nextColumn, lastRow, nextRow);
+        buildSubTrie(buf, table, nextColumn, prevRow, nextRow);
         allLeaves = false;
       } else {
-        buildSubTrie(buf, table, nextColumn, lastRow + 1, nextRow);
-        boolean isLeaf = subTrieStart > buf.length(); // only true if nothing was added
+        // process rest of next row as sub trie to see if this row ends in a leaf/buf
+        buildSubTrie(buf, table, nextColumn, prevRow + 1, nextRow);
+        // must be leaf if sub trie doesn't exist, ie. it wasn't added to buffer
+        boolean isLeaf = subTrieStart > buf.length();
         char marker = isLeaf ? LEAF_MARKER : BUD_MARKER;
-        buf.insert(resultIndex, (char) (lastRow & (MAX_ROWS_PER_TRIE - 1) | marker));
+        buf.insert(resultIndex, (char) (prevRow & (MAX_ROWS_PER_TRIE - 1) | marker));
         allLeaves = allLeaves && isLeaf;
       }
 
       if (nextRow < rowLimit) {
+        // child sub-tries have been added, so can now calculate jump to next branch
         int jumpIndex = resultIndex + 1 + branchCount;
         nextJump += buf.length() - subTrieStart;
         buf.insert(jumpIndex, (char) nextJump);
       }
 
-      lastRow = nextRow;
+      prevRow = nextRow;
       branchCount++;
     }
 

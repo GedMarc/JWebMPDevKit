@@ -34,6 +34,7 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
@@ -67,7 +68,7 @@ public final class ClassBuilding {
     return signature.toString();
   }
 
-  /** Can we enhance the given member using bytecode? */
+  /** Returns true if the given member can be enhanced using bytecode. */
   public static boolean canEnhance(Executable member) {
     return canAccess(member, hasPackageAccess());
   }
@@ -117,10 +118,12 @@ public final class ClassBuilding {
     String partitionKey = method.getName() + '/' + method.getParameterCount();
     // common case: assume only one method with that key, store method directly to reduce overhead
     Object existingPartition = partitions.putIfAbsent(partitionKey, method);
-    if (existingPartition instanceof Method) {
+    if (existingPartition == null) {
+      // first method in this partition, nothing else to do here
+    } else if (existingPartition instanceof Method) {
       // this is the second matching method, inflate to MethodPartition containing the two methods
       partitions.put(partitionKey, new MethodPartition((Method) existingPartition, method));
-    } else if (existingPartition instanceof MethodPartition) {
+    } else {
       // continue to add methods to the existing MethodPartition
       ((MethodPartition) existingPartition).addCandidate(method);
     }
@@ -218,16 +221,32 @@ public final class ClassBuilding {
     return objectMethods.toArray(new Method[objectMethods.size()]);
   }
 
-  /** Can we fast-invoke the given member from a sibling class using bytecode? */
+  /** Returns true if the given member can be fast-invoked. */
   public static boolean canFastInvoke(Executable member) {
-    // must be public unless we have package-access in which case anything non-private is ok
     int modifiers = member.getModifiers() & (PUBLIC | PRIVATE);
-    return modifiers == PUBLIC || (modifiers == 0 && hasPackageAccess());
+    if (hasPackageAccess()) {
+      // can fast-invoke anything except private members
+      return modifiers != PRIVATE;
+    }
+    // can fast-invoke public members in public types whose parameters are all public
+    boolean visible = (modifiers == PUBLIC) && isPublic(member.getDeclaringClass());
+    if (visible) {
+      for (Class<?> type : member.getParameterTypes()) {
+        if (!isPublic(type)) {
+          return false;
+        }
+      }
+    }
+    return visible;
+  }
+
+  private static boolean isPublic(Class<?> clazz) {
+    return (clazz.getModifiers() & PUBLIC) != 0;
   }
 
   /** Builds a 'fast-class' invoker that uses bytecode generation in place of reflection. */
   public static Function<String, BiFunction> buildFastClass(Class<?> hostClass) {
-    Map<String, Executable> glueMap = new TreeMap<>();
+    SortedMap<String, Executable> glueMap = new TreeMap<>();
 
     visitFastConstructors(hostClass, ctor -> glueMap.put(signature(ctor), ctor));
     visitFastMethods(hostClass, method -> glueMap.put(signature(method), method));

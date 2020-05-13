@@ -81,6 +81,43 @@ import org.objectweb.asm.Type;
  * handler array) with an argument array and invokes the appropriate enhanced constructor. These
  * invokers are used in the proxy factory to create enhanced instances.
  *
+ * <p>Enhanced classes have the following pseudo-Java structure:
+ *
+ * <pre>
+ * public class HostClass$$EnhancerByGuice
+ *   extends HostClass
+ * {
+ *   // InterceptorStackCallbacks, one per enhanced method
+ *   private final InvocationHandler[] GUICE$HANDLERS;
+ *
+ *   public HostClass$$EnhancerByGuice(InvocationHandler[] handlers, ...) {
+ *      // JVM lets us store this before calling the superclass constructor
+ *     GUICE$HANDLERS = handlers;
+ *     super(...);
+ *   }
+ *
+ *   public static Object GUICE$TRAMPOLINE(int index, Object context, Object[] args) {
+ *     switch (index) {
+ *       case 0: {
+ *         return new HostClass$$EnhancerByGuice((InvocationHandler[]) context, ...);
+ *       }
+ *       case 1: {
+ *         return context.super.instanceMethod(...); // call original unenhanced method
+ *       }
+ *     }
+ *     return null;
+ *   }
+ *
+ *   // enhanced method
+ *   public final Object instanceMethod(...) {
+ *     // pack arguments and trigger the associated InterceptorStackCallback
+ *     return GUICE$HANDLERS[0].invoke(this, null, args);
+ *   }
+ *
+ *   // ...
+ * }
+ * </pre>
+ *
  * @author mcculls@gmail.com (Stuart McCulloch)
  */
 final class Enhancer extends AbstractGlueGenerator {
@@ -103,6 +140,7 @@ final class Enhancer extends AbstractGlueGenerator {
           + "[Ljava/lang/Object;)"
           + "Ljava/lang/Object;";
 
+  // Describes the LambdaMetafactory.metafactory method arguments and return type
   private static final String METAFACTORY_DESCRIPTOR =
       "(Ljava/lang/invoke/MethodHandles$Lookup;"
           + "Ljava/lang/String;"
@@ -125,7 +163,7 @@ final class Enhancer extends AbstractGlueGenerator {
 
   private final String checkcastToProxy;
 
-  public Enhancer(Class<?> hostClass, Map<Method, Method> bridgeDelegates) {
+  Enhancer(Class<?> hostClass, Map<Method, Method> bridgeDelegates) {
     super(hostClass, ENHANCER_BY_GUICE_MARKER);
     this.bridgeDelegates = bridgeDelegates;
 
@@ -268,6 +306,7 @@ final class Enhancer extends AbstractGlueGenerator {
     pushInteger(mv, methodIndex);
     mv.visitInsn(AALOAD);
     mv.visitInsn(SWAP);
+    // we don't use the method argument in InterceptorStackCallback.invoke, so can use null here
     mv.visitInsn(ACONST_NULL);
     packArguments(mv, method.getParameterTypes());
 
@@ -312,13 +351,12 @@ final class Enhancer extends AbstractGlueGenerator {
     // with virtual dispatch to avoid skipping other interceptors overriding the target method
     int invokeOpcode = target != method ? INVOKEVIRTUAL : INVOKESPECIAL;
 
-    mv.visitInsn(ACONST_NULL);
     mv.visitVarInsn(ALOAD, 1);
     mv.visitTypeInsn(CHECKCAST, checkcastToProxy);
     unpackArguments(mv, target.getParameterTypes());
 
     mv.visitMethodInsn(
-        invokeOpcode, hostName, method.getName(), Type.getMethodDescriptor(target), false);
+        invokeOpcode, hostName, target.getName(), Type.getMethodDescriptor(target), false);
 
     Class<?> returnType = target.getReturnType();
     if (returnType == void.class) {

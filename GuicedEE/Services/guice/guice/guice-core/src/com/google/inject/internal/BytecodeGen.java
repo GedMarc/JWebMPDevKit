@@ -41,6 +41,12 @@ import java.util.function.Function;
 /**
  * Utility methods for circular proxies, faster reflection, and method interception.
  *
+ * <p>This class makes heavy use of {@link Function} and {@link BiFunction} types when interacting
+ * with generated fast-classes and enhanced proxies. This is a deliberate design decision to avoid
+ * using Guice-specific types in the generated classes. This means generated classes can be defined
+ * in the same {@link ClassLoader} as their host class without needing access to Guice's own {@link
+ * ClassLoader}. (In other words it removes any need for bridge {@link ClassLoader}s.)
+ *
  * @author mcculls@gmail.com (Stuart McCulloch)
  * @author jessewilson@google.com (Jesse Wilson)
  */
@@ -49,13 +55,13 @@ public final class BytecodeGen {
   private static final Map<Class<?>, Boolean> CIRCULAR_PROXY_TYPE_CACHE =
       CacheBuilder.newBuilder().weakKeys().<Class<?>, Boolean>build().asMap();
 
-  /** Is the given object a circular proxy? */
+  /** Returns true if the given object is a circular proxy. */
   public static boolean isCircularProxy(Object object) {
     return object != null && CIRCULAR_PROXY_TYPE_CACHE.containsKey(object.getClass());
   }
 
   /** Creates a new circular proxy for the given type. */
-  public static <T> T newCircularProxy(Class<T> type, InvocationHandler handler) {
+  static <T> T newCircularProxy(Class<T> type, InvocationHandler handler) {
     Object proxy = Proxy.newProxyInstance(type.getClassLoader(), new Class[] {type}, handler);
     CIRCULAR_PROXY_TYPE_CACHE.put(proxy.getClass(), Boolean.TRUE);
     return type.cast(proxy);
@@ -69,15 +75,35 @@ public final class BytecodeGen {
 
   /** Builder of enhanced classes. */
   public interface EnhancerBuilder {
-    /** Lists the methods in the host class that can be enhanced. */
+    /**
+     * Lists the methods in the host class that can be enhanced.
+     *
+     * <p>This always includes public and protected methods that are neither static nor final.
+     *
+     * <p>Package-private methods can only be enhanced if they're in the same package as the host
+     * and we can define types in the same class loader with Unsafe. The {@link #finalize} method
+     * can never be enhanced.
+     */
     Method[] getEnhanceableMethods();
 
-    /** Generates an enhancer for the selected subset of methods. */
+    /**
+     * Generates an enhancer for the selected subset of methods.
+     *
+     * <p>The enhancer maps constructor and method signatures to invokers, where each invoker is
+     * represented as a {@link BiFunction} that accepts a context object and an argument array.
+     *
+     * <p>Constructor invokers take an array of {@link InvocationHandler}s as their context object.
+     * This is stored in the enhanced class before the original host class constructor is called,
+     * with arguments unpacked from the argument array. The enhanced instance is then returned.
+     *
+     * <p>Method invokers take an enhanced instance as their context object and call the original
+     * super-method with arguments unpacked from the argument array, ie. provides super-invocation.
+     */
     Function<String, BiFunction> buildEnhancer(BitSet methodIndices);
   }
 
   /** Create a builder of enhancers for the given class. */
-  public static EnhancerBuilder enhancerBuilder(Class<?> hostClass) {
+  static EnhancerBuilder enhancerBuilder(Class<?> hostClass) {
     return ENHANCER_BUILDERS.getUnchecked(hostClass);
   }
 
@@ -86,7 +112,7 @@ public final class BytecodeGen {
    * of invocation handlers plus an array of arguments for the original constructor.
    */
   @SuppressWarnings("unchecked")
-  public static BiFunction<InvocationHandler[], Object[], Object> enhancedConstructor(
+  static BiFunction<InvocationHandler[], Object[], Object> enhancedConstructor(
       Function<String, BiFunction> enhancer, Constructor<?> constructor) {
     checkArgument(canEnhance(constructor), "Constructor is not visible");
     return enhancer.apply(signature(constructor));
@@ -97,7 +123,7 @@ public final class BytecodeGen {
    * enhanced instance plus an array of arguments for the original method.
    */
   @SuppressWarnings("unchecked")
-  public static BiFunction<Object, Object[], Object> superMethod(
+  static BiFunction<Object, Object[], Object> superMethod(
       Function<String, BiFunction> enhancer, Method method) {
     // no need to check 'canEnhance', ProxyFactory will only pick methods from enhanceable list
     return enhancer.apply(signature(method));
@@ -106,9 +132,11 @@ public final class BytecodeGen {
   /**
    * Returns a fast invoker for the given constructor. The invoker function ignores the first
    * parameter and accepts an array of arguments for the constructor in the second parameter.
+   *
+   * <p>Returns {@code null} if the constructor cannot be "fast-invoked" due to visibility issues.
    */
   @SuppressWarnings("unchecked")
-  public static BiFunction<Object, Object[], Object> fastConstructor(Constructor<?> constructor) {
+  static BiFunction<Object, Object[], Object> fastConstructor(Constructor<?> constructor) {
     if (canFastInvoke(constructor)) {
       return fastClass(constructor).apply(signature(constructor));
     }
@@ -118,9 +146,11 @@ public final class BytecodeGen {
   /**
    * Returns a fast invoker for the given method. The invoker function accepts an instance, which
    * will be {@code null} for static methods, and an array of arguments for the method.
+   *
+   * <p>Returns {@code null} if the method cannot be "fast-invoked" due to visibility issues.
    */
   @SuppressWarnings("unchecked")
-  public static BiFunction<Object, Object[], Object> fastMethod(Method method) {
+  static BiFunction<Object, Object[], Object> fastMethod(Method method) {
     if (canFastInvoke(method)) {
       return fastClass(method).apply(signature(method));
     }
@@ -128,14 +158,10 @@ public final class BytecodeGen {
   }
 
   /**
-   * Prepares the class containing the given member for fast invocation using bytecode generation.
+   * Prepares the class declaring the given member for fast invocation using bytecode generation.
    */
   private static Function<String, BiFunction> fastClass(Executable member) {
-    Class<?> hostClass = member.getDeclaringClass();
-    if (hostClass.getSimpleName().contains(ENHANCER_BY_GUICE_MARKER)) {
-      hostClass = hostClass.getSuperclass();
-    }
-    return FAST_CLASSES.get(hostClass);
+    return FAST_CLASSES.get(member.getDeclaringClass());
   }
 
   /**

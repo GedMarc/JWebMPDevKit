@@ -42,7 +42,7 @@ public final class ClassDefining {
     return ClassDefinerHolder.INSTANCE.define(hostClass, bytecode);
   }
 
-  /** Does the definer have access to package-private members? */
+  /** Returns true if the ClassDefiner has access to package-private members. */
   public static boolean hasPackageAccess() {
     return ClassDefinerHolder.IS_UNSAFE;
   }
@@ -54,11 +54,12 @@ public final class ClassDefining {
 
   /** Binds the preferred {@link ClassDefiner} instance. */
   static ClassDefiner bindClassDefiner() {
+    // ANONYMOUS acts like OFF, it picks the Unsafe definer but changes how it defines classes
     CustomClassLoadingOption loadingOption = InternalFlags.getCustomClassLoadingOption();
     if (loadingOption == CustomClassLoadingOption.CHILD) {
       return new ChildClassDefiner(); // override default choice
     } else if (UnsafeClassDefiner.isAccessible()) {
-      return new UnsafeClassDefiner(); // preferred if available
+      return new UnsafeClassDefiner(); // default choice if available
     } else if (loadingOption != CustomClassLoadingOption.OFF) {
       return new ChildClassDefiner(); // second choice unless forbidden
     } else {
