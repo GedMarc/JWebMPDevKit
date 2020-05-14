@@ -24,7 +24,8 @@ public class WSContext
 		StringBuilder sb = new StringBuilder();
 		for (String pathService : values)
 		{
-			sb.append(pathService + ",");
+			sb.append(pathService)
+			  .append(",");
 		}
 		if (!values.isEmpty())
 		{
