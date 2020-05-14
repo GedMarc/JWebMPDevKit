@@ -35,6 +35,12 @@ module org.apache.cxf {
 	exports org.apache.cxf.jaxrs.servlet;
 	exports org.apache.cxf.jaxrs.impl;
 	exports org.apache.cxf.jaxrs.validation;
+	exports org.apache.cxf.binding.soap;
+	exports org.apache.cxf.headers;
+	exports org.apache.cxf.ws.security.wss4j;
+	exports org.apache.wss4j.dom.handler;
+	exports org.apache.wss4j.common.ext;
+	
 
 	opens org.apache.cxf.rs.security.oauth2.services;
 	opens org.apache.cxf.rs.security.oauth.services;
