@@ -35,6 +35,8 @@
             <artifactId>jboss-logmanager</artifactId>
         </dependency>
 
+
+
     </dependencies>
 
     <scm>

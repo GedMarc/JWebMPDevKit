@@ -17,15 +17,22 @@ public class WebServiceServletModule
 	public void onBind(GuiceSiteInjectorModule module)
 	{
 		log.config("Binding web services to path defined in WSContext - " + baseWSUrl);
+
+
 		module.serve$(cleanPath(baseWSUrl) + "*")
-			  .with(CxfNonSpring.class);
+		      .with(CxfNonSpring.class);
 	}
 
-	public static String cleanPath(String path) {
-		if (!path.startsWith("/")) {
+	public static String cleanPath(String path)
+	{
+		if (!path.startsWith("/"))
+		{
 			path = "/" + path;
 		}
-		if (!path.endsWith("/")) { path = path + "/"; }
+		if (!path.endsWith("/"))
+		{
+			path = path + "/";
+		}
 		return path;
 	}
 

@@ -1,3 +1,6 @@
+import com.guicedee.guicedservlets.undertow.services.UndertowDeploymentConfigurator;
+import com.guicedee.guicedservlets.webservices.implementations.JaxWSUndertowDeploymentConfigurator;
+
 module com.guicedee.guicedservlets.webservices {
 	exports com.guicedee.guicedservlets.webservices;
 
@@ -19,10 +22,12 @@ module com.guicedee.guicedservlets.webservices {
 	requires io.github.classgraph;
 	requires com.fasterxml.jackson.databind;
 	requires java.validation;
+	requires com.guicedee.guicedservlets.undertow;
 
 	provides com.guicedee.guicedservlets.services.IGuiceSiteBinder with com.guicedee.guicedservlets.webservices.implementations.WebServiceServletModule;
 	provides com.guicedee.guicedinjection.interfaces.IGuiceConfigurator with com.guicedee.guicedservlets.webservices.implementations.WebServiceScannerConfig;
+	provides UndertowDeploymentConfigurator with JaxWSUndertowDeploymentConfigurator;
 
-	opens  com.guicedee.guicedservlets.webservices.implementations to com.google.guice;
-	opens  com.guicedee.guicedservlets.webservices to com.google.guice;
+	opens com.guicedee.guicedservlets.webservices.implementations to com.google.guice;
+	opens com.guicedee.guicedservlets.webservices to com.google.guice;
 }

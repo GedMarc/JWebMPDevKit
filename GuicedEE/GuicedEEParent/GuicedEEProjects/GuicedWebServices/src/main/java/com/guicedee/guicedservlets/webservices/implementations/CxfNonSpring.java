@@ -18,23 +18,27 @@ import javax.xml.ws.Endpoint;
 import java.util.logging.Level;
 
 @Singleton
-public class CxfNonSpring extends CXFNonSpringServlet
+public class CxfNonSpring
+		extends CXFNonSpringServlet
 {
 	@Override
-	protected void loadBus(ServletConfig sc) {
+	protected void loadBus(ServletConfig sc)
+	{
 		super.loadBus(sc);
 		BusFactory.setDefaultBus(getBus());
 
 		for (ClassInfo classInfo : GuiceContext.instance()
 		                                       .getScanResult()
-		                                       .getClassesWithAnnotation(WebService.class.getCanonicalName())) {
-			Class calledType = classInfo.loadClass();
-			WebService anno = (WebService) calledType.getAnnotation(WebService.class);
+		                                       .getClassesWithAnnotation(WebService.class.getCanonicalName()))
+		{
+			Class<?> calledType = classInfo.loadClass();
+			WebService anno = calledType.getAnnotation(WebService.class);
 			try
 			{
-				if(classInfo.isInterface() || classInfo.isAbstract())
+				if (classInfo.isInterface() || classInfo.isAbstract())
 				{
-					LogFactory.getLog(CxfNonSpring.class).log(Level.WARNING, "Not creating web service for [" + calledType.getCanonicalName() + "]. Interface/Abstract.");
+					LogFactory.getLog(CxfNonSpring.class)
+					          .log(Level.WARNING, "Not creating web service for [" + calledType.getCanonicalName() + "]. Interface/Abstract.");
 					continue;
 				}
 				Object o = GuiceContext.get(calledType);
@@ -49,7 +53,8 @@ public class CxfNonSpring extends CXFNonSpringServlet
 			}
 			catch (Exception e)
 			{
-				LogFactory.getLog(CxfNonSpring.class).log(Level.WARNING,"Not creating web service for [" + calledType.getCanonicalName() + "]. Check finer logs for details");
+				LogFactory.getLog(CxfNonSpring.class)
+				          .log(Level.SEVERE, "Not creating web service for [" + calledType.getCanonicalName() + "]. Check finer logs for details");
 				LogFactory.getLog(CxfNonSpring.class)
 				          .log(Level.FINER, "Unable to bind Web Service for [" + calledType.getCanonicalName() + "]. This is usually  because it is an internal one", e);
 			}
@@ -59,11 +64,12 @@ public class CxfNonSpring extends CXFNonSpringServlet
 	@Override
 	protected void invoke(HttpServletRequest request, HttpServletResponse response) throws ServletException
 	{
-		HttpServletRequestWrapper wrapper = new HttpServletRequestWrapper(request){
+		HttpServletRequestWrapper wrapper = new HttpServletRequestWrapper(request)
+		{
 			@Override
 			public String getPathInfo()
 			{
-				return WSContext.baseWSUrl  + super.getPathInfo();
+				return WSContext.baseWSUrl + super.getPathInfo();
 			}
 		};
 

@@ -102,7 +102,6 @@
             <version>1.8.3</version>
         </dependency>
 
-
     </dependencies>
 
     <build>
@@ -165,9 +164,9 @@
                         </filter>
                     </filters>
                     <!-- Dont transform the service resources -->
-                    <!--    <transformers>
-                            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                        </transformers>-->
+                    <transformers>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                    </transformers>
                 </configuration>
             </plugin>
             <plugin>

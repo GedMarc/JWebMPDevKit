@@ -91,12 +91,14 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- <dependency>
-             <groupId>org.ehcache</groupId>
-             <artifactId>ehcache</artifactId>
-             <version>3.8.1</version>
-             <optional>true</optional>
-         </dependency>-->
+
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>rt</artifactId>
+            <version>2.3.3</version>
+            <optional>true</optional>
+        </dependency>
+
 
         <dependency>
             <groupId>org.jvnet.staxex</groupId>
@@ -267,7 +269,6 @@
         <dependency>
             <groupId>jakarta.ws.rs</groupId>
             <artifactId>jakarta.ws.rs-api</artifactId>
-            <version>2.1.6</version>
             <exclusions>
                 <exclusion>
                     <artifactId>validation-api</artifactId>
@@ -614,6 +615,10 @@
                             <include>ca.juliusdavies:not-yet-commons-ssl:*</include>
 
                             <include>org.glassfish.jersey*:*:*</include>
+
+                            <include>com.sun.xml.stream.buffer:*</include>
+                            <include>org.jvnet.mimepull:*</include>
+                            <include>com.sun.xml.messaging.saaj:*</include>
                         </includes>
                     </artifactSet>
                     <filters>
@@ -649,9 +654,9 @@
                             <shadedPattern>org.apache.cxf.common.util.rel.saxon</shadedPattern>
                         </relocation>
                     </relocations>
-                    <transformers>
-                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                    </transformers>
+                    <!--   <transformers>
+                           <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                       </transformers>-->
                 </configuration>
             </plugin>
             <plugin>
