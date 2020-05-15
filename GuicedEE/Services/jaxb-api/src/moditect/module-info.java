@@ -57,6 +57,8 @@ module java.xml.bind {
 	exports com.sun.xml.bind.v2.schemagen.xmlschema;
 	exports com.sun.xml.bind.v2.util;
 
+	exports com.sun.xml.txw2;
+
 	opens com.sun.xml.bind.v2.model.nav to com.sun.tools.xjc;
 
 	provides javax.xml.bind.JAXBContextFactory with com.sun.xml.bind.v2.JAXBContextFactory;

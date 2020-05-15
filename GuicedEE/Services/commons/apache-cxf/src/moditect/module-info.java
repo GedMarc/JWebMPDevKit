@@ -11,6 +11,9 @@ module org.apache.cxf {
 	requires java.logging;
 	requires static java.desktop;
 	requires static java.validation;
+	requires java.jws;
+	requires java.rmi;
+	requires static org.slf4j;
 
 	requires java.ws.rs;
 	requires java.xml.ws;
@@ -41,6 +44,7 @@ module org.apache.cxf {
 	exports org.apache.wss4j.dom.handler;
 	exports org.apache.wss4j.common.ext;
 
+	exports org.apache.cxf.transport.servlet.servicelist;
 
 	opens org.apache.cxf.rs.security.oauth2.services;
 	opens org.apache.cxf.rs.security.oauth.services;

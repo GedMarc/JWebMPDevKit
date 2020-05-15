@@ -56,7 +56,6 @@
             </dependency>
 
 
-
             <dependency>
                 <groupId>com.guicedee.services</groupId>
                 <artifactId>cache-api</artifactId>
@@ -491,6 +490,14 @@
             <dependency>
                 <groupId>com.guicedee.services</groupId>
                 <artifactId>log4j-core</artifactId>
+
+                <version>${project.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.guicedee.services</groupId>
+                <artifactId>sl4j</artifactId>
 
                 <version>${project.version}</version>
             </dependency>

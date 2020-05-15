@@ -1,4 +1,4 @@
-open module primefaces {
+module primefaces {
 
 	requires javax.faces;
 	requires org.apache.commons.io;
@@ -244,7 +244,26 @@ open module primefaces {
 	exports org.primefaces.model.charts.axes.cartesian;
 	exports org.primefaces.model.charts;
 	exports org.primefaces.component.datatable.export;
-
+	exports org.primefaces.component.autoupdate;
+	exports org.primefaces.csp;
+	exports org.primefaces.component.chips;
+	exports org.primefaces.component.dataview;
+	exports org.primefaces.component.headerrow;
+	exports org.primefaces.component.linkbutton;
+	exports org.primefaces.component.sidebar;
+	exports org.primefaces.component.staticmessage;
+	exports org.primefaces.component.texteditor;
+	exports org.primefaces.component.toggleswitch;
+	exports org.primefaces.component.tristatecheckbox;
+	exports org.primefaces.component.barchart;
+	exports org.primefaces.component.bubblechart;
+	exports org.primefaces.component.donutchart;
+	exports org.primefaces.component.linechart;
+	exports org.primefaces.component.scatterchart;
+	exports org.primefaces.component.piechart;
+	exports org.primefaces.component.polarareachart;
+	exports org.primefaces.component.radarchart;
+	exports org.primefaces.component.datepicker;
 
 	exports org.primefaces.component.organigram;
 	exports org.primefaces.component.organigramnode;
@@ -258,4 +277,5 @@ open module primefaces {
 	exports org.primefaces.webapp;
 	exports org.primefaces.webapp.filter;
 
+	uses org.primefaces.component.fileupload.FileUploadDecoder;
 }

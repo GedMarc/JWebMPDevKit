@@ -71,6 +71,11 @@
 
         <dependency>
             <groupId>com.guicedee.services</groupId>
+            <artifactId>sl4j</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
             <artifactId>guava</artifactId>
         </dependency>
         <dependency>

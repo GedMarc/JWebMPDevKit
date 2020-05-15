@@ -49,6 +49,7 @@
                 <module>guava</module>
                 <module>javassist</module>
                 <module>json</module>
+                <module>sl4j</module>
                 <module>log4j2</module>
                 <module>mssql-jdbc</module>
             </modules>

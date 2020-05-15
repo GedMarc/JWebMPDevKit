@@ -1,4 +1,4 @@
-open module org.apache.xmlbeans {
+module org.apache.xmlbeans {
 	requires transitive java.xml;
 	requires static jdk.javadoc;
 
