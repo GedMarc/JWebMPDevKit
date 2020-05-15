@@ -20,13 +20,16 @@ open module primefaces {
 	requires static itext;
 	requires java.xml.bind;
 	requires static barcode4j.light;
-	requires static rome;
+	requires static com.rometools.rome;
 	requires static org.apache.xmlbeans;
 	requires static encoder;
 	requires static owasp.java.html.sanitizer;
 	requires static esapi;
+	requires org.json;
+	requires static qrgen;
 
 	requires org.apache.commons.lang3;
+	requires static core;
 
 	exports org.primefaces;
 	exports org.primefaces.application;
@@ -204,7 +207,6 @@ open module primefaces {
 	exports org.primefaces.expression;
 	exports org.primefaces.expression.impl;
 	exports org.primefaces.facelets;
-	exports org.primefaces.json;
 	exports org.primefaces.metadata;
 	exports org.primefaces.metadata.transformer;
 	exports org.primefaces.metadata.transformer.impl;
@@ -245,8 +247,8 @@ open module primefaces {
 
 
 	exports org.primefaces.component.organigram;
+	exports org.primefaces.component.organigramnode;
 	exports org.primefaces.event.organigram;
-
 
 	exports org.primefaces.renderkit;
 	exports org.primefaces.util;
@@ -256,7 +258,4 @@ open module primefaces {
 	exports org.primefaces.webapp;
 	exports org.primefaces.webapp.filter;
 
-
-	uses org.primefaces.virusscan.VirusScanner;
-	provides org.primefaces.virusscan.VirusScanner with org.primefaces.virusscan.impl.VirusTotalVirusScanner;
 }

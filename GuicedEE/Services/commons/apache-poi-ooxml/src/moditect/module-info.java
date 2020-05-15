@@ -14,4 +14,5 @@ open module org.apache.poi.ooxml {
 	exports org.apache.poi.xwpf.usermodel;
 
 	requires org.apache.commons.compress;
+	exports org.apache.poi.xssf.streaming;
 }

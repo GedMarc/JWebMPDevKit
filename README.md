@@ -5,13 +5,14 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
-V1.0.9.3 - 15 May 2020
+V1.0.9.5 - 15 May 2020
 * Swagger UI to 3.25.3
 * Woodstox to 6.2.1
 * Log4j2 to 2.13.3
 * Stax2 to 4.2.1
 * Guiced WS Updates for WSSJ
 * Hibernate validator to 6.1.5.Final
+* Various fixes to base libraries
 
 V1.0.8.19 - 10th May 2020
 * fix: upgrade org.owasp.encoder:encoder from 1.2.1 to 1.2.2

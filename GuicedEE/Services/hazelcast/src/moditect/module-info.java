@@ -54,6 +54,7 @@ module com.hazelcast.all {
 	exports com.hazelcast.topic;
 	exports com.hazelcast.core.server;
 	exports com.hazelcast.cluster;
+	exports com.hazelcast.map;
 
 	exports com.hazelcast.instance;
 }

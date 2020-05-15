@@ -11,14 +11,17 @@ module org.apache.poi {
 	exports org.apache.poi.hssf.usermodel;
 	exports org.apache.poi.ss.usermodel;
 	exports org.apache.poi.ss.formula;
+	exports org.apache.poi.hssf.util;
+	exports org.apache.poi.ss.util;
 
-	exports org.apache.poi to org.apache.poi.ooxml;
-	exports org.apache.poi.common.usermodel to org.apache.poi.ooxml;
-	exports org.apache.poi.common.usermodel.fonts to org.apache.poi.ooxml;
-	exports org.apache.poi.util to org.apache.poi.ooxml;
-	exports org.apache.poi.poifs.filesystem to org.apache.poi.ooxml;
-	exports org.apache.poi.ss to org.apache.poi.ooxml;
-	exports org.apache.poi.ss.util to org.apache.poi.ooxml;
-	exports org.apache.poi.ss.formula.udf to org.apache.poi.ooxml;
-	exports org.apache.poi.ss.usermodel.charts to org.apache.poi.ooxml;
+	exports org.apache.poi.common;
+
+	exports org.apache.poi;
+	exports org.apache.poi.common.usermodel;
+	exports org.apache.poi.common.usermodel.fonts;
+	exports org.apache.poi.util;
+	exports org.apache.poi.poifs.filesystem;
+	exports org.apache.poi.ss;
+	exports org.apache.poi.ss.formula.udf;
+	exports org.apache.poi.ss.usermodel.charts;
 }
