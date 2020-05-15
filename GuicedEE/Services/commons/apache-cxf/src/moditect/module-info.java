@@ -40,7 +40,7 @@ module org.apache.cxf {
 	exports org.apache.cxf.ws.security.wss4j;
 	exports org.apache.wss4j.dom.handler;
 	exports org.apache.wss4j.common.ext;
-	
+
 
 	opens org.apache.cxf.rs.security.oauth2.services;
 	opens org.apache.cxf.rs.security.oauth.services;
@@ -77,5 +77,6 @@ module org.apache.cxf {
 
 	opens org.glassfish.jersey.server.wadl.internal;
 
+	provides javax.xml.ws.spi.Provider with org.apache.cxf.jaxws.spi.ProviderImpl;
 
 }

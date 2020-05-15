@@ -18,7 +18,8 @@
 
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"> <modelVersion>4.0.0</modelVersion>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>com.guicedee.services</groupId>
@@ -30,7 +31,7 @@
 
     <name>javax.el</name>
     <description>
-        Jakarta Expression Language provides a specification document, API, reference implementation and TCK 
+        Jakarta Expression Language provides a specification document, API, reference implementation and TCK
         that describes an expression language for Java applications.
     </description>
     <url>https://projects.eclipse.org/projects/ee4j.el</url>
@@ -47,7 +48,7 @@
         <findbugs.exclude>${project.basedir}/exclude.xml</findbugs.exclude>
         <findbugs.threshold>High</findbugs.threshold>
     </properties>
-    
+
     <developers>
         <developer>
             <id>yaminikb</id>
@@ -80,7 +81,7 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
-    
+
     <mailingLists>
         <mailingList>
             <name>Jakarta Expression Language mailing list</name>
@@ -90,7 +91,7 @@
             <archive>https://dev.eclipse.org/mhonarc/lists/el-dev</archive>
         </mailingList>
     </mailingLists>
-    
+
     <scm>
         <connection>scm:git:https://github.com/eclipse-ee4j/el-ri.git</connection>
         <developerConnection>
@@ -99,12 +100,69 @@
         <url>https://github.com/eclipse-ee4j/el-ri</url>
         <tag>HEAD</tag>
     </scm>
-    
+
     <dependencies>
+        <dependency>
+            <groupId>jakarta.el</groupId>
+            <artifactId>jakarta.el-api</artifactId>
+            <version>3.0.3</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>jakarta.el</artifactId>
+            <version>3.0.3</version>
+            <optional>true</optional>
+        </dependency>
 
     </dependencies>
 
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>jakarta.el:*</include>
+                                    <include>org.glassfish:*</include>
+                                </includes>
+                            </artifactSet>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.moditect</groupId>
+                <artifactId>moditect-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-module-infos</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>add-module-info</goal>
+                        </goals>
+                        <configuration>
+                            <overwriteExistingFiles>true</overwriteExistingFiles>
+                            <module>
+                                <moduleInfoFile>
+                                    src/moditect/module-info.java
+                                </moduleInfoFile>
+                            </module>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
         <resources>
             <resource>
                 <directory>api/src/main/java</directory>

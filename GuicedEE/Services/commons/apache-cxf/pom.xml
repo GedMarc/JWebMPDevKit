@@ -38,8 +38,8 @@
         <jetty.version>9.4.28.v20200408</jetty.version>
 
         <stax.version>1.8.3</stax.version>
-        <stax2.api.version>4.2</stax2.api.version>
-        <woodstox.version>6.2.0</woodstox.version>
+        <stax2.api.version>4.2.1</stax2.api.version>
+        <woodstox.version>6.2.1</woodstox.version>
         <wsdl4j.version>1.6.3</wsdl4j.version>
         <opensaml.openws.version>1.5.4</opensaml.openws.version>
         <neethi.version>3.1.1</neethi.version>
@@ -619,6 +619,11 @@
                             <include>com.sun.xml.stream.buffer:*</include>
                             <include>org.jvnet.mimepull:*</include>
                             <include>com.sun.xml.messaging.saaj:*</include>
+                            <include>com.sun.xml.ws:*</include>
+                            <include>org.bouncycastle:*:*</include>
+                            <include>org.opensaml:*</include>
+                            <include>org.cryptacular:*</include>
+                            <include>net.shibboleth.utilities:*</include>
                         </includes>
                     </artifactSet>
                     <filters>
@@ -782,10 +787,22 @@
         <dependencies>
 
             <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk16</artifactId>
+                <version>1.46</version>
+                <optional>true</optional>
+            </dependency>
+
+
+            <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-transports-http-undertow</artifactId>
                 <version>${cxf.rt.version}</version>
                 <exclusions>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
                     <exclusion>
                         <groupId>org.apache.aries.blueprint</groupId>
                         <artifactId>org.apache.aries.blueprint.core</artifactId>
@@ -879,6 +896,10 @@
                 <version>${wss4j.policy.version}</version>
                 <optional>true</optional>
                 <exclusions>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
                     <exclusion>
                         <groupId>org.apache.geronimo.specs</groupId>
                         <artifactId>geronimo-jta_1.1_spec</artifactId>
@@ -1112,6 +1133,10 @@
                 <version>${wss4j.policy.version}</version>
                 <optional>true</optional>
                 <exclusions>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
                     <exclusion>
                         <groupId>org.apache.geronimo.specs</groupId>
                         <artifactId>geronimo-jta_1.1_spec</artifactId>
@@ -1350,6 +1375,10 @@
                 <optional>true</optional>
                 <exclusions>
                     <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
+                    <exclusion>
                         <groupId>org.apache.geronimo.specs</groupId>
                         <artifactId>geronimo-jta_1.1_spec</artifactId>
                     </exclusion>
@@ -1586,6 +1615,10 @@
                 <version>${wss4j.imp.version}</version>
                 <optional>true</optional>
                 <exclusions>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
                     <exclusion>
                         <groupId>org.apache.geronimo.specs</groupId>
                         <artifactId>geronimo-jta_1.1_spec</artifactId>
@@ -1824,6 +1857,10 @@
                 <optional>true</optional>
                 <exclusions>
                     <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
+                    <exclusion>
                         <groupId>org.apache.geronimo.specs</groupId>
                         <artifactId>geronimo-jta_1.1_spec</artifactId>
                     </exclusion>
@@ -2060,6 +2097,10 @@
                 <version>${wss4j.imp.version}</version>
                 <optional>true</optional>
                 <exclusions>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
                     <exclusion>
                         <groupId>org.apache.geronimo.specs</groupId>
                         <artifactId>geronimo-jta_1.1_spec</artifactId>
@@ -2298,6 +2339,10 @@
                 <version>${wss4j.policy.version}</version>
                 <optional>true</optional>
                 <exclusions>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
                     <exclusion>
                         <groupId>org.apache.geronimo.specs</groupId>
                         <artifactId>geronimo-jta_1.1_spec</artifactId>
@@ -2560,6 +2605,10 @@
                 <optional>true</optional>
                 <exclusions>
                     <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
+                    <exclusion>
                         <artifactId>commons-lang</artifactId>
                         <groupId>commons-lang</groupId>
                     </exclusion>
@@ -2608,6 +2657,10 @@
                 <version>${wss4j.policy.version}</version>
                 <optional>true</optional>
                 <exclusions>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
                     <exclusion>
                         <groupId>org.apache.geronimo.specs</groupId>
                         <artifactId>geronimo-jta_1.1_spec</artifactId>
@@ -2845,6 +2898,10 @@
                 <version>${wss4j.policy.version}</version>
                 <optional>true</optional>
                 <exclusions>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
                     <exclusion>
                         <groupId>org.apache.geronimo.specs</groupId>
                         <artifactId>geronimo-jta_1.1_spec</artifactId>
@@ -3084,6 +3141,10 @@
                 <optional>true</optional>
                 <exclusions>
                     <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
+                    <exclusion>
                         <groupId>org.apache.geronimo.specs</groupId>
                         <artifactId>geronimo-jta_1.1_spec</artifactId>
                     </exclusion>
@@ -3321,6 +3382,10 @@
                 <version>${cxf.rt.version}</version>
                 <exclusions>
                     <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
+                    <exclusion>
                         <artifactId>jakarta.activation-api</artifactId>
                         <groupId>jakarta.activation</groupId>
                     </exclusion>
@@ -3336,6 +3401,10 @@
                 <artifactId>cxf-rt-frontend-jaxws</artifactId>
                 <version>${cxf.rt.version}</version>
                 <exclusions>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
                     <exclusion>
                         <groupId>org.apache.geronimo.specs</groupId>
                         <artifactId>geronimo-jta_1.1_spec</artifactId>
@@ -3368,6 +3437,10 @@
                 <version>${cxf.rt.version}</version>
                 <exclusions>
                     <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
+                    <exclusion>
                         <groupId>org.apache.geronimo.specs</groupId>
                         <artifactId>geronimo-jta_1.1_spec</artifactId>
                     </exclusion>
@@ -3396,6 +3469,10 @@
                 <artifactId>cxf-rt-transports-http-jetty</artifactId>
                 <version>${cxf.rt.version}</version>
                 <exclusions>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk15on</artifactId>
+                    </exclusion>
                     <exclusion>
                         <groupId>org.apache.geronimo.specs</groupId>
                         <artifactId>geronimo-jta_1.1_spec</artifactId>
