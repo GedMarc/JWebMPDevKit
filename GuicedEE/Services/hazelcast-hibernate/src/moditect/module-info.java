@@ -1,0 +1,20 @@
+module com.hazelcast.hibernate {
+	requires java.logging;
+	requires com.hazelcast.all;
+
+	requires transitive cache.api;
+	requires java.transaction.xa;
+	requires static java.management;
+
+	requires transitive java.xml;
+	requires static org.hibernate.orm.core;
+
+	exports com.hazelcast.hibernate to org.hibernate.orm.core;
+
+	provides com.hazelcast.nio.serialization.SerializerHook with com.hazelcast.hibernate.serialization.Hibernate5CacheEntrySerializerHook
+			;
+	provides com.hazelcast.internal.serialization.DataSerializerHook with com.hazelcast.hibernate.serialization.HibernateDataSerializerHook
+			;
+
+	opens com.hazelcast.hibernate.serialization to com.hazelcast.all;
+}

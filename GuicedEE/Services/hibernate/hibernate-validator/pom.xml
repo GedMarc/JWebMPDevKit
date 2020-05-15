@@ -16,12 +16,6 @@
     <dependencies>
         <dependency>
             <groupId>com.guicedee.services</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <type>jar</type>
-        </dependency>
-
-        <dependency>
-            <groupId>com.guicedee.services</groupId>
             <artifactId>jakarta.el</artifactId>
             <type>jar</type>
         </dependency>

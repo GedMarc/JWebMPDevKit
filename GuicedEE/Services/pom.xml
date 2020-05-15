@@ -30,6 +30,7 @@
             <id>enable-hazelcast</id>
             <modules>
                 <module>hazelcast</module>
+                <module>hazelcast-hibernate</module>
             </modules>
         </profile>
 

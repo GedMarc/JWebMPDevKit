@@ -23,8 +23,6 @@ module com.hazelcast.all {
 	uses com.hazelcast.internal.serialization.PortableHook;
 
 	uses com.hazelcast.nio.serialization.SerializerHook;
-	provides com.hazelcast.nio.serialization.SerializerHook with com.hazelcast.hibernate.serialization.Hibernate5CacheEntrySerializerHook
-			;
 
 	uses com.hazelcast.spi.discovery.DiscoveryStrategyFactory;
 	provides com.hazelcast.spi.discovery.DiscoveryStrategyFactory with com.hazelcast.spi.discovery.multicast.MulticastDiscoveryStrategyFactory
@@ -44,8 +42,6 @@ module com.hazelcast.all {
 	exports com.hazelcast.client;
 	exports com.hazelcast.collection;
 
-	exports com.hazelcast.hibernate to org.hibernate.orm.core;
-
 	exports com.hazelcast.config;
 	exports com.hazelcast.config.matcher;
 	exports com.hazelcast.config.properties;
@@ -55,6 +51,12 @@ module com.hazelcast.all {
 	exports com.hazelcast.core.server;
 	exports com.hazelcast.cluster;
 	exports com.hazelcast.map;
+
+	exports com.hazelcast.internal.serialization to com.hazelcast.hibernate;
+	exports com.hazelcast.nio.serialization to com.hazelcast.hibernate;
+	exports com.hazelcast.internal.serialization.impl to com.hazelcast.hibernate;
+	exports com.hazelcast.logging to com.hazelcast.hibernate;
+	exports com.hazelcast.internal.util to com.hazelcast.hibernate;
 
 	exports com.hazelcast.instance;
 }

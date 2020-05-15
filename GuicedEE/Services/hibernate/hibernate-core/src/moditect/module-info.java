@@ -150,35 +150,35 @@ module org.hibernate.orm.core {
 	exports org.hibernate.engine.jdbc.spi;
 	//exports org.hibernate.engine.jdbc.internal;
 	exports org.hibernate.engine.jdbc.batch.spi;
-//	exports org.hibernate.engine.jdbc.batch.internal;
+	//	exports org.hibernate.engine.jdbc.batch.internal;
 	exports org.hibernate.engine.jdbc.connections.spi;
 	//exports org.hibernate.engine.jdbc.connections.internal;
 	exports org.hibernate.engine.jdbc.cursor.spi;
-//	exports org.hibernate.engine.jdbc.cursor.internal;
+	//	exports org.hibernate.engine.jdbc.cursor.internal;
 	exports org.hibernate.engine.jdbc.dialect.spi;
-//	exports org.hibernate.engine.jdbc.dialect.internal;
+	//	exports org.hibernate.engine.jdbc.dialect.internal;
 	exports org.hibernate.engine.jdbc.env.spi;
-//	exports org.hibernate.engine.jdbc.env.internal;
+	//	exports org.hibernate.engine.jdbc.env.internal;
 	exports org.hibernate.engine.jndi.spi;
-//	exports org.hibernate.engine.jndi.internal;
-//	exports org.hibernate.engine.loading.internal;
+	//	exports org.hibernate.engine.jndi.internal;
+	//	exports org.hibernate.engine.loading.internal;
 	exports org.hibernate.engine.profile;
 	exports org.hibernate.engine.query.spi;
-//	exports org.hibernate.engine.query.internal;
+	//	exports org.hibernate.engine.query.internal;
 	exports org.hibernate.engine.transaction.spi;
-//	exports org.hibernate.engine.transaction.internal.jta;
+	//	exports org.hibernate.engine.transaction.internal.jta;
 	exports org.hibernate.engine.transaction.jta.platform.spi;
 	exports org.hibernate.engine.transaction.jta.platform.internal;
 	exports org.hibernate.event.spi;
-//	exports org.hibernate.event.internal;
+	//	exports org.hibernate.event.internal;
 	exports org.hibernate.event.service.spi;
-//	exports org.hibernate.event.service.internal;
+	//	exports org.hibernate.event.service.internal;
 	exports org.hibernate.exception;
 	exports org.hibernate.exception.spi;
-//	exports org.hibernate.exception.internal;
+	//	exports org.hibernate.exception.internal;
 	exports org.hibernate.graph.spi;
 	exports org.hibernate.hql.spi;
-//	exports org.hibernate.hql.internal;
+	//	exports org.hibernate.hql.internal;
 
 	//exports org.hibernate.hql.internal.classic;
 	//exports org.hibernate.hql.internal.ast.exec;
@@ -205,13 +205,13 @@ module org.hibernate.orm.core {
 	//exports org.hibernate.jpa.internal.enhance;
 	//exports org.hibernate.jpa.internal.util;
 	exports org.hibernate.jpa.boot.spi;
-//	exports org.hibernate.jpa.boot.internal;
+	//	exports org.hibernate.jpa.boot.internal;
 
 	//exports org.hibernate.loader;
 	//exports org.hibernate.loader.hql;
 	exports org.hibernate.loader.spi;
 	//exports org.hibernate.loader.internal;
-//	exports org.hibernate.loader.collection;
+	//	exports org.hibernate.loader.collection;
 	//exports org.hibernate.loader.collection.plan;
 	//exports org.hibernate.loader.criteria;
 	//exports org.hibernate.loader.custom;
@@ -264,7 +264,7 @@ module org.hibernate.orm.core {
 	exports org.hibernate.resource.transaction.backend.jdbc.spi;
 	//exports org.hibernate.resource.transaction.backend.jdbc.internal;
 	//exports org.hibernate.resource.transaction.backend.jta.internal.synchronization;
-//	exports org.hibernate.resource.transaction.backend.jta.internal;
+	//	exports org.hibernate.resource.transaction.backend.jta.internal;
 	//exports org.hibernate.resource.jdbc.internal;
 	exports org.hibernate.resource.jdbc.spi;
 	exports org.hibernate.resource.jdbc;
@@ -276,7 +276,7 @@ module org.hibernate.orm.core {
 	exports org.hibernate.sql;
 	exports org.hibernate.sql.ordering.antlr;
 	exports org.hibernate.stat;
-//	exports org.hibernate.stat.internal;
+	//	exports org.hibernate.stat.internal;
 /*	exports org.hibernate.stat.spi;
 	exports org.hibernate.tool.enhance;
 	exports org.hibernate.tool.hbm2ddl;
@@ -292,7 +292,7 @@ module org.hibernate.orm.core {
 	exports org.hibernate.tuple.component;
 	exports org.hibernate.tuple.entity;*/
 	exports org.hibernate.type;
-//	exports org.hibernate.type.internal;
+	//	exports org.hibernate.type.internal;
 	exports org.hibernate.type.spi;
 	exports org.hibernate.type.descriptor;
 	exports org.hibernate.type.descriptor.spi;
@@ -308,7 +308,7 @@ module org.hibernate.orm.core {
 	opens org.hibernate.xsd.cfg;
 	opens org.hibernate.xsd.mapping;
 
-	 exports org.hibernate.internal.util.config to com.hazelcast.all;
+	exports org.hibernate.internal.util.config to com.hazelcast.all, com.hazelcast.hibernate;
 
 
 	//exports org.hibernate.cache.internal;
@@ -447,7 +447,6 @@ module org.hibernate.orm.core {
 	uses org.hibernate.bytecode.enhance.spi.interceptor.BytecodeLazyAttributeInterceptor;
 	uses org.hibernate.bytecode.enhance.spi.interceptor.LazyFetchGroupMetadata;
 	uses org.hibernate.bytecode.enhance.spi.interceptor.SessionAssociableInterceptor;
-
 
 
 	uses org.hibernate.cache.spi.CacheImplementor;

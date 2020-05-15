@@ -385,6 +385,13 @@
 
             <dependency>
                 <groupId>com.guicedee.services</groupId>
+                <artifactId>hazelcast-hibernate</artifactId>
+
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.guicedee.services</groupId>
                 <artifactId>hazelcast-client</artifactId>
 
                 <version>${project.version}</version>

@@ -35,8 +35,8 @@
     </parent>
 
 
-    <artifactId>hazelcast-all</artifactId>
-    <name>hazelcast-all</name>
+    <artifactId>hazelcast-hibernate</artifactId>
+    <name>hazelcast-hibernate</name>
 
 
     <description>Kubernetes Service Discovery for Hazelcast Discovery SPI</description>
@@ -94,16 +94,23 @@
 
         <dependency>
             <groupId>com.guicedee.services</groupId>
+            <artifactId>hazelcast-all</artifactId>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
             <artifactId>jakarta.activation</artifactId>
             <type>jar</type>
         </dependency>
 
         <dependency>
             <groupId>com.hazelcast</groupId>
-            <artifactId>hazelcast</artifactId>
-            <version>${hazelcast.version}</version>
+            <artifactId>hazelcast-hibernate53</artifactId>
+            <version>${hazelcast.hibernate.version}</version>
             <optional>true</optional>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -122,7 +129,7 @@
                         <configuration>
                             <artifactSet>
                                 <includes>
-                                    <include>com.hazelcast:hazelcast:*</include>
+                                    <include>com.hazelcast:hazelcast-hibernate53:*</include>
                                 </includes>
                             </artifactSet>
                         </configuration>
