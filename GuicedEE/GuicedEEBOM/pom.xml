@@ -359,6 +359,12 @@
 
             <dependency>
                 <groupId>com.guicedee.persistence</groupId>
+                <artifactId>guiced-hazelcast-hibernate</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.guicedee.persistence</groupId>
                 <artifactId>guiced-hazelcast-client</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -369,7 +375,6 @@
 
                 <version>${project.version}</version>
             </dependency>
-
 
             <dependency>
                 <groupId>com.guicedee.services</groupId>

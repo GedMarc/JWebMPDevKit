@@ -38,7 +38,7 @@ open module javax.faces {
 	requires javax.servlet.jsp;
 	requires javax.inject;
 	requires jakarta.enterprise.cdi;
-	requires java.persistence;
+	requires static java.persistence;
 	requires java.validation;
 	requires javax.ejb;
 	requires java.annotation;
@@ -49,9 +49,9 @@ open module javax.faces {
 	requires javax.servlet.jsp.api;
 
 	provides javax.enterprise.inject.spi.Extension with com.sun.faces.application.view.ViewScopeExtension,
-			com.sun.faces.flow.FlowCDIExtension,
-			com.sun.faces.flow.FlowDiscoveryCDIExtension,
-			com.sun.faces.cdi.CdiExtension;
+			                                               com.sun.faces.flow.FlowCDIExtension,
+			                                               com.sun.faces.flow.FlowDiscoveryCDIExtension,
+			                                               com.sun.faces.cdi.CdiExtension;
 
 	provides javax.servlet.ServletContainerInitializer with com.sun.faces.config.FacesInitializer;
 
@@ -65,6 +65,6 @@ open module javax.faces {
 	uses com.sun.faces.spi.InjectionProvider;
 	uses com.sun.faces.spi.SerializationProvider;
 	uses javax.faces.application.ApplicationConfigurationPopulator;
-	
+
 
 }

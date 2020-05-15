@@ -1,0 +1,100 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.guicedee</groupId>
+        <artifactId>guicedee-projects</artifactId>
+        <version>0.0.0_0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.guicedee.persistence</groupId>
+    <artifactId>guiced-hazelcast-hibernate</artifactId>
+    <packaging>jar</packaging>
+
+    <name>Guiced Hazelcast-Hibernate</name>
+    <description>An integration library for Hazelcast and Guice utilizing a GuiceContext Injector.
+    </description>
+    <url>https://github.com/GedMarc/GuicedHazelcastHibernate</url>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.guicedee.persistence</groupId>
+            <artifactId>guiced-persistence-btm</artifactId>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>hibernate-jcache</artifactId>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.persistence</groupId>
+            <artifactId>guiced-hazelcast</artifactId>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>cache-annotations-ri-guice</artifactId>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>hazelcast-all</artifactId>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>commons-io</artifactId>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.persistence</groupId>
+            <artifactId>guiced-persistence-hibernateproperties-reader</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.persistence</groupId>
+            <artifactId>guiced-persistence</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.guicedee</groupId>
+            <artifactId>guiced-injection</artifactId>
+        </dependency>
+
+
+    </dependencies>
+
+    <scm>
+        <url>https://github.com/GedMarc?tab=repositories</url>
+        <developerConnection>Marc Magon</developerConnection>
+    </scm>
+
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/GedMarc/GuicedHazelcast/issues</url>
+    </issueManagement>
+
+    <ciManagement>
+        <system>TeamCity</system>
+        <url>http://jwebmp.com/teamcity</url>
+    </ciManagement>
+</project>

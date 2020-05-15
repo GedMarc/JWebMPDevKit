@@ -1,0 +1,13 @@
+<hazelcast-client xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://www.hazelcast.com/schema/client-config
+                               http://www.hazelcast.com/schema/client-config/hazelcast-client-config-4.0.xsd"
+                  xmlns="http://www.hazelcast.com/schema/client-config">
+
+    <cluster-name>${group.name}</cluster-name>
+
+    <network>
+        <cluster-members>
+            <address>${client.address}</address>
+        </cluster-members>
+    </network>
+</hazelcast-client>

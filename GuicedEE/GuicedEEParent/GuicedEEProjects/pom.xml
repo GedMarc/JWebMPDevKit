@@ -25,6 +25,7 @@
             <id>enable-guiced-hazelcast</id>
             <modules>
                 <module>GuicedHazelcast</module>
+				<module>GuicedHazelcast-Hibernate</module>
             </modules>
         </profile>
 
