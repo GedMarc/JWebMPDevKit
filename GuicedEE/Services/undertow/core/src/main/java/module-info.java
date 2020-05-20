@@ -9,5 +9,5 @@ module undertow.core {
 	requires static jdk.unsupported;
 	requires static java.naming;
 	requires static java.sql;
-	requires java.compiler;
+	requires static java.compiler;
 }

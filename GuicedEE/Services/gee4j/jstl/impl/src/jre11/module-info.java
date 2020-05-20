@@ -7,7 +7,7 @@ module javax.servlet.jsp.jstl {
 	requires static java.desktop;
 	requires javax.el;
 	requires javax.servlet.api;
-	requires java.naming;
+	requires static java.naming;
 	requires jdk.xml.dom;
 
 	exports org.apache.taglibs.standard;

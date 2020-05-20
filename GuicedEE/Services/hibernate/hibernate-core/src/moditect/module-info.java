@@ -23,8 +23,8 @@ module org.hibernate.orm.core {
 	requires transitive java.validation;
 	requires transitive javax.inject;
 
-	requires jdk.unsupported;
-	requires java.instrument;
+	requires static jdk.unsupported;
+	requires static java.instrument;
 
 	requires static ant;
 	requires static javax.security.jacc.api;

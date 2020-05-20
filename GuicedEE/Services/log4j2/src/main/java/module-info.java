@@ -1,7 +1,7 @@
 module org.apache.logging.log4j.core {
 	//annotation processing
 	requires static java.compiler;
-	requires java.desktop;
+	requires static java.desktop;
 	requires static java.scripting;
 	requires static java.management;
 	requires static java.sql;

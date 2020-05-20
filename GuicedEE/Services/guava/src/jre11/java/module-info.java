@@ -4,5 +4,5 @@ module com.google.common {
 	requires static java.compiler;
 
 	requires jakarta.activation;
-	requires jdk.unsupported;
+	requires static jdk.unsupported;
 }

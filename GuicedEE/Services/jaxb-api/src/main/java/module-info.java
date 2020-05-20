@@ -15,13 +15,13 @@
  * References in this document to JAXB refer to the Jakarta XML Binding unless otherwise noted.
  */
 module java.xml.bind {
-    requires transitive jakarta.activation;
-    requires transitive java.xml;
-    requires java.logging;
-    requires java.desktop;
-    requires java.validation;
+	requires transitive jakarta.activation;
+	requires transitive java.xml;
+	requires java.logging;
+	requires static java.desktop;
+	requires java.validation;
 
-    requires java.compiler;
+	requires static java.compiler;
 
-    requires org.codehaus.stax2;
+	requires org.codehaus.stax2;
 }

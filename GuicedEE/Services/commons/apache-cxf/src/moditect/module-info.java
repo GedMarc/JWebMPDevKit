@@ -12,7 +12,7 @@ module org.apache.cxf {
 	requires static java.desktop;
 	requires static java.validation;
 	requires java.jws;
-	requires java.rmi;
+	requires static java.rmi;
 	requires static org.slf4j;
 
 	requires java.ws.rs;

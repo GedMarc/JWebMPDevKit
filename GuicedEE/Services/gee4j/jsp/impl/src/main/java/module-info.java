@@ -1,4 +1,4 @@
-open module javax.servlet.jsp {
+module javax.servlet.jsp {
 
 	exports org.apache.jasper;
 	//exports org.apache.jasper.util;
@@ -13,13 +13,12 @@ open module javax.servlet.jsp {
 	exports org.apache.jasper.xmlparser;
 
 
-
 	requires java.logging;
 	requires java.xml;
 	requires javax.servlet.jsp.api;
-	requires java.desktop;
+	requires static java.desktop;
 	requires javax.el;
 	requires javax.servlet.api;
-	requires java.compiler;
+	requires static java.compiler;
 
 }

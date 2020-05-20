@@ -1,4 +1,4 @@
-open module org.apache.poi.ooxml {
+module org.apache.poi.ooxml {
 	requires org.apache.poi;
 	requires static org.apache.xmlbeans;
 

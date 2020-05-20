@@ -1,4 +1,4 @@
-open module javax.faces {
+module javax.faces {
 
 	exports javax.faces.model;
 	exports javax.faces.annotation;
@@ -33,8 +33,8 @@ open module javax.faces {
 	//requires javax.servlet.jsp.jstl;
 	requires javax.servlet.jsp.jstl.api;
 	requires java.sql;
-	requires java.naming;
-	requires java.desktop;
+	requires static java.naming;
+	requires static java.desktop;
 	requires javax.servlet.jsp;
 	requires javax.inject;
 	requires jakarta.enterprise.cdi;

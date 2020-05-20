@@ -1,7 +1,7 @@
-open module javax.servlet.jsp.api {
+module javax.servlet.jsp.api {
 	requires javax.el;
 	requires javax.servlet.api;
-	requires java.desktop;
+	requires static java.desktop;
 
 	exports javax.servlet.jsp;
 	exports javax.servlet.jsp.el;

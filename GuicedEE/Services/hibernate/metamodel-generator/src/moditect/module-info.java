@@ -1,11 +1,11 @@
 module org.hibernate.orm.jpamodelgen {
 
-	requires java.compiler;
+	requires static java.compiler;
 	requires java.xml;
 	requires java.sql;
 	requires java.xml.bind;
 
-	requires java.desktop;
+	requires static java.desktop;
 
 	provides javax.annotation.processing.Processor with org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor;
 }

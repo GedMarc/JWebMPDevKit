@@ -1,4 +1,4 @@
-open module javassist {
+module javassist {
 	requires static java.instrument;
 	requires static java.management;
 	requires static jdk.attach;
