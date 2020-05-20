@@ -9,7 +9,7 @@ module org.jboss.logging {
 	requires static java.desktop;
 	requires java.json;
 
-	requires static java.compiler;
+	requires java.compiler;
 
 	exports org.jboss.logmanager;
 	exports org.jboss.logmanager.config;

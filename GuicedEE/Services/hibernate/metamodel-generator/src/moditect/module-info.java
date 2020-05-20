@@ -1,6 +1,6 @@
 module org.hibernate.orm.jpamodelgen {
 
-	requires static java.compiler;
+	requires java.compiler;
 	requires java.xml;
 	requires java.sql;
 	requires java.xml.bind;
