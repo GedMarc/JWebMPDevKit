@@ -550,13 +550,6 @@
             </dependency>
 
             <dependency>
-                <artifactId>jackson-datatype-jsr310</artifactId>
-                <groupId>com.fasterxml.jackson.datatype</groupId>
-                <version>${jackson.version}</version>
-                <type>jar</type>
-            </dependency>
-
-            <dependency>
                 <artifactId>jackson-dataformat-yaml</artifactId>
                 <groupId>com.fasterxml.jackson.dataformat</groupId>
                 <version>${jackson.version}</version>

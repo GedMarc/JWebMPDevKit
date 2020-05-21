@@ -89,13 +89,6 @@
             </dependency>
 
             <dependency>
-                <artifactId>jackson-datatype-jsr310</artifactId>
-                <groupId>com.fasterxml.jackson.datatype</groupId>
-                <version>${jackson.version}</version>
-                <type>jar</type>
-            </dependency>
-
-            <dependency>
                 <groupId>com.fasterxml.jackson.jaxrs</groupId>
                 <artifactId>jackson-jaxrs-json-provider</artifactId>
                 <version>${jackson.version}</version>
