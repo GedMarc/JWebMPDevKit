@@ -16,5 +16,6 @@ module com.hazelcast.hibernate {
 	provides com.hazelcast.internal.serialization.DataSerializerHook with com.hazelcast.hibernate.serialization.HibernateDataSerializerHook
 			;
 
-	opens com.hazelcast.hibernate.serialization to com.hazelcast.all;
+	opens com.hazelcast.hibernate.serialization;
+
 }

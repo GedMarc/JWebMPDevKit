@@ -25,6 +25,9 @@ module org.apache.cxf {
 	exports org.apache.cxf.message;
 
 	exports org.apache.cxf.service;
+	exports org.apache.cxf.binding.soap.saaj;
+	exports org.apache.wss4j.common;
+	exports org.apache.cxf.endpoint;
 	exports org.apache.cxf.service.invoker;
 	exports org.apache.cxf.jaxrs.ext;
 	exports org.apache.cxf.jaxrs;

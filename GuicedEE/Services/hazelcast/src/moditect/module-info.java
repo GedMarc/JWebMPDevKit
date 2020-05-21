@@ -52,9 +52,9 @@ module com.hazelcast.all {
 	exports com.hazelcast.cluster;
 	exports com.hazelcast.map;
 
-	exports com.hazelcast.internal.serialization to com.hazelcast.hibernate;
-	exports com.hazelcast.nio.serialization to com.hazelcast.hibernate;
-	exports com.hazelcast.internal.serialization.impl to com.hazelcast.hibernate;
+	exports com.hazelcast.internal.serialization;
+	exports com.hazelcast.internal.serialization.impl;
+	exports com.hazelcast.nio.serialization;
 	exports com.hazelcast.logging to com.hazelcast.hibernate;
 	exports com.hazelcast.internal.util to com.hazelcast.hibernate;
 
