@@ -671,6 +671,9 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>${maven.javadoc.version}</version>
+                    <goals>
+                        <goal>aggregate-jar</goal>
+                    </goals>
                     <configuration>
                         <detectJavaApiLink>false</detectJavaApiLink>
                         <offlineLinks>
@@ -686,14 +689,6 @@
                             <additionalOption>-Xdoclint:none</additionalOption>
                         </additionalOptions>
                     </configuration>
-                    <executions>
-                        <execution>
-                            <id>attach-javadoc</id>
-                            <goals>
-                                <goal>aggregate-jar</goal>
-                            </goals>
-                        </execution>
-                    </executions>
                 </plugin>
 
                 <plugin>
