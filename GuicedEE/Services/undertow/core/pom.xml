@@ -109,6 +109,16 @@
                                     </excludes>
                                 </filter>
                             </filters>
+                            <relocations>
+                                <relocation>
+                                    <pattern>META-INF.versions.9.org</pattern>
+                                    <shadedPattern>org</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>META-INF.versions.11.org</pattern>
+                                    <shadedPattern>org</shadedPattern>
+                                </relocation>
+                            </relocations>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                             </transformers>
