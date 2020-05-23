@@ -24,6 +24,7 @@ module org.apache.cxf {
 	exports org.apache.cxf.interceptor;
 	exports org.apache.cxf.message;
 
+	exports org.apache.cxf.jaxws;
 	exports org.apache.cxf.service;
 	exports org.apache.cxf.binding.soap.saaj;
 	exports org.apache.wss4j.common;
