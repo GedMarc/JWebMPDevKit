@@ -9,12 +9,13 @@ module undertow.websockets.jsr {
 	requires undertow.servlet;
 
 	requires undertow.core;
-	requires xnio.api;
-	requires javax.servlet.api;
+
+	requires java.servlet;
+
 	requires org.jboss.logging;
 	requires java.annotation;
 
-	opens io.undertow.websockets.jsr to org.jboss.logging,undertow.servlet;
+	opens io.undertow.websockets.jsr to org.jboss.logging, undertow.servlet;
 
 	uses io.undertow.websockets.jsr.WebsocketClientSslProvider;
 

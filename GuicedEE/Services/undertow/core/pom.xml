@@ -17,8 +17,8 @@
   ~ limitations under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -35,7 +35,7 @@
     <dependencies>
         <dependency>
             <groupId>com.guicedee.services</groupId>
-            <artifactId>xnio-nio</artifactId>
+            <artifactId>jboss-logmanager</artifactId>
             <type>jar</type>
         </dependency>
 
@@ -55,6 +55,21 @@
             <groupId>io.undertow</groupId>
             <artifactId>undertow-core</artifactId>
             <version>${undertow.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.xnio</groupId>
+            <artifactId>xnio-api</artifactId>
+            <version>${xnio.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.jboss.xnio</groupId>
+            <artifactId>xnio-nio</artifactId>
+            <version>${xnio.version}</version>
             <optional>true</optional>
         </dependency>
 
@@ -78,8 +93,25 @@
                                 <includes>
                                     <include>io.undertow:undertow-core</include>
                                     <include>org.eclipse.jetty.alpn:alpn-api</include>
+                                    <include>org.jboss.threads:jboss-threads</include>
+                                    <include>org.wildfly.client:wildfly-client-config</include>
+                                    <include>org.wildfly.common:wildfly-common</include>
+                                    <include>org.wildfly.common:wildfly-common-jdk9-supplement</include>
+                                    <include>org.jboss.xnio:xnio-api</include>
+                                    <include>org.jboss.xnio:xnio-nio</include>
                                 </includes>
                             </artifactSet>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>schema/</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                            </transformers>
                         </configuration>
                     </execution>
                 </executions>

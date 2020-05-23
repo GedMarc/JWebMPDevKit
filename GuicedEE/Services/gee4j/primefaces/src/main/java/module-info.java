@@ -3,7 +3,7 @@ module primefaces {
 	requires javax.faces;
 	requires org.apache.commons.io;
 	requires org.apache.commons.fileupload;
-	requires javax.servlet.api;
+	requires java.servlet;
 	requires javax.el;
 	requires java.validation;
 

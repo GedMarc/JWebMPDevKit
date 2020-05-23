@@ -17,7 +17,7 @@
 
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -26,8 +26,7 @@
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>jsp-parent</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>jakarta.servlet.jsp-api</artifactId>
 
     <name>javax.jsp.impl</name>
     <description>Jakarta Server Pages API</description>
@@ -40,21 +39,35 @@
         <tag>HEAD</tag>
     </scm>
 
-    <properties>
-        <spec.version>2.3</spec.version>
-        <extensionName>javax.servlet.jsp</extensionName>
-        <bundle.symbolicName>javax.servlet.jsp-api</bundle.symbolicName>
-        <vendorName>Eclipse Foundation</vendorName>
-        <findbugs.version>2.5.2</findbugs.version>
-        <findbugs.exclude />
-        <findbugs.threshold>High</findbugs.threshold>
-    </properties>
+    <dependencies>
 
-    <modules>
-        <module>api</module>
-        <module>impl</module>
-        <!--<module>spec</module>-->
-    </modules>
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>jakarta.el</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.servlets</groupId>
+            <artifactId>guiced-servlets</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp</artifactId>
+            <version>2.3.6</version>
+            <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <groupId>jakarta.el</groupId>
+                    <artifactId>jakarta.el-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>jakarta.servlet</groupId>
+                    <artifactId>jakarta.servlet-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
 
     <licenses>
         <license>
@@ -68,5 +81,57 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+
+    <build>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>shade</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>org.glassfish.web:jakarta.servlet.jsp:*</include>
+                                    <include>jakarta.servlet.jsp:jakarta.servlet.jsp-api:jar:*</include>
+                                </includes>
+                            </artifactSet>
+                        </configuration>
+                    </execution>
+
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.moditect</groupId>
+                <artifactId>moditect-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-module-infos</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>add-module-info</goal>
+                        </goals>
+                        <configuration>
+                            <overwriteExistingFiles>true</overwriteExistingFiles>
+                            <module>
+                                <moduleInfoFile>
+                                    src/moditect/module-info.java
+                                </moduleInfoFile>
+                            </module>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+    </build>
 
 </project>

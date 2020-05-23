@@ -17,9 +17,8 @@
 
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apac
-he.org/maven-v4_0_0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.guicedee.services</groupId>
@@ -27,11 +26,10 @@ he.org/maven-v4_0_0.xsd">
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>jstl-parent</artifactId>
+    <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
 
-    <packaging>pom</packaging>
-    <name>jstl-parent</name>
-    
+    <name>jstl</name>
+
     <description>JavaServer Pages(TM) Standard Tag Library API</description>
     <url>https://projects.eclipse.org/projects/ee4j.jstl</url>
 
@@ -59,25 +57,153 @@ he.org/maven-v4_0_0.xsd">
         <system>github</system>
         <url>https://github.com/eclipse-ee4j/jstl-api/issues</url>
     </issueManagement>
-    <mailingLists>
-        <mailingList>
-            <name>JSTL mailing list</name>
-            <post>jstl-dev@eclipse.org</post>
-            <subscribe>https://dev.eclipse.org/mailman/listinfo/jstl-dev</subscribe>
-            <unsubscribe>https://dev.eclipse.org/mailman/listinfo/jstl-dev</unsubscribe>
-            <archive>https://dev.eclipse.org/mhonarc/lists/jstl-dev</archive>
-        </mailingList>
-    </mailingLists>
 
-    <properties>
-        <findbugs.exclude></findbugs.exclude>
-        <findbugs.version>3.0.5</findbugs.version>
-    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>jakarta.el</artifactId>
+        </dependency>
 
-    <modules>
-        <module>api</module>
-        <module>impl</module>
-    </modules>
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+        </dependency>
+
+        <!--  <dependency>
+              <groupId>com.guicedee.services</groupId>
+              <artifactId>jakarta.servlet.jsp-api</artifactId>
+          </dependency>
+  -->
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>javax.servlet.jsp.jstl</artifactId>
+            <version>1.2.5</version>
+            <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.el</groupId>
+                    <artifactId>el-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.servlet.jsp.jstl</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+            <version>1.2.7</version>
+            <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.el</groupId>
+                    <artifactId>el-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.servlet.jsp</groupId>
+                    <artifactId>jsp-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+    <build>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>shade</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:*</include>
+                                    <include>xalan:xalan</include>
+                                    <include>org.glassfish.web:javax.servlet.jsp.jstl</include>
+                                </includes>
+                            </artifactSet>
+                            <filters>
+                                <filter>
+                                    <artifact>xalan:xalan</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/**</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                            <relocations>
+                                <relocation>
+                                    <pattern>org.apache.xpath</pattern>
+                                    <shadedPattern>com.oracle.wls.shaded.org.apache.xpath</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.apache.xml</pattern>
+                                    <shadedPattern>com.oracle.wls.shaded.org.apache.xml</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.apache.xalan</pattern>
+                                    <shadedPattern>com.oracle.wls.shaded.org.apache.xalan</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.apache.regexp</pattern>
+                                    <shadedPattern>com.oracle.wls.shaded.org.apache.regexp</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.apache.bcel</pattern>
+                                    <shadedPattern>com.oracle.wls.shaded.org.apache.bcel</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>java_cup.runtime</pattern>
+                                    <shadedPattern>com.oracle.wls.shaded.java_cup.runtime</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>trax</pattern>
+                                    <shadedPattern>com.oracle.wls.shaded.trax</shadedPattern>
+                                </relocation>
+                            </relocations>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.moditect</groupId>
+                <artifactId>moditect-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-module-infos</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>add-module-info</goal>
+                        </goals>
+                        <configuration>
+                            <overwriteExistingFiles>true</overwriteExistingFiles>
+                            <module>
+                                <moduleInfoFile>
+                                    src/moditect/module-info.java
+                                </moduleInfoFile>
+                            </module>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+    </build>
 
 </project>
 

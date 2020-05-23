@@ -17,55 +17,100 @@
 
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-      <parent>
-          <groupId>com.guicedee.services</groupId>
-          <artifactId>gee4j-parent</artifactId>
+    <parent>
+        <groupId>com.guicedee.services</groupId>
+        <artifactId>gee4j-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
-    
-    <artifactId>ejb-api-parent</artifactId>
-    <packaging>pom</packaging>
 
-    <name>javax.ejb-parent</name>
+    <artifactId>ejb-api</artifactId>
+
+    <name>javax.ejb</name>
     <description>Jakarta Enterprise Beans</description>
     <url>https://github.com/eclipse-ee4j/ejb-api</url>
 
-    <scm>
-        <connection>scm:git:ssh://git@github.com/eclipse-ee4j/ejb-api.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/eclipse-ee4j/ejb-api.git</developerConnection>
-        <url>https://github.com/eclipse-ee4j/ejb-api</url>
-      <tag>HEAD</tag>
-    </scm>
+    <dependencies>
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>javax.transaction</artifactId>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <type>jar</type>
+        </dependency>
 
-    <properties>
-        <extension.name>javax.ejb</extension.name>
-        <spec.version>3.2</spec.version>
-        <non.final>false</non.final>
-        <findbugs.version>3.0.5</findbugs.version>
-        <findbugs.exclude>exclude.xml</findbugs.exclude>
-        <findbugs.threshold>Low</findbugs.threshold>
-        <legal.doc.source>.</legal.doc.source>
-    </properties>
+        <!-- https://mvnrepository.com/artifact/jakarta.ejb/jakarta.ejb-api -->
+        <dependency>
+            <groupId>jakarta.ejb</groupId>
+            <artifactId>jakarta.ejb-api</artifactId>
+            <version>3.2.6</version>
+            <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <groupId>jakarta.transaction</groupId>
+                    <artifactId>jakarta.transaction-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
-    <modules>
-        <module>api</module>
-        <!--<module>spec</module>-->
-    </modules>
+    </dependencies>
 
-    <licenses>
-        <license>
-            <name>EPL 2.0</name>
-            <url>http://www.eclipse.org/legal/epl-2.0</url>
-            <distribution>repo</distribution>
-        </license>
-        <license>
-            <name>GPL2 w/ CPE</name>
-            <url>https://www.gnu.org/software/classpath/license.html</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>shade</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>jakarta.ejb:jakarta.ejb-api</include>
+                                    <include>jakarta.xml.rpc:jakarta.xml.rpc-api</include>
+                                </includes>
+                            </artifactSet>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.moditect</groupId>
+                <artifactId>moditect-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-module-infos</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>add-module-info</goal>
+                        </goals>
+                        <configuration>
+                            <overwriteExistingFiles>true</overwriteExistingFiles>
+                            <module>
+                                <moduleInfoFile>
+                                    src/moditect/module-info.java
+                                </moduleInfoFile>
+                            </module>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>

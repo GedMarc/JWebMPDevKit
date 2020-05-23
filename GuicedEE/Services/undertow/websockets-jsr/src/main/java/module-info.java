@@ -3,8 +3,8 @@ module undertow.websockets.jsr {
 	requires undertow.servlet;
 
 	requires undertow.core;
-	requires xnio.api;
-	requires javax.servlet.api;
+
+	requires java.servlet;
 	requires org.jboss.logging;
 	requires java.annotation;
 }

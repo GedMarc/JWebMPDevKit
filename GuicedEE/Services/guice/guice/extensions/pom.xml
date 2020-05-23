@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-  <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.guicedee.services</groupId>
         <artifactId>guice-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
-  <packaging>pom</packaging>
+    <packaging>pom</packaging>
 
-  <groupId>com.guicedee.services.extensions</groupId>
-  <artifactId>extensions-parent</artifactId>
+    <groupId>com.guicedee.services.extensions</groupId>
+    <artifactId>extensions-parent</artifactId>
 
-  <name>google.guice.extensions</name>
+    <name>google.guice.extensions</name>
     <profiles>
         <profile>
             <id>enable-guice</id>
@@ -22,7 +22,8 @@
                 <module>jmx</module>
                 <module>jndi</module>
                 <module>persist</module>
-                <module>servlet</module>
+                <!--<module>servlet</module>-->
+                <module>servlet4</module>
             </modules>
         </profile>
     </profiles>

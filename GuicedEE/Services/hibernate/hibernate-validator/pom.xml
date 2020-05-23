@@ -21,9 +21,8 @@
         </dependency>
 
         <dependency>
-            <groupId>com.guicedee.services</groupId>
+            <groupId>com.fasterxml</groupId>
             <artifactId>classmate</artifactId>
-            <type>jar</type>
         </dependency>
 
         <dependency>

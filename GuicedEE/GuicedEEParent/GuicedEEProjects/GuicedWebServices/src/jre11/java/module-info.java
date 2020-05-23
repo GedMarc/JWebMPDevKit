@@ -2,7 +2,7 @@ module com.guicedee.guicedservlets.webservices {
 	exports com.guicedee.guicedservlets.webservices;
 
 	requires undertow.servlet;
-	requires javax.servlet.api;
+	requires java.servlet;
 	requires com.guicedee.guicedservlets;
 
 	requires jakarta.activation;

@@ -285,6 +285,13 @@
                 <version>${project.version}</version>
 
             </dependency>
+<!--
+            <dependency>
+                <groupId>com.guicedee.services.extensions</groupId>
+                <artifactId>guice-servlet4</artifactId>
+                <version>${project.version}</version>
+
+            </dependency>-->
 
             <dependency>
                 <groupId>com.guicedee.services</groupId>
@@ -317,6 +324,13 @@
             <dependency>
                 <groupId>com.guicedee.services</groupId>
                 <artifactId>json</artifactId>
+                <version>${project.version}</version>
+
+            </dependency>
+
+            <dependency>
+                <groupId>com.guicedee.services</groupId>
+                <artifactId>cdi-api</artifactId>
                 <version>${project.version}</version>
 
             </dependency>
@@ -419,20 +433,6 @@
             </dependency>
 
             <dependency>
-                <groupId>com.guicedee.persistence</groupId>
-                <artifactId>guiced-persistence-btm</artifactId>
-
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.guicedee.services</groupId>
-                <artifactId>guiced-persistence-systemproperties-reader</artifactId>
-                <version>${project.version}</version>
-
-            </dependency>
-
-            <dependency>
                 <groupId>com.guicedee.services</groupId>
                 <artifactId>cache-annotations-ri-guice</artifactId>
                 <version>${project.version}</version>
@@ -517,15 +517,7 @@
 
             <dependency>
                 <groupId>com.guicedee.services</groupId>
-                <artifactId>jakarta.enterprise.cdi-api</artifactId>
-
-                <version>${project.version}</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>com.guicedee.services</groupId>
-                <artifactId>jakarta.ejb-api</artifactId>
+                <artifactId>ejb-api</artifactId>
 
                 <version>${project.version}</version>
             </dependency>
@@ -603,37 +595,10 @@
 
             <dependency>
                 <groupId>com.guicedee.services</groupId>
-                <artifactId>classmate</artifactId>
-
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.guicedee.services</groupId>
                 <artifactId>dom4j</artifactId>
 
                 <version>${project.version}</version>
             </dependency>
-
-
-            <dependency>
-                <groupId>com.guicedee.services</groupId>
-                <artifactId>xnio-all</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.guicedee.services</groupId>
-                <artifactId>xnio-api</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.guicedee.services</groupId>
-                <artifactId>xnio-nio</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
 
             <dependency>
                 <groupId>com.guicedee.services</groupId>
@@ -685,9 +650,18 @@
             </dependency>
 
             <!-- javax side -->
+            <!--
+                        <dependency>
+                            <groupId>com.guicedee.services</groupId>
+                            <artifactId>javax.servlet-api</artifactId>
+                            <version>${project.version}</version>
+
+                        </dependency>
+            -->
+
             <dependency>
                 <groupId>com.guicedee.services</groupId>
-                <artifactId>javax.servlet-api</artifactId>
+                <artifactId>jakarta.servlet-api</artifactId>
                 <version>${project.version}</version>
 
             </dependency>
@@ -720,24 +694,9 @@
                 <version>${project.version}</version>
             </dependency>
 
-
             <dependency>
                 <groupId>com.guicedee.services</groupId>
-                <artifactId>javax.servlet.jsp</artifactId>
-
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.guicedee.services</groupId>
-                <artifactId>javax.servlet.jsp.jstl</artifactId>
-
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.guicedee.services</groupId>
-                <artifactId>jakarta.interceptor-api</artifactId>
+                <artifactId>interceptor-api</artifactId>
 
                 <version>${project.version}</version>
             </dependency>

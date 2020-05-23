@@ -24,6 +24,7 @@
 package org.primefaces.component.selectbooleanbutton;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -151,9 +152,8 @@ public class SelectBooleanButtonRenderer extends InputRenderer {
         if (submittedValue instanceof Boolean) {
             return submittedValue;
         }
-        String submittedValueString = (String) submittedValue;
-        Object convertedValue = ComponentUtils.getConvertedValue(context, component, submittedValueString);
-        return ((convertedValue instanceof Boolean) ? submittedValue : Boolean.valueOf(convertedValue.toString()));
+        Object convertedValue = ComponentUtils.getConvertedValue(context, component, submittedValue);
+        return ((convertedValue instanceof Boolean) ? convertedValue : Boolean.valueOf(Objects.toString(convertedValue)));
     }
 
     @Override

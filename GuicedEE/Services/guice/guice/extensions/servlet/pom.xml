@@ -17,7 +17,7 @@
     <dependencies>
         <dependency>
             <groupId>com.guicedee.services</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <artifactId>jakarta.servlet-api</artifactId>
             <type>jar</type>
         </dependency>
 

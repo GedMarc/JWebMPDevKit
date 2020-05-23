@@ -36,34 +36,6 @@
     </description>
     <url>https://projects.eclipse.org/projects/ee4j.el</url>
 
-    <properties>
-        <!-- the bundle build number must be the same as the maven number -->
-        <bundle.version>3.0.3</bundle.version>
-        <!-- The most current api version -->
-        <spec.version>3.0</spec.version>
-        <extensionName>javax.el</extensionName>
-        <bundle.symbolicName>com.sun.el.javax.el</bundle.symbolicName>
-        <vendorName>Oracle Corporation</vendorName>
-        <findbugs.version>2.5.2</findbugs.version>
-        <findbugs.exclude>${project.basedir}/exclude.xml</findbugs.exclude>
-        <findbugs.threshold>High</findbugs.threshold>
-    </properties>
-
-    <developers>
-        <developer>
-            <id>yaminikb</id>
-            <name>Yamini K B</name>
-            <organization>Oracle Corporation</organization>
-            <organizationUrl>http://www.oracle.com/</organizationUrl>
-        </developer>
-    </developers>
-
-    <contributors>
-        <contributor>
-            <name>Kin-man Chung</name>
-        </contributor>
-    </contributors>
-
     <issueManagement>
         <system>github</system>
         <url>https://github.com/eclipse-ee4j/el-ri/issues</url>

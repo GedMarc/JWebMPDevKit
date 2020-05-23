@@ -17,11 +17,11 @@
 
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-      <parent>
-          <groupId>com.guicedee.services</groupId>
-          <artifactId>services-parent</artifactId>
+    <parent>
+        <groupId>com.guicedee.services</groupId>
+        <artifactId>services-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
     <artifactId>javax.transaction</artifactId>
@@ -30,51 +30,70 @@
     <description>Eclipse Project for JTA</description>
     <url>https://projects.eclipse.org/projects/ee4j.jta</url>
 
-    <developers>
-        <developer>
-            <id>stephen_felts</id>
-            <name>Stephen Felts</name>
-            <organization>Oracle, Inc.</organization>
-            <roles>
-                <role>lead</role>
-            </roles>
-        </developer>
-    </developers>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/jakarta.transaction/jakarta.transaction-api -->
+        <dependency>
+            <groupId>jakarta.transaction</groupId>
+            <artifactId>jakarta.transaction-api</artifactId>
+            <version>1.3.3</version>
+            <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <groupId>jakarta.enterprise</groupId>
+                    <artifactId>jakarta.enterprise.cdi-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
-    <organization>
-        <name>EE4J Community</name>
-        <url>https://github.com/eclipse-ee4j</url>
-    </organization>
-    <licenses>
-        <license>
-            <name>EPL 2.0</name>
-            <url>http://www.eclipse.org/legal/epl-2.0</url>
-            <distribution>repo</distribution>
-        </license>
-        <license>
-            <name>GPL2 w/ CPE</name>
-            <url>https://www.gnu.org/software/classpath/license.html</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-    <issueManagement>
-        <system>github</system>
-        <url>https://github.com/eclipse-ee4j/jta-api/issues</url>
-    </issueManagement>
-    <mailingLists>
-      <mailingList>
-            <name>JTA mailing list</name>
-            <post>jta-dev@eclipse.org</post>
-            <subscribe>https://dev.eclipse.org/mailman/listinfo/jta-dev</subscribe>
-            <unsubscribe>https://dev.eclipse.org/mailman/listinfo/jta-dev</unsubscribe>
-            <archive>https://dev.eclipse.org/mhonarc/lists/jta-dev/</archive>
-        </mailingList>
-    </mailingLists>
-    <scm>
-        <connection>scm:git:https://github.com/eclipse-ee4j/jta-api.git</connection>
-        <developerConnection>scm:git:git@github.com:eclipse-ee4j/jta-api.git</developerConnection>
-        <url>https://github.com/eclipse-ee4j/jta-api</url>
-      <tag>HEAD</tag>
-  </scm>
+    </dependencies>
+
+    <build>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>shade</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>jakarta.transaction:jakarta.transaction-api:*</include>
+                                </includes>
+                            </artifactSet>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.moditect</groupId>
+                <artifactId>moditect-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-module-infos</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>add-module-info</goal>
+                        </goals>
+                        <configuration>
+                            <overwriteExistingFiles>true</overwriteExistingFiles>
+                            <module>
+                                <moduleInfoFile>
+                                    src/moditect/module-info.java
+                                </moduleInfoFile>
+                            </module>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+    </build>
 
 </project>

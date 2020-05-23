@@ -4,7 +4,7 @@ module com.google.guice.extensions.persist {
 	requires transitive com.google.guice;
 	requires transitive java.persistence;
 
-	requires static javax.servlet.api;
+	requires static java.servlet;
 	requires static hibernate.jpa;
 
 	opens com.google.inject.persist to com.google.guice;

@@ -71,18 +71,9 @@
         </profile>
 
         <profile>
-            <id>enable-xnio</id>
-            <modules>
-                <module>xnio</module>
-            </modules>
-        </profile>
-
-        <profile>
             <id>enable-undertow</id>
             <modules>
                 <module>undertow</module>
-                <module>xnio</module>
-                <module>classmate</module>
                 <module>dom4j</module>
                 <module>jaxen</module>
                 <module>jacc</module>
@@ -112,7 +103,8 @@
                 <module>java.activation</module>
                 <module>javax.activation</module>
                 <module>java.validation</module>
-                <module>servlet</module>
+                <!--<module>servlet</module>-->
+                <module>servlet4</module>
                 <module>java.annotations</module>
                 <module>javax.jms</module>
                 <module>javax.transaction</module>
@@ -133,6 +125,11 @@
                 <version>${jakarta.activation.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.fasterxml</groupId>
+                <artifactId>classmate</artifactId>
+                <version>1.5.1</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.guicedee</groupId>
@@ -643,6 +640,22 @@
                 <artifactId>ant</artifactId>
                 <version>1.10.7</version>
                 <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.wildfly.common</groupId>
+                <artifactId>wildfly-common</artifactId>
+                <version>1.5.4.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.common</groupId>
+                <artifactId>wildfly-common-jdk9-supplement</artifactId>
+                <version>1.0.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.client</groupId>
+                <artifactId>wildfly-client-config</artifactId>
+                <version>1.0.1.Final</version>
             </dependency>
 
         </dependencies>

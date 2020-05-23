@@ -10,15 +10,16 @@
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>guice-servlet4</artifactId>
+    <artifactId>guice-servlet</artifactId>
 
     <name>google.guice.extensions.servlet</name>
 
     <dependencies>
         <dependency>
             <groupId>com.guicedee.services</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <type>jar</type>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>${project.version}</version>
+
         </dependency>
 
         <dependency>

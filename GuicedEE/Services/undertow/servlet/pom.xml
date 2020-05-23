@@ -17,8 +17,8 @@
   ~ limitations under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -30,17 +30,7 @@
     </parent>
 
     <artifactId>undertow-servlet</artifactId>
-
     <name>io.undertow.servlet</name>
-
-    <properties>
-        <test.level>INFO</test.level>
-        <ajp>false</ajp>
-        <proxy>false</proxy>
-        <dump>false</dump>
-        <test.ipv6>false</test.ipv6>
-        <bufferSize>8192</bufferSize>
-    </properties>
 
     <dependencies>
 
@@ -52,10 +42,9 @@
 
         <dependency>
             <groupId>com.guicedee.services</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <artifactId>jakarta.servlet-api</artifactId>
             <type>jar</type>
         </dependency>
-
 
         <dependency>
             <groupId>com.guicedee.services</groupId>
@@ -63,10 +52,25 @@
         </dependency>
 
         <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>jboss-logmanager</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>io.undertow</groupId>
             <artifactId>undertow-servlet</artifactId>
             <version>${undertow.version}</version>
             <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.jboss.spec.javax.annotation</groupId>
+                    <artifactId>jboss-annotations-api_1.3_spec</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.jboss.spec.javax.servlet</groupId>
+                    <artifactId>jboss-servlet-api_4.0_spec</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
     </dependencies>

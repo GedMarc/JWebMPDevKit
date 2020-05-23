@@ -17,8 +17,8 @@
   ~ limitations under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -32,13 +32,6 @@
     <artifactId>undertow-websockets-jsr</artifactId>
 
     <name>io.undertow.websockets.jsr</name>
-
-    <properties>
-        <test.level>INFO</test.level>
-        <serverPort>7777</serverPort>
-        <proxy>false</proxy>
-        <test.ipv6>false</test.ipv6>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -56,6 +49,20 @@
             <artifactId>undertow-websockets-jsr</artifactId>
             <version>${io.undertow.version}</version>
             <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.jboss.spec.javax.websocket</groupId>
+                    <artifactId>jboss-websocket-api_1.1_spec</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.jboss.xnio</groupId>
+                    <artifactId>xnio-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.jboss.threads</groupId>
+                    <artifactId>jboss-threads</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
 

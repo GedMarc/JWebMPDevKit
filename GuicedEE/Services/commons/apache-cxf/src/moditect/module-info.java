@@ -2,7 +2,7 @@ module org.apache.cxf {
 
 	requires transitive com.fasterxml.jackson.databind;
 	requires transitive com.fasterxml.jackson.jaxrs.json;
-	requires transitive javax.servlet.api;
+	requires transitive java.servlet;
 
 	requires com.google.common;
 

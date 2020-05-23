@@ -57,10 +57,10 @@
             <type>jar</type>
         </dependency>
 
+
         <dependency>
-            <groupId>com.guicedee.services</groupId>
+            <groupId>com.fasterxml</groupId>
             <artifactId>classmate</artifactId>
-            <type>jar</type>
         </dependency>
 
         <dependency>
@@ -72,13 +72,6 @@
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>dom4j</artifactId>
-            <type>jar</type>
-        </dependency>
-
-        <dependency>
-            <groupId>com.guicedee.services</groupId>
-            <artifactId>jakarta.enterprise.cdi-api</artifactId>
-            <optional>true</optional>
             <type>jar</type>
         </dependency>
 

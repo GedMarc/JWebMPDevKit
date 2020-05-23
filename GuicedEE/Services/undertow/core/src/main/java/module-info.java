@@ -1,5 +1,5 @@
 module undertow.core {
-	requires xnio.api;
+
 	requires org.jboss.logging;
 
 	requires static java.security.jgss;

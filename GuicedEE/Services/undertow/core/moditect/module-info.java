@@ -1,5 +1,5 @@
 module undertow.core {
-	requires xnio.api;
+
 	requires org.jboss.logging;
 
 	requires static java.security.jgss;
@@ -13,6 +13,26 @@ module undertow.core {
 
 	exports io.undertow;
 	exports io.undertow.util;
+
+	exports org.xnio;
+	exports org.xnio.nio;
+	exports org.xnio.management;
+	exports org.xnio.channels;
+	//exports org.xnio.fc;
+	exports org.xnio.conduits;
+	exports org.xnio.ssl;
+	exports org.xnio.http;
+
+	exports org.wildfly.common.context;
+
+	requires static java.management;
+	requires static java.security.sasl;
+
+	opens org.xnio._private to org.jboss.logging;
+
+	uses org.xnio.XnioProvider;
+
+	provides org.xnio.XnioProvider with org.xnio.nio.NioXnioProvider;
 
 	exports io.undertow.security.api;
 	exports io.undertow.security.handlers;

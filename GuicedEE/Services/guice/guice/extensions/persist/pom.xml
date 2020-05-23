@@ -17,14 +17,14 @@
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
-            <scope>provided</scope>
             <type>jar</type>
         </dependency>
 
         <dependency>
             <groupId>com.guicedee.services</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <artifactId>jakarta.servlet-api</artifactId>
             <type>jar</type>
+            <optional>true</optional>
         </dependency>
 
         <dependency>

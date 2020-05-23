@@ -921,8 +921,11 @@
             }
             else {
                 if (this.options.showTime) {
-                    date = this.parseDate(parts[0], this.options.dateFormat);
-                    this.populateTime(date, parts[1], parts[2]);
+                    var ampm = this.options.hourFormat == '12' ? parts.pop() : null;
+                    var timeString = parts.pop();
+
+                    date = this.parseDate(parts.join(' '), this.options.dateFormat);
+                    this.populateTime(date, timeString, ampm);
                 }
                 else {
                     date = this.parseDate(text, this.options.dateFormat);
@@ -1523,8 +1526,10 @@
                 .on('mouseup.datePicker-time', timeSelector, null, function (event) {
                     $this.onTimePickerElementMouseUp(event);
                 })
-                .on('mouseleave.datePicker-time', timeSelector, null, function () {
-                    $this.clearTimePickerTimer();
+                .on('mouseleave.datePicker-time', timeSelector, null, function (event) {
+                    if ($this.timePickerTimer) {
+                        $this.onTimePickerElementMouseUp(event);
+                    }
                 })
                 .on('click.datePicker-ampm', ampmSelector, null, function (event) {
                     $this.toggleAmPm(event);
@@ -1777,6 +1782,10 @@
         onTimePickerElementMouseUp: function (event) {
             if (!this.options.disabled) {
                 this.clearTimePickerTimer();
+
+                if (this.options.onSelect) {
+                    this.options.onSelect.call(this, event, this.value);
+                }
             }
         },
 
@@ -1816,6 +1825,7 @@
         clearTimePickerTimer: function () {
             if (this.timePickerTimer) {
                 clearTimeout(this.timePickerTimer);
+                this.timePickerTimer = null;
             }
         },
 
@@ -2243,7 +2253,9 @@
             this.updateModel(event, newDateTime);
 
             if (this.options.onSelect) {
-                this.options.onSelect.call(this, event, newDateTime);
+                if (this.timePickerTimer === 'undefined' || this.timePickerTimer === null) {
+                    this.options.onSelect.call(this, event, newDateTime);
+                }
             }
         },
 
