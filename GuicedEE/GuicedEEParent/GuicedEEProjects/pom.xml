@@ -40,18 +40,11 @@
             <id>enable-guiced-persistence</id>
             <modules>
                 <module>GuicedPersistence</module>
-                <module>GuicedPersistenceJPA</module>
+                <!--<module>GuicedPersistenceJPA</module>-->
                 <module>GuicedPersistenceC3P0</module>
-                <module>HibernatePropertiesReader</module>
-                <module>SystemPropertiesReader</module>
+                <!--<module>HibernatePropertiesReader</module>-->
+                <!--<module>SystemPropertiesReader</module>-->
                 <module>WildflyReader</module>
-            </modules>
-        </profile>
-
-        <profile>
-            <id>enable-guiced-persistence-btm</id>
-            <modules>
-                <module>GuicedPersistence-BTM</module>
             </modules>
         </profile>
 

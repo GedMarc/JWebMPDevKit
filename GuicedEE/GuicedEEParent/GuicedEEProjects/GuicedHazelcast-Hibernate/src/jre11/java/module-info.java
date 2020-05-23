@@ -9,7 +9,6 @@ module com.guicedee.guicedhazelcast.hibernate {
 	requires transitive org.apache.commons.io;
 
 	requires transitive com.guicedee.guicedpersistence;
-	requires transitive com.guicedee.guicedpersistence.readers.hibernateproperties;
 	requires transitive org.hibernate.orm.jcache;
 
 	provides com.guicedee.guicedpersistence.services.IPropertiesEntityManagerReader with com.guicedee.guicedhazelcast.hibernate.HazelcastHibernateProperties;

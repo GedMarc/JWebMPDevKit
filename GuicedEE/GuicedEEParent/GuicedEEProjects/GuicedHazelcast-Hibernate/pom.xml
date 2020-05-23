@@ -19,14 +19,6 @@
     <url>https://github.com/GedMarc/GuicedHazelcastHibernate</url>
 
     <dependencies>
-
-        <dependency>
-            <groupId>com.guicedee.persistence</groupId>
-            <artifactId>guiced-persistence-btm</artifactId>
-            <scope>test</scope>
-            <type>jar</type>
-        </dependency>
-
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>hibernate-jcache</artifactId>
@@ -69,11 +61,6 @@
             <groupId>com.guicedee.services</groupId>
             <artifactId>commons-io</artifactId>
             <type>jar</type>
-        </dependency>
-
-        <dependency>
-            <groupId>com.guicedee.persistence</groupId>
-            <artifactId>guiced-persistence-hibernateproperties-reader</artifactId>
         </dependency>
 
         <dependency>

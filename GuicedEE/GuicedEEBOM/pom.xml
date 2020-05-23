@@ -426,13 +426,6 @@
             </dependency>
 
             <dependency>
-                <groupId>com.guicedee.persistence</groupId>
-                <artifactId>guiced-persistence-hibernateproperties-reader</artifactId>
-                <version>${project.version}</version>
-
-            </dependency>
-
-            <dependency>
                 <groupId>com.guicedee.services</groupId>
                 <artifactId>guiced-persistence-systemproperties-reader</artifactId>
                 <version>${project.version}</version>
