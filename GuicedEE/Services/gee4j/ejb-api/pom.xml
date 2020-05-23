@@ -29,6 +29,7 @@
     <artifactId>ejb-api</artifactId>
 
     <name>javax.ejb</name>
+
     <description>Jakarta Enterprise Beans</description>
     <url>https://github.com/eclipse-ee4j/ejb-api</url>
 
@@ -45,7 +46,6 @@
             <type>jar</type>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/jakarta.ejb/jakarta.ejb-api -->
         <dependency>
             <groupId>jakarta.ejb</groupId>
             <artifactId>jakarta.ejb-api</artifactId>
