@@ -25,18 +25,18 @@ open module javax.faces {
 	exports javax.faces;
 
 	exports com.sun.faces.config;
-
 	requires java.logging;
-	requires java.servlet;
+
 	requires java.xml;
-	requires javax.el;
-	requires javax.servlet.jsp.jstl;
+
+	requires transitive javax.servlet.jsp.jstl;
 
 	requires java.sql;
 	requires static java.naming;
 	requires static java.desktop;
-	requires javax.servlet.jsp;
+
 	requires javax.inject;
+
 	requires jakarta.enterprise.cdi;
 	requires static java.persistence;
 	requires java.validation;

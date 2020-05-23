@@ -1,5 +1,7 @@
 module javax.servlet.jsp {
 
+	exports javax.servlet.jsp;
+
 	exports org.apache.jasper;
 	//exports org.apache.jasper.util;
 	exports org.apache.jasper.servlet;
@@ -12,13 +14,12 @@ module javax.servlet.jsp {
 	exports org.apache.jasper.tagplugins.jstl;
 	exports org.apache.jasper.xmlparser;
 
-
 	requires java.logging;
 	requires java.xml;
 
-	requires static java.desktop;
-	requires javax.el;
-	requires java.servlet;
-	requires static java.compiler;
+	requires transitive javax.el;
+	requires transitive java.servlet;
 
+	requires static java.desktop;
+	requires static java.compiler;
 }

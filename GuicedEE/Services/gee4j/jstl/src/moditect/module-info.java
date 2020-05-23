@@ -1,12 +1,9 @@
-module javax.servlet.jsp.jstl.api {
-	requires java.servlet;
-
-	requires javax.servlet.jsp;
+module javax.servlet.jsp.jstl {
+	requires transitive javax.servlet.jsp;
 	requires java.xml;
 	requires static java.sql;
 
 	requires static java.desktop;
-	requires javax.el;
 	requires static java.naming;
 	requires jdk.xml.dom;
 
