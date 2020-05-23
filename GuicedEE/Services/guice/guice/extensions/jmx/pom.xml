@@ -8,7 +8,7 @@
         <artifactId>extensions-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
-    
+
     <artifactId>guice-jmx</artifactId>
 
     <name>google.guice.extensions.jmx</name>
@@ -28,7 +28,7 @@
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>javax.inject</artifactId>
-            
+
             <type>jar</type>
             </dependency>
 
@@ -39,17 +39,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <skip>true</skip> <!-- Test is not actually a unit test. -->
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifestEntries>
-                            <Automatic-Module-Name>com.google.guice.extensions.jmx</Automatic-Module-Name>
-                        </manifestEntries>
-                    </archive>
                 </configuration>
             </plugin>
         </plugins>
