@@ -149,6 +149,16 @@
                     <transformers>
                         <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                     </transformers>
+                    <relocations>
+                        <relocation>
+                            <pattern>META-INF/versions/9/com</pattern>
+                            <shadedPattern>com</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>META-INF/versions/9/javax</pattern>
+                            <shadedPattern>javax</shadedPattern>
+                        </relocation>
+                    </relocations>
                 </configuration>
             </plugin>
             <plugin>
