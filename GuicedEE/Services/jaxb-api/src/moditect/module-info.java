@@ -62,4 +62,5 @@ module java.xml.bind {
 	opens com.sun.xml.bind.v2.model.nav to com.sun.tools.xjc;
 
 	provides javax.xml.bind.JAXBContextFactory with com.sun.xml.bind.v2.JAXBContextFactory;
+	provides javax.xml.bind.JAXBContext with com.sun.xml.bind.v2.ContextFactory;
 }

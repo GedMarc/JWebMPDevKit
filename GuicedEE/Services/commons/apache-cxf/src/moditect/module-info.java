@@ -85,6 +85,81 @@ module org.apache.cxf {
 
 	opens org.glassfish.jersey.server.wadl.internal;
 
-	provides javax.xml.ws.spi.Provider with org.apache.cxf.jaxws.spi.ProviderImpl;
+	provides javax.xml.ws.spi.Provider with org.apache.cxf.jaxws.spi.ProviderImpl, org.apache.cxf.jaxws22.spi.ProviderImpl;
+	provides com.sun.xml.ws.spi.db.BindingContextFactory with com.sun.xml.ws.db.glassfish.JAXBRIContextFactory;
+	provides javax.ws.rs.client.ClientBuilder with org.apache.cxf.jaxrs.client.spec.ClientBuilderImpl;
+	provides javax.ws.rs.ext.RuntimeDelegate with org.apache.cxf.jaxrs.impl.RuntimeDelegateImpl;
+	provides javax.xml.soap.MessageFactory with com.sun.xml.messaging.saaj.soap.ver1_1.SOAPMessageFactory1_1Impl,
+			                                       com.sun.xml.messaging.saaj.soap.ver1_2.SOAPMessageFactory1_2Impl;
+	provides javax.xml.soap.SAAJMetaFactory with com.sun.xml.messaging.saaj.soap.SAAJMetaFactoryImpl;
+	provides javax.xml.soap.SOAPConnectionFactory with com.sun.xml.messaging.saaj.client.p2p.HttpSOAPConnectionFactory;
+	provides javax.xml.soap.SOAPFactory with com.sun.xml.messaging.saaj.soap.ver1_1.SOAPFactory1_1Impl,
+			                                    com.sun.xml.messaging.saaj.soap.ver1_2.SOAPFactory1_2Impl;
+
+	provides org.eclipse.jetty.http.HttpFieldPreEncoder with org.eclipse.jetty.http.Http1FieldPreEncoder;
+
+	uses org.opensaml.core.config.Initializer;
+	provides org.opensaml.core.config.Initializer with org.opensaml.saml.config.XMLObjectProviderInitializer,
+			                                              org.opensaml.saml.config.SAMLConfigurationInitializer,
+			                                              org.opensaml.core.xml.config.XMLObjectProviderInitializer,
+			                                              org.opensaml.core.xml.config.GlobalParserPoolInitializer,
+			                                              org.opensaml.core.metrics.impl.MetricRegistryInitializer,
+			                                              org.opensaml.xmlsec.config.GlobalAlgorithmRegistryInitializer,
+			                                              org.opensaml.security.config.ClientTLSValidationConfiguratonInitializer,
+			                                              org.opensaml.xmlsec.config.JavaCryptoValidationInitializer,
+			                                              org.opensaml.xmlsec.config.XMLObjectProviderInitializer,
+			                                              org.opensaml.xmlsec.config.ApacheXMLSecurityInitializer,
+			                                              org.opensaml.xmlsec.config.GlobalSecurityConfigurationInitializer,
+			                                              org.opensaml.xacml.config.XMLObjectProviderInitializer,
+			                                              org.opensaml.xacml.profile.saml.config.XMLObjectProviderInitializer;
+
+	uses org.opensaml.xmlsec.algorithm.AlgorithmDescriptor;
+	provides org.opensaml.xmlsec.algorithm.AlgorithmDescriptor with org.opensaml.xmlsec.algorithm.descriptors.BlockEncryptionAES128CBC,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.BlockEncryptionAES128GCM,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.BlockEncryptionAES192CBC,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.BlockEncryptionAES192GCM,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.BlockEncryptionAES256CBC,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.BlockEncryptionAES256GCM,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.BlockEncryptionDESede,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.DigestMD5,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.DigestRIPEMD160,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.DigestSHA1,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.DigestSHA224,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.DigestSHA256,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.DigestSHA384,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.DigestSHA512,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.HMACMD5,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.HMACRIPEMD160,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.HMACSHA1,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.HMACSHA224,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.HMACSHA256,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.HMACSHA384,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.HMACSHA512,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.KeyTransportRSA15,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.KeyTransportRSAOAEP,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.KeyTransportRSAOAEPMGF1P,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SignatureDSASHA1,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SignatureDSASHA256,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SignatureECDSASHA1,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SignatureECDSASHA224,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SignatureECDSASHA256,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SignatureECDSASHA384,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SignatureECDSASHA512,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SignatureRSAMD5,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SignatureRSARIPEMD160,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SignatureRSASHA1,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SignatureRSASHA224,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SignatureRSASHA256,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SignatureRSASHA384,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SignatureRSASHA512,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SymmetricKeyWrapAES128,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SymmetricKeyWrapAES192,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SymmetricKeyWrapAES256,
+			                                                           org.opensaml.xmlsec.algorithm.descriptors.SymmetricKeyWrapDESede;
+	uses org.opensaml.xmlsec.signature.support.SignatureValidationProvider;
+	provides org.opensaml.xmlsec.signature.support.SignatureValidationProvider with org.opensaml.xmlsec.signature.support.provider.ApacheSantuarioSignatureValidationProviderImpl;
+	uses org.opensaml.xmlsec.signature.support.SignerProvider;
+	provides org.opensaml.xmlsec.signature.support.SignerProvider with org.opensaml.xmlsec.signature.support.provider.ApacheSantuarioSignerProviderImpl;
+
 
 }
