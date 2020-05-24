@@ -54,7 +54,7 @@ public class CxfNonSpring
 			catch (Exception e)
 			{
 				LogFactory.getLog(CxfNonSpring.class)
-				          .log(Level.SEVERE, "Not creating web service for [" + calledType.getCanonicalName() + "]. Check finer logs for details");
+				          .log(Level.SEVERE, "Not creating web service for [" + calledType.getCanonicalName() + "]. - " + e.getMessage(), e);
 				LogFactory.getLog(CxfNonSpring.class)
 				          .log(Level.FINER, "Unable to bind Web Service for [" + calledType.getCanonicalName() + "]. This is usually  because it is an internal one", e);
 			}

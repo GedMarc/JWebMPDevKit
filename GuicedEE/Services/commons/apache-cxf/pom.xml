@@ -654,9 +654,9 @@
                             <shadedPattern>org</shadedPattern>
                         </relocation>
                     </relocations>
-                    <!--   <transformers>
-                           <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                       </transformers>-->
+                    <transformers>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                    </transformers>
                 </configuration>
             </plugin>
             <plugin>

@@ -85,10 +85,15 @@ module org.apache.cxf {
 
 	opens org.glassfish.jersey.server.wadl.internal;
 
-	provides javax.xml.ws.spi.Provider with org.apache.cxf.jaxws.spi.ProviderImpl, org.apache.cxf.jaxws22.spi.ProviderImpl;
+	provides javax.xml.ws.spi.Provider with org.apache.cxf.jaxws22.spi.ProviderImpl;
+/*
 	provides com.sun.xml.ws.spi.db.BindingContextFactory with com.sun.xml.ws.db.glassfish.JAXBRIContextFactory;
 	provides javax.ws.rs.client.ClientBuilder with org.apache.cxf.jaxrs.client.spec.ClientBuilderImpl;
+
+
 	provides javax.ws.rs.ext.RuntimeDelegate with org.apache.cxf.jaxrs.impl.RuntimeDelegateImpl;
+*/
+
 	provides javax.xml.soap.MessageFactory with com.sun.xml.messaging.saaj.soap.ver1_1.SOAPMessageFactory1_1Impl,
 			                                       com.sun.xml.messaging.saaj.soap.ver1_2.SOAPMessageFactory1_2Impl;
 	provides javax.xml.soap.SAAJMetaFactory with com.sun.xml.messaging.saaj.soap.SAAJMetaFactoryImpl;
@@ -163,3 +168,4 @@ module org.apache.cxf {
 
 
 }
+
