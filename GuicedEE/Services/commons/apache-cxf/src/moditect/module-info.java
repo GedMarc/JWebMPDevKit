@@ -93,6 +93,7 @@ module org.apache.cxf {
 
 	provides javax.ws.rs.ext.RuntimeDelegate with org.apache.cxf.jaxrs.impl.RuntimeDelegateImpl;
 */
+/*
 
 	provides javax.xml.soap.MessageFactory with com.sun.xml.messaging.saaj.soap.ver1_1.SOAPMessageFactory1_1Impl,
 			                                       com.sun.xml.messaging.saaj.soap.ver1_2.SOAPMessageFactory1_2Impl;
@@ -165,6 +166,7 @@ module org.apache.cxf {
 	provides org.opensaml.xmlsec.signature.support.SignatureValidationProvider with org.opensaml.xmlsec.signature.support.provider.ApacheSantuarioSignatureValidationProviderImpl;
 	uses org.opensaml.xmlsec.signature.support.SignerProvider;
 	provides org.opensaml.xmlsec.signature.support.SignerProvider with org.opensaml.xmlsec.signature.support.provider.ApacheSantuarioSignerProviderImpl;
+*/
 
 
 }
