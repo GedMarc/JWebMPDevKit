@@ -278,4 +278,7 @@ module primefaces {
 	exports org.primefaces.webapp.filter;
 
 	uses org.primefaces.component.fileupload.FileUploadDecoder;
+
+	provides org.primefaces.component.fileupload.FileUploadDecoder with org.primefaces.component.fileupload.NativeFileUploadDecoder,
+			                                                               org.primefaces.component.fileupload.CommonsFileUploadDecoder;
 }
