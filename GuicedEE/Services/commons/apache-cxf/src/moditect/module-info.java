@@ -8,7 +8,7 @@ module org.apache.cxf {
 
 	requires java.annotation;
 	requires static java.management;
-	requires java.logging;
+	requires transitive java.logging;
 	requires static java.desktop;
 	requires static java.validation;
 	requires java.jws;
@@ -19,6 +19,10 @@ module org.apache.cxf {
 	requires java.xml.ws;
 
 	requires org.codehaus.stax2;
+
+	exports org.apache.cxf.transports.http.configuration;
+	exports org.apache.cxf.transport.http;
+	exports org.apache.cxf.configuration.jsse;
 
 	exports org.apache.cxf.phase;
 	exports org.apache.cxf.interceptor;
@@ -67,7 +71,6 @@ module org.apache.cxf {
 	opens org.apache.cxf.rs.security.oauth.filters to com.google.guice;
 	opens org.apache.cxf.rs.security.oauth2.filters to com.google.guice;
 
-
 	opens org.apache.cxf.rs.security.oauth2.common;
 	opens org.apache.cxf.rs.security.oauth2.client;
 
@@ -84,6 +87,8 @@ module org.apache.cxf {
 	uses org.apache.cxf.jaxrs.ext.ContextResolver;
 
 	opens org.glassfish.jersey.server.wadl.internal;
+
+	opens org.apache.cxf.ws.addressing to java.xml.bind;
 
 	provides javax.xml.ws.spi.Provider with org.apache.cxf.jaxws22.spi.ProviderImpl;
 /*
@@ -167,7 +172,6 @@ module org.apache.cxf {
 	uses org.opensaml.xmlsec.signature.support.SignerProvider;
 	provides org.opensaml.xmlsec.signature.support.SignerProvider with org.opensaml.xmlsec.signature.support.provider.ApacheSantuarioSignerProviderImpl;
 */
-
 
 }
 
