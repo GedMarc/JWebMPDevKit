@@ -101,13 +101,6 @@ module org.apache.cxf {
 	opens org.apache.cxf.ws.addressing to java.xml.bind;
 
 	provides javax.xml.ws.spi.Provider with org.apache.cxf.jaxws22.spi.ProviderImpl;
-	provides org.apache.cxf.jaxrs.openapi.JaxRs2Extension with org.apache.cxf.jaxrs.openapi.JaxRs2Extension;
-	provides javax.ws.rs.sse.SseEventSource.Builder with org.apache.cxf.jaxrs.sse.client.SseEventSourceBuilderImpl;
-	uses org.apache.cxf.jaxrs.ext.JAXRSServerFactoryCustomizationExtension;
-	provides org.apache.cxf.jaxrs.ext.JAXRSServerFactoryCustomizationExtension with org.apache.cxf.jaxrs.sse.ext.SseTransportCustomizationExtension;
-
-
-
 /*
 	provides com.sun.xml.ws.spi.db.BindingContextFactory with com.sun.xml.ws.db.glassfish.JAXBRIContextFactory;
 	provides javax.ws.rs.client.ClientBuilder with org.apache.cxf.jaxrs.client.spec.ClientBuilderImpl;
@@ -115,7 +108,6 @@ module org.apache.cxf {
 
 	provides javax.ws.rs.ext.RuntimeDelegate with org.apache.cxf.jaxrs.impl.RuntimeDelegateImpl;
 */
-
 /*
 
 	provides javax.xml.soap.MessageFactory with com.sun.xml.messaging.saaj.soap.ver1_1.SOAPMessageFactory1_1Impl,
@@ -124,28 +116,23 @@ module org.apache.cxf {
 	provides javax.xml.soap.SOAPConnectionFactory with com.sun.xml.messaging.saaj.client.p2p.HttpSOAPConnectionFactory;
 	provides javax.xml.soap.SOAPFactory with com.sun.xml.messaging.saaj.soap.ver1_1.SOAPFactory1_1Impl,
 			                                    com.sun.xml.messaging.saaj.soap.ver1_2.SOAPFactory1_2Impl;
-*/
 
-
-//	provides org.eclipse.jetty.http.HttpFieldPreEncoder with org.eclipse.jetty.http.Http1FieldPreEncoder;
-
+	provides org.eclipse.jetty.http.HttpFieldPreEncoder with org.eclipse.jetty.http.Http1FieldPreEncoder;
 
 	uses org.opensaml.core.config.Initializer;
 	provides org.opensaml.core.config.Initializer with org.opensaml.saml.config.XMLObjectProviderInitializer,
-			org.opensaml.saml.config.SAMLConfigurationInitializer,
-			org.opensaml.security.config.ClientTLSValidationConfiguratonInitializer,
-			org.opensaml.xmlsec.config.JavaCryptoValidationInitializer,
-			org.opensaml.xmlsec.config.XMLObjectProviderInitializer,
-			org.opensaml.xmlsec.config.ApacheXMLSecurityInitializer,
-			org.opensaml.xmlsec.config.GlobalSecurityConfigurationInitializer,
-			org.opensaml.xacml.config.XMLObjectProviderInitializer,
-			org.opensaml.xacml.profile.saml.config.XMLObjectProviderInitializer,
-			org.opensaml.xmlsec.config.GlobalAlgorithmRegistryInitializer,
-			org.opensaml.xmlsec.config.DecryptionParserPoolInitializer,
-			org.opensaml.core.xml.config.XMLObjectProviderInitializer,
-			org.opensaml.core.xml.config.GlobalParserPoolInitializer,
-			org.opensaml.core.metrics.impl.MetricRegistryInitializer;
-
+			                                              org.opensaml.saml.config.SAMLConfigurationInitializer,
+			                                              org.opensaml.core.xml.config.XMLObjectProviderInitializer,
+			                                              org.opensaml.core.xml.config.GlobalParserPoolInitializer,
+			                                              org.opensaml.core.metrics.impl.MetricRegistryInitializer,
+			                                              org.opensaml.xmlsec.config.GlobalAlgorithmRegistryInitializer,
+			                                              org.opensaml.security.config.ClientTLSValidationConfiguratonInitializer,
+			                                              org.opensaml.xmlsec.config.JavaCryptoValidationInitializer,
+			                                              org.opensaml.xmlsec.config.XMLObjectProviderInitializer,
+			                                              org.opensaml.xmlsec.config.ApacheXMLSecurityInitializer,
+			                                              org.opensaml.xmlsec.config.GlobalSecurityConfigurationInitializer,
+			                                              org.opensaml.xacml.config.XMLObjectProviderInitializer,
+			                                              org.opensaml.xacml.profile.saml.config.XMLObjectProviderInitializer;
 
 	uses org.opensaml.xmlsec.algorithm.AlgorithmDescriptor;
 	provides org.opensaml.xmlsec.algorithm.AlgorithmDescriptor with org.opensaml.xmlsec.algorithm.descriptors.BlockEncryptionAES128CBC,
@@ -194,8 +181,7 @@ module org.apache.cxf {
 	provides org.opensaml.xmlsec.signature.support.SignatureValidationProvider with org.opensaml.xmlsec.signature.support.provider.ApacheSantuarioSignatureValidationProviderImpl;
 	uses org.opensaml.xmlsec.signature.support.SignerProvider;
 	provides org.opensaml.xmlsec.signature.support.SignerProvider with org.opensaml.xmlsec.signature.support.provider.ApacheSantuarioSignerProviderImpl;
-
-
+*/
 
 }
 

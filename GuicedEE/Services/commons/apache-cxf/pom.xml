@@ -599,32 +599,6 @@
             <optional>true</optional>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-ws-transfer -->
-        <dependency>
-            <groupId>org.opensaml</groupId>
-            <artifactId>opensaml-xmlsec-api</artifactId>
-            <version>3.4.5</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.opensaml</groupId>
-            <artifactId>opensaml-messaging-api</artifactId>
-            <version>3.4.5</version>
-            <optional>true</optional>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.opensaml/opensaml-security-api -->
-        <dependency>
-            <groupId>org.opensaml</groupId>
-            <artifactId>opensaml-security-api</artifactId>
-            <version>3.4.5</version>
-            <optional>true</optional>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.cryptacular/cryptacular -->
-        <dependency>
-            <groupId>org.cryptacular</groupId>
-            <artifactId>cryptacular</artifactId>
-            <version>1.2.4</version>
-            <optional>true</optional>
-        </dependency>
 
     </dependencies>
 
@@ -651,10 +625,6 @@
                         <includes>
                             <!--<include>org.codehaus.woodstox:stax2-api:*</include>-->
                             <!--<include>org.jvnet.staxex:stax-ex:*</include>-->
-                            <include>org.opensaml:opensaml-xmlsec-api:*</include>
-                            <include>org.opensaml:opensaml-messaging-api:*</include>
-                            <include>org.opensaml:opensaml-security-api:*</include>
-                            <include>org.cryptacular:cryptacular:*</include>
                             <include>org.reactivestreams:reactive-streams:*</include>
                             <include>org.apache.velocity:velocity-engine-core:*</include>
                             <include>org.eclipse.jetty:*:*</include>
