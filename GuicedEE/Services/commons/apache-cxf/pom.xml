@@ -462,12 +462,12 @@
         </dependency>
         <!-- Thanks for using https://jar-download.com -->
         <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-service-description -->
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-rs-service-description</artifactId>
-            <version>3.3.6</version>
-            <optional>true</optional>
-        </dependency>
+        <!--    <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-rs-service-description</artifactId>
+                <version>3.3.6</version>
+                <optional>true</optional>
+            </dependency>-->
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-ws-addr</artifactId>
@@ -482,12 +482,12 @@
             <optional>true</optional>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-service-description-swagger -->
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-rs-service-description-swagger</artifactId>
-            <version>3.3.6</version>
-            <optional>true</optional>
-        </dependency>
+        <!-- <dependency>
+             <groupId>org.apache.cxf</groupId>
+             <artifactId>cxf-rt-rs-service-description-swagger</artifactId>
+             <version>3.3.6</version>
+             <optional>true</optional>
+         </dependency>-->
         <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-ws-mex -->
         <dependency>
             <groupId>org.apache.cxf</groupId>
@@ -554,12 +554,12 @@
             <optional>true</optional>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-service-description-openapi-v3 -->
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-rs-service-description-openapi-v3</artifactId>
-            <version>3.3.6</version>
-            <optional>true</optional>
-        </dependency>
+        <!-- <dependency>
+             <groupId>org.apache.cxf</groupId>
+             <artifactId>cxf-rt-rs-service-description-openapi-v3</artifactId>
+             <version>3.3.6</version>
+             <optional>true</optional>
+         </dependency>-->
         <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-security-oauth2-saml -->
         <dependency>
             <groupId>org.apache.cxf</groupId>
@@ -582,19 +582,19 @@
             <optional>true</optional>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-extension-reactivestreams -->
-        <dependency>
+    <!--    <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-rs-extension-reactivestreams</artifactId>
             <version>3.3.6</version>
             <optional>true</optional>
-        </dependency>
+        </dependency>-->
         <!-- https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams -->
-        <dependency>
+   <!--     <dependency>
             <groupId>org.reactivestreams</groupId>
             <artifactId>reactive-streams</artifactId>
             <version>1.0.3</version>
             <optional>true</optional>
-        </dependency>
+        </dependency>-->
         <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-ws-transfer -->
         <dependency>
             <groupId>org.opensaml</groupId>

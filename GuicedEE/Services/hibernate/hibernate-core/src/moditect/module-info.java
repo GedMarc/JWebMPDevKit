@@ -24,10 +24,11 @@ module org.hibernate.orm.core {
 	requires transitive javax.inject;
 
 	requires static jdk.unsupported;
-	requires static java.instrument;
+
+	requires java.instrument;
 
 	requires static ant;
-	requires static javax.security.jacc.api;
+	requires javax.security.jacc.api;
 
 	uses org.hibernate.boot.registry.selector.StrategyRegistrationProvider;
 	uses org.hibernate.boot.registry.selector.spi.StrategyCreator;
@@ -43,7 +44,6 @@ module org.hibernate.orm.core {
 	opens org.hibernate.engine.jdbc.spi to org.jboss.logging;
 	opens org.hibernate.cache.spi to org.jboss.logging;
 	opens org.hibernate.bytecode to org.jboss.logging;
-
 
 	exports org.hibernate;
 	//exports org.hibernate.action.internal;
@@ -310,7 +310,6 @@ module org.hibernate.orm.core {
 
 	exports org.hibernate.internal.util.config to com.hazelcast.all, com.hazelcast.hibernate;
 
-
 	//exports org.hibernate.cache.internal;
 	//exports org.hibernate.internal.util;
 
@@ -447,7 +446,6 @@ module org.hibernate.orm.core {
 	uses org.hibernate.bytecode.enhance.spi.interceptor.BytecodeLazyAttributeInterceptor;
 	uses org.hibernate.bytecode.enhance.spi.interceptor.LazyFetchGroupMetadata;
 	uses org.hibernate.bytecode.enhance.spi.interceptor.SessionAssociableInterceptor;
-
 
 	uses org.hibernate.cache.spi.CacheImplementor;
 	uses org.hibernate.cache.spi.CacheKeysFactory;
@@ -768,7 +766,6 @@ module org.hibernate.orm.core {
 	uses org.hibernate.type.descriptor.sql.spi.SqlTypeDescriptorRegistry;
 	uses org.hibernate.type.descriptor.java.spi.JavaTypeDescriptorRegistry;
 	uses org.hibernate.type.descriptor.java.spi.RegistryHelper;
-
 
 	provides javax.persistence.spi.PersistenceProvider with org.hibernate.jpa.HibernatePersistenceProvider;
 
