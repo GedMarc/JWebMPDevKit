@@ -18,17 +18,17 @@
         <profile>
             <id>enable-commons</id>
             <modules>
-                <!--         <module>commons-codec</module>
-                         <module>commons-collections</module>
-                         <module>commons-fileupload</module>
-                         <module>commons-io</module>
-                         <module>commons-lang3</module>
-                         <module>commons-logging</module>
-                         <module>commons-math</module>
-                         <module>commons-text</module>
-                         <module>apache-poi</module>
-                         <module>apache-poi-ooxml</module>
-         -->
+                <module>commons-codec</module>
+                <module>commons-collections</module>
+                <module>commons-fileupload</module>
+                <module>commons-io</module>
+                <module>commons-lang3</module>
+                <module>commons-logging</module>
+                <module>commons-math</module>
+                <module>commons-text</module>
+                <module>apache-poi</module>
+                <module>apache-poi-ooxml</module>
+
                 <module>apache-cxf</module>
                 <module>commons-compress</module>
                 <module>commons-csv</module>
