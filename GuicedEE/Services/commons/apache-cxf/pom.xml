@@ -149,52 +149,52 @@
             <groupId>jakarta.xml.ws</groupId>
             <artifactId>jakarta.xml.ws-api</artifactId>
         </dependency>
+        <!--
 
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-server</artifactId>
-            <version>${jetty.version}</version>
-            <optional>true</optional>
-        </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-server</artifactId>
+                    <version>${jetty.version}</version>
+                    <optional>true</optional>
+                </dependency>
 
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-continuation</artifactId>
-            <version>${jetty.version}</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-http</artifactId>
-            <version>${jetty.version}</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-io</artifactId>
-            <version>${jetty.version}</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-util</artifactId>
-            <version>${jetty.version}</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-security</artifactId>
-            <version>${jetty.version}</version>
-            <optional>true</optional>
-        </dependency>
-
-        <!-- Jersey JaxRS-->
-        <dependency>
-            <groupId>org.glassfish.jersey.core</groupId>
-            <artifactId>jersey-server</artifactId>
-            <version>${jersey.version}</version>
-            <optional>true</optional>
-        </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-continuation</artifactId>
+                    <version>${jetty.version}</version>
+                    <optional>true</optional>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-http</artifactId>
+                    <version>${jetty.version}</version>
+                    <optional>true</optional>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-io</artifactId>
+                    <version>${jetty.version}</version>
+                    <optional>true</optional>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-util</artifactId>
+                    <version>${jetty.version}</version>
+                    <optional>true</optional>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-security</artifactId>
+                    <version>${jetty.version}</version>
+                    <optional>true</optional>
+                </dependency>
+                <dependency>
+                    <groupId>org.glassfish.jersey.core</groupId>
+                    <artifactId>jersey-server</artifactId>
+                    <version>${jersey.version}</version>
+                    <optional>true</optional>
+                </dependency>
+        -->
 
         <dependency>
             <groupId>jakarta.ws.rs</groupId>
@@ -397,6 +397,74 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-security-jose -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-security-jose</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-json-basic</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-security -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-security</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-security-oauth2</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-security-oauth -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-security-oauth</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-extension-providers -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-extension-providers</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-extension-search</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-databinding-jaxb -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-databinding-jaxb</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-sse</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- Thanks for using https://jar-download.com -->
+
 
     </dependencies>
 
@@ -427,6 +495,19 @@
                             <include>org.apache.cxf:cxf-core:*</include>
                             <include>org.bouncycastle:bcprov-jdk16:*</include>
                             <include>org.jacorb:jacorb-omgapi:*</include>
+                            <include>org.apache.cxf:cxf-rt-rs-security-jose:*</include>
+                            <include>org.apache.cxf:cxf-rt-rs-json-basic:*</include>
+                            <include>org.apache.cxf:cxf-rt-security:*</include>
+                            <include>org.apache.cxf:cxf-rt-rs-security-oauth2:*</include>
+                            <include>org.apache.cxf:cxf-rt-rs-security-oauth:*</include>
+
+                            <include>org.apache.cxf:cxf-rt-rs-client:*</include>
+                            <include>org.apache.cxf:cxf-rt-rs-security-jose-jaxrs:*</include>
+                            <include>org.apache.cxf:cxf-rt-rs-extension-providers:*</include>
+                            <include>org.apache.cxf:cxf-rt-rs-extension-search:*</include>
+
+                            <include>org.apache.cxf:cxf-rt-databinding-jaxb:*</include>
+                            <include>org.apache.cxf:cxf-rt-rs-sse:*</include>
 
 
                             <include>org.apache.cxf:cxf-rt-frontend-jaxrs:*</include>
@@ -582,68 +663,6 @@
         </plugins>
     </build>
 
-    <inceptionYear>2006</inceptionYear>
-    <mailingLists>
-        <mailingList>
-            <name>Apache CXF User List</name>
-            <subscribe>users-subscribe@cxf.apache.org</subscribe>
-            <unsubscribe>users-unsubscribe@cxf.apache.org</unsubscribe>
-            <post>users@cxf.apache.org</post>
-            <archive>https://mail-archives.apache.org/mod_mbox/cxf-users</archive>
-        </mailingList>
-        <mailingList>
-            <name>Apache CXF Developer List</name>
-            <subscribe>dev-subscribe@cxf.apache.org</subscribe>
-            <unsubscribe>dev-unsubscribe@cxf.apache.org</unsubscribe>
-            <post>dev@cxf.apache.org</post>
-            <archive>https://mail-archives.apache.org/mod_mbox/cxf-dev</archive>
-        </mailingList>
-        <mailingList>
-            <name>Apache CXF Commits List</name>
-            <subscribe>commits-subscribe@cxf.apache.org</subscribe>
-            <unsubscribe>commits-unsubscribe@cxf.apache.org</unsubscribe>
-            <post>commits@cxf.apache.org</post>
-            <archive>https://mail-archives.apache.org/mod_mbox/cxf-commits</archive>
-        </mailingList>
-        <mailingList>
-            <name>Apache CXF Issues List</name>
-            <subscribe>issues-subscribe@cxf.apache.org</subscribe>
-            <unsubscribe>issues-unsubscribe@cxf.apache.org</unsubscribe>
-            <post>issues@cxf.apache.org</post>
-            <archive>https://mail-archives.apache.org/mod_mbox/cxf-issues</archive>
-        </mailingList>
-        <mailingList>
-            <name>Apache CXF Build Notifications List</name>
-            <subscribe>notifications-subscribe@cxf.apache.org</subscribe>
-            <unsubscribe>notifications-unsubscribe@cxf.apache.org</unsubscribe>
-            <post>notifications@cxf.apache.org</post>
-            <archive>https://mail-archives.apache.org/mod_mbox/cxf-notifications</archive>
-        </mailingList>
-    </mailingLists>
-    <developers>
-        <developer>
-            <name>The Apache CXF Team</name>
-            <email>dev@cxf.apache.org</email>
-            <url>https://cxf.apache.org</url>
-            <organization>Apache Software Foundation</organization>
-            <organizationUrl>https://apache.org/</organizationUrl>
-            <properties>
-                <picUrl>https://cxf.apache.org/images/cxf.png</picUrl>
-            </properties>
-        </developer>
-    </developers>
-    <ciManagement>
-        <system>Jenkins</system>
-        <url>https://builds.apache.org/view/A-D/view/CXF/</url>
-        <notifiers>
-            <notifier>
-                <type>mail</type>
-                <configuration>
-                    <address>notifications@cxf.apache.org</address>
-                </configuration>
-            </notifier>
-        </notifiers>
-    </ciManagement>
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -659,6 +678,54 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>1.9.4</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>3.2.2</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.undertow/undertow-core -->
+            <dependency>
+                <groupId>io.undertow</groupId>
+                <artifactId>undertow-core</artifactId>
+                <version>2.1.1.Final</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk15on</artifactId>
+                <version>1.65</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/ca.juliusdavies/not-yet-commons-ssl -->
+            <dependency>
+                <groupId>ca.juliusdavies</groupId>
+                <artifactId>not-yet-commons-ssl</artifactId>
+                <version>0.3.11</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>29.0-jre</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.5.12</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>1.14</version>
+            </dependency>
+
 
             <dependency>
                 <groupId>org.bouncycastle</groupId>
@@ -778,14 +845,25 @@
                 <version>${cxf.rt.version}</version>
                 <optional>true</optional>
             </dependency>
+            <!--
+
+                        <dependency>
+                            <groupId>org.apache.cxf</groupId>
+                            <artifactId>cxf-rt-transports-http-undertow</artifactId>
+                            <version>${cxf.rt.version}</version>
+                            <optional>true</optional>
+                        </dependency>
+            -->
 
             <!-- Jetty is needed if you're are not using the CXFServlet -->
-            <dependency>
-                <groupId>org.apache.cxf</groupId>
-                <artifactId>cxf-rt-transports-http-jetty</artifactId>
-                <version>${cxf.rt.version}</version>
-                <optional>true</optional>
-            </dependency>
+            <!--         <dependency>
+                         <groupId>org.apache.cxf</groupId>
+                         <artifactId>cxf-rt-transports-http-jetty</artifactId>
+                         <version>${cxf.rt.version}</version>
+                         <optional>true</optional>
+                     </dependency>-->
+
+
         </dependencies>
     </dependencyManagement>
 

@@ -1,5 +1,5 @@
 module com.google.common {
-	requires java.logging;
+	requires transitive java.logging;
 
 	requires static java.compiler;
 

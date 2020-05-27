@@ -1,6 +1,6 @@
 module jakarta.activation {
 	exports javax.activation;
-	requires java.logging;
+	requires transitive java.logging;
 
 	requires static java.desktop;
 

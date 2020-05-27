@@ -25,32 +25,23 @@ open module javax.faces {
 	exports javax.faces;
 
 	exports com.sun.faces.config;
-	requires java.logging;
-
-	requires java.xml;
-
 	requires transitive javax.servlet.jsp.jstl;
 
 	requires java.sql;
 	requires static java.naming;
 	requires static java.desktop;
 
-	requires javax.inject;
-
 	requires jakarta.enterprise.cdi;
 	requires static java.persistence;
-	requires java.validation;
+
 	requires static javax.ejb;
 	requires java.annotation;
 	requires java.json;
 	requires javax.websocket.api;
 
-	requires java.xml.bind;
+	requires transitive java.xml.bind;
 
-	provides javax.enterprise.inject.spi.Extension with com.sun.faces.application.view.ViewScopeExtension,
-			                                               com.sun.faces.flow.FlowCDIExtension,
-			                                               com.sun.faces.flow.FlowDiscoveryCDIExtension,
-			                                               com.sun.faces.cdi.CdiExtension;
+	provides javax.enterprise.inject.spi.Extension with com.sun.faces.application.view.ViewScopeExtension, com.sun.faces.flow.FlowCDIExtension, com.sun.faces.flow.FlowDiscoveryCDIExtension, com.sun.faces.cdi.CdiExtension;
 
 	provides javax.servlet.ServletContainerInitializer with com.sun.faces.config.FacesInitializer;
 
@@ -64,6 +55,5 @@ open module javax.faces {
 	uses com.sun.faces.spi.InjectionProvider;
 	uses com.sun.faces.spi.SerializationProvider;
 	uses javax.faces.application.ApplicationConfigurationPopulator;
-
 
 }

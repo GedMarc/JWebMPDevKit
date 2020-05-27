@@ -1,5 +1,5 @@
 module com.hazelcast.all {
-	requires java.logging;
+	requires transitive java.logging;
 	requires transitive cache.api;
 	requires java.transaction.xa;
 	requires static java.management;
@@ -29,12 +29,9 @@ module com.hazelcast.all {
 			;
 
 	uses com.hazelcast.spi.impl.servicemanager.ServiceDescriptorProvider;
-	provides com.hazelcast.spi.impl.servicemanager.ServiceDescriptorProvider with com.hazelcast.cp.internal.RaftServiceDescriptorProvider,
-			                                                                         com.hazelcast.cp.internal.datastructures.RaftDataServiceDescriptorProvider,
-			                                                                         com.hazelcast.internal.longregister.LongRegisterServiceDescriptorProvider;
+	provides com.hazelcast.spi.impl.servicemanager.ServiceDescriptorProvider with com.hazelcast.cp.internal.RaftServiceDescriptorProvider, com.hazelcast.cp.internal.datastructures.RaftDataServiceDescriptorProvider, com.hazelcast.internal.longregister.LongRegisterServiceDescriptorProvider;
 
 	provides javax.cache.spi.CachingProvider with com.hazelcast.cache.HazelcastCachingProvider;
-
 
 	exports com.hazelcast.client.config;
 	exports com.hazelcast.client.cache.impl;

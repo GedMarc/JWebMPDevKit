@@ -1,12 +1,8 @@
 module com.guicedee.guicedhazelcast.hibernate {
 	exports com.guicedee.guicedhazelcast.hibernate;
 
-	requires java.logging;
-
-	requires com.guicedee.guicedhazelcast;
-
+	requires transitive com.guicedee.guicedhazelcast;
 	requires com.hazelcast.hibernate;
-	requires transitive org.apache.commons.io;
 
 	requires transitive com.guicedee.guicedpersistence;
 	requires transitive org.hibernate.orm.jcache;

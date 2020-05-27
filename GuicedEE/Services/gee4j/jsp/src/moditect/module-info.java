@@ -14,7 +14,7 @@ module javax.servlet.jsp {
 	exports org.apache.jasper.tagplugins.jstl;
 	exports org.apache.jasper.xmlparser;
 
-	requires java.logging;
+	requires transitive java.logging;
 	requires java.xml;
 
 	requires transitive javax.el;

@@ -25,6 +25,14 @@
             <artifactId>guiced-undertow</artifactId>
             <type>jar</type>
         </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>commons-io</artifactId>
+            <type>jar</type>
+        </dependency>
+
+
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>org.apache.cxf</artifactId>
@@ -34,7 +42,6 @@
             <groupId>com.guicedee.services</groupId>
             <artifactId>jboss-logmanager</artifactId>
         </dependency>
-
 
 
     </dependencies>

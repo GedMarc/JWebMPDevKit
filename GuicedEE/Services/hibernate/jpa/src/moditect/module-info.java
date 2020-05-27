@@ -1,5 +1,5 @@
 module java.persistence {
-	requires java.logging;
+	requires transitive java.logging;
 	requires transitive java.sql;
 	requires static java.instrument;
 

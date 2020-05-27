@@ -1,8 +1,8 @@
 module com.google.common {
-	requires java.logging;
+	requires transitive java.logging;
 
 	requires static java.compiler;
 
-	requires jakarta.activation;
+	requires transitive jakarta.activation;
 	requires static jdk.unsupported;
 }

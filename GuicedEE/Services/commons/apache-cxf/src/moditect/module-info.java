@@ -3,20 +3,20 @@ module org.apache.cxf {
 	requires transitive com.fasterxml.jackson.databind;
 	requires transitive com.fasterxml.jackson.jaxrs.json;
 	requires transitive java.servlet;
+	requires transitive org.apache.commons.io;
 
-	requires com.google.common;
+	requires transitive com.google.common;
 
 	requires java.annotation;
 	requires static java.management;
-	requires transitive java.logging;
 	requires static java.desktop;
 	requires static java.validation;
 	requires java.jws;
 	requires static java.rmi;
 	requires static org.slf4j;
 
-	requires java.ws.rs;
-	requires java.xml.ws;
+	requires transitive java.ws.rs;
+	requires transitive java.xml.ws;
 
 	requires org.codehaus.stax2;
 
@@ -54,25 +54,35 @@ module org.apache.cxf {
 
 	exports org.apache.cxf.transport.servlet.servicelist;
 
+	opens org.apache.cxf.rs.security.jose.common;
+	opens org.apache.cxf.rs.security.jose.jwa;
+	opens org.apache.cxf.rs.security.jose.jwk;
+	opens org.apache.cxf.rs.security.jose.jws;
+	opens org.apache.cxf.rs.security.jose.jwt;
+
 	opens org.apache.cxf.rs.security.oauth2.services;
+	opens org.apache.cxf.rs.security.oauth2.provider to com.google.guice;
+	opens org.apache.cxf.rs.security.oauth2.filters to com.google.guice;
+	opens org.apache.cxf.rs.security.oauth2.common;
+	opens org.apache.cxf.rs.security.oauth2.client;
+
 	opens org.apache.cxf.rs.security.oauth.services;
+	opens org.apache.cxf.rs.security.oauth.filters to com.google.guice;
 
 	exports org.apache.cxf.transport.http_undertow;
-	exports org.glassfish.jersey.internal to java.ws.rs;
+	//	exports org.glassfish.jersey.internal to java.ws.rs;
 
 	//Filters and Providers
 	opens org.apache.cxf.jaxrs.provider.json to com.google.guice;
-	opens org.apache.cxf.jaxrs.provider.xmlbeans to com.google.guice;
+//	opens org.apache.cxf.jaxrs.provider.xmlbeans to com.google.guice;
 	opens org.apache.cxf.jaxrs.provider to com.google.guice;
 	opens org.apache.cxf.jaxrs.ext.search to com.google.guice;
 	opens org.apache.cxf.jaxrs.validation to com.google.guice;
-	opens org.apache.cxf.rs.security.oauth2.provider to com.google.guice;
-	opens org.apache.cxf.jaxrs.provider.aegis to com.google.guice;
-	opens org.apache.cxf.rs.security.oauth.filters to com.google.guice;
-	opens org.apache.cxf.rs.security.oauth2.filters to com.google.guice;
 
-	opens org.apache.cxf.rs.security.oauth2.common;
-	opens org.apache.cxf.rs.security.oauth2.client;
+	opens org.apache.cxf.jaxrs.provider.aegis to com.google.guice;
+
+
+
 
 	uses javax.ws.rs.ext.MessageBodyWriter;
 	uses javax.ws.rs.ext.MessageBodyReader;
@@ -86,7 +96,7 @@ module org.apache.cxf {
 	uses javax.ws.rs.container.DynamicFeature;
 	uses org.apache.cxf.jaxrs.ext.ContextResolver;
 
-	opens org.glassfish.jersey.server.wadl.internal;
+	//	opens org.glassfish.jersey.server.wadl.internal;
 
 	opens org.apache.cxf.ws.addressing to java.xml.bind;
 

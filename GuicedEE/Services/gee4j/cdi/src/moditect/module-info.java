@@ -1,7 +1,7 @@
 module jakarta.enterprise.cdi {
-	requires jakarta.enterprise.interceptor;
-	requires javax.inject;
-	requires javax.el;
+	requires transitive jakarta.enterprise.interceptor;
+	requires transitive javax.inject;
+	requires transitive javax.el;
 
 	exports javax.decorator;
 	exports javax.enterprise.context;

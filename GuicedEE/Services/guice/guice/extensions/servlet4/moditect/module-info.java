@@ -5,7 +5,6 @@ module com.google.guice.extensions.servlet {
 	requires transitive java.servlet;
 
 	requires transitive com.google.guice;
-	requires java.logging;
 
 	opens com.google.inject.servlet to com.google.guice;
 }

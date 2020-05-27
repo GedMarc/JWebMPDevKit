@@ -1,7 +1,7 @@
 module com.google.guice {
 	requires com.google.common;
 	requires javax.inject;
-	requires java.logging;
+	requires transitive java.logging;
 	requires static org.apache.commons.lang3;
 
 	requires aopalliance;

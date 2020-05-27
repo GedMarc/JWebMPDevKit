@@ -4,7 +4,6 @@ module org.apache.poi {
 	requires static org.apache.commons.math3;
 	requires static org.apache.commons.codec;
 	requires static org.apache.commons.collections4;
-	requires java.logging;
 
 	requires org.apache.commons.logging;
 

@@ -10,7 +10,7 @@ module com.google.guice {
 	exports com.google.inject.internal;
 	exports com.google.inject.internal.util;
 
-	requires java.logging;
+	requires transitive java.logging;
 
 	requires transitive com.google.common;
 	requires transitive javax.inject;

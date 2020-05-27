@@ -1,5 +1,5 @@
 module com.hazelcast.hibernate {
-	requires java.logging;
+	requires transitive java.logging;
 	requires com.hazelcast.all;
 
 	requires transitive cache.api;
