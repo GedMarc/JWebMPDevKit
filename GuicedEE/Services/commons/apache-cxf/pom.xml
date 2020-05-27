@@ -471,8 +471,134 @@
             <version>3.3.6</version>
             <optional>true</optional>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-local -->
-
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-ws-addr</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+    </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-wsdl -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-wsdl</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-service-description-swagger -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-service-description-swagger</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-ws-mex -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-ws-mex</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-security-sso-saml -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-security-sso-saml</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-security-xml -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-security-xml</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-security-saml -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-security-saml</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-databinding-xmlbeans -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-databinding-xmlbeans</artifactId>
+            <version>3.1.18</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-tools-common</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>jaxb-xjc</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId> jaxb-runtime</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity-engine-core -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+            <version>2.2</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-frontend-js -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-js</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-service-description-openapi-v3 -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-service-description-openapi-v3</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-security-oauth2-saml -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-security-oauth2-saml</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-websocket -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-websocket</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-features-metrics -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-features-metrics</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-extension-reactivestreams -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-extension-reactivestreams</artifactId>
+            <version>3.3.6</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams -->
+        <dependency>
+            <groupId>org.reactivestreams</groupId>
+            <artifactId>reactive-streams</artifactId>
+            <version>1.0.3</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-ws-transfer -->
 
     </dependencies>
 
@@ -499,8 +625,11 @@
                         <includes>
                             <!--<include>org.codehaus.woodstox:stax2-api:*</include>-->
                             <!--<include>org.jvnet.staxex:stax-ex:*</include>-->
+                            <include>org.reactivestreams:reactive-streams:*</include>
+                            <include>org.apache.velocity:velocity-engine-core:*</include>
                             <include>org.eclipse.jetty:*:*</include>
                             <include>org.apache.cxf:cxf-core:*</include>
+                            <include>org.apache.cxf:cxf-tools-common:*</include>
                             <include>org.bouncycastle:bcprov-jdk16:*</include>
                             <include>org.jacorb:jacorb-omgapi:*</include>
                             <include>org.apache.cxf:cxf-rt-rs-security-jose:*</include>
@@ -508,6 +637,12 @@
                             <include>org.apache.cxf:cxf-rt-security:*</include>
                             <include>org.apache.cxf:cxf-rt-rs-security-oauth2:*</include>
                             <include>org.apache.cxf:cxf-rt-rs-security-oauth:*</include>
+                            <include>org.apache.cxf:cxf-rt-rs-security-xml:*</include>
+                            <include>org.apache.cxf:cxf-rt-frontend-js:*</include>
+                            <include>org.apache.cxf:cxf-rt-rs-service-description-openapi-v3:*</include>
+                            <include>org.apache.cxf:cxf-rt-rs-security-oauth2-saml:*</include>
+                            <include>org.apache.cxf:cxf-rt-transports-websocket:*</include>
+                            <include>org.apache.cxf:cxf-rt-features-metrics:*</include>
 
                             <include>org.apache.cxf:cxf-rt-rs-client:*</include>
                             <include>org.apache.cxf:cxf-rt-rs-security-jose-jaxrs:*</include>
@@ -517,6 +652,14 @@
                             <include>org.apache.cxf:cxf-rt-databinding-jaxb:*</include>
                             <include>org.apache.cxf:cxf-rt-rs-sse:*</include>
                             <include>org.apache.cxf:cxf-rt-rs-service-description:*</include>
+                            <include>org.apache.cxf:cxf-rt-ws-addr:*</include>
+                            <include>org.apache.cxf:cxf-rt-wsdl:*</include>
+                            <include>org.apache.cxf:cxf-rt-rs-service-description-swagger:*</include>
+                            <include>org.apache.cxf:cxf-rt-ws-mex:*</include>
+                            <include>org.apache.cxf:cxf-rt-rs-security-sso-saml:*</include>
+                            <include>org.apache.cxf:cxf-rt-security-saml:*</include>
+                            <include>org.apache.cxf:cxf-rt-databinding-xmlbeans:*</include>
+                            <include>org.apache.cxf:cxf-rt-rs-extension-reactivestreams:*</include>
 
 
                             <include>org.apache.cxf:cxf-rt-frontend-jaxrs:*</include>
