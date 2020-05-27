@@ -11,7 +11,7 @@ module primefaces {
 
 	requires java.sql;
 	requires java.scripting;
-	requires static java.desktop;
+	requires java.desktop;
 	requires static org.apache.poi;
 	requires static org.apache.poi.ooxml;
 

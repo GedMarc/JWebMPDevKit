@@ -1,5 +1,5 @@
 module org.apache.poi {
-	requires static java.desktop;
+	requires java.desktop;
 	requires transitive java.xml.bind;
 	requires org.apache.commons.math3;
 	requires org.apache.commons.codec;

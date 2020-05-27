@@ -1,11 +1,11 @@
 module javax.ejb {
-	requires static java.rmi;
+	requires java.rmi;
 
 	requires java.transaction;
 
 	requires java.xml;
 	requires java.servlet;
-	requires static java.naming;
+	requires java.naming;
 
 	exports javax.ejb;
 	exports javax.ejb.embeddable;

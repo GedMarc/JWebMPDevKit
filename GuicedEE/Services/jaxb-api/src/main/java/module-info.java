@@ -18,10 +18,10 @@ module java.xml.bind {
 	requires transitive jakarta.activation;
 	requires transitive java.xml;
 	requires transitive java.logging;
-	requires static java.desktop;
+	requires java.desktop;
 	requires transitive java.validation;
 
-	requires static java.compiler;
+	requires java.compiler;
 
 	requires org.codehaus.stax2;
 }

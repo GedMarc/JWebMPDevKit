@@ -1,4 +1,4 @@
 module javax.el {
-	requires static java.desktop;
+	requires java.desktop;
 	exports javax.el;
 }

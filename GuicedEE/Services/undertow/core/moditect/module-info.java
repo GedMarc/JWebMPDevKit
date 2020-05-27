@@ -2,14 +2,14 @@ module undertow.core {
 
 	requires org.jboss.logging;
 
-	requires static java.security.jgss;
+	requires java.security.jgss;
 
 	requires static alpn.api;
 	requires static io.undertow.parser.generator;
-	requires static jdk.unsupported;
-	requires static java.naming;
+	requires jdk.unsupported;
+	requires java.naming;
 	requires static java.sql;
-	requires static java.compiler;
+	requires java.compiler;
 
 	exports io.undertow;
 	exports io.undertow.util;
@@ -25,8 +25,8 @@ module undertow.core {
 
 	exports org.wildfly.common.context;
 
-	requires static java.management;
-	requires static java.security.sasl;
+	requires java.management;
+	requires java.security.sasl;
 
 	opens org.xnio._private to org.jboss.logging;
 

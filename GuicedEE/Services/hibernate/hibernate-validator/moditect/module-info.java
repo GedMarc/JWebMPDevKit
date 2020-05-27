@@ -6,8 +6,8 @@ module org.hibernate.validator {
 	requires static java.persistence;
 	requires static java.scripting;
 	requires transitive javax.el;
-	requires static java.desktop;
-	requires static java.compiler;
+	requires java.desktop;
+	requires java.compiler;
 
 	exports org.hibernate.validator;
 

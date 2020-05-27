@@ -1,5 +1,5 @@
 module cache.api {
-	requires static java.management;
+	requires java.management;
 
 	exports javax.cache;
 	exports javax.cache.annotation;

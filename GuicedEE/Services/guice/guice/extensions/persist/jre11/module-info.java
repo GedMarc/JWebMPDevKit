@@ -17,7 +17,7 @@ module com.google.guice.extensions.persist {
 	//Test Dependencies
 	requires java.sql;
 	requires static java.logging;
-	requires static java.naming;
+	requires java.naming;
 
 	requires java.xml.bind;
 	requires java.persistence;

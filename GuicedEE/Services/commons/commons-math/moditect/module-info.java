@@ -1,5 +1,5 @@
 module org.apache.commons.math3 {
-	requires static java.desktop;
+	requires java.desktop;
 	//exports org.apache.commons.math3;
 
 	exports org.apache.commons.math3.analysis;
@@ -14,15 +14,15 @@ module org.apache.commons.math3 {
 	exports org.apache.commons.math3.fitting.leastsquares;
 	exports org.apache.commons.math3.fraction;
 	//exports org.apache.commons.math3.genetics;
-//	exports org.apache.commons.math3.geometry;
-//	exports org.apache.commons.math3.geometry.enclosing;
-//	exports org.apache.commons.math3.geometry.euclidean.oned;
-//	exports org.apache.commons.math3.geometry.euclidean.twod;
-//	exports org.apache.commons.math3.geometry.euclidean.threed;
-//	exports org.apache.commons.math3.geometry.hull;
-//	exports org.apache.commons.math3.geometry.partitioning;
-////	exports org.apache.commons.math3.geometry.spherical.oned;
-//	exports org.apache.commons.math3.geometry.spherical.twod;
+	//	exports org.apache.commons.math3.geometry;
+	//	exports org.apache.commons.math3.geometry.enclosing;
+	//	exports org.apache.commons.math3.geometry.euclidean.oned;
+	//	exports org.apache.commons.math3.geometry.euclidean.twod;
+	//	exports org.apache.commons.math3.geometry.euclidean.threed;
+	//	exports org.apache.commons.math3.geometry.hull;
+	//	exports org.apache.commons.math3.geometry.partitioning;
+	////	exports org.apache.commons.math3.geometry.spherical.oned;
+	//	exports org.apache.commons.math3.geometry.spherical.twod;
 	exports org.apache.commons.math3.linear;
 	exports org.apache.commons.math3.ml.clustering;
 	exports org.apache.commons.math3.ml.clustering.evaluation;

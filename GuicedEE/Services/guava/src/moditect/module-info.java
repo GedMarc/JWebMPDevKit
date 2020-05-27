@@ -1,7 +1,7 @@
 module com.google.common {
 	requires transitive java.logging;
 
-	requires static java.compiler;
+	requires java.compiler;
 
 	exports com.google.common.annotations;
 	exports com.google.common.base;
@@ -23,5 +23,5 @@ module com.google.common {
 
 	requires transitive jakarta.activation;
 	//requires java.validation;
-	requires static jdk.unsupported;
+	requires jdk.unsupported;
 }

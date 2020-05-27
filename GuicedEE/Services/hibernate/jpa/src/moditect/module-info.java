@@ -1,7 +1,7 @@
 module java.persistence {
 	requires transitive java.logging;
 	requires transitive java.sql;
-	requires static java.instrument;
+	requires java.instrument;
 
 	exports javax.persistence;
 	exports javax.persistence.criteria;

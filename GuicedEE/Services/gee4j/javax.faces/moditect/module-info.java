@@ -28,8 +28,8 @@ open module javax.faces {
 	requires transitive javax.servlet.jsp.jstl;
 
 	requires java.sql;
-	requires static java.naming;
-	requires static java.desktop;
+	requires java.naming;
+	requires java.desktop;
 
 	requires jakarta.enterprise.cdi;
 	requires static java.persistence;

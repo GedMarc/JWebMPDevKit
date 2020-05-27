@@ -8,6 +8,6 @@ module org.apache.commons.lang3 {
 	exports org.apache.commons.lang3.tuple;
 	exports org.apache.commons.lang3.builder;
 
-	requires static java.desktop;
+	requires java.desktop;
 
 }

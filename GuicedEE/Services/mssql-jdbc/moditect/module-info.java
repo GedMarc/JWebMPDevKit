@@ -3,7 +3,7 @@ module com.microsoft.sqlserver.jdbc {
 	exports microsoft.sql;
 
 	requires java.sql;
-	requires static java.naming;
+	requires java.naming;
 	requires java.security.jgss;
 
 	requires static azure.client.runtime;

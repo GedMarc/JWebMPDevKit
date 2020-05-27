@@ -1,13 +1,13 @@
 module org.apache.logging.log4j.core {
 	//annotation processing
 	requires java.compiler;
-	requires static java.desktop;
+	requires java.desktop;
 	requires static java.scripting;
-	requires static java.management;
+	requires java.management;
 	requires static java.sql;
-	requires static java.naming;
-	requires static java.rmi;
-	requires static jdk.unsupported;
+	requires java.naming;
+	requires java.rmi;
+	requires jdk.unsupported;
 	requires static com.fasterxml.jackson.core;
 	requires static com.fasterxml.jackson.databind;
 	requires static jakarta.mail;

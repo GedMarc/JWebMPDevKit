@@ -2,7 +2,7 @@ module dom4j {
 	requires transitive java.xml;
 	requires transitive java.xml.bind;
 
-	requires static java.desktop;
+	requires java.desktop;
 	requires static jaxen;
 
 	exports org.dom4j;

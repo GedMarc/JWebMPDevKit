@@ -1,8 +1,8 @@
 module io.undertow.parser.generator {
 	//exports io.undertow.annotationprocessor;
 
-	requires static java.compiler;
-	requires static jdk.unsupported;
+	requires java.compiler;
+	requires jdk.unsupported;
 
 	//provides javax.annotation.processing.Processor with io.undertow.annotationprocessor.HttpParserAnnotationProcessor;
 }

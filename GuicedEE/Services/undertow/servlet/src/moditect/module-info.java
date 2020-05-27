@@ -4,7 +4,7 @@ module undertow.servlet {
 	requires undertow.core;
 	requires java.annotation;
 
-	requires static jdk.unsupported;
+	requires jdk.unsupported;
 
 	requires org.jboss.logging;
 

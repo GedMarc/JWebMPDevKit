@@ -3,7 +3,7 @@ module org.apache.poi.ooxml {
 	requires static org.apache.xmlbeans;
 
 	requires static poi.ooxml.schemas;
-	requires static java.desktop;
+	requires java.desktop;
 
 	requires org.apache.commons.compress;
 

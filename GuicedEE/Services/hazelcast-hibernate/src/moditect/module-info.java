@@ -4,7 +4,7 @@ module com.hazelcast.hibernate {
 
 	requires transitive cache.api;
 	requires java.transaction.xa;
-	requires static java.management;
+	requires java.management;
 
 	requires transitive java.xml;
 	requires static org.hibernate.orm.core;

@@ -8,11 +8,11 @@ module org.apache.cxf {
 	requires transitive com.google.common;
 
 	requires java.annotation;
-	requires static java.management;
-	requires static java.desktop;
-	requires static java.validation;
+	requires java.management;
+	requires java.desktop;
+	requires java.validation;
 	requires java.jws;
-	requires static java.rmi;
+	requires java.rmi;
 	requires static org.slf4j;
 
 	requires transitive java.ws.rs;

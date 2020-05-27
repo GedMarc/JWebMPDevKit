@@ -20,6 +20,6 @@ module javax.servlet.jsp {
 	requires transitive javax.el;
 	requires transitive java.servlet;
 
-	requires static java.desktop;
-	requires static java.compiler;
+	requires java.desktop;
+	requires java.compiler;
 }

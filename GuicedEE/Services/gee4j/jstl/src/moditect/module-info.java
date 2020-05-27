@@ -3,8 +3,8 @@ module javax.servlet.jsp.jstl {
 	requires java.xml;
 	requires static java.sql;
 
-	requires static java.desktop;
-	requires static java.naming;
+	requires java.desktop;
+	requires java.naming;
 	requires jdk.xml.dom;
 
 	exports javax.servlet.jsp.jstl.core;

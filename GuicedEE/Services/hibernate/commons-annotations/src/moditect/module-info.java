@@ -1,7 +1,7 @@
 module org.hibernate.commons.annotations {
 
 	requires org.jboss.logging;
-	requires static java.compiler;
+	requires java.compiler;
 
 	exports org.hibernate.annotations.common;
 	exports org.hibernate.annotations.common.annotationfactory;
