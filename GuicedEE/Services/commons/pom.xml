@@ -30,10 +30,9 @@
                          <module>apache-poi-ooxml</module>
          -->
                 <module>apache-cxf</module>
-                <!--
-                                <module>commons-compress</module>
-                                <module>commons-csv</module>
-                                <module>xmlbeans</module>-->
+                <module>commons-compress</module>
+                <module>commons-csv</module>
+                <module>xmlbeans</module>
             </modules>
         </profile>
     </profiles>
