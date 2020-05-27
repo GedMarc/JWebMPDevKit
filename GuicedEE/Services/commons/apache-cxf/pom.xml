@@ -464,14 +464,6 @@
             <optional>true</optional>
         </dependency>
         <!-- Thanks for using https://jar-download.com -->
-        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-service-description -->
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-rs-service-description</artifactId>
-            <version>3.3.6</version>
-            <optional>true</optional>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-local -->
 
 
     </dependencies>
@@ -516,7 +508,6 @@
 
                             <include>org.apache.cxf:cxf-rt-databinding-jaxb:*</include>
                             <include>org.apache.cxf:cxf-rt-rs-sse:*</include>
-                            <include>org.apache.cxf:cxf-rt-rs-service-description:*</include>
 
 
                             <include>org.apache.cxf:cxf-rt-frontend-jaxrs:*</include>
