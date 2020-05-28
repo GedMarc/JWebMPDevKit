@@ -1,4 +1,4 @@
-module javax.servlet.jsp {
+open module javax.servlet.jsp {
 
 	exports javax.servlet.jsp;
 

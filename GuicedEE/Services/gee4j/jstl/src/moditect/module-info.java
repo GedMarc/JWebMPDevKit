@@ -1,4 +1,4 @@
-module javax.servlet.jsp.jstl {
+open module javax.servlet.jsp.jstl {
 	requires transitive javax.servlet.jsp;
 	requires java.xml;
 	requires static java.sql;

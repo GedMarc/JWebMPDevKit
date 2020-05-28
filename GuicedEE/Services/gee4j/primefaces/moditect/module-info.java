@@ -1,4 +1,4 @@
-module primefaces {
+open module primefaces {
 
 	requires javax.faces;
 	requires org.apache.commons.io;
