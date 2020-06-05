@@ -17,16 +17,10 @@ open module primefaces {
 
 	requires com.google.common;
 
-	requires static itext;
 	requires java.xml.bind;
-	requires static barcode4j.light;
-	requires static com.rometools.rome;
 	requires static org.apache.xmlbeans;
-	requires static encoder;
-	requires static owasp.java.html.sanitizer;
-	requires static esapi;
+
 	requires org.json;
-	requires static qrgen;
 
 	requires org.apache.commons.lang3;
 	requires static core;
@@ -278,4 +272,8 @@ open module primefaces {
 	exports org.primefaces.webapp.filter;
 
 	uses org.primefaces.component.fileupload.FileUploadDecoder;
+
+
+	provides org.primefaces.component.fileupload.FileUploadDecoder with org.primefaces.component.fileupload.NativeFileUploadDecoder,
+			                                                               org.primefaces.component.fileupload.CommonsFileUploadDecoder;
 }

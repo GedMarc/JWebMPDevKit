@@ -22,9 +22,6 @@
         <artifactId>commons-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
-
-
-
     <modelVersion>4.0.0</modelVersion>
     <artifactId>commons-io</artifactId>
 
@@ -47,7 +44,7 @@
         <connection>scm:git:http://git-wip-us.apache.org/repos/asf/commons-io.git</connection>
         <developerConnection>scm:git:https://git-wip-us.apache.org/repos/asf/commons-io.git</developerConnection>
         <url>https://git-wip-us.apache.org/repos/asf?p=commons-io.git</url>
-        <tag>commons-io-2.6</tag>
+        <tag>commons-io-2.7</tag>
     </scm>
 
     <developers>
@@ -224,38 +221,10 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.6</version>
+            <version>2.7</version>
             <optional>true</optional>
         </dependency>
     </dependencies>
-
-    <properties>
-        <commons.componentid>io</commons.componentid>
-        <commons.module.name>org.apache.commons.io</commons.module.name>
-        <commons.rc.version>RC1</commons.rc.version>
-        <commons.release.version>2.6</commons.release.version>
-        <commons.release.desc>(requires JDK 1.7+)</commons.release.desc>
-        <commons.jira.id>IO</commons.jira.id>
-        <commons.jira.pid>12310477</commons.jira.pid>
-        <commons.osgi.export>
-            <!-- Explicit list of packages from IO 1.4 -->
-            org.apache.commons.io;
-            org.apache.commons.io.comparator;
-            org.apache.commons.io.filefilter;
-            org.apache.commons.io.input;
-            org.apache.commons.io.output;version=1.4.9999;-noimport:=true,
-            <!-- Same list plus * for new packages -->
-            org.apache.commons.io;
-            org.apache.commons.io.comparator;
-            org.apache.commons.io.filefilter;
-            org.apache.commons.io.input;
-            org.apache.commons.io.output;
-            org.apache.commons.io.*;version=${project.version};-noimport:=true
-        </commons.osgi.export>
-
-        <commons.scmPubCheckoutDirectory>site-content</commons.scmPubCheckoutDirectory>
-        <checkstyle.plugin.version>2.17</checkstyle.plugin.version>
-    </properties>
 
     <build>
         <plugins>

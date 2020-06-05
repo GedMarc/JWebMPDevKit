@@ -34,6 +34,7 @@
                             <include>com.lowagie:itext:*</include>
                             <include>org.primefaces:primefaces:*</include>
                             <include>com.rometools:rome:*</include>
+                            <include>com.rometools:rome-utils:*</include>
                             <include>net.sf.barcode4j:barcode4j-light:*</include>
                             <include>org.owasp.encoder:encoder:*</include>
                             <include>org.owasp.esapi:esapi:*</include>
@@ -502,15 +503,28 @@
         <dependency>
             <groupId>com.rometools</groupId>
             <artifactId>rome</artifactId>
-            <version>1.12.2</version>
+            <version>1.13.0</version>
             <exclusions>
                 <exclusion>
                     <artifactId>slf4j-api</artifactId>
                     <groupId>org.slf4j</groupId>
                 </exclusion>
                 <exclusion>
-                    <artifactId>rome-utils</artifactId>
-                    <groupId>com.rometools</groupId>
+                    <artifactId>jdom2</artifactId>
+                    <groupId>org.jdom</groupId>
+                </exclusion>
+            </exclusions>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.rometools</groupId>
+            <artifactId>rome-utils</artifactId>
+            <version>1.13.0</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
                 </exclusion>
                 <exclusion>
                     <artifactId>jdom2</artifactId>
