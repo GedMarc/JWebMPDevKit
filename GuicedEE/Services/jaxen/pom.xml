@@ -7,12 +7,12 @@
       <artifactId>services-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
-	
+
   <artifactId>jaxen</artifactId>
   <packaging>jar</packaging>
   <name>jaxen</name>
-  
- 
+
+
   <description>Jaxen is a universal Java XPath engine.</description>
   <url>http://jaxen.codehaus.org/</url>
   <licenses>
@@ -34,7 +34,7 @@
     </notifiers>
   </ciManagement>
   <inceptionYear>2001</inceptionYear>
-  
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -215,16 +215,59 @@
     <url>http://codehaus.org</url>
   </organization>
 
-  <build>
-    <sourceDirectory>src/java/main</sourceDirectory>
-    <testSourceDirectory>src/java/test</testSourceDirectory>
-  </build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>shade</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>jaxen</include>
+                                </includes>
+                            </artifactSet>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.moditect</groupId>
+                <artifactId>moditect-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-module-infos</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>add-module-info</goal>
+                        </goals>
+                        <configuration>
+                            <overwriteExistingFiles>true</overwriteExistingFiles>
+                            <module>
+                                <moduleInfoFile>
+                                    src/moditect/module-info.java
+                                </moduleInfoFile>
+                            </module>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
-  <dependencies>
- <!--   <dependency>
-        <groupId>com.guicedee.services</groupId>
-        <artifactId>dom4j</artifactId>
-      <optional>true</optional><type>jar</type>
-            </dependency>-->
-  </dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>jaxen</groupId>
+            <artifactId>jaxen</artifactId>
+            <version>1.2.0</version>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
 </project>

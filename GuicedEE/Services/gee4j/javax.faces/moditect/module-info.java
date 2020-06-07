@@ -24,6 +24,8 @@ open module javax.faces {
 	exports javax.faces.webapp;
 	exports javax.faces;
 
+	requires transitive com.guicedee.guicedinjection;
+
 	exports com.sun.faces.config;
 	requires transitive javax.servlet.jsp.jstl;
 
@@ -42,8 +44,8 @@ open module javax.faces {
 	requires transitive java.xml.bind;
 
 	provides javax.enterprise.inject.spi.Extension with com.sun.faces.application.view.ViewScopeExtension, com.sun.faces.flow.FlowCDIExtension, com.sun.faces.flow.FlowDiscoveryCDIExtension, com.sun.faces.cdi.CdiExtension;
-
 	provides javax.servlet.ServletContainerInitializer with com.sun.faces.config.FacesInitializer;
+	provides com.guicedee.guicedinjection.interfaces.IPathContentsScanner with com.sun.faces.config.configprovider.FacesLocationsScanner;
 
 	uses com.sun.faces.util.cdi11.CDIUtil;
 

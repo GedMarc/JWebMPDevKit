@@ -32,7 +32,6 @@
 
             </dependency>
 
-
             <dependency>
                 <groupId>com.guicedee.servlets</groupId>
                 <artifactId>guiced-servlets-request-scoper</artifactId>
