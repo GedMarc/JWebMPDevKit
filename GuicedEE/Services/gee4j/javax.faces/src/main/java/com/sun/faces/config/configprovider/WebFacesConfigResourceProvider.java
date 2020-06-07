@@ -69,7 +69,7 @@ public class WebFacesConfigResourceProvider
 		// having to find the web-based configuration resources twice
 		context.setAttribute("com.sun.faces.webresources", all);
 
-		System.out.println("WebFacesConfigs - " + all.toString());
+		//System.out.println("WebFacesConfigs - " + all.toString());
 
 		return all;
 	}

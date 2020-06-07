@@ -128,10 +128,8 @@ public abstract class BaseWebConfigResourceProvider
 			{
 				throw new FacesException("Too many resources found for - " + path + " - " + uris);
 			}
-			System.out.println("Returning context resource : " + uris.get(0));
 			return uris.get(0);
 		}
-		System.out.println("Resource not found : " + path);
 		return null;
 	}
 

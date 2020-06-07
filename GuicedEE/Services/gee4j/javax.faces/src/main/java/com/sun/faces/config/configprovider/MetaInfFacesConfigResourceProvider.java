@@ -149,7 +149,7 @@ public class MetaInfFacesConfigResourceProvider
 		            .forEachByteArrayIgnoringIOException((key, value) ->
 		                                                 {
 			                                                 all.add(key.getURI());
-			                                                 System.out.println("WebFacesConfigs - " + key.toString());
+			                                                 //   System.out.println("WebFacesConfigs - " + key.toString());
 		                                                 });
 		return all;
 	}
