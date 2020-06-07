@@ -16,6 +16,7 @@
 
 package com.sun.faces.config.configprovider;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 import static com.sun.faces.config.WebConfiguration.WebContextInitParameter.JavaxFacesConfigFiles;
 import static com.sun.faces.util.Util.split;
 import static java.util.Arrays.binarySearch;
@@ -106,13 +107,13 @@ public abstract class BaseWebConfigResourceProvider
 	protected URI getContextURLForPath(ServletContext context, String path)
 	{
 		List<URI> uris = new ArrayList<>();
-		if (path.startsWith("/"))
+		if (path.startsWith(STRING_FORWARD_SLASH))
 		{
 			path = path.substring(1);
 		}
-		if (path.contains("/"))
+		if (path.contains(STRING_FORWARD_SLASH))
 		{
-			path = path.substring(path.lastIndexOf('/') + 1);
+			path = path.substring(path.lastIndexOf(STRING_FORWARD_SLASH) + 1);
 		}
 		GuiceContext.instance()
 		            .getScanResult()
@@ -127,8 +128,10 @@ public abstract class BaseWebConfigResourceProvider
 			{
 				throw new FacesException("Too many resources found for - " + path + " - " + uris);
 			}
+			System.out.println("Returning context resource : " + uris.get(0));
 			return uris.get(0);
 		}
+		System.out.println("Resource not found : " + path);
 		return null;
 	}
 

@@ -16,6 +16,7 @@
 
 package com.sun.faces.config.configprovider;
 
+import com.guicedee.guicedinjection.GuiceContext;
 import com.sun.faces.util.Util;
 import com.sun.faces.config.WebConfiguration;
 import com.sun.faces.facelets.util.Classpath;
@@ -28,17 +29,11 @@ import javax.servlet.ServletContext;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
-import java.util.Collection;
-import java.util.Set;
-import java.util.HashSet;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+
+import static com.sun.faces.util.Util.*;
 
 /**
  *
@@ -144,49 +139,18 @@ public class MetaInfFacesConfigResourceProvider
 
 	// --------------------------------------------------------- Private Methods
 
-
 	private Collection<URI> loadURLs(ServletContext context) throws IOException
 	{
-		Set<URI> urls = new HashSet<>();
-		try
-		{
-			for (Enumeration<URL> e = Util.getCurrentLoader(this)
-			                              .getResources(META_INF_RESOURCES); e.hasMoreElements(); )
-			{
-				String urlString = e.nextElement()
-				                    .toExternalForm();
-				urlString = urlString.replaceAll(" ", "%20");
-				urls.add(new URI(urlString));
-			}
-			URL[] urlArray = Classpath.search("META-INF/", FACES_CONFIG_EXTENSION);
-			for (URL cur : urlArray)
-			{
-				String urlString = cur.toExternalForm();
-				urlString = urlString.replaceAll(" ", "%20");
-				urls.add(new URI(urlString));
-			}
-			// special case for finding taglib files in WEB-INF/classes/META-INF
-			Set paths = context.getResourcePaths(WEB_INF_CLASSES);
-			if (paths != null)
-			{
-				for (Object path : paths)
-				{
-					String p = path.toString();
-					if (p.endsWith(FACES_CONFIG_EXTENSION))
-					{
-						String urlString = context.getResource(p)
-						                          .toExternalForm();
-						urlString = urlString.replaceAll(" ", "%20");
-						urls.add(new URI(urlString));
-					}
-				}
-			}
-		}
-		catch (URISyntaxException ex)
-		{
-			throw new IOException(ex);
-		}
-		return urls;
-
+		Collection<URI> all = new LinkedHashSet<>();
+		// Step 5, parse "/WEB-INF/faces-config.xml" if it exists
+		GuiceContext.instance()
+		            .getScanResult()
+		            .getResourcesMatchingPattern(Pattern.compile(".*\\b(META-INF)\\b.*\\b(" + "faces-config.xml" + ")\\b"))
+		            .forEachByteArrayIgnoringIOException((key, value) ->
+		                                                 {
+			                                                 all.add(key.getURI());
+			                                                 System.out.println("WebFacesConfigs - " + key.toString());
+		                                                 });
+		return all;
 	}
 }

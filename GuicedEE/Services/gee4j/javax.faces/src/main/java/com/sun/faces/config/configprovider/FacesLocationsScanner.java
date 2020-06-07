@@ -13,6 +13,7 @@ public class FacesLocationsScanner
 	{
 		Set<String> strings = new HashSet<>();
 		strings.add("/");
+		strings.add("");
 		strings.add("META-INF");
 		strings.add("WEB-INF");
 		strings.add("WEB-INF/classes/META-INF");
