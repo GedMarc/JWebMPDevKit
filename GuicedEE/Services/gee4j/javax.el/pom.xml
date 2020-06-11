@@ -86,7 +86,6 @@
             <version>3.0.3</version>
             <optional>true</optional>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -103,8 +102,8 @@
                         <configuration>
                             <artifactSet>
                                 <includes>
-                                    <include>jakarta.el:*</include>
-                                    <include>org.glassfish:*</include>
+                                    <include>jakarta.el:jakarta.el-api</include>
+                                    <include>org.glassfish:jakarta.el</include>
                                 </includes>
                             </artifactSet>
                         </configuration>

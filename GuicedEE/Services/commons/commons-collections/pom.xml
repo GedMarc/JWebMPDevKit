@@ -15,7 +15,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <groupId>com.guicedee.services</groupId>
         <artifactId>commons-parent</artifactId>
@@ -23,8 +23,6 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-
-    
     <artifactId>commons-collections4</artifactId>
 
     <name>Apache Commons Collections</name>
@@ -450,6 +448,16 @@
             <artifactId>commons-collections4</artifactId>
             <version>4.4</version>
             <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.glassfish</groupId>
+                    <artifactId>jakarta.faces</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.h2database</groupId>
+                    <artifactId>h2</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
@@ -468,7 +476,7 @@
                         <configuration>
                             <artifactSet>
                                 <includes>
-                                    <include>*:*</include>
+                                    <include>org.apache.commons:commons-collections4</include>
                                 </includes>
                             </artifactSet>
                         </configuration>

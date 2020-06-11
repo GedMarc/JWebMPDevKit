@@ -173,6 +173,13 @@
                 <artifactId>commons-lang3</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.guicedee.services</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.guicedee.services</groupId>
                 <artifactId>apache-poi-ooxml</artifactId>
@@ -284,13 +291,13 @@
                 <version>${project.version}</version>
 
             </dependency>
-<!--
-            <dependency>
-                <groupId>com.guicedee.services.extensions</groupId>
-                <artifactId>guice-servlet4</artifactId>
-                <version>${project.version}</version>
+            <!--
+                        <dependency>
+                            <groupId>com.guicedee.services.extensions</groupId>
+                            <artifactId>guice-servlet4</artifactId>
+                            <version>${project.version}</version>
 
-            </dependency>-->
+                        </dependency>-->
 
             <dependency>
                 <groupId>com.guicedee.services</groupId>

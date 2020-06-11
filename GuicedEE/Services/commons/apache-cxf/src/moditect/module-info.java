@@ -13,7 +13,8 @@ module org.apache.cxf {
 	requires java.validation;
 	requires java.jws;
 	requires java.rmi;
-	requires static org.slf4j;
+
+	requires org.slf4j;
 
 	requires transitive java.ws.rs;
 	requires transitive java.xml.ws;
