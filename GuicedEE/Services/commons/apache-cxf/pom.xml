@@ -136,6 +136,12 @@
             <artifactId>openws</artifactId>
             <version>${opensaml.openws.version}</version>
             <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jakarta.activation-api</artifactId>
+                    <groupId>jakarta.activation</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -643,13 +649,6 @@
             <version>2.7.18</version>
             <optional>true</optional>
         </dependency>
-
-        <!--        <dependency>
-                    <groupId>org.apache.cxf</groupId>
-                    <artifactId>cxf-bundle</artifactId>
-                    <version>3.0.0-milestone2</version>
-                    <optional>true</optional>
-                </dependency>-->
 
         <dependency>
             <groupId>org.apache.cxf</groupId>
