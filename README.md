@@ -5,7 +5,13 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
-
+V1.0.12.0 - 12 June 2020
+* I really need to get better at these
+* Mass update
+* JDK 8 now supported! Use the -jre8 classifier.
+    * JDK 11 still the default
+* More pom updates
+* Classgraph JRT resource handling
 
 V1.0.9.5 - 15 May 2020
 * Added SL4J
