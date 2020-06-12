@@ -89,7 +89,7 @@
                             <overwriteExistingFiles>true</overwriteExistingFiles>
                             <module>
                                 <moduleInfoFile>
-                                    moditect/module-info.java
+                                    src/moditect/module-info.java
                                 </moduleInfoFile>
                             </module>
                         </configuration>

@@ -39,8 +39,4 @@
             <timezone>-8</timezone>
         </developer>
     </developers>
-
-    <build>
-        <sourceDirectory>src</sourceDirectory>
-    </build>
 </project>

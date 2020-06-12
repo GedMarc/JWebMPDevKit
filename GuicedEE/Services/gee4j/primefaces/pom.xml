@@ -445,7 +445,7 @@
                         <configuration>
                             <overwriteExistingFiles>true</overwriteExistingFiles>
                             <module>
-                                <moduleInfoFile>src/main/java/module-info.java</moduleInfoFile>
+                                <moduleInfoFile>src/jre11/java/module-info.java</moduleInfoFile>
                             </module>
                         </configuration>
                     </execution>

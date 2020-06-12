@@ -45,7 +45,7 @@
                         <configuration>
                             <overwriteExistingFiles>true</overwriteExistingFiles>
                             <module>
-                                <moduleInfoFile>moditect/module-info.java</moduleInfoFile>
+                                <moduleInfoFile>src/moditect/module-info.java</moduleInfoFile>
                             </module>
                         </configuration>
                     </execution>

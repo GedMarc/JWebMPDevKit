@@ -17,8 +17,8 @@ See the Apache License Version 2.0 for the specific language governing permissio
 
     <modelVersion>4.0.0</modelVersion>
 
-      <parent>
-          <groupId>com.guicedee.services</groupId>
+    <parent>
+        <groupId>com.guicedee.services</groupId>
         <artifactId>guice-parent-holder</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
@@ -81,55 +81,6 @@ See the Apache License Version 2.0 for the specific language governing permissio
             <distribution>repo</distribution>
         </license>
     </licenses>
-
-    <properties>
-        <!--
-         | The spec version of the public Guice API
-        -->
-        <guice.api.version>1.4</guice.api.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!--
-         | Use "-Dguice.with.jarjar=false" to build without jarjar
-        -->
-        <guice.with.jarjar>true</guice.with.jarjar>
-        <!--
-         | Use "-Dguice.with.no_aop=false" to skip the no-AOP variant
-        -->
-        <guice.with.no_aop>true</guice.with.no_aop>
-    </properties>
-    <dependencies>
-
-    </dependencies>
-
-    <build>
-        <!--
-         | Ant-style directories
-        -->
-        <sourceDirectory>${project.basedir}/src</sourceDirectory>
-        <resources>
-            <resource>
-                <filtering>false</filtering>
-                <directory>${project.basedir}/src</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-        </resources>
-        <testSourceDirectory>${project.basedir}/test</testSourceDirectory>
-        <testResources>
-            <testResource>
-                <filtering>false</filtering>
-                <directory>${project.basedir}/test</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </testResource>
-        </testResources>
-        <pluginManagement>
-            <plugins>
-            </plugins>
-        </pluginManagement>
-    </build>
 
     <profiles>
         <profile>

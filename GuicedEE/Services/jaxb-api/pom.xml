@@ -54,7 +54,7 @@
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>
-            <version>2.3.3</version>
+            <version>${jaxb.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>jakarta.activation-api</artifactId>
@@ -67,7 +67,7 @@
         <dependency>
             <groupId>org.glassfish.jaxb</groupId>
             <artifactId>jaxb-runtime</artifactId>
-            <version>2.3.3</version>
+            <version>${jaxb.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>javax.activation-api</artifactId>
@@ -81,7 +81,7 @@
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
-            <version>2.3.3</version>
+            <version>${jaxb.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>jakarta.activation-api</artifactId>
@@ -106,76 +106,124 @@
 
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-shade-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <inherited>false</inherited>
-                <configuration>
-                    <createDependencyReducedPom>false</createDependencyReducedPom>
-                    <createSourcesJar>true</createSourcesJar>
-                    <shadeSourcesContent>true</shadeSourcesContent>
-                    <shadeTestJar>false</shadeTestJar>
-                    <keepDependenciesWithProvidedScope>false</keepDependenciesWithProvidedScope>
-
-                    <artifactSet>
-                        <includes>
-                            <include>jakarta.xml.bind:jakarta.xml.bind-api:*</include>
-                            <include>org.glassfish.jaxb:jaxb-runtime:*</include>
-                            <!--<include>javax.xml.bind:jaxb-api:*</include>-->
-                            <include>org.glassfish.jaxb:txw2:*</include>
-                            <include>com.sun.istack:istack-commons-runtime:*</include>
-                            <!--<include>org.jvnet.staxex:stax-ex:*</include>-->
-                            <include>com.sun.xml.fastinfoset:FastInfoset:*</include>
-                            <include>com.sun.xml.bind:jaxb-impl:*</include>
-                        </includes>
-                    </artifactSet>
-                    <!-- Dont transform the service resources -->
-                    <!--   <transformers>
-                           <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                       </transformers>-->
-                    <relocations>
-                        <relocation>
-                            <pattern>META-INF/versions/9/com</pattern>
-                            <shadedPattern>com</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>META-INF/versions/9/javax</pattern>
-                            <shadedPattern>javax</shadedPattern>
-                        </relocation>
-                    </relocations>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.moditect</groupId>
-                <artifactId>moditect-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>add-module-infos</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>add-module-info</goal>
-                        </goals>
+    <profiles>
+        <profile>
+            <id>jdk9</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-shade-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>shade</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <inherited>false</inherited>
                         <configuration>
-                            <overwriteExistingFiles>true</overwriteExistingFiles>
-                            <module>
-                                <moduleInfoFile>src/moditect/module-info.java</moduleInfoFile>
-                            </module>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <createSourcesJar>true</createSourcesJar>
+                            <shadeSourcesContent>true</shadeSourcesContent>
+                            <shadeTestJar>false</shadeTestJar>
+                            <keepDependenciesWithProvidedScope>false</keepDependenciesWithProvidedScope>
+
+                            <artifactSet>
+                                <includes>
+                                    <include>jakarta.xml.bind:jakarta.xml.bind-api:*</include>
+                                    <include>org.glassfish.jaxb:jaxb-runtime:*</include>
+                                    <!--<include>javax.xml.bind:jaxb-api:*</include>-->
+                                    <include>org.glassfish.jaxb:txw2:*</include>
+                                    <include>com.sun.istack:istack-commons-runtime:*</include>
+                                    <!--<include>org.jvnet.staxex:stax-ex:*</include>-->
+                                    <include>com.sun.xml.fastinfoset:FastInfoset:*</include>
+                                    <include>com.sun.xml.bind:jaxb-impl:*</include>
+                                </includes>
+                            </artifactSet>
+                            <!-- Dont transform the service resources -->
+                            <!--   <transformers>
+                                   <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                               </transformers>-->
+                            <relocations>
+                                <relocation>
+                                    <pattern>META-INF/versions/9/com</pattern>
+                                    <shadedPattern>com</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>META-INF/versions/9/javax</pattern>
+                                    <shadedPattern>javax</shadedPattern>
+                                </relocation>
+                            </relocations>
                         </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.moditect</groupId>
+                        <artifactId>moditect-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>add-module-infos</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>add-module-info</goal>
+                                </goals>
+                                <configuration>
+                                    <overwriteExistingFiles>true</overwriteExistingFiles>
+                                    <module>
+                                        <moduleInfoFile>src/moditect/module-info.java</moduleInfoFile>
+                                    </module>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
 
+        <profile>
+            <id>jdk8</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-shade-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>shade</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <inherited>false</inherited>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <createSourcesJar>true</createSourcesJar>
+                            <shadeSourcesContent>true</shadeSourcesContent>
+                            <shadeTestJar>false</shadeTestJar>
+                            <keepDependenciesWithProvidedScope>false</keepDependenciesWithProvidedScope>
 
-        </plugins>
-    </build>
+                            <artifactSet>
+                                <includes>
+                                    <include>jakarta.xml.bind:jakarta.xml.bind-api:*</include>
+                                    <include>org.glassfish.jaxb:jaxb-runtime:*</include>
+                                    <!--<include>javax.xml.bind:jaxb-api:*</include>-->
+                                    <include>org.glassfish.jaxb:txw2:*</include>
+                                    <include>com.sun.istack:istack-commons-runtime:*</include>
+                                    <!--<include>org.jvnet.staxex:stax-ex:*</include>-->
+                                    <include>com.sun.xml.fastinfoset:FastInfoset:*</include>
+                                    <include>com.sun.xml.bind:jaxb-impl:*</include>
+                                </includes>
+                            </artifactSet>
+                            <!-- Dont transform the service resources -->
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                            </transformers>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
 
 </project>

@@ -6,8 +6,7 @@ import java.util.Set;
 
 public class WSContext
 {
-	private static final Set<String> providers = new HashSet<>(List.of("com.sun.xml.ws.spi.ProviderImpl",
-	                                                                   "org.apache.cxf.jaxb.JAXBDataBinding"));
+	private static final Set<String> providers = new HashSet<>();
 	/**
 	 * Provides the url that the module will use to provide Web Services.
 	 * Does not default to module name, default to WebServices
@@ -18,6 +17,11 @@ public class WSContext
 	 */
 	public static String baseWSUrl = "/WebServices";
 
+	static
+	{
+		providers.add("com.sun.xml.ws.spi.ProviderImpl");
+		providers.add("org.apache.cxf.jaxb.JAXBDataBinding");
+	}
 
 	public static String renderServices(Set<String> values)
 	{
