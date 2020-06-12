@@ -112,7 +112,7 @@
         <dependency>
             <groupId>com.jcabi</groupId>
             <artifactId>jcabi-log</artifactId>
-            <version>LATEST</version>
+            <version>0.18.1</version>
             <optional>true</optional>
         </dependency>
     </dependencies>
@@ -122,7 +122,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-				
+
                 <configuration>
                     <artifactSet>
                         <includes>
@@ -169,17 +169,17 @@
                         <artifactId>maven-shade-plugin.log4j2-cachefile-transformer</artifactId>
                         <version>2.13.3</version>
                     </dependency>
-				<dependency>
-					<groupId>org.ow2.asm</groupId>
-					<artifactId>asm</artifactId>
-					<version>${maven.asm.version}</version>
-					<type>jar</type>
-				</dependency>
-				<dependency>
-					<groupId>io.yupiik.maven</groupId>
-					<artifactId>maven-shade-transformers</artifactId>
-					<version>0.0.1</version>
-				</dependency>
+                    <dependency>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm</artifactId>
+                        <version>${maven.asm.version}</version>
+                        <type>jar</type>
+                    </dependency>
+                    <dependency>
+                        <groupId>io.yupiik.maven</groupId>
+                        <artifactId>maven-shade-transformers</artifactId>
+                        <version>0.0.1</version>
+                    </dependency>
                 </dependencies>
             </plugin>
 
