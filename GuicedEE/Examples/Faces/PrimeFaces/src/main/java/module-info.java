@@ -1,3 +1,3 @@
-module com.guicedee.examples. {
-	
+module com.guicedee.examples.faces.primefaces {
+
 }

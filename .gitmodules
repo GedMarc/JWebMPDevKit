@@ -75,3 +75,6 @@
 [submodule "GuicedEE/GuicedEEParent/GuicedEEProjects/WildflyReader"]
 	path = GuicedEE/GuicedEEParent/GuicedEEProjects/WildflyReader
 	url = https://github.com/GedMarc/GuicedPersistence-Wildfly.git
+[submodule "GuicedEE/Examples/Faces/PrimeFaces-Showcase"]
+	path = GuicedEE/Examples/Faces/PrimeFaces-Showcase
+	url = https://github.com/GedMarc/primefaces-showcase.git

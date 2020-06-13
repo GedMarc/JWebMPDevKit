@@ -37,10 +37,6 @@
         </dependencies>
     </dependencyManagement>
 
-
-    <dependencies>
-    </dependencies>
-
     <scm>
         <url>https://github.com/GedMarc/JWebMP-Undertow.git</url>
     </scm>
