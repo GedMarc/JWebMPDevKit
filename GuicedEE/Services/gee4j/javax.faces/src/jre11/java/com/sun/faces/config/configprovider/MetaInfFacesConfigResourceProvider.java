@@ -141,14 +141,18 @@ public class MetaInfFacesConfigResourceProvider
 	private Collection<URI> loadURLs(ServletContext context)
 	{
 		Collection<URI> all = new LinkedHashSet<>();
-		// Step 5, parse "/WEB-INF/faces-config.xml" if it exists
-		GuiceContext.instance()
-		            .getScanResult()
-		            .getResourcesMatchingPattern(Pattern.compile(".*\\b(META-INF)\\b.*\\b(" + "faces-config.xml" + ")\\b"))
-		            .forEach(a ->
-		                     {
-			                     all.add(a.getURI());
-		                     });
+		try
+		{
+			URL[] urls = Classpath.search("META-INF", "faces-config.xml");
+			for (URL url : urls)
+			{
+				all.add(URI.create(url.toString()));
+			}
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 		return all;
 	}
 }

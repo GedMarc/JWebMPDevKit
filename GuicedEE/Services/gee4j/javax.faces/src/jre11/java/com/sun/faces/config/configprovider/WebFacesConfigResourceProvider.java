@@ -16,13 +16,13 @@
 
 package com.sun.faces.config.configprovider;
 
-import com.guicedee.guicedinjection.GuiceContext;
+import com.sun.faces.facelets.util.Classpath;
 
 import javax.servlet.ServletContext;
 import java.io.IOException;
 import java.net.URI;
+import java.net.URL;
 import java.util.Collection;
-import java.util.regex.Pattern;
 
 import static com.sun.faces.config.WebConfiguration.*;
 import static com.sun.faces.config.WebConfiguration.WebContextInitParameter.*;
@@ -54,23 +54,20 @@ public class WebFacesConfigResourceProvider
 	@Override
 	public Collection<URI> getResources(ServletContext context)
 	{
-
 		Collection<URI> all = super.getResources(context);
-
-		// Step 5, parse "/WEB-INF/faces-config.xml" if it exists
-		GuiceContext.instance()
-		            .getScanResult()
-		            .getResourcesMatchingPattern(Pattern.compile(".*\\b(WEB-INF)\\b.*\\b(" + "faces-config.xml" + ")\\b"))
-		            .forEach(a ->
-		                     {
-			                     all.add(a.getURI());
-		                     });
-		// PENDING (rlubke,driscoll) this is a temporary measure to prevent
-		// having to find the web-based configuration resources twice
+		try
+		{
+			URL[] urls = Classpath.search("WEB-INF", "faces-config.xml");
+			for (URL url : urls)
+			{
+				all.add(URI.create(url.toString()));
+			}
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 		context.setAttribute("com.sun.faces.webresources", all);
-
-		//System.out.println("WebFacesConfigs - " + all.toString());
-
 		return all;
 	}
 

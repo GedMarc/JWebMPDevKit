@@ -2,22 +2,13 @@ package com.sun.faces.facelets.util;
 
 import com.guicedee.guicedinjection.GuiceContext;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.JarURLConnection;
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLDecoder;
-import java.util.Enumeration;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
 import java.util.regex.Pattern;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipException;
-import java.util.zip.ZipInputStream;
 
 /**
  * @author Jacob Hookom
@@ -54,11 +45,42 @@ public final class Classpath
 		GuiceContext.instance()
 		            .getScanResult()
 		            .getResourcesMatchingPattern(Pattern.compile(".*\\b(" + prefix + ")\\b.*\\b(" + suffix + ")\\b"))
-		            .forEach(a ->
-		                     {
-			                     all.add(a.getURL());
-		                     });
+		            .forEach(a -> all.add(cleanURL(a.getURL())));
 		return all.toArray(new URL[0]);
+	}
+
+	public static URL cleanURL(URL url)
+	{
+		try
+		{
+			return new URL(cleanURL(url.toString()
+			                           .replace("jar:jrt:/", "jrt:/")
+			                           .replace("!", "")));
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public static String cleanURL(String url)
+	{
+		return url.replace("jar:jrt:/", "jrt:/")
+		          .replace("!", "");
+	}
+
+	public static URI cleanURI(URI uri)
+	{
+		try
+		{
+			return URI.create(cleanURL(uri.toURL()).toString());
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public static URL[] search(ClassLoader cl, String prefix, String suffix)

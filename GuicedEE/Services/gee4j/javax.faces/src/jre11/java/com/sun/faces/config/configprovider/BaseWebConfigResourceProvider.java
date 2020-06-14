@@ -22,7 +22,6 @@ import com.sun.faces.config.WebConfiguration.WebContextInitParameter;
 import com.sun.faces.spi.ConfigurationResourceProvider;
 import com.sun.faces.util.FacesLogger;
 
-import javax.faces.FacesException;
 import javax.servlet.ServletContext;
 import java.net.URI;
 import java.util.ArrayList;
@@ -31,6 +30,7 @@ import java.util.logging.Logger;
 
 import static com.guicedee.guicedinjection.json.StaticStrings.*;
 import static com.sun.faces.config.WebConfiguration.WebContextInitParameter.*;
+import static com.sun.faces.facelets.util.Classpath.*;
 import static com.sun.faces.util.Util.*;
 import static java.util.Arrays.*;
 import static java.util.logging.Level.*;
@@ -111,20 +111,13 @@ public abstract class BaseWebConfigResourceProvider
 		{
 			path = path.substring(path.lastIndexOf(STRING_FORWARD_SLASH) + 1);
 		}
+
 		GuiceContext.instance()
 		            .getScanResult()
 		            .getResourcesWithLeafName(path)
-		            .forEach(a ->
-		                     {
-			                     uris.add(a.getURI());
-		                     });
-
+		            .forEach(a -> uris.add(cleanURI(a.getURI())));
 		if (!uris.isEmpty())
 		{
-			if (uris.size() > 1)
-			{
-				throw new FacesException("Too many resources found for - " + path + " - " + uris);
-			}
 			return uris.get(0);
 		}
 		return null;

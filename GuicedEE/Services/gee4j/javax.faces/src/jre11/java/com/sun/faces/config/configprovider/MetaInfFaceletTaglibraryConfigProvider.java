@@ -66,7 +66,7 @@ public class MetaInfFaceletTaglibraryConfigProvider
 	{
 		try
 		{
-			URL[] externalTaglibUrls = Classpath.search(getCurrentLoader(this), "META-INF/", SUFFIX);
+			URL[] externalTaglibUrls = Classpath.search("META-INF/", SUFFIX);
 			URL[] builtInTaglibUrls = new URL[BUILT_IN_TAGLIB_XML_FILES.length];
 			ClassLoader runtimeClassLoader = getClass()
 					                                 .getClassLoader();
@@ -108,7 +108,6 @@ public class MetaInfFaceletTaglibraryConfigProvider
 					}
 				}
 			}
-
 			return urlsList;
 		}
 		catch (IOException ioe)
