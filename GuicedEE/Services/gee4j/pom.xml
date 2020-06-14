@@ -17,14 +17,14 @@
         <profile>
             <id>enable-ee4j</id>
             <modules>
-                <!--<module>cdi</module>
+                <module>cdi</module>
                 <module>ejb-api</module>
                 <module>interceptor-api</module>
-                <module>javax.el</module>-->
+                <module>javax.el</module>
                 <module>javax.faces</module>
-                <!-- <module>jsp</module>
-                 <module>jstl</module>
-                 <module>primefaces</module>-->
+                <module>jsp</module>
+                <module>jstl</module>
+                <module>primefaces</module>
             </modules>
         </profile>
 
