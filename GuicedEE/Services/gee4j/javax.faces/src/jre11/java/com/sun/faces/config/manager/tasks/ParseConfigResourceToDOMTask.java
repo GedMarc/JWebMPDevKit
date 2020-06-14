@@ -458,15 +458,6 @@ public class ParseConfigResourceToDOMTask
 	 */
 	private static InputStream getInputStream(URL url) throws IOException
 	{
-		if (url.toString()
-		       .contains("jrt:/"))
-		{
-			URI uri = URI.create(url.toString()
-			                        .replace("jar:jrt:/", "jrt:/")
-			                        .replace("!", ""));
-			Path path = Path.of(uri);
-			return new BufferedInputStream(Files.newInputStream(path));
-		}
 		URLConnection connection = url.openConnection();
 		connection.setUseCaches(false);
 		return new BufferedInputStream(connection.getInputStream());

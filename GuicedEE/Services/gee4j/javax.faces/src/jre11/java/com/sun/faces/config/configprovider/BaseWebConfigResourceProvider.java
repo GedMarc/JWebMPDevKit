@@ -16,28 +16,24 @@
 
 package com.sun.faces.config.configprovider;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
-import static com.sun.faces.config.WebConfiguration.WebContextInitParameter.JavaxFacesConfigFiles;
-import static com.sun.faces.util.Util.split;
-import static java.util.Arrays.binarySearch;
-import static java.util.logging.Level.WARNING;
-
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.*;
-import java.util.logging.Logger;
-import java.util.regex.Pattern;
-
-import javax.faces.FacesException;
-import javax.servlet.ServletContext;
-
 import com.guicedee.guicedinjection.GuiceContext;
 import com.sun.faces.config.WebConfiguration;
 import com.sun.faces.config.WebConfiguration.WebContextInitParameter;
 import com.sun.faces.spi.ConfigurationResourceProvider;
 import com.sun.faces.util.FacesLogger;
+
+import javax.faces.FacesException;
+import javax.servlet.ServletContext;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.*;
+import java.util.logging.Logger;
+
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.sun.faces.config.WebConfiguration.WebContextInitParameter.*;
+import static com.sun.faces.util.Util.*;
+import static java.util.Arrays.*;
+import static java.util.logging.Level.*;
 
 /**
  *
@@ -118,10 +114,11 @@ public abstract class BaseWebConfigResourceProvider
 		GuiceContext.instance()
 		            .getScanResult()
 		            .getResourcesWithLeafName(path)
-		            .forEachByteArrayIgnoringIOException((key, value) ->
-		                                                 {
-			                                                 uris.add(key.getURI());
-		                                                 });
+		            .forEach(a ->
+		                     {
+			                     uris.add(a.getURI());
+		                     });
+
 		if (!uris.isEmpty())
 		{
 			if (uris.size() > 1)

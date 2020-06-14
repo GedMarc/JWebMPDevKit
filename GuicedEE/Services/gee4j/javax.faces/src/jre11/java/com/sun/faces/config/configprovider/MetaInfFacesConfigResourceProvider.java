@@ -118,7 +118,7 @@ public class MetaInfFacesConfigResourceProvider
 				}
 			}
 		}
-		catch (IOException e)
+		catch (Exception e)
 		{
 			throw new FacesException(e);
 		}
@@ -133,23 +133,22 @@ public class MetaInfFacesConfigResourceProvider
 		// Then load the unsorted resources
 		result.addAll(unsortedResourceList);
 		return result;
-
 	}
 
 
 	// --------------------------------------------------------- Private Methods
 
-	private Collection<URI> loadURLs(ServletContext context) throws IOException
+	private Collection<URI> loadURLs(ServletContext context)
 	{
 		Collection<URI> all = new LinkedHashSet<>();
 		// Step 5, parse "/WEB-INF/faces-config.xml" if it exists
 		GuiceContext.instance()
 		            .getScanResult()
 		            .getResourcesMatchingPattern(Pattern.compile(".*\\b(META-INF)\\b.*\\b(" + "faces-config.xml" + ")\\b"))
-		            .forEachByteArrayIgnoringIOException((key, value) ->
-		                                                 {
-			                                                 all.add(key.getURI());
-		                                                 });
+		            .forEach(a ->
+		                     {
+			                     all.add(a.getURI());
+		                     });
 		return all;
 	}
 }

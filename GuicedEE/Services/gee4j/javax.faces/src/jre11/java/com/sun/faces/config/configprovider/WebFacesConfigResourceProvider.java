@@ -19,6 +19,7 @@ package com.sun.faces.config.configprovider;
 import com.guicedee.guicedinjection.GuiceContext;
 
 import javax.servlet.ServletContext;
+import java.io.IOException;
 import java.net.URI;
 import java.util.Collection;
 import java.util.regex.Pattern;
@@ -60,11 +61,10 @@ public class WebFacesConfigResourceProvider
 		GuiceContext.instance()
 		            .getScanResult()
 		            .getResourcesMatchingPattern(Pattern.compile(".*\\b(WEB-INF)\\b.*\\b(" + "faces-config.xml" + ")\\b"))
-		            .forEachByteArrayIgnoringIOException((key, value) ->
-		                                                 {
-			                                                 all.add(key.getURI());
-		                                                 });
-
+		            .forEach(a ->
+		                     {
+			                     all.add(a.getURI());
+		                     });
 		// PENDING (rlubke,driscoll) this is a temporary measure to prevent
 		// having to find the web-based configuration resources twice
 		context.setAttribute("com.sun.faces.webresources", all);

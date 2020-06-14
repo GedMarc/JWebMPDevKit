@@ -54,9 +54,10 @@ public final class Classpath
 		GuiceContext.instance()
 		            .getScanResult()
 		            .getResourcesMatchingPattern(Pattern.compile(".*\\b(" + prefix + ")\\b.*\\b(" + suffix + ")\\b"))
-		            .forEachByteArrayIgnoringIOException((key, value) ->
-				                                                 all.add(key.getURL())
-		                                                );
+		            .forEach(a ->
+		                     {
+			                     all.add(a.getURL());
+		                     });
 		return all.toArray(new URL[0]);
 	}
 
