@@ -53,9 +53,7 @@ public final class Classpath
 	{
 		try
 		{
-			return new URL(cleanURL(url.toString()
-			                           .replace("jar:jrt:/", "jrt:/")
-			                           .replace("!", "")));
+			return new URL(cleanURL(url.toString()));
 		}
 		catch (MalformedURLException e)
 		{
@@ -66,8 +64,12 @@ public final class Classpath
 
 	public static String cleanURL(String url)
 	{
-		return url.replace("jar:jrt:/", "jrt:/")
-		          .replace("!", "");
+		if (url.contains("jrt:/"))
+		{
+			return url.replace("jar:jrt:/", "jrt:/")
+			          .replace("!", "");
+		}
+		return url;
 	}
 
 	public static URI cleanURI(URI uri)
