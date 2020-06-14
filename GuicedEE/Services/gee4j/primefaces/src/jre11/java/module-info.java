@@ -1,4 +1,4 @@
-module primefaces {
+open module primefaces {
 
 	requires javax.faces;
 	requires org.apache.commons.io;
@@ -25,6 +25,7 @@ module primefaces {
 	requires static encoder;
 	requires static owasp.java.html.sanitizer;
 	requires static esapi;
+
 	requires org.json;
 	requires static qrgen;
 

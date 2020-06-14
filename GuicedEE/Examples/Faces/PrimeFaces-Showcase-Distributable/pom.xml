@@ -1,0 +1,72 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>za.co.bayport.jpms</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>0.0.0_0-SNAPSHOT</version>
+        <relativePath>../../../</relativePath>
+    </parent>
+
+    <artifactId>global-caching-jlink</artifactId>
+    <packaging>jlink</packaging>
+
+    <name>Caching - Distributable</name>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>za.co.bayport.jpms</groupId>
+                <artifactId>bayport-bom</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>za.co.bayport.jpms</groupId>
+                <artifactId>bayport-parent</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.guicedee.examples.faces</groupId>
+            <artifactId>primefaces-showcase</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-jlink-plugin</artifactId>
+                <version>3.0.0-alpha-2-SNAPSHOT</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <noHeaderFiles>true</noHeaderFiles>
+                    <noManPages>true</noManPages>
+                    <stripDebug>true</stripDebug>
+                    <verbose>true</verbose>
+                    <compress>2</compress>
+                    <launcher>launch=com.guicedee.examples.faces.primefaces.showcase///todo!!
+                    </launcher>
+                    <finalName>primefaces-showcase-jlink.${project.version}</finalName>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm</artifactId>
+                        <version>${maven.asm.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+</project>
