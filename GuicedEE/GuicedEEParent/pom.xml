@@ -215,6 +215,10 @@
                         <artifactId>jackson-jaxrs-json-provider</artifactId>
                         <groupId>com.fasterxml.jackson.jaxrs</groupId>
                     </exclusion>
+                    <exclusion>
+                        <artifactId>jackson-datatype-jsr310</artifactId>
+                        <groupId>com.fasterxml.jackson.datatype</groupId>
+                    </exclusion>
                 </exclusions>
             </dependency>
 
