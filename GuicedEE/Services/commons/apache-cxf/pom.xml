@@ -59,7 +59,7 @@
         <http.nio.version>4.4.13</http.nio.version>
 
         <opensaml.version>2.6.4</opensaml.version>
-        <xmlsec.version>2.1.5</xmlsec.version>
+        <xmlsec.version>2.2.0</xmlsec.version>
 
     </properties>
 
