@@ -46,7 +46,7 @@
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc_auth</artifactId>
-            <version>8.2.2.x64</version>
+            <version>8.3.1.x64-preview</version>
             <type>dll</type>
             <optional>true</optional>
         </dependency>
