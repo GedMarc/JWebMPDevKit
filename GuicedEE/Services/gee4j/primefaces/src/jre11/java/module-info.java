@@ -16,9 +16,12 @@ open module primefaces {
 	requires static org.apache.poi.ooxml;
 
 	requires com.google.common;
-
-	requires static itext;
 	requires java.xml.bind;
+
+	requires static com.guicedee.guicedservlets;
+
+	requires static com.github.librepdf.openpdf;
+
 	requires static barcode4j.light;
 	requires static com.rometools.rome;
 	requires static org.apache.xmlbeans;
@@ -31,6 +34,7 @@ open module primefaces {
 
 	requires org.apache.commons.lang3;
 	requires static core;
+	requires static com.guicedee.guicedservlets.undertow;
 
 	exports org.primefaces;
 	exports org.primefaces.application;
@@ -279,7 +283,8 @@ open module primefaces {
 	exports org.primefaces.webapp.filter;
 
 	uses org.primefaces.component.fileupload.FileUploadDecoder;
-
 	provides org.primefaces.component.fileupload.FileUploadDecoder with org.primefaces.component.fileupload.NativeFileUploadDecoder,
 			                                                               org.primefaces.component.fileupload.CommonsFileUploadDecoder;
+
+	provides com.guicedee.guicedservlets.undertow.services.UndertowDeploymentConfigurator with com.guicedee.services.primefaces.configurations.UndertowServletConfig;
 }

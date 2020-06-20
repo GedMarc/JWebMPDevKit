@@ -49,34 +49,21 @@
         <artifactId>services-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
-    
+
     <artifactId>javax.jms-api</artifactId>
     <packaging>jar</packaging>
 
-    <properties>
-        <!--
-            After every promotion build:
-              - increment spec.build
-
-            To re-spin a promotion build:
-              - change the project <version> back to the previous value
-              - commit the change
-        
-            When the spec turns final:
-              - change spec.non.final to false
-              - change spec.version to the value of spec.newVersion
-              - comment out spec.newVersion
-              - comment out spec.build
-              - update the project <version> to not have -bXX
-        -->
-        <spec.title>Java(TM) Message Service Specification</spec.title>
-        <spec.version>2.0</spec.version>
-        <spec.newVersion>2.1</spec.newVersion>
-        <spec.build>01</spec.build>
-        <spec.extension.name>javax.jms</spec.extension.name>
-        <spec.non.final>true</spec.non.final>
-    </properties>
     <name>javax.jms</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jms_1.1_spec</artifactId>
+            <version>1.1.1</version>
+            <optional>true</optional>
+        </dependency>
+
+    </dependencies>
 
     <url>http://java.net/projects/jms-spec/pages/Home</url>
 
@@ -108,23 +95,52 @@
     </scm>
 
     <build>
-        <plugins>
 
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>shade</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>org.apache.geronimo.specs</include>
+                                </includes>
+                            </artifactSet>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.moditect</groupId>
+                <artifactId>moditect-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-module-infos</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>add-module-info</goal>
+                        </goals>
+                        <configuration>
+                            <overwriteExistingFiles>true</overwriteExistingFiles>
+                            <module>
+                                <moduleInfoFile>
+                                    src/moditect/module-info.java
+                                </moduleInfoFile>
+                            </module>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.html</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <excludes>
-                    <exclude>META-INF/README</exclude>
-                </excludes>
-            </resource>
-        </resources>
+
     </build>
 </project>

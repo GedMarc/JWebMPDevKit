@@ -1,7 +1,7 @@
-/**
+/*
  * The MIT License
  *
- * Copyright (c) 2009-2019 PrimeTek
+ * Copyright (c) 2009-2020 PrimeTek
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -83,7 +83,6 @@ public class Schedule extends ScheduleBase {
         Map<String, String> params = context.getExternalContext().getRequestParameterMap();
         String eventName = params.get(Constants.RequestParams.PARTIAL_BEHAVIOR_EVENT_PARAM);
         String clientId = getClientId(context);
-        ZoneId zoneId = CalendarUtils.calculateZoneId(this.getTimeZone());
 
         if (ComponentUtils.isRequestSource(this, context)) {
 
@@ -92,6 +91,7 @@ public class Schedule extends ScheduleBase {
 
             if (eventName.equals("dateSelect")) {
                 String selectedDateStr = params.get(clientId + "_selectedDate");
+                ZoneId zoneId = CalendarUtils.calculateZoneId(this.getTimeZone());
                 LocalDateTime selectedDate =  CalendarUtils.toLocalDateTime(zoneId, selectedDateStr);
                 SelectEvent<?> selectEvent = new SelectEvent(this, behaviorEvent.getBehavior(), selectedDate);
                 selectEvent.setPhaseId(behaviorEvent.getPhaseId());
