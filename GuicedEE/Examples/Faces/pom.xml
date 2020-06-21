@@ -8,7 +8,7 @@
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
 
-	<groupId>com.guicedee.examples.faces</groupId>
+    <groupId>com.guicedee.examples.faces</groupId>
     <artifactId>examples-faces-parent</artifactId>
 
     <packaging>pom</packaging>
@@ -16,9 +16,10 @@
     <name>GuicedEE Faces Examples</name>
     <description>Examples for JSF</description>
 
-    <dependencies>
 
-    </dependencies>
+    <modules>
+        <module>PrimeFaces-Showcase</module>
+    </modules>
 
     <scm>
         <url>https://github.com/GedMarc/JWebMP-Undertow.git</url>

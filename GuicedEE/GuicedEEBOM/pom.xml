@@ -177,6 +177,12 @@
 
             <dependency>
                 <groupId>com.guicedee.services</groupId>
+                <artifactId>openpdf</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.guicedee.services</groupId>
                 <artifactId>apache-poi-ooxml</artifactId>
                 <version>${project.version}</version>
             </dependency>

@@ -86,6 +86,7 @@
             <id>enable-ee4j</id>
             <modules>
                 <module>gee4j</module>
+                <module>openpdf</module>
             </modules>
         </profile>
 
