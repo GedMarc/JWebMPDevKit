@@ -34,6 +34,14 @@
             <version>2.0.2</version>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>com.guicedee</groupId>
+            <artifactId>guiced-injection</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.guicedee.services.extensions</groupId>
+            <artifactId>guice-servlet</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

@@ -1,24 +1,23 @@
 open module primefaces {
 
-	requires javax.faces;
-	requires org.apache.commons.io;
-	requires org.apache.commons.fileupload;
-	requires java.servlet;
-	requires javax.el;
-	requires java.validation;
+	requires transitive javax.faces;
+	requires transitive org.apache.commons.io;
+	requires transitive org.apache.commons.fileupload;
+	requires transitive java.servlet;
+	requires transitive javax.el;
+	requires transitive java.validation;
+
+	requires transitive java.xml.bind;
+	requires transitive com.guicedee.guicedservlets.jsf;
 
 	requires static com.hazelcast.all;
 
 	requires java.sql;
 	requires java.scripting;
 	requires java.desktop;
+
 	requires static org.apache.poi;
 	requires static org.apache.poi.ooxml;
-
-	requires com.google.common;
-	requires java.xml.bind;
-
-	requires static com.guicedee.guicedservlets;
 
 	requires static com.github.librepdf.openpdf;
 
@@ -32,9 +31,8 @@ open module primefaces {
 	requires org.json;
 	requires static qrgen;
 
-	requires org.apache.commons.lang3;
 	requires static core;
-	requires static com.guicedee.guicedservlets.undertow;
+
 
 	exports org.primefaces;
 	exports org.primefaces.application;

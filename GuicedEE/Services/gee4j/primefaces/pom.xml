@@ -40,6 +40,7 @@
                             <include>org.owasp.esapi:esapi:*</include>
                             <include>net.glxn:qrgen:*</include>
                             <include>org.jdom:jdom2:*</include>
+                            <include>com.google.zxing:*</include>
                             <include>com.googlecode.owasp-java-html-sanitizer:owasp-java-html-sanitizer:*</include>
                         </includes>
                     </artifactSet>
@@ -53,10 +54,6 @@
                         </filter>
                     </filters>
                     <relocations>
-                        <relocation>
-                            <pattern>com.lowagie</pattern>
-                            <shadedPattern>com.guicedee.services.primefaces.com.lowagie</shadedPattern>
-                        </relocation>
                         <relocation>
                             <pattern>com.rometools</pattern>
                             <shadedPattern>com.guicedee.services.primefaces.rometools</shadedPattern>
@@ -580,6 +577,13 @@
             <artifactId>guiced-undertow</artifactId>
             <optional>true</optional>
         </dependency>
+
+
+        <dependency>
+            <groupId>com.guicedee.servlets</groupId>
+            <artifactId>guiced-servlets-jsf</artifactId>
+        </dependency>
+
 
         <dependency>
             <groupId>com.guicedee.persistence</groupId>

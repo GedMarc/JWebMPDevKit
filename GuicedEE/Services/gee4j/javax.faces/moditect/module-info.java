@@ -28,6 +28,7 @@ open module javax.faces {
 
 	exports com.sun.faces.config;
 	requires transitive javax.servlet.jsp.jstl;
+	requires transitive java.xml.bind;
 
 	requires java.sql;
 	requires java.naming;
@@ -35,17 +36,18 @@ open module javax.faces {
 
 	requires jakarta.enterprise.cdi;
 	requires static java.persistence;
-
 	requires static javax.ejb;
+
 	requires java.annotation;
 	requires java.json;
 	requires javax.websocket.api;
 
-	requires transitive java.xml.bind;
-
 	provides javax.enterprise.inject.spi.Extension with com.sun.faces.application.view.ViewScopeExtension, com.sun.faces.flow.FlowCDIExtension, com.sun.faces.flow.FlowDiscoveryCDIExtension, com.sun.faces.cdi.CdiExtension;
 	provides javax.servlet.ServletContainerInitializer with com.sun.faces.config.FacesInitializer;
 	provides com.guicedee.guicedinjection.interfaces.IPathContentsScanner with com.sun.faces.config.configprovider.FacesLocationsScanner;
+
+
+	provides com.guicedee.guicedinjection.interfaces.IGuiceModule with com.guicedee.faces.implementations.GuicedFacesModule;
 
 	uses com.sun.faces.util.cdi11.CDIUtil;
 

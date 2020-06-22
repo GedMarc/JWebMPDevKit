@@ -23,6 +23,7 @@
             <id>enable-commons</id>
             <modules>
                 <module>commons</module>
+                <module>openpdf</module>
             </modules>
         </profile>
 
@@ -86,7 +87,6 @@
             <id>enable-ee4j</id>
             <modules>
                 <module>gee4j</module>
-                <module>openpdf</module>
             </modules>
         </profile>
 

@@ -3,43 +3,22 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>za.co.bayport.jpms</groupId>
-        <artifactId>oss-parent</artifactId>
+        <groupId>com.guicedee.examples.faces</groupId>
+        <artifactId>examples-faces-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
-        <relativePath>../../../</relativePath>
     </parent>
 
-    <artifactId>global-caching-jlink</artifactId>
+    <artifactId>primefaces-jlink</artifactId>
     <packaging>jlink</packaging>
 
-    <name>Caching - Distributable</name>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>za.co.bayport.jpms</groupId>
-                <artifactId>bayport-bom</artifactId>
-                <version>${project.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>za.co.bayport.jpms</groupId>
-                <artifactId>bayport-parent</artifactId>
-                <version>${project.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-        </dependencies>
-    </dependencyManagement>
+    <name>PrimeFaces - Showcase</name>
 
     <dependencies>
 
         <dependency>
             <groupId>com.guicedee.examples.faces</groupId>
             <artifactId>primefaces-showcase</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
@@ -55,7 +34,7 @@
                     <stripDebug>true</stripDebug>
                     <verbose>true</verbose>
                     <compress>2</compress>
-                    <launcher>launch=com.guicedee.examples.faces.primefaces.showcase///todo!!
+                    <launcher>launch=com.guicedee.examples.faces.primefaces.showcase/org.primefaces.showcase.BootPrimefacesShowcase
                     </launcher>
                     <finalName>primefaces-showcase-jlink.${project.version}</finalName>
                 </configuration>

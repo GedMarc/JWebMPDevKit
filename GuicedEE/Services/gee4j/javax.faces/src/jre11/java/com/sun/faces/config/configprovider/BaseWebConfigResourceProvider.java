@@ -73,7 +73,6 @@ public abstract class BaseWebConfigResourceProvider
 						System.out.println("Base Web Config Provider - Cannot Load URI - " + path);
 						if (LOGGER.isLoggable(WARNING))
 						{
-
 							LOGGER.log(WARNING,
 							           "jsf.config.web_resource_not_found",
 							           new Object[]{path, JavaxFacesConfigFiles.getQualifiedName()});
