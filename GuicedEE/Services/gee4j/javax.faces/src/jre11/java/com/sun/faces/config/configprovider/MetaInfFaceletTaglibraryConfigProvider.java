@@ -67,6 +67,7 @@ public class MetaInfFaceletTaglibraryConfigProvider
 		try
 		{
 			URL[] externalTaglibUrls = Classpath.search("META-INF/", SUFFIX);
+			URL[] externalTaglibUrlsWebINF = Classpath.search("WEB-INF/", SUFFIX);
 			URL[] builtInTaglibUrls = new URL[BUILT_IN_TAGLIB_XML_FILES.length];
 			ClassLoader runtimeClassLoader = getClass()
 					                                 .getClassLoader();
@@ -76,9 +77,10 @@ public class MetaInfFaceletTaglibraryConfigProvider
 				builtInTaglibUrls[i] = runtimeClassLoader.getResource(BUILT_IN_TAGLIB_XML_FILES[i]);
 			}
 
-			URL[] urls = new URL[externalTaglibUrls.length + builtInTaglibUrls.length];
+			URL[] urls = new URL[externalTaglibUrls.length + builtInTaglibUrls.length + externalTaglibUrlsWebINF.length];
 			arraycopy(externalTaglibUrls, 0, urls, 0, externalTaglibUrls.length);
 			arraycopy(builtInTaglibUrls, 0, urls, externalTaglibUrls.length, builtInTaglibUrls.length);
+			arraycopy(externalTaglibUrlsWebINF, 0, urls, externalTaglibUrls.length + builtInTaglibUrls.length, externalTaglibUrlsWebINF.length);
 			// Perform some 'correctness' checking. If the user has
 			// removed the FaceletViewHandler from their configuration,
 			// but has left the jsf-facelets.jar in the classpath, we
