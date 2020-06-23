@@ -10,6 +10,7 @@
      * of the following entries:
      * 
      * - {@link PrimeFaces.ajax} The AJAX module with functionality for sending AJAX requests
+     * - {@link PrimeFaces.clientwindow} The client window module for multiple window support in PrimeFaces applications.
      * - {@link PrimeFaces.csp} The  CSP module for the HTTP Content-Security-Policy (CSP) policy `script-src` directive.
      * - {@link PrimeFaces.dialog} The dialog module with functionality related to the dialog framework
      * - {@link PrimeFaces.env} The environment module with information about the current browser
@@ -186,7 +187,6 @@
                 cfg.secure = true;
                 cfg.sameSite = 'Strict';
             }
-           
             Cookies.set(name, value, cfg);
         },
 
@@ -212,6 +212,20 @@
             }
 
             return (cookieEnabled);
+        },
+
+        /**
+         * Generates a unique key for using in HTML5 local storage by combining the context, view, id, and key.
+         * @param {string} id ID of the component
+         * @param {string} key a unique key name such as the component name
+         * @return {string} the generated key comprising of context + view + id + key
+         */
+        createStorageKey : function(id, key) {
+            var sk = PrimeFaces.settings.contextPath.replace(/\//g, '-')
+                    + PrimeFaces.settings.viewId.replace(/\//g, '-')
+                    + id + '-'
+                    + key;
+            return sk.toLowerCase();
         },
 
         /**

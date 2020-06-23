@@ -110,6 +110,7 @@ public class MetaInfFaceletTaglibraryConfigProvider
 					}
 				}
 			}
+			java.util.logging.Logger.getLogger("FaceletTagLibraries").log(java.util.logging.Level.CONFIG,"Found the following tag libraries - " + urlsList);
 			return urlsList;
 		}
 		catch (IOException ioe)

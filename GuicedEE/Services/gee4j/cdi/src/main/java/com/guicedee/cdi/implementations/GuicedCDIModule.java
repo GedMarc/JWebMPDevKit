@@ -111,8 +111,7 @@ public class GuicedCDIModule
 			Class<?> clazz = injectee.getClass();
 			for (Method methodInfo : clazz.getDeclaredMethods())
 			{
-				if (methodInfo.isAnnotationPresent(PostConstruct.class)
-				    || methodInfo.isAnnotationPresent(Inject.class))
+				if (methodInfo.isAnnotationPresent(PostConstruct.class))
 				{
 					try
 					{
@@ -120,8 +119,7 @@ public class GuicedCDIModule
 					}
 					catch (final IllegalAccessException e)
 					{
-						System.out.println("Could not fire PostConstruct - Module does not open to CDI - " + clazz.getCanonicalName());
-						e.printStackTrace();
+						System.out.println("Could not fire PostConstruct - Module does not expose class with a CDI annotation - " + clazz.getCanonicalName());
 					}
 					catch (final Exception e)
 					{

@@ -5,13 +5,19 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
-V1.0.13.0 - 23 June 2020
-* Added LibrePDF/OpenPDF with JLink support
-* Big improvements for faces support. Everything now injected including converters and validators
-* Primefaces Showcase example project
-* Guice inject CDI annotations @ApplicationScoped @SessionScoped @RequestScoped and @PostConstruct. Can still use IGuicePreDestroy SPI for PreDestroy.
+V1.0.13.0 - 24 June 2020
+* Added LibrePDF/OpenPDF module with JLink support
+* Added JFreeChart with JLink support
+* Big improvements for faces support. 
+    - Everything now injected including converters and validators 
+* Primefaces Showcase with JLink distribution example projects 
+    - https://github.com/GedMarc/JWebMPDevKit/tree/master/GuicedEE/Examples/Faces
+* Guice injection on CDI annotations @ApplicationScoped @SessionScoped @RequestScoped and @PostConstruct. 
+    - Can still use IGuicePreDestroy SPI for PreDestroy.
 * Mass version security updates
-* Merge JTA,Hibernate, JPA, and SystemProperties into the single Persistence module
+* Merge JTA,Hibernate, JPA, and SystemProperties into a single base Persistence module
+* Dropped support for EclipseLink
+
 
 V1.0.12.0 - 12 June 2020
 * I really need to get better at these

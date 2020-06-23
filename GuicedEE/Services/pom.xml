@@ -54,6 +54,7 @@
                 <module>sl4j</module>
                 <module>log4j2</module>
                 <module>mssql-jdbc</module>
+				<module>jfreechart</module>
             </modules>
         </profile>
 

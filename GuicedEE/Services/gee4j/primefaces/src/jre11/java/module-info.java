@@ -285,4 +285,5 @@ open module primefaces {
 			                                                               org.primefaces.component.fileupload.CommonsFileUploadDecoder;
 
 	provides com.guicedee.guicedservlets.undertow.services.UndertowDeploymentConfigurator with com.guicedee.services.primefaces.configurations.UndertowServletConfig;
+	provides com.guicedee.guicedservlets.services.IGuiceSiteBinder with com.guicedee.services.primefaces.configurations.GuicedPrimefacesServletModule;
 }

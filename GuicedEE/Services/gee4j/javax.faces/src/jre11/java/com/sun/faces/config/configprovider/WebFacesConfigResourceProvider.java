@@ -68,6 +68,7 @@ public class WebFacesConfigResourceProvider
 			e.printStackTrace();
 		}
 		context.setAttribute("com.sun.faces.webresources", all);
+		java.util.logging.Logger.getLogger("FacesConfigWebInfLibraries").log(java.util.logging.Level.CONFIG,"Found the following faces-config in WEB-INF - " + all);
 		return all;
 	}
 

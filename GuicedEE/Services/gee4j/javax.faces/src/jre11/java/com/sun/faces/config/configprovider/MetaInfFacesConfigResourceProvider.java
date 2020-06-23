@@ -132,6 +132,7 @@ public class MetaInfFacesConfigResourceProvider
 		}
 		// Then load the unsorted resources
 		result.addAll(unsortedResourceList);
+		java.util.logging.Logger.getLogger("FacesConfigMetaInfLibraries").log(java.util.logging.Level.CONFIG,"Found the following faces-config in META-INF - " + result);
 		return result;
 	}
 
