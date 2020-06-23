@@ -5,6 +5,14 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
+V1.0.13.0 - 23 June 2020
+* Added OpenPDF Service
+* Big improvements for faces support. Everything now injected including converters and validators
+* Primefaces Showcase example project
+* Guice inject CDI annotations @ApplicationScoped @SessionScoped @RequestScoped and @PostConstruct. Can still use IGuicePreDestroy SPI for PreDestroy.
+* Mass version security updates
+* Merge JTA,Hibernate, JPA, and SystemProperties into the single Persistence module
+
 V1.0.12.0 - 12 June 2020
 * I really need to get better at these
 * Mass update
@@ -14,7 +22,7 @@ V1.0.12.0 - 12 June 2020
 * Classgraph JRT resource handling
 
 V1.0.9.5 - 15 May 2020
-* Added SL4J
+* Added SLF4J
 * Swagger UI to 3.25.3
 * Woodstox to 6.2.1
 * Log4j2 to 2.13.3
