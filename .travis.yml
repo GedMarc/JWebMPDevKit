@@ -25,6 +25,12 @@ install: true
 branches:
   only:
     - master
-script: mvn clean install -Djdk.release=${release} -Pjdk9,enable-jackson,enable-xnio,enable-uadetector,enable-guicedee,enable-guicedee-services,enable-hazelcast,enable-hibernate,enable-jcache,enable-jstl,enable-standalone-services,enable-undertow,enable-ee4j,enable-guice,enable-commons,enable-guicedee,enable-guicedee-projects,enable-guicedee-services,enable-guiced-hazelcast,enable-guiced-injection,enable-guiced-logmaster,enable-guiced-persistence,enable-guiced-persistence-btm,enable-guiced-rest,enable-guiced-servlets,enable-guiced-servlets-scoped,enable-guiced-swagger,enable-guiced-swagger-ui,enable-guiced-undertow,enable-guiced-webservices,enable-guiced-websockets,enable-jsf,enable-entityassist
+
+script:
+  - cd GuicedEE/GuicedEEBOM
+  - mvn clean install -Djdk.release=${release}
+  - cd ..
+  - cd ..
+  - mvn clean install -Djdk.release=${release} -Pjdk9,enable-jackson,enable-xnio,enable-uadetector,enable-guicedee,enable-guicedee-services,enable-hazelcast,enable-hibernate,enable-jcache,enable-jstl,enable-standalone-services,enable-undertow,enable-ee4j,enable-guice,enable-commons,enable-guicedee,enable-guicedee-projects,enable-guicedee-services,enable-guiced-hazelcast,enable-guiced-injection,enable-guiced-logmaster,enable-guiced-persistence,enable-guiced-persistence-btm,enable-guiced-rest,enable-guiced-servlets,enable-guiced-servlets-scoped,enable-guiced-swagger,enable-guiced-swagger-ui,enable-guiced-undertow,enable-guiced-webservices,enable-guiced-websockets,enable-jsf,enable-entityassist
 after_success:
   - bash <(curl -s https://codecov.io/bash)
