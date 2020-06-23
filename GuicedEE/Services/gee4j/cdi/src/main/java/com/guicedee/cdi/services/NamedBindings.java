@@ -7,13 +7,18 @@ import io.github.classgraph.ClassInfo;
 import javax.inject.Named;
 import java.lang.annotation.Annotation;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import static com.guicedee.guicedinjection.json.StaticStrings.*;
 
 public class NamedBindings
 {
 	private static final Set<String> all = new HashSet<>();
+
+	private static final Map<String,Class<?>> converters = new ConcurrentHashMap<>(5,2,1);
+	private static final  Map<String,Class<?>> validators = new ConcurrentHashMap<>(5,2,1);
 
 	/**
 	 * Checks if bound, if not, adds to the list so next call its true
@@ -112,5 +117,15 @@ public class NamedBindings
 			      .annotatedWith(Names.named(name))
 			      .to(clazz);
 		}
+	}
+
+	public static Map<String, Class<?>> getConverters()
+	{
+		return converters;
+	}
+
+	public static Map<String, Class<?>> getValidators()
+	{
+		return validators;
 	}
 }
