@@ -6,7 +6,7 @@ Use profiles to manage the open projects
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
 V1.0.13.0 - 23 June 2020
-* Added OpenPDF Service
+* Added LibrePDF/OpenPDF with JLink support
 * Big improvements for faces support. Everything now injected including converters and validators
 * Primefaces Showcase example project
 * Guice inject CDI annotations @ApplicationScoped @SessionScoped @RequestScoped and @PostConstruct. Can still use IGuicePreDestroy SPI for PreDestroy.
