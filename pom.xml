@@ -87,7 +87,7 @@
         <javax.transaction.transactionapi>1.3</javax.transaction.transactionapi>
 
         <h2.db.api>1.4.200</h2.db.api>
-        <bytebuddy.version>1.10.12</bytebuddy.version>
+        <bytebuddy.version>1.10.13</bytebuddy.version>
         <jpa21.version>1.0.2.Final</jpa21.version>
         <ehcache.version>3.8.0</ehcache.version>
 
@@ -97,7 +97,7 @@
         <uadetector.detector.version>2014.10</uadetector.detector.version>
         <sl4j.version>1.7.30</sl4j.version>
 
-        <io.swagger.version>2.1.2</io.swagger.version>
+        <io.swagger.version>2.1.3</io.swagger.version>
         <snakeyaml.version>1.26</snakeyaml.version>
 
         <undertow.version>2.1.3.Final</undertow.version>

@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.google.inject.internal;
 
 import java.security.AccessController;
@@ -49,31 +48,37 @@ public class InternalFlags {
     COMPLETE
   }
 
-  /**
-   * The options for Guice custom class loading.
-   */
+  /** The options for Guice custom class loading. */
   public enum CustomClassLoadingOption {
-    /** Never create child class loaders, use Unsafe to define types in existing class loaders. */
+    /**
+     * Define fast/enhanced types in the same class loader as their original type, never creates
+     * class loaders. Uses Unsafe.defineAnonymousClass to gain access to existing class loaders.
+     */
     OFF,
 
     /**
-     * Like OFF but uses Unsafe.defineAnonymousClass to reduce the cost of fast/enhanced classes.
+     * Define fast/enhanced types with Unsafe.defineAnonymousClass, never creates class loaders.
+     * This is faster than regular class loading and anonymous classes are easier to unload.
      *
-     * <p>Note: when using this option you cannot look up enhanced types by name or mock/spy them.
+     * <p>Note: with this option you cannot look up fast/enhanced types by name or mock/spy them.
      */
     ANONYMOUS,
 
-    /** Prefer Unsafe, but fall back to child class loaders if Unsafe is not available (Default) */
+    /**
+     * Attempt to define fast/enhanced types in the same class loader as their original type.
+     * Otherwise creates a child class loader whose parent is the original class loader. (Default)
+     */
     BRIDGE,
 
     /**
-     * Always create child class loaders when defining types to make it easier to unload them.
+     * Define fast/enhanced types in a child class loader whose parent is the original class loader.
      *
-     * <p>Note: when using this option you cannot intercept package-private methods.
+     * <p>Note: with this option you cannot intercept package-private methods.
      */
     CHILD
   }
 
+  /** Options for handling nullable parameters used in provides methods. */
   public enum NullableProvidesOption {
     /** Ignore null parameters to @Provides methods. */
     IGNORE,
@@ -81,6 +86,12 @@ public class InternalFlags {
     WARN,
     /** Error if null parameters are passed to non-@Nullable parameters of provides parameters */
     ERROR
+  }
+
+  /** Options for enable or disable the new experimental error messages. */
+  public enum ExperimentalErrorMessagesOption {
+    DISABLED,
+    ENABLED,
   }
 
   public static IncludeStackTraceOption getIncludeStackTraceOption() {
@@ -93,6 +104,11 @@ public class InternalFlags {
 
   public static NullableProvidesOption getNullableProvidesOption() {
     return NULLABLE_PROVIDES;
+  }
+
+
+  public static boolean enableExperimentalErrorMessages() {
+    return false;
   }
 
   private static IncludeStackTraceOption parseIncludeStackTraceOption() {
