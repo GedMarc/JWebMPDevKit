@@ -5,6 +5,15 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
+V1.0.13.2 - 4 July 2020
+* WSS4J Security and Policies Update - 2.3.0
+* Hazelcast update - 4.0.2
+* JBoss LogManager - 2.1.16.Final
+* ClassGraph - 4.8.68
+* Commons Compress zstd-jni - 1.4.5-3
+* Google error_prone_annotations - 2.4.0
+* ByteBuddy 1.10.12
+
 V1.0.13.0 - 24 June 2020
 * Added LibrePDF/OpenPDF module with JLink support
 * Added JFreeChart with JLink support

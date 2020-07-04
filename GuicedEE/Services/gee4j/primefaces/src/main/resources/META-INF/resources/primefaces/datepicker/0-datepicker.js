@@ -1732,7 +1732,9 @@
                 this.updateViewDate(event, value.length ? value[0] : value);
             }
             catch (err) {
-                this.updateModel(event, rawValue);
+                if (!this.options.mask) {
+                    this.updateModel(event, rawValue);
+                }
             }
 
             if (this.options.onInput) {
@@ -2232,7 +2234,11 @@
 
         stepMinute: function(currentMinute, step) {
             if (this.options.stepMinute <= 1) {
-                return currentMinute;
+                if (!step) {
+                    return currentMinute;
+                } else {
+                    return currentMinute + step;
+                }
             }
             if (!step) {
                 step = this.options.stepMinute;

@@ -198,7 +198,6 @@
                                 <include>${project.build.directory}/classes/META-INF/resources/primefaces/forms/forms.selectonebutton.js</include>
                                 <include>${project.build.directory}/classes/META-INF/resources/primefaces/forms/forms.selectbooleanbutton.js</include>
                                 <include>${project.build.directory}/classes/META-INF/resources/primefaces/forms/forms.selectcheckboxmenu.js</include>
-                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/forms/forms.inputmask.js</include>
                                 <include>${project.build.directory}/classes/META-INF/resources/primefaces/forms/forms.password.js</include>
                                 <include>${project.build.directory}/classes/META-INF/resources/primefaces/forms/forms.defaultcommand.js</include>
                                 <include>${project.build.directory}/classes/META-INF/resources/primefaces/forms/forms.splitbutton.js</include>
@@ -254,6 +253,15 @@
                                 <include>${project.build.directory}/classes/META-INF/resources/primefaces/imagecropper/0-cropper.js</include>
                                 <include>${project.build.directory}/classes/META-INF/resources/primefaces/imagecropper/1-jquery-cropper.js</include>
                                 <include>${project.build.directory}/classes/META-INF/resources/primefaces/imagecropper/2-imagecropper.js</include>
+                            </includes>
+                        </aggregation>
+                        <aggregation>
+                            <insertNewLine>true</insertNewLine>
+                            <removeIncluded>true</removeIncluded>
+                            <output>${project.build.directory}/classes/META-INF/resources/primefaces/inputmask/inputmask.js</output>
+                            <includes>
+                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/inputmask/0-jquery.inputmask.js</include>
+                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/inputmask/1-inputmask.js</include>
                             </includes>
                         </aggregation>
                         <aggregation>
@@ -322,6 +330,15 @@
                         <aggregation>
                             <insertNewLine>true</insertNewLine>
                             <removeIncluded>true</removeIncluded>
+                            <output>${project.build.directory}/classes/META-INF/resources/primefaces/scrollpanel/scrollpanel.js</output>
+                            <includes>
+                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/scrollpanel/0-jquery.jscrollpane.js</include>
+                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/scrollpanel/1-scrollpanel.js</include>
+                            </includes>
+                        </aggregation>
+                        <aggregation>
+                            <insertNewLine>true</insertNewLine>
+                            <removeIncluded>true</removeIncluded>
                             <output>${project.build.directory}/classes/META-INF/resources/primefaces/timeline/timeline.js</output>
                             <includes>
                                 <include>${project.build.directory}/classes/META-INF/resources/primefaces/timeline/0-timeline.min.js</include>
@@ -353,7 +370,6 @@
                             <includes>
                                 <include>${project.build.directory}/classes/META-INF/resources/primefaces/jquery/jquery.ui.js</include>
                                 <include>${project.build.directory}/classes/META-INF/resources/primefaces/jquery/jquery.ui.timepicker.js</include>
-                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/jquery/jquery.maskedinput.js</include>
                                 <include>${project.build.directory}/classes/META-INF/resources/primefaces/jquery/jquery.caretposition.js</include>
                                 <include>${project.build.directory}/classes/META-INF/resources/primefaces/jquery/jquery.autosize.js</include>
                                 <include>${project.build.directory}/classes/META-INF/resources/primefaces/jquery/jquery.mousewheel.js</include>
@@ -427,6 +443,7 @@
                             </includes>
                         </aggregation>
                     </aggregations>
+
                 </configuration>
             </plugin>
 
@@ -488,7 +505,7 @@
         <dependency>
             <groupId>com.rometools</groupId>
             <artifactId>rome</artifactId>
-            <version>1.13.1</version>
+            <version>1.14.1</version>
             <exclusions>
                 <exclusion>
                     <artifactId>slf4j-api</artifactId>
@@ -505,7 +522,7 @@
         <dependency>
             <groupId>com.rometools</groupId>
             <artifactId>rome-utils</artifactId>
-            <version>1.13.1</version>
+            <version>1.14.1</version>
             <exclusions>
                 <exclusion>
                     <artifactId>slf4j-api</artifactId>

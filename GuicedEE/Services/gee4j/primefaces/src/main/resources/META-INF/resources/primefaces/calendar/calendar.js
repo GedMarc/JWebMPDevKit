@@ -116,6 +116,7 @@ PrimeFaces.widget.Calendar = PrimeFaces.widget.BaseWidget.extend({
         this.bindDateSelectListener();
         this.bindViewChangeListener();
         this.bindCloseListener();
+        this.applyMask();
 
         //disabled dates
         this.cfg.beforeShowDay = function(date) {
@@ -245,13 +246,23 @@ PrimeFaces.widget.Calendar = PrimeFaces.widget.BaseWidget.extend({
 
         //pfs metadata
         this.input.data(PrimeFaces.CLIENT_ID_DATA, this.id);
-
-        if (this.cfg.mask) {
+    },
+    
+    /**
+     * Initializes the mask on the input if using a mask and not an inline picker.
+     * @private
+     */
+    applyMask: function() {
+        if (this.cfg.mask && !this.cfg.inline) {
             var maskCfg = {
+                alias:'datetime',
+                inputFormat:this.cfg.mask,
                 placeholder:this.cfg.maskSlotChar||'_',
-                autoclear:this.cfg.maskAutoClear
+                clearMaskOnLostFocus:this.cfg.maskAutoClear||true,
+                clearIncomplete:this.cfg.maskAutoClear||true,
+                autoUnmask:this.cfg.maskAutoUnmask||true
             };
-            this.input.mask(this.cfg.mask, maskCfg);
+            this.input.inputmask('remove').inputmask(maskCfg);
         }
     },
 
