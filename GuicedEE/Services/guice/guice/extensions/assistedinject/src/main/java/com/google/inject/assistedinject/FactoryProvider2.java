@@ -354,9 +354,7 @@ final class FactoryProvider2<F>
       factory =
           factoryRawType.cast(
               Proxy.newProxyInstance(
-                  factoryRawType.getClassLoader(),
-                  new Class<?>[] {factoryRawType},
-                  this));
+                  factoryRawType.getClassLoader(), new Class<?>[] {factoryRawType}, this));
 
       // Now go back through default methods. Try to use MethodHandles to make things
       // work.  If that doesn't work, fallback to trying to find compatible method
@@ -693,7 +691,7 @@ final class FactoryProvider2<F>
    */
   private <T> Key<T> assistKey(Method method, Key<T> key, Errors errors) throws ErrorsException {
     if (key.getAnnotationType() == null) {
-      return Key.get(key.getTypeLiteral(), DEFAULT_ANNOTATION);
+      return key.withAnnotation(DEFAULT_ANNOTATION);
     } else if (key.getAnnotationType() == Assisted.class) {
       return key;
     } else {

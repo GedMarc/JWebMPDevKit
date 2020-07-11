@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Google Inc.
+ * Copyright (C) 2020 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,8 @@ import java.util.logging.Logger;
  * @author mcculls@gmail.com (Stuart McCulloch)
  */
 public final class ClassDefining {
+  private ClassDefining() {}
+
   private static final Logger logger = Logger.getLogger(ClassDefining.class.getName());
 
   private static final String CLASS_DEFINING_UNSUPPORTED =

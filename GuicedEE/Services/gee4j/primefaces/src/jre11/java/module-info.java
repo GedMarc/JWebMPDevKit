@@ -12,6 +12,9 @@ open module primefaces {
 
 	requires static com.hazelcast.all;
 
+	requires static org.ehcache;
+	requires static ehcache;
+
 	requires java.sql;
 	requires java.scripting;
 	requires java.desktop;

@@ -78,6 +78,12 @@
         <function-signature>java.security.Principal userPrincipal()</function-signature>
     </function>
 
+    <function>
+        <function-name>language</function-name>
+        <function-class>org.primefaces.util.LocaleUtils</function-class>
+        <function-signature>java.lang.String getCurrentLanguage()</function-signature>
+    </function>
+
     <tag>
         <description>AutoUpdate is a TagHandler to mark the parent component to be updated at every AJAX request.
             AutoUpdate is ignored if the trigger (p:commandButton, p:ajax...) of AJAX request has the attribute ignoreAutoUpdate set to 'true'.
@@ -4220,6 +4226,14 @@
             <name>displayMode</name>
             <required>false</required>
             <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                <![CDATA[Custom clock time in 'server' mode must be either Date or LocalDateTime. Null means use server clock time.]]>
+            </description>
+            <name>value</name>
+            <required>false</required>
+            <type>java.lang.Object</type>
         </attribute>
     </tag>
     <tag>
@@ -18506,6 +18520,22 @@
                 <![CDATA[Identifier of another password component to match value against.]]>
             </description>
             <name>match</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                <![CDATA[Event to show the feedback overlay panel, default is "focus".]]>
+            </description>
+            <name>showEvent</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                <![CDATA[Event to hide the feedback overlay panel, default is "blur".]]>
+            </description>
+            <name>hideEvent</name>
             <required>false</required>
             <type>java.lang.String</type>
         </attribute>

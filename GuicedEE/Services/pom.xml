@@ -72,6 +72,15 @@
             </modules>
         </profile>
 
+
+        <profile>
+            <id>enable-ehcache</id>
+            <modules>
+                <module>ehcache</module>
+            </modules>
+        </profile>
+
+
         <profile>
             <id>enable-undertow</id>
             <modules>

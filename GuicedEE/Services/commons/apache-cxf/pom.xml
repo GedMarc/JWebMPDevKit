@@ -79,6 +79,7 @@
             <groupId>com.guicedee.services</groupId>
             <artifactId>guava</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -979,7 +980,7 @@
             <dependency>
                 <groupId>org.bouncycastle</groupId>
                 <artifactId>bcprov-jdk15on</artifactId>
-                <version>1.65</version>
+                <version>1.66</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/ca.juliusdavies/not-yet-commons-ssl -->
             <dependency>

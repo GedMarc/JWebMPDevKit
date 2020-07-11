@@ -46,7 +46,7 @@ final class ProxyFactory<T> implements ConstructionProxyFactory<T> {
 
   private final InjectionPoint injectionPoint;
 
-  private final Function<String, BiFunction> enhancer;
+  private final Function<String, BiFunction<Object, Object[], Object>> enhancer;
   private final ImmutableMap<Method, List<MethodInterceptor>> interceptors;
   private final InvocationHandler[] callbacks;
 
@@ -160,14 +160,14 @@ final class ProxyFactory<T> implements ConstructionProxyFactory<T> {
   private static class ProxyConstructor<T> implements ConstructionProxy<T> {
     final InjectionPoint injectionPoint;
     final Constructor<T> constructor;
-    final BiFunction<InvocationHandler[], Object[], Object> enhancedConstructor;
+    final BiFunction<Object, Object[], Object> enhancedConstructor;
     final ImmutableMap<Method, List<MethodInterceptor>> interceptors;
     final InvocationHandler[] callbacks;
 
     @SuppressWarnings("unchecked") // the constructor promises to construct 'T's
     ProxyConstructor(
         InjectionPoint injectionPoint,
-        Function<String, BiFunction> enhancer,
+        Function<String, BiFunction<Object, Object[], Object>> enhancer,
         ImmutableMap<Method, List<MethodInterceptor>> interceptors,
         InvocationHandler[] callbacks) {
       this.injectionPoint = injectionPoint;

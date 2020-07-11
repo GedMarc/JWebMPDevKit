@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Google Inc.
+ * Copyright (C) 2020 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import java.util.BitSet;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.SortedMap;
+import java.util.NavigableMap;
 import java.util.TreeMap;
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -42,13 +42,16 @@ import java.util.function.Function;
 final class EnhancerBuilderImpl implements BytecodeGen.EnhancerBuilder {
 
   /** Lazy association between classes and their generated enhancers. */
-  private static final ClassValue<Map<BitSet, Function<String, BiFunction>>> ENHANCERS =
-      new ClassValue<Map<BitSet, Function<String, BiFunction>>>() {
-        @Override
-        protected Map<BitSet, Function<String, BiFunction>> computeValue(Class<?> hostClass) {
-          return new HashMap<>();
-        }
-      };
+  private static final ClassValue<
+          Map<BitSet, Function<String, BiFunction<Object, Object[], Object>>>>
+      ENHANCERS =
+          new ClassValue<Map<BitSet, Function<String, BiFunction<Object, Object[], Object>>>>() {
+            @Override
+            protected Map<BitSet, Function<String, BiFunction<Object, Object[], Object>>>
+                computeValue(Class<?> hostClass) {
+              return new HashMap<>();
+            }
+          };
 
   private final Class<?> hostClass;
 
@@ -62,7 +65,7 @@ final class EnhancerBuilderImpl implements BytecodeGen.EnhancerBuilder {
       Map<Method, Method> bridgeDelegates) {
 
     this.hostClass = hostClass;
-    this.enhanceableMethods = enhanceableMethods.toArray(new Method[enhanceableMethods.size()]);
+    this.enhanceableMethods = enhanceableMethods.toArray(new Method[0]);
     this.bridgeDelegates = ImmutableMap.copyOf(bridgeDelegates);
   }
 
@@ -72,19 +75,22 @@ final class EnhancerBuilderImpl implements BytecodeGen.EnhancerBuilder {
   }
 
   @Override
-  public Function<String, BiFunction> buildEnhancer(BitSet methodIndices) {
+  public Function<String, BiFunction<Object, Object[], Object>> buildEnhancer(
+      BitSet methodIndices) {
     if ((hostClass.getModifiers() & FINAL) != 0) {
       throw new IllegalArgumentException("Cannot subclass final " + hostClass);
     }
 
-    Map<BitSet, Function<String, BiFunction>> enhancers = ENHANCERS.get(hostClass);
+    Map<BitSet, Function<String, BiFunction<Object, Object[], Object>>> enhancers =
+        ENHANCERS.get(hostClass);
     synchronized (enhancers) {
       return enhancers.computeIfAbsent(methodIndices, this::doBuildEnhancer);
     }
   }
 
-  private Function<String, BiFunction> doBuildEnhancer(BitSet methodIndices) {
-    SortedMap<String, Executable> glueMap = new TreeMap<>();
+  private Function<String, BiFunction<Object, Object[], Object>> doBuildEnhancer(
+      BitSet methodIndices) {
+    NavigableMap<String, Executable> glueMap = new TreeMap<>();
 
     visitMembers(
         hostClass.getDeclaredConstructors(),

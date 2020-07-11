@@ -325,9 +325,9 @@ public class FactoryProvider<F> implements Provider<F>, HasDependencies {
         for (Annotation parameterAnnotation : parameterAnnotations) {
           if (parameterAnnotation.annotationType() == Assisted.class) {
             throw newConfigurationException(
-                "Factory method %s has an @Assisted parameter, which "
-                    + "is incompatible with the deprecated @AssistedInject annotation. Please replace "
-                    + "@AssistedInject with @Inject on the %s constructor.",
+                "Factory method %s has an @Assisted parameter, which is incompatible with the"
+                    + " deprecated @AssistedInject annotation. Please replace @AssistedInject with"
+                    + " @Inject on the %s constructor.",
                 method, implementationType);
           }
         }
@@ -401,9 +401,7 @@ public class FactoryProvider<F> implements Provider<F>, HasDependencies {
     Class<F> factoryRawType = (Class<F>) (Class<?>) factoryType.getRawType();
     return factoryRawType.cast(
         Proxy.newProxyInstance(
-            factoryRawType.getClassLoader(),
-            new Class[] {factoryRawType},
-            invocationHandler));
+            factoryRawType.getClassLoader(), new Class<?>[] {factoryRawType}, invocationHandler));
   }
 
   @Override

@@ -38,6 +38,7 @@ import org.objectweb.asm.Type;
  * @author mcculls@gmail.com (Stuart McCulloch)
  */
 final class BytecodeTasks {
+  private BytecodeTasks() {}
 
   /** Pushes an integer onto the stack, choosing the most efficient opcode. */
   public static void pushInteger(MethodVisitor mv, int value) {

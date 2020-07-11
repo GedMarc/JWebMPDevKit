@@ -16,8 +16,8 @@
 
 package com.google.inject;
 
-import com.google.inject.internal.BytecodeGen;
 import com.google.inject.internal.BindingImpl;
+import com.google.inject.internal.BytecodeGen;
 import com.google.inject.internal.SingletonScope;
 import com.google.inject.spi.BindingScopingVisitor;
 import com.google.inject.spi.ExposedBinding;

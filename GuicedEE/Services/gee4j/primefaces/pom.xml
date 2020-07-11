@@ -402,14 +402,7 @@
                             <removeIncluded>true</removeIncluded>
                             <output>${project.build.directory}/classes/META-INF/resources/primefaces/schedule/schedule.js</output>
                             <includes>
-                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/schedule/fullcalendar-core.min.js</include>
-                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/schedule/fullcalendar-locales-all.min.js</include>
-                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/schedule/fullcalendar-interaction.min.js</include>
-                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/schedule/fullcalendar-daygrid.min.js</include>
-                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/schedule/fullcalendar-timegrid.min.js</include>
-                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/schedule/fullcalendar-list.min.js</include>
-                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/schedule/fullcalendar-moment.min.js</include>
-                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/schedule/fullcalendar-moment-timezone.min.js</include>
+                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/schedule/fullcalendar.min.js</include>
                                 <include>${project.build.directory}/classes/META-INF/resources/primefaces/schedule/1-schedule.js</include>
                             </includes>
                         </aggregation>
@@ -418,10 +411,7 @@
                             <removeIncluded>true</removeIncluded>
                             <output>${project.build.directory}/classes/META-INF/resources/primefaces/schedule/schedule.css</output>
                             <includes>
-                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/schedule/fullcalendar-core.css</include>
-                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/schedule/fullcalendar-daygrid.css</include>
-                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/schedule/fullcalendar-timegrid.css</include>
-                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/schedule/fullcalendar-list.css</include>
+                                <include>${project.build.directory}/classes/META-INF/resources/primefaces/schedule/fullcalendar.min.css</include>
                             </includes>
                         </aggregation>
                         <aggregation>
@@ -563,6 +553,13 @@
         </dependency>
 
         <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>2.10.6</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
             <groupId>org.owasp.encoder</groupId>
             <artifactId>encoder</artifactId>
             <version>1.2.2</version>
@@ -583,6 +580,12 @@
         <dependency>
             <groupId>com.guicedee.services</groupId>
             <artifactId>javax.faces</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>ehcache</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>

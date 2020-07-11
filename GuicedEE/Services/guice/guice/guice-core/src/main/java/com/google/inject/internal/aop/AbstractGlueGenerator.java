@@ -29,7 +29,7 @@ import java.lang.reflect.Executable;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.SortedMap;
+import java.util.NavigableMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -111,7 +111,8 @@ abstract class AbstractGlueGenerator {
   }
 
   /** Generates the enhancer/fast-class and returns a mapping from signature to invoker. */
-  public final Function<String, BiFunction> glue(SortedMap<String, Executable> glueMap) {
+  public final Function<String, BiFunction<Object, Object[], Object>> glue(
+      NavigableMap<String, Executable> glueMap) {
     final MethodHandle invokerTable;
     try {
       byte[] bytecode = generateGlue(glueMap.values());
@@ -133,7 +134,7 @@ abstract class AbstractGlueGenerator {
   protected abstract MethodHandle lookupInvokerTable(Class<?> glueClass) throws Throwable;
 
   /** Combines the signature and invoker tables into a mapping from signature to invoker. */
-  private static Function<String, BiFunction> bindSignaturesToInvokers(
+  private static Function<String, BiFunction<Object, Object[], Object>> bindSignaturesToInvokers(
       ToIntFunction<String> signatureTable, MethodHandle invokerTable) {
 
     // single-argument method; the table must be a function from integer index to invoker function
@@ -141,7 +142,8 @@ abstract class AbstractGlueGenerator {
       return signature -> {
         try {
           // pass this signature's index into the table function to retrieve the invoker
-          return (BiFunction) invokerTable.invokeExact(signatureTable.applyAsInt(signature));
+          return (BiFunction<Object, Object[], Object>)
+              invokerTable.invokeExact(signatureTable.applyAsInt(signature));
         } catch (Throwable e) {
           throw asIfUnchecked(e);
         }
@@ -155,7 +157,7 @@ abstract class AbstractGlueGenerator {
       return (instance, arguments) -> {
         try {
           // ...but delay calling trampoline until invocation time when we have the other arguments
-          return invokerTable.invokeExact(index, instance, (Object[]) arguments);
+          return invokerTable.invokeExact(index, instance, arguments);
         } catch (Throwable e) {
           throw asIfUnchecked(e);
         }
@@ -163,8 +165,8 @@ abstract class AbstractGlueGenerator {
     };
   }
 
-  @SuppressWarnings("unchecked")
   /** Generics trick to get compiler to treat given exception as if unchecked (as JVM does). */
+  @SuppressWarnings("unchecked")
   private static <E extends Throwable> RuntimeException asIfUnchecked(Throwable e) throws E {
     throw (E) e;
   }

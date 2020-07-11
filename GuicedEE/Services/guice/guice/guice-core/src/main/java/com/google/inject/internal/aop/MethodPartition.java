@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Google Inc.
+ * Copyright (C) 2020 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,8 +45,9 @@ final class MethodPartition {
   }
 
   /** Add a new method to this partition for resolution. */
-  public void addCandidate(Method method) {
+  public MethodPartition addCandidate(Method method) {
     candidates.add(method);
+    return this;
   }
 
   /**
@@ -110,7 +111,9 @@ final class MethodPartition {
       // (these are the kind of bridge methods that were added to account for type-erasure)
       for (Method candidate : candidates) {
         if (!candidate.isBridge()) {
-          if (candidate == superTarget) {
+          @SuppressWarnings("ReferenceEquality")
+          boolean sameMethod = candidate == superTarget;
+          if (sameMethod) {
 
             // some AOP matchers skip all synthetic methods, so if bridge delegation is not involved
             // and we have a non-bridge super-method with identical parameters and it is not from an

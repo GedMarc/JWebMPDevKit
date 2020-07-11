@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Google Inc.
+ * Copyright (C) 2020 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.SortedMap;
+import java.util.NavigableMap;
 import java.util.TreeMap;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
@@ -46,6 +46,7 @@ import java.util.function.Function;
  * @author mcculls@gmail.com (Stuart McCulloch)
  */
 public final class ClassBuilding {
+  private ClassBuilding() {}
 
   private static final Method[] OVERRIDABLE_OBJECT_METHODS = getOverridableObjectMethods();
 
@@ -116,17 +117,16 @@ public final class ClassBuilding {
    */
   private static void partitionMethod(Method method, Map<String, Object> partitions) {
     String partitionKey = method.getName() + '/' + method.getParameterCount();
-    // common case: assume only one method with that key, store method directly to reduce overhead
-    Object existingPartition = partitions.putIfAbsent(partitionKey, method);
-    if (existingPartition == null) {
-      // first method in this partition, nothing else to do here
-    } else if (existingPartition instanceof Method) {
-      // this is the second matching method, inflate to MethodPartition containing the two methods
-      partitions.put(partitionKey, new MethodPartition((Method) existingPartition, method));
-    } else {
-      // continue to add methods to the existing MethodPartition
-      ((MethodPartition) existingPartition).addCandidate(method);
+    partitions.merge(partitionKey, method, ClassBuilding::mergeMethods);
+  }
+
+  /** Add the new method to an existing partition or create a new one. */
+  private static Object mergeMethods(Object existing, Object added) {
+    Method newMethod = (Method) added;
+    if (existing instanceof Method) {
+      return new MethodPartition((Method) existing, newMethod);
     }
+    return ((MethodPartition) existing).addCandidate(newMethod);
   }
 
   /** Visit the method hierarchy for the host class. */
@@ -218,7 +218,7 @@ public final class ClassBuilding {
           }
         });
 
-    return objectMethods.toArray(new Method[objectMethods.size()]);
+    return objectMethods.toArray(new Method[0]);
   }
 
   /** Returns true if the given member can be fast-invoked. */
@@ -245,8 +245,9 @@ public final class ClassBuilding {
   }
 
   /** Builds a 'fast-class' invoker that uses bytecode generation in place of reflection. */
-  public static Function<String, BiFunction> buildFastClass(Class<?> hostClass) {
-    SortedMap<String, Executable> glueMap = new TreeMap<>();
+  public static Function<String, BiFunction<Object, Object[], Object>> buildFastClass(
+      Class<?> hostClass) {
+    NavigableMap<String, Executable> glueMap = new TreeMap<>();
 
     visitFastConstructors(hostClass, ctor -> glueMap.put(signature(ctor), ctor));
     visitFastMethods(hostClass, method -> glueMap.put(signature(method), method));

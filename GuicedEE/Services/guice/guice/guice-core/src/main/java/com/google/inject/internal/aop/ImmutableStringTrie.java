@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Google Inc.
+ * Copyright (C) 2020 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -88,7 +88,9 @@ import java.util.function.ToIntFunction;
  */
 final class ImmutableStringTrie implements ToIntFunction<String> {
 
-  private static final ToIntFunction<String> SINGLETON_TRIE = key -> 0;
+  private static int singletonTrie(String key) {
+    return 0;
+  }
 
   /** Marks a leaf in the trie, where the rest of the bits are the index to be returned. */
   private static final char LEAF_MARKER = 0x8000;
@@ -167,7 +169,7 @@ final class ImmutableStringTrie implements ToIntFunction<String> {
     if (numRows > 1) {
       return buildTrie(new StringBuilder(), table.toArray(new String[numRows]), 0, numRows);
     }
-    return SINGLETON_TRIE;
+    return ImmutableStringTrie::singletonTrie;
   }
 
   /** Builds a trie, overflowing to additional tries if there are too many rows */
@@ -245,7 +247,7 @@ final class ImmutableStringTrie implements ToIntFunction<String> {
         // must be leaf if sub trie doesn't exist, ie. it wasn't added to buffer
         boolean isLeaf = subTrieStart > buf.length();
         char marker = isLeaf ? LEAF_MARKER : BUD_MARKER;
-        buf.insert(resultIndex, (char) (prevRow & (MAX_ROWS_PER_TRIE - 1) | marker));
+        buf.insert(resultIndex, (char) ((prevRow & (MAX_ROWS_PER_TRIE - 1)) | marker));
         allLeaves = allLeaves && isLeaf;
       }
 

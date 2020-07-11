@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Google Inc.
+ * Copyright (C) 2020 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -85,10 +85,12 @@ final class UnsafeClassDefiner implements ClassDefiner {
   }
 
   /** Does the given class host new types anonymously, ie. by using defineAnonymousClass? */
+  @SuppressWarnings("ReferenceEquality") // intentional
   public static boolean isAnonymousHost(Class<?> hostClass) {
     return findDefineMethod(hostClass.getClassLoader()) == ANONYMOUS_DEFINE_METHOD;
   }
 
+  @SuppressWarnings("ReferenceEquality") // intentional
   @Override
   public Class<?> define(Class<?> hostClass, byte[] bytecode) throws Exception {
     ClassLoader hostLoader = hostClass.getClassLoader();
@@ -140,7 +142,7 @@ final class UnsafeClassDefiner implements ClassDefiner {
 
   static Method tryAccessDefineMethod(Class<?> loaderClass) {
     try {
-      logger.fine("Accessing defineClass method in " + loaderClass);
+      logger.log(Level.FINE, "Accessing defineClass method in %s", loaderClass);
       return AccessController.doPrivileged(
           (PrivilegedExceptionAction<Method>) () -> accessDefineMethod(loaderClass));
     } catch (Throwable e) {
