@@ -5,6 +5,10 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
+V1.0.13.3 - 11 July 2020
+* Image IO - 3.6
+* Added EhCache - 3.8.1
+
 V1.0.13.2 - 4 July 2020
 * WSS4J Security and Policies Update - 2.3.0
 * Hazelcast update - 4.0.2

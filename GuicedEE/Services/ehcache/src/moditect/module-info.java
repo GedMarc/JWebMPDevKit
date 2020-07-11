@@ -33,6 +33,7 @@ module org.ehcache  {
 	requires transitive cache.api;
 	requires transitive java.xml.bind;
 	requires org.slf4j;
+	requires jdk.unsupported;
 
 	provides javax.cache.spi.CachingProvider with org.ehcache.jsr107.EhcacheCachingProvider;
 
@@ -62,5 +63,9 @@ module org.ehcache  {
 
 	uses org.ehcache.xml.CacheServiceConfigurationParser;
 	provides org.ehcache.xml.CacheServiceConfigurationParser with org.ehcache.jsr107.internal.Jsr107CacheConfigurationParser;
+
+	uses org.ehcache.xml.CacheResourceConfigurationParser;
+
+	opens org.ehcache.xml.model to java.xml.bind;
 }
 
