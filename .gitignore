@@ -28,3 +28,4 @@ persistence.xml
 **/target/**
 /target/*
 **/target
+/GuicedEE/Services/jakarta.mail/dependency-reduced-pom.xml
