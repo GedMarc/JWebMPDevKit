@@ -13,17 +13,22 @@
     <packaging>pom</packaging>
 
     <name>GuicedEE Examples</name>
-    <description>Examples to quickly kickstart your Guiced EE applications</description>
+    <description>Examples to quickly kickstart your Guiced EE applications. These are designed to build on JDK 11 as examples on using modules and JLink for distribution</description>
 
-    <modules>
-        <module>Faces</module>
-        <module>Hazelcast</module>
-        <module>Jaxrs</module>
-        <module>Jaxws</module>
-        <module>Jpa</module>
-        <module>OpenAPI</module>
-        <module>Servlets</module>
-    </modules>
+	<profiles>
+		<profile>
+			<id>jdk9</id>
+			    <modules>
+				<module>Faces</module>
+				<module>Hazelcast</module>
+				<module>Jaxrs</module>
+				<module>Jaxws</module>
+				<module>Jpa</module>
+				<module>OpenAPI</module>
+				<module>Servlets</module>
+			</modules>
+		</profile>
+	</profiles>
 
     <dependencyManagement>
         <dependencies>
@@ -36,14 +41,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <scm>
-        <url>https://github.com/GedMarc/JWebMP-Undertow.git</url>
-    </scm>
-
-    <ciManagement>
-        <system>TeamCity</system>
-        <url>http://jwebmp.com/teamcity</url>
-    </ciManagement>
 
 </project>
