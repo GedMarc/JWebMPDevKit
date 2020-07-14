@@ -15,12 +15,12 @@
     <name>jakarta.mail</name>
 
     <dependencies>
-        <dependency>
+  <!--      <dependency>
             <groupId>jakarta.mail</groupId>
             <artifactId>jakarta.mail-api</artifactId>
             <version>${java.mail.version}</version>
             <optional>true</optional>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>com.sun.mail</groupId>

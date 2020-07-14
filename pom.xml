@@ -35,7 +35,7 @@
         <maven.asm.version>8.0.1</maven.asm.version>
         <maven.gpg.version>1.6</maven.gpg.version>
 
-        <maven.war.version>3.3.0</maven.war.version>
+        <maven.war.version>3.3.1</maven.war.version>
         <maven.ear.version>3.0.2</maven.ear.version>
         <maven.ejb.version>3.1.0</maven.ejb.version>
 
@@ -114,7 +114,7 @@
         <jpa21.version>1.0.2.Final</jpa21.version>
 
         <hazelcast.version>4.0.2</hazelcast.version>
-        <hazelcast.hibernate.version>2.0.0</hazelcast.hibernate.version>
+        <hazelcast.hibernate.version>2.1.0</hazelcast.hibernate.version>
 
         <log4j2.version>2.13.1</log4j2.version>
         <woodstox.version>6.1.1</woodstox.version>
