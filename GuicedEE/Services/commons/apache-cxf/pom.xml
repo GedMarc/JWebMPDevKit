@@ -412,7 +412,7 @@
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-rs-json-basic</artifactId>
-            <version>3.3.6</version>
+            <version>3.3.7</version>
             <optional>true</optional>
         </dependency>
 
