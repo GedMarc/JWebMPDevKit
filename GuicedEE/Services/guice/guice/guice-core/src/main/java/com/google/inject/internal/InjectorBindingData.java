@@ -16,8 +16,6 @@
 
 package com.google.inject.internal;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
@@ -41,12 +39,19 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
-/** @author jessewilson@google.com (Jesse Wilson) */
-final class InheritingState implements State {
+/**
+ * A container that stores an injector's binding data. This excludes JIT binding data, which is
+ * stored in {@link InjectorJitBindingData}.
+ *
+ * @author jessewilson@google.com (Jesse Wilson)
+ */
+class InjectorBindingData {
 
-  private final State parent;
+  // The parent injector's InjectorBindingData, if the parent injector exists.
+  private final Optional<InjectorBindingData> parent;
 
   // Must be a linked hashmap in order to preserve order of bindings in Modules.
   private final Map<Key<?>, Binding<?>> explicitBindingsMutable = Maps.newLinkedHashMap();
@@ -66,105 +71,94 @@ final class InheritingState implements State {
   private final List<ModuleAnnotatedMethodScannerBinding> scannerBindings = Lists.newArrayList();
   private final Object lock;
 
-  InheritingState(State parent) {
-    this.parent = checkNotNull(parent, "parent");
-    this.lock = (parent == State.NONE) ? this : parent.lock();
+  InjectorBindingData(Optional<InjectorBindingData> parent) {
+    this.parent = parent;
+    this.lock = parent.isPresent() ? parent.get().lock() : this;
   }
 
-  @Override
-  public State parent() {
+  public Optional<InjectorBindingData> parent() {
     return parent;
   }
 
-  @Override
   @SuppressWarnings("unchecked") // we only put in BindingImpls that match their key types
   public <T> BindingImpl<T> getExplicitBinding(Key<T> key) {
     Binding<?> binding = explicitBindings.get(key);
-    return binding != null ? (BindingImpl<T>) binding : parent.getExplicitBinding(key);
+    if (binding == null && parent.isPresent()) {
+      return parent.get().getExplicitBinding(key);
+    }
+    return (BindingImpl<T>) binding;
   }
 
-  @Override
   public Map<Key<?>, Binding<?>> getExplicitBindingsThisLevel() {
     return explicitBindings;
   }
 
-  @Override
   public void putBinding(Key<?> key, BindingImpl<?> binding) {
     explicitBindingsMutable.put(key, binding);
   }
 
-  @Override
   public void putProviderLookup(ProviderLookup<?> lookup) {
     providerLookups.add(lookup);
   }
 
-  @Override
   public Set<ProviderLookup<?>> getProviderLookupsThisLevel() {
     return providerLookups;
   }
 
-  @Override
   public void putStaticInjectionRequest(StaticInjectionRequest staticInjectionRequest) {
     staticInjectionRequests.add(staticInjectionRequest);
   }
 
-  @Override
   public Set<StaticInjectionRequest> getStaticInjectionRequestsThisLevel() {
     return staticInjectionRequests;
   }
 
-  @Override
   public void putInjectionRequest(InjectionRequest<?> injectionRequest) {
     injectionRequests.add(injectionRequest);
   }
 
-  @Override
   public Set<InjectionRequest<?>> getInjectionRequestsThisLevel() {
     return injectionRequests;
   }
 
-  @Override
   public void putMembersInjectorLookup(MembersInjectorLookup<?> membersInjectorLookup) {
     membersInjectorLookups.add(membersInjectorLookup);
   }
 
-  @Override
   public Set<MembersInjectorLookup<?>> getMembersInjectorLookupsThisLevel() {
     return membersInjectorLookups;
   }
 
-  @Override
   public ScopeBinding getScopeBinding(Class<? extends Annotation> annotationType) {
     ScopeBinding scopeBinding = scopes.get(annotationType);
-    return scopeBinding != null ? scopeBinding : parent.getScopeBinding(annotationType);
+    if (scopeBinding == null && parent.isPresent()) {
+      return parent.get().getScopeBinding(annotationType);
+    }
+    return scopeBinding;
   }
 
-  @Override
   public void putScopeBinding(Class<? extends Annotation> annotationType, ScopeBinding scope) {
     scopes.put(annotationType, scope);
   }
 
-  @Override
   public Collection<ScopeBinding> getScopeBindingsThisLevel() {
     return scopes.values();
   }
 
-  @Override
   public Iterable<TypeConverterBinding> getConvertersThisLevel() {
     return converters;
   }
 
-  @Override
   public void addConverter(TypeConverterBinding typeConverterBinding) {
     converters.add(typeConverterBinding);
   }
 
-  @Override
   public TypeConverterBinding getConverter(
       String stringValue, TypeLiteral<?> type, Errors errors, Object source) {
     TypeConverterBinding matchingConverter = null;
-    for (State s = this; s != State.NONE; s = s.parent()) {
-      for (TypeConverterBinding converter : s.getConvertersThisLevel()) {
+    InjectorBindingData b = this;
+    while (b != null) {
+      for (TypeConverterBinding converter : b.getConvertersThisLevel()) {
         if (converter.getTypeMatcher().matches(type)) {
           if (matchingConverter != null) {
             errors.ambiguousTypeConversion(stringValue, source, type, matchingConverter, converter);
@@ -172,91 +166,85 @@ final class InheritingState implements State {
           matchingConverter = converter;
         }
       }
+      b = b.parent().orElse(null);
     }
     return matchingConverter;
   }
 
   /*if[AOP]*/
-  @Override
   public void addMethodAspect(MethodAspect methodAspect) {
     methodAspects.add(methodAspect);
   }
 
-  @Override
   public ImmutableList<MethodAspect> getMethodAspects() {
-    return new ImmutableList.Builder<MethodAspect>()
-        .addAll(parent.getMethodAspects())
-        .addAll(methodAspects)
-        .build();
+    if (parent.isPresent()) {
+      return new ImmutableList.Builder<MethodAspect>()
+          .addAll(parent.get().getMethodAspects())
+          .addAll(methodAspects)
+          .build();
+    }
+    return ImmutableList.copyOf(methodAspects);
   }
   /*end[AOP]*/
 
-  @Override
   public void addTypeListener(TypeListenerBinding listenerBinding) {
     typeListenerBindings.add(listenerBinding);
   }
 
-  @Override
-  public List<TypeListenerBinding> getTypeListenerBindings() {
-    List<TypeListenerBinding> parentBindings = parent.getTypeListenerBindings();
-    List<TypeListenerBinding> result =
-        Lists.newArrayListWithCapacity(parentBindings.size() + typeListenerBindings.size());
-    result.addAll(parentBindings);
-    result.addAll(typeListenerBindings);
-    return result;
+  public ImmutableList<TypeListenerBinding> getTypeListenerBindings() {
+    if (parent.isPresent()) {
+      return new ImmutableList.Builder<TypeListenerBinding>()
+          .addAll(parent.get().getTypeListenerBindings())
+          .addAll(typeListenerBindings)
+          .build();
+    }
+    return ImmutableList.copyOf(typeListenerBindings);
   }
 
-  @Override
-  public List<TypeListenerBinding> getTypeListenerBindingsThisLevel() {
-    return typeListenerBindings;
+  public ImmutableList<TypeListenerBinding> getTypeListenerBindingsThisLevel() {
+    return ImmutableList.copyOf(typeListenerBindings);
   }
 
-  @Override
   public void addProvisionListener(ProvisionListenerBinding listenerBinding) {
     provisionListenerBindings.add(listenerBinding);
   }
 
-  @Override
-  public List<ProvisionListenerBinding> getProvisionListenerBindings() {
-    List<ProvisionListenerBinding> parentBindings = parent.getProvisionListenerBindings();
-    List<ProvisionListenerBinding> result =
-        Lists.newArrayListWithCapacity(parentBindings.size() + provisionListenerBindings.size());
-    result.addAll(parentBindings);
-    result.addAll(provisionListenerBindings);
-    return result;
+  public ImmutableList<ProvisionListenerBinding> getProvisionListenerBindings() {
+    if (parent.isPresent()) {
+      return new ImmutableList.Builder<ProvisionListenerBinding>()
+          .addAll(parent.get().getProvisionListenerBindings())
+          .addAll(provisionListenerBindings)
+          .build();
+    }
+    return ImmutableList.copyOf(provisionListenerBindings);
   }
 
-  @Override
-  public List<ProvisionListenerBinding> getProvisionListenerBindingsThisLevel() {
-    return provisionListenerBindings;
+  public ImmutableList<ProvisionListenerBinding> getProvisionListenerBindingsThisLevel() {
+    return ImmutableList.copyOf(provisionListenerBindings);
   }
 
-  @Override
   public void addScanner(ModuleAnnotatedMethodScannerBinding scanner) {
     scannerBindings.add(scanner);
   }
 
-  @Override
-  public List<ModuleAnnotatedMethodScannerBinding> getScannerBindings() {
-    List<ModuleAnnotatedMethodScannerBinding> parentBindings = parent.getScannerBindings();
-    List<ModuleAnnotatedMethodScannerBinding> result =
-        Lists.newArrayListWithCapacity(parentBindings.size() + scannerBindings.size());
-    result.addAll(parentBindings);
-    result.addAll(scannerBindings);
-    return result;
+  public ImmutableList<ModuleAnnotatedMethodScannerBinding> getScannerBindings() {
+    if (parent.isPresent()) {
+      return new ImmutableList.Builder<ModuleAnnotatedMethodScannerBinding>()
+          .addAll(parent.get().getScannerBindings())
+          .addAll(scannerBindings)
+          .build();
+    }
+    return ImmutableList.copyOf(scannerBindings);
   }
 
-  @Override
-  public List<ModuleAnnotatedMethodScannerBinding> getScannerBindingsThisLevel() {
-    return scannerBindings;
+  public ImmutableList<ModuleAnnotatedMethodScannerBinding> getScannerBindingsThisLevel() {
+    return ImmutableList.copyOf(scannerBindings);
   }
 
-  @Override
   public Object lock() {
     return lock;
   }
 
-  @Override
   public Map<Class<? extends Annotation>, Scope> getScopes() {
     ImmutableMap.Builder<Class<? extends Annotation>, Scope> builder = ImmutableMap.builder();
     for (Map.Entry<Class<? extends Annotation>, ScopeBinding> entry : scopes.entrySet()) {
