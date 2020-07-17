@@ -670,7 +670,7 @@
                                 </filters>
                                 <transformers>
                                     <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                                    <transformer implementation="io.yupiik.maven.shade.transformer.RelocationTransformer"></transformer>
+                                    <transformer implementation="io.yupiik.maven.shade.transformer.RelocationTransformer"/>
                                 </transformers>
                             </configuration>
                             <executions>
