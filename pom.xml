@@ -668,6 +668,10 @@
                                         </excludes>
                                     </filter>
                                 </filters>
+                                <transformers>
+                                    <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                    <transformer implementation="io.yupiik.maven.shade.transformer.RelocationTransformer"></transformer>
+                                </transformers>
                             </configuration>
                             <executions>
                                 <execution>
@@ -680,6 +684,11 @@
                                     <artifactId>asm</artifactId>
                                     <version>${maven.asm.version}</version>
                                     <type>jar</type>
+                                </dependency>
+                                <dependency>
+                                    <groupId>io.yupiik.maven</groupId>
+                                    <artifactId>maven-shade-transformers</artifactId>
+                                    <version>0.0.1</version>
                                 </dependency>
                             </dependencies>
                         </plugin>
