@@ -201,7 +201,7 @@
         <profile>
             <id>enable-guicedee</id>
             <modules>
-                <module>GuicedEE</module>
+                <module>Guiced-EE</module>
             </modules>
         </profile>
 
