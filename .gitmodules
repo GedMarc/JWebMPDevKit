@@ -78,3 +78,6 @@
 [submodule "GuicedEE/Examples/Faces/PrimeFaces-Showcase"]
 	path = GuicedEE/Examples/Faces/PrimeFaces-Showcase
 	url = https://github.com/GedMarc/primefaces-showcase.git
+[submodule "Guiced-EE"]
+	path = Guiced-EE
+	url = https://github.com/GedMarc/GuicedEE.git
