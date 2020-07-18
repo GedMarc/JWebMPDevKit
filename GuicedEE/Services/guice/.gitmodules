@@ -1,4 +1,0 @@
-[submodule "guice"]
-	path = guice
-	url = https://github.com/GedMarc/guice.git
-	ignore = dirty

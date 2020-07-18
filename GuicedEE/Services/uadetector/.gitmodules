@@ -1,8 +1,0 @@
-[submodule "UADetector-Core"]
-	path = UADetector-Core
-	url = https://github.com/GedMarc/uadetector-core-jpms.git
-	ignore = dirty
-[submodule "UADetector-Resources"]
-	path = UADetector-Resources
-	url = https://github.com/GedMarc/uadetector-resources-jpms.git
-	ignore = dirty

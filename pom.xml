@@ -426,7 +426,6 @@
                                         <artifact>*:*</artifact>
                                         <excludes>
                                             <exclude>module-info.java</exclude>
-                                            <exclude>1.java</exclude>
                                             <exclude>META-INF/*.SF</exclude>
                                             <exclude>META-INF/*.DSA</exclude>
                                             <exclude>META-INF/*.RSA</exclude>
@@ -660,7 +659,6 @@
                                         <artifact>*:*</artifact>
                                         <excludes>
                                             <exclude>module-info.java</exclude>
-                                            <exclude>1.java</exclude>
                                             <exclude>META-INF/*.SF</exclude>
                                             <exclude>META-INF/*.DSA</exclude>
                                             <exclude>META-INF/*.RSA</exclude>
@@ -844,6 +842,9 @@
                                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             </manifest>
+							<manifestEntries>
+							  <Multi-Release>true</Multi-Release>
+							</manifestEntries>
                         </archive>
                     </configuration>
                 </plugin>

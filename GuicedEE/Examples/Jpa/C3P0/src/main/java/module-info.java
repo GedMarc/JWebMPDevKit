@@ -1,3 +1,0 @@
-module com.guicedee.examples. {
-	
-}
