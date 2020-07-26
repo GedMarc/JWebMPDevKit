@@ -5,6 +5,16 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
+V1.0.15.0 - 2020/07/25
+* Renamed guiced-swagger to guiced-openapi
+* Commons Text - 1.9
+* Swagger - 2.1.4
+* CXF - 3.3.7
+* Updates for multi persistence units sharing a JNDI name
+* Website update for how to's
+* Web resource manager switched in faces for ClassGraph 
+* Added a flag on whether to wait for persistence units to start, or to just carry on loading
+
 V1.0.13.3 - 11 July 2020
 * Image IO - 3.6
 * Added EhCache - 3.8.1

@@ -97,7 +97,7 @@
         <uadetector.detector.version>2014.10</uadetector.detector.version>
         <sl4j.version>1.7.30</sl4j.version>
 
-        <io.swagger.version>2.1.3</io.swagger.version>
+        <io.swagger.version>2.1.4</io.swagger.version>
         <snakeyaml.version>1.26</snakeyaml.version>
 
         <undertow.version>2.1.3.Final</undertow.version>
