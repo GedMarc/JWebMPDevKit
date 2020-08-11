@@ -5,7 +5,7 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
-V1.0.16.0
+V1.0.16.0 - 2020/08/11
 * Hibernate - 5.4.20.Final
 * CXF Jakarta JWS - 2.1.0
 * Enormous performance increase on Faces
