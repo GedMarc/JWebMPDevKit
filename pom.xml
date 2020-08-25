@@ -1035,7 +1035,7 @@
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-core</artifactId>
-            <version>1.24</version>
+            <version>1.25</version>
             <scope>test</scope>
             <type>jar</type>
         </dependency>
@@ -1043,7 +1043,7 @@
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-generator-annprocess</artifactId>
-            <version>1.24</version>
+            <version>1.25</version>
             <scope>test</scope>
             <type>jar</type>
         </dependency>
