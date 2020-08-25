@@ -29,3 +29,4 @@ persistence.xml
 /target/*
 **/target
 /GuicedEE/Services/jakarta.mail/dependency-reduced-pom.xml
+/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JavaScriptPlugins/MomentJS/.idea/
