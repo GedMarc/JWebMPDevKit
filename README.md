@@ -5,6 +5,15 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
+V1.0.18.0  - 2020/09/20
+
+BOM Merge and POM updates for optionals
+
+Added build for JDK 15
+* Added PrimeFaces Extensions
+* Made primefaces shade
+* Libre PDF - 1.3.21
+* ByteBuddy - 1.10.15 
 
 V1.0.17.0 - 2020/09/05
 * Hibernate - 5.4.21.Final
