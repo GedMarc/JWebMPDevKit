@@ -12,6 +12,9 @@ V1.0.19.0 - 2020/09/29
 * Hibernate 
   - Changed file scanner to global ClassGraph
   - Huge performance increase in boot time
+* Guiced Persistence
+  - Now uses the Hibernate Parsed Persistence object instead of JAXB 
+  - Moved persistence xml scanners into hibernate reader
 * CXF 
   - Fixed a few references
   - Removed jersey/jetty making it a lot smaller and faster
