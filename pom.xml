@@ -45,7 +45,7 @@
         <license.dir>${basedir}</license.dir>
 
         <sonarqube.version>3.7.0.1746</sonarqube.version>
-        <jacoco.version>0.8.5</jacoco.version>
+        <jacoco.version>0.8.6</jacoco.version>
         <sonar.profile>The Good Place</sonar.profile>
         <sonar.host.url>https://guicedee.com/sonar</sonar.host.url>
         <sonar.exclusions>**bower_components,**src/test,**/test/**,**/module-info.java</sonar.exclusions>
@@ -55,7 +55,7 @@
         <jdk.release>15</jdk.release>
 
         <lombok.version>1.18.12</lombok.version>
-        <mapstruct.version>1.4.0.CR1</mapstruct.version>
+        <mapstruct.version>1.4.0.Final</mapstruct.version>
 
         <moditect.maven.plugin.version>1.0.0.RC1</moditect.maven.plugin.version>
 
@@ -908,11 +908,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-core</artifactId>
         </dependency>
@@ -921,7 +916,6 @@
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-generator-annprocess</artifactId>
         </dependency>
-
 
         <dependency>
             <groupId>org.mockito</groupId>

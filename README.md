@@ -5,6 +5,27 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
+V1.0.19.0 - 2020/09/29
+* BTM 
+  - Removed need for javassist
+  - No longer requires an add-opens clause for javassist
+* Hibernate 
+  - Changed file scanner to global ClassGraph
+  - Huge performance increase in boot time
+* CXF 
+  - Fixed a few references
+  - Removed jersey/jetty making it a lot smaller and faster
+  - module-info now provides all the security for jax-ws properly
+  - Removed obsolete maven modules for version 3.4 causing method not found
+* Hazelcast
+  - 4.0.3
+  - Starting local client with random decimal to avoid clash with JCache clients
+*  Mapstruct - 1.4.0.Final
+* Jacoco - 0.8.6
+* ByteBuddy - 1.10.16
+* LibrePDF - 1.3.22
+---
+
 V1.0.18.0  - 2020/09/20
 
 BOM Merge and POM updates for optionals
@@ -14,6 +35,8 @@ Added build for JDK 15
 * Made primefaces shade
 * Libre PDF - 1.3.21
 * ByteBuddy - 1.10.15 
+
+---
 
 V1.0.17.0 - 2020/09/05
 * Hibernate - 5.4.21.Final
