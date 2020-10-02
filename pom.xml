@@ -36,7 +36,7 @@
         <maven.gpg.version>1.6</maven.gpg.version>
 
         <maven.war.version>3.3.1</maven.war.version>
-        <maven.ear.version>3.0.2</maven.ear.version>
+        <maven.ear.version>3.1.0</maven.ear.version>
         <maven.ejb.version>3.1.0</maven.ejb.version>
 
         <build.helper.maven.plugin.version>3.2.0</build.helper.maven.plugin.version>
@@ -61,7 +61,7 @@
 
         <junit.jupiter.version>5.7.0</junit.jupiter.version>
 
-        <antrun.version>1.8</antrun.version>
+        <antrun.version>1.10.9</antrun.version>
 
         <surefireArgLine></surefireArgLine>
     </properties>
