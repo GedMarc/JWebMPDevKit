@@ -61,8 +61,6 @@
 
         <junit.jupiter.version>5.7.0</junit.jupiter.version>
 
-        <antrun.version>1.10.9</antrun.version>
-
         <surefireArgLine></surefireArgLine>
     </properties>
 
@@ -862,11 +860,6 @@
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
                     <version>${build.helper.maven.plugin.version}</version>
-                </plugin>
-
-                <plugin>
-                    <artifactId>maven-antrun-plugin</artifactId>
-                    <version>${antrun.version}</version>
                 </plugin>
 
                 <plugin>
