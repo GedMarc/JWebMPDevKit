@@ -5,12 +5,14 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
-V1.0.19.3 2020/10/02
+V1.0.19.3 2020/10/03
 * Jakarta Servlet 5
 * Hibernate 5.4.22.Final
 * Hibernate Validator
 * Hibernate Validation Annotations Processor Inclusion
-
+* Jackson 2.11.3
+* OpenAPI 2.1.5
+* Checker-Qual 3.7.0
 
 
 V1.0.19.0 - 2020/09/29
