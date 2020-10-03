@@ -14,7 +14,7 @@ V1.0.19.3 2020/10/03
 * OpenAPI 2.1.5
 * Checker-Qual 3.7.0
 
-
+---
 V1.0.19.0 - 2020/09/29
 * BTM 
   - Removed need for javassist
