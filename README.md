@@ -5,6 +5,13 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
+V1.0.20.0 
+* Guice - 5 Beta 1
+* Jansi - 2.0.1
+* Rest service providers and resources interceptor for JDK 8 filters
+* Added hibernate enhance for easy version control
+* Added Jakarta JWS prep for Jakarta Load 
+
 V1.0.19.3 2020/10/03
 * Jakarta Servlet 5
 * Hibernate 5.4.22.Final
