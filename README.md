@@ -8,6 +8,7 @@ Use profiles to manage the open projects
 V1.0.20.0 
 * Guice - 5 Beta 1
 * Jansi - 2.0.1
+* Jakarta Faces - 3.0.0
 * Jakarta EL - 4.0.0
 * Jakarta Transaction - 2.0.0
 * Jakarta CDI - 3.0.0
@@ -16,7 +17,6 @@ V1.0.20.0
 * Jakarta JSP and JSTL
 * Rest service providers and resources interceptor for JDK 8 filters
 * Added hibernate enhance for easy version control
-* Added Jakarta JWS prep for Jakarta Load 
 
 V1.0.19.3 2020/10/03
 * Jakarta Servlet 5
