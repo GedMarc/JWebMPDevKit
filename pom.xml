@@ -328,7 +328,7 @@
                             <artifactId>maven-shade-plugin</artifactId>
                             <version>${maven.shade.version}</version>
                             <configuration>
-                                <createDependencyReducedPom>false</createDependencyReducedPom>
+                                <createDependencyReducedPom>true</createDependencyReducedPom>
                                 <createSourcesJar>true</createSourcesJar>
                                 <shadeSourcesContent>true</shadeSourcesContent>
                                 <shadeTestJar>false</shadeTestJar>
@@ -377,7 +377,7 @@
                                 </dependency>
                             </dependencies>
                             <configuration>
-                                <argLine>--add-opens java.base/java.lang=com.google.guice,javassist ${surefireArgLine}
+                                <argLine>${surefireArgLine}
                                 </argLine>
                                 <testFailureIgnore>true</testFailureIgnore>
                             </configuration>
@@ -559,7 +559,7 @@
                             <artifactId>maven-shade-plugin</artifactId>
                             <version>${maven.shade.version}</version>
                             <configuration>
-                                <createDependencyReducedPom>false</createDependencyReducedPom>
+                                <createDependencyReducedPom>true</createDependencyReducedPom>
                                 <createSourcesJar>true</createSourcesJar>
                                 <shadeSourcesContent>true</shadeSourcesContent>
                                 <shadeTestJar>false</shadeTestJar>
