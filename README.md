@@ -5,10 +5,11 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
-V1.0.20.0 
+V1.0.20.0 - 2020/10/31
 * Guice - 5 Beta 1
 * Jansi - 2.0.1
 * Jakarta Faces - 3.0.0
+* JAXB - 3.0.0
 * Jakarta EL - 4.0.0
 * Jakarta Transaction - 2.0.0
 * Jakarta CDI - 3.0.0
