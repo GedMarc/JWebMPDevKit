@@ -10,6 +10,9 @@ V1.0.20.0
 * Jansi - 2.0.1
 * Jakarta EL - 4.0.0
 * Jakarta Transaction - 2.0.0
+* Jakarta CDI - 3.0.0
+* Jakarta Activation - 2.0.0
+* Jakarta Persistence API - 3.0.0
 * Rest service providers and resources interceptor for JDK 8 filters
 * Added hibernate enhance for easy version control
 * Added Jakarta JWS prep for Jakarta Load 
