@@ -5,7 +5,7 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
-V1.0.20.0 - 2020/10/31
+V1.0.20.0 - 2020/11/01
 * Guice - 5 Beta 1
 * Jansi - 2.0.1
 * Jakarta Faces - 3.0.0
@@ -17,6 +17,8 @@ V1.0.20.0 - 2020/10/31
 * Jakarta Persistence API - 3.0.0
 * Jakarta JSP and JSTL
 * Swagger UI - 3.36.1
+* BouncyCastle - bcpkix-jdk15on 1.67
+* Byte Buddy - 1.10.18
 * Rest service providers and resources interceptor for JDK 8 filters
 * Added hibernate enhance for easy version control
 
