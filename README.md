@@ -5,6 +5,10 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
+V1.0.20.1 - 2020/11/05
+* OpenPDF - 1.3.23
+* Maven referencing to profiles to avoid client accessing them
+
 V1.0.20.0 - 2020/11/01
 * Guice - 5 Beta 1
 * Jansi - 2.0.1
