@@ -333,22 +333,25 @@
                                 <shadeSourcesContent>true</shadeSourcesContent>
                                 <shadeTestJar>false</shadeTestJar>
                                 <keepDependenciesWithProvidedScope>false</keepDependenciesWithProvidedScope>
-                                <filters>
-                                    <filter>
-                                        <artifact>*:*</artifact>
-                                        <excludes>
-                                            <exclude>module-info.java</exclude>
-                                            <exclude>META-INF/*.SF</exclude>
-                                            <exclude>META-INF/*.DSA</exclude>
-                                            <exclude>META-INF/*.RSA</exclude>
-                                            <!--<exclude>META-INF/services</exclude>-->
-                                        </excludes>
-                                    </filter>
-                                </filters>
                             </configuration>
                             <executions>
                                 <execution>
                                     <id>shade</id>
+                                    <phase>package</phase>
+                                    <configuration>
+                                        <filters>
+                                            <filter>
+                                                <artifact>*:*</artifact>
+                                                <excludes>
+                                                    <exclude>module-info.java</exclude>
+                                                    <exclude>META-INF/*.SF</exclude>
+                                                    <exclude>META-INF/*.DSA</exclude>
+                                                    <exclude>META-INF/*.RSA</exclude>
+                                                    <!--<exclude>META-INF/services</exclude>-->
+                                                </excludes>
+                                            </filter>
+                                        </filters>
+                                    </configuration>
                                 </execution>
                             </executions>
                             <dependencies>
@@ -877,44 +880,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
-    <dependencies>
-
-        <!-- Test Libraries -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-all</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-junit-jupiter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-generator-annprocess</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-        </dependency>
-
-    </dependencies>
 </project>
