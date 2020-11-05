@@ -7,6 +7,7 @@ Use profiles to manage the open projects
 
 V1.0.20.1 - 2020/11/05
 * OpenPDF - 1.3.23
+* StaxEX - 2.0.0
 * Maven referencing to profiles to avoid client accessing them
 
 V1.0.20.0 - 2020/11/01
