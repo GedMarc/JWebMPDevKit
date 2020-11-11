@@ -579,8 +579,10 @@
                                     </filter>
                                 </filters>
                                 <transformers>
-                                    <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                                    <transformer implementation="io.yupiik.maven.shade.transformer.RelocationTransformer"/>
+                                    <transformer
+                                            implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                    <transformer
+                                            implementation="io.yupiik.maven.shade.transformer.RelocationTransformer"/>
                                 </transformers>
                             </configuration>
                             <executions>
@@ -754,9 +756,9 @@
                                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             </manifest>
-							<manifestEntries>
-							  <Multi-Release>true</Multi-Release>
-							</manifestEntries>
+                            <manifestEntries>
+                                <Multi-Release>true</Multi-Release>
+                            </manifestEntries>
                         </archive>
                     </configuration>
                 </plugin>
@@ -870,6 +872,9 @@
                     <groupId>org.moditect</groupId>
                     <artifactId>moditect-maven-plugin</artifactId>
                     <version>${moditect.maven.plugin.version}</version>
+                    <configuration>
+                        <jvmVersion>11</jvmVersion>
+                    </configuration>
                 </plugin>
 
                 <plugin>

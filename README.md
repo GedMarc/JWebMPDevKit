@@ -5,6 +5,15 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
+V1.0.21.0 - 2020/11/11 - The Jakarta Namespace Release
+
+* CXF - 3.4.1
+* Log4J2 - 2.14.0
+* Snappy-Java - 1.1.8.1
+
+JLink with the Jakarta Namespace across all modules!
+That's a world first right? 
+
 V1.0.20.1 - 2020/11/05
 * OpenPDF - 1.3.23
 * StaxEX - 2.0.0
