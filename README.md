@@ -5,7 +5,7 @@ Use profiles to manage the open projects
 
 [![Build Status](https://travis-ci.com/GedMarc/JWebMPDevKit.svg?branch=master)](https://travis-ci.com/GedMarc/JWebMPDevKit) [![Known Vulnerabilities](https://snyk.io/test/github/GedMarc/JWebMPDevKit/badge.svg)](https://snyk.io/test/github/GedMarc/JWebMPDevKit)
 
-V1.0.21.0 - 2020/11/11 - The Jakarta Namespace Release
+V1.1.0.0 - 2020/11/13 - The Jakarta Namespace Release
 
 * CXF - 3.4.1
 * Log4J2 - 2.14.0
