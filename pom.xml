@@ -347,10 +347,15 @@
                                                     <exclude>META-INF/*.SF</exclude>
                                                     <exclude>META-INF/*.DSA</exclude>
                                                     <exclude>META-INF/*.RSA</exclude>
-                                                    <exclude>META-INF/services</exclude>
                                                 </excludes>
                                             </filter>
                                         </filters>
+                                        <transformers>
+                                            <transformer
+                                                    implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                            <transformer
+                                                    implementation="io.yupiik.maven.shade.transformer.RelocationTransformer"/>
+                                        </transformers>
                                     </configuration>
                                 </execution>
                             </executions>
@@ -359,6 +364,11 @@
                                     <groupId>org.ow2.asm</groupId>
                                     <artifactId>asm</artifactId>
                                     <version>${maven.asm.version}</version>
+                                </dependency>
+                                <dependency>
+                                    <groupId>io.yupiik.maven</groupId>
+                                    <artifactId>maven-shade-transformers</artifactId>
+                                    <version>0.0.1</version>
                                 </dependency>
                             </dependencies>
                         </plugin>
@@ -575,7 +585,6 @@
                                             <exclude>META-INF/*.SF</exclude>
                                             <exclude>META-INF/*.DSA</exclude>
                                             <exclude>META-INF/*.RSA</exclude>
-                                            <exclude>META-INF/services</exclude>
                                         </excludes>
                                     </filter>
                                 </filters>
