@@ -32,7 +32,7 @@
         <maven.release.version>3.0.0-M1</maven.release.version>
         <maven.versions.version>2.8.1</maven.versions.version>
         <maven.verifyier.version>1.1</maven.verifyier.version>
-        <maven.asm.version>9.0</maven.asm.version>
+        <maven.asm.version>9.1</maven.asm.version>
         <maven.gpg.version>1.6</maven.gpg.version>
 
         <maven.war.version>3.3.1</maven.war.version>
@@ -54,11 +54,11 @@
 
         <jdk.release>15</jdk.release>
 
-        <mapstruct.version>1.4.1.Final</mapstruct.version>
+        <mapstruct.version>1.4.2.Final</mapstruct.version>
 
         <moditect.maven.plugin.version>1.0.0.RC1</moditect.maven.plugin.version>
 
-        <junit.jupiter.version>5.7.0</junit.jupiter.version>
+        <junit.jupiter.version>5.7.1</junit.jupiter.version>
 
         <!--suppress CheckTagEmptyBody -->
         <surefireArgLine></surefireArgLine>
@@ -303,7 +303,7 @@
                                     <annotationProcessorPath>
                                         <groupId>org.projectlombok</groupId>
                                         <artifactId>lombok</artifactId>
-                                        <version>1.18.16</version>
+                                        <version>1.18.18</version>
                                     </annotationProcessorPath>
                                     <path>
                                         <groupId>org.mapstruct</groupId>
@@ -547,7 +547,7 @@
                                     <annotationProcessorPath>
                                         <groupId>org.projectlombok</groupId>
                                         <artifactId>lombok</artifactId>
-                                        <version>1.18.16</version>
+                                        <version>1.18.18</version>
                                     </annotationProcessorPath>
                                     <path>
                                         <groupId>org.mapstruct</groupId>
