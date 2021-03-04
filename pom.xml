@@ -45,7 +45,7 @@
         <license.dir>${basedir}</license.dir>
 
         <sonarqube.version>3.8.0.2131</sonarqube.version>
-        <jacoco.version>0.8.7</jacoco.version>
+        <jacoco.version>0.8.6</jacoco.version>
         <sonar.exclusions>**bower_components,**src/test,**/test/**,**/module-info.java</sonar.exclusions>
 
         <nexus.staging.maven.plugin.version>1.6.8</nexus.staging.maven.plugin.version>
