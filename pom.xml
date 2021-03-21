@@ -51,7 +51,7 @@
 
         <nexus.staging.maven.plugin.version>1.6.8</nexus.staging.maven.plugin.version>
 
-        <jdk.release>15</jdk.release>
+        <jdk.release>16</jdk.release>
 
         <mapstruct.version>1.4.2.Final</mapstruct.version>
 
@@ -298,6 +298,7 @@
                             <version>${maven.compiler.version}</version>
                             <configuration>
                                 <release>${jdk.release}</release>
+                                <fork>true</fork>
                                 <annotationProcessorPaths>
                                     <annotationProcessorPath>
                                         <groupId>org.projectlombok</groupId>
@@ -314,6 +315,18 @@
                                     <AaddGeneratedAnnotation>false</AaddGeneratedAnnotation>
                                     <Adebug>true</Adebug>
                                 </compilerArguments>
+                                <compilerArgs>
+                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
+                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
+                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
+                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
+                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED</arg>
+                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</arg>
+                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
+                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
+                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
+                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED</arg>
+                                </compilerArgs>
                                 <failOnError>true</failOnError>
                             </configuration>
                             <dependencies>
