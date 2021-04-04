@@ -278,7 +278,7 @@
                                 <annotationProcessorPath>
                                     <groupId>org.projectlombok</groupId>
                                     <artifactId>lombok</artifactId>
-                                    <version>1.18.18</version>
+                                    <version>1.18.20</version>
                                 </annotationProcessorPath>
                                 <path>
                                     <groupId>org.mapstruct</groupId>
@@ -360,7 +360,7 @@
                                     <annotationProcessorPath>
                                         <groupId>org.projectlombok</groupId>
                                         <artifactId>lombok</artifactId>
-                                        <version>1.18.18</version>
+                                        <version>1.18.20</version>
                                     </annotationProcessorPath>
                                     <path>
                                         <groupId>org.mapstruct</groupId>
@@ -606,7 +606,7 @@
                                     <annotationProcessorPath>
                                         <groupId>org.projectlombok</groupId>
                                         <artifactId>lombok</artifactId>
-                                        <version>1.18.18</version>
+                                        <version>1.18.20</version>
                                     </annotationProcessorPath>
                                     <path>
                                         <groupId>org.mapstruct</groupId>
