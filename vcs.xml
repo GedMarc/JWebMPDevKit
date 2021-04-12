@@ -31,6 +31,7 @@
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/ComponentTemplate" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPApps" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPApps/APIExplorer" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPApps/JWebMPHomePage" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPCore" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPCore/InterceptionsLibrary" vcs="Git" />
@@ -91,6 +92,7 @@
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/Forms/XEditable" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/Graphing" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/Graphing/C3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/Graphing/ChartJS" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/Graphing/D3" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/Graphing/EasyPieChart" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/Graphing/JQPlot" vcs="Git" />
@@ -108,6 +110,7 @@
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQXWidgets" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/BlockUI" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/CounterUp" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/FullCalendar" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/JQUIDateTimePicker" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/JQUIThemes" vcs="Git" />
@@ -118,9 +121,11 @@
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/LinearGradients" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/MalihuScrollBar" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/MetroTiles" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/SimpleBar" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/SpectrumColourPicker" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/Toastr" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/VerticalTimeline" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/WayPoints" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JavaScriptPlugins" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JavaScriptPlugins/Bit6" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/JavaScriptPlugins/EasingEffects" vcs="Git" />
@@ -138,5 +143,6 @@
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/SecurityPlugins/IPGeography" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/SecurityPlugins/LocalStorageSecurity" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPPlugins/SecurityPlugins/SessionLocalStorage" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/JWebMP/JWebMPParent/JWebMPBuilder/JWebMPThemes/MintonTheme" vcs="Git" />
   </component>
 </project>
