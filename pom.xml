@@ -721,6 +721,15 @@
                             </executions>
                         </plugin>
 
+                        <plugin>
+                            <groupId>org.moditect</groupId>
+                            <artifactId>moditect-maven-plugin</artifactId>
+                            <version>${moditect.maven.plugin.version}</version>
+                            <configuration>
+                                <jvmVersion>11</jvmVersion>
+                            </configuration>
+                        </plugin>
+
                     </plugins>
                 </pluginManagement>
 
@@ -937,9 +946,6 @@
                     <groupId>org.moditect</groupId>
                     <artifactId>moditect-maven-plugin</artifactId>
                     <version>${moditect.maven.plugin.version}</version>
-                    <configuration>
-                        <jvmVersion>11</jvmVersion>
-                    </configuration>
                 </plugin>
 
                 <plugin>
