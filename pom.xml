@@ -946,6 +946,9 @@
                     <groupId>org.moditect</groupId>
                     <artifactId>moditect-maven-plugin</artifactId>
                     <version>${moditect.maven.plugin.version}</version>
+                    <configuration>
+                        <jvmVersion>9</jvmVersion>
+                    </configuration>
                 </plugin>
 
                 <plugin>
