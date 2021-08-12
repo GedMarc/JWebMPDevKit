@@ -70,7 +70,7 @@
                                 <annotationProcessorPath>
                                     <groupId>org.projectlombok</groupId>
                                     <artifactId>lombok</artifactId>
-                                    <version>1.18.20</version>
+                                    <version>${lombok.version}</version>
                                 </annotationProcessorPath>
                                 <path>
                                     <groupId>org.mapstruct</groupId>
