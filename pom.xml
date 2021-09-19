@@ -152,7 +152,7 @@
                                     <annotationProcessorPath>
                                         <groupId>org.projectlombok</groupId>
                                         <artifactId>lombok</artifactId>
-                                        <version>1.18.20</version>
+                                        <version>${lombok.version}</version>
                                     </annotationProcessorPath>
                                     <path>
                                         <groupId>org.mapstruct</groupId>
@@ -174,15 +174,40 @@
                                 </dependency>
                             </dependencies>
                         </plugin>
-						
-						
+
+
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-javadoc-plugin</artifactId>
                             <version>${maven.javadoc.version}</version>
-                            <goals>
-                                <goal>aggregate-jar</goal>
-                            </goals>
+                            <executions>
+                                <execution>
+                                    <id>javadoc</id>
+                                    <phase>verify</phase>
+                                    <goals>
+                                        <goal>jar</goal>
+                                    </goals>
+                                    <configuration>
+                                        <detectJavaApiLink>false</detectJavaApiLink>
+                                        <offlineLinks>
+                                            <offlineLink>
+                                                <!--suppress UnresolvedMavenProperty -->
+                                                <url>https://docs.oracle.com/javase/${jdk.release}/docs/api/</url>
+                                                <location>${project.basedir}</location>
+                                            </offlineLink>
+                                        </offlineLinks>
+                                        <failOnError>false</failOnError>
+                                        <javadocExecutable>/opt/jdk${jdk.release}/bin/javadoc</javadocExecutable>
+                                        <additionalOptions>
+                                            <additionalOption>-Xdoclint:none</additionalOption>
+                                        </additionalOptions>
+                                        <sourcepath>target/source-output/:src/main/java:src/jre11/java</sourcepath>
+                                        <verbose>false</verbose>
+                                        <quiet>true</quiet>
+                                        <skip>false</skip>
+                                    </configuration>
+                                </execution>
+                            </executions>
                             <configuration>
                                 <detectJavaApiLink>false</detectJavaApiLink>
                                 <offlineLinks>
@@ -197,8 +222,45 @@
                                 <additionalOptions>
                                     <additionalOption>-Xdoclint:none</additionalOption>
                                 </additionalOptions>
+                                <sourcepath>target/source-output/</sourcepath>
+                                <verbose>false</verbose>
+                                <quiet>true</quiet>
+                                <skip>true</skip>
                             </configuration>
                         </plugin>
+
+                       <!-- <plugin>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>flatten-maven-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <id>flatten</id>
+                                    <phase>verify</phase>
+                                    <goals>
+                                        <goal>flatten</goal>
+                                    </goals>
+                                    <configuration>
+                                        <flattenMode>bom</flattenMode>
+                                        <flattenDependencyMode>direct</flattenDependencyMode>
+                                        <detail>true</detail>
+                                        <includeScope>compile</includeScope>
+                                        <excludeScope>provided</excludeScope>
+                                        <scopeEraseList>test,provided</scopeEraseList>
+                                        <performEraseScopes>true</performEraseScopes>
+                                        <resolveExclusions>false</resolveExclusions>
+                                        <excludeTransitive>true</excludeTransitive>
+                                        <updatePomFile>true</updatePomFile>
+                                    </configuration>
+                                </execution>
+                                <execution>
+                                    <id>flatten.clean</id>
+                                    <phase>clean</phase>
+                                    <goals>
+                                        <goal>clean</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>-->
 
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
@@ -209,7 +271,6 @@
                                 <createSourcesJar>true</createSourcesJar>
                                 <shadeSourcesContent>true</shadeSourcesContent>
                                 <shadeTestJar>false</shadeTestJar>
-                                <keepDependenciesWithProvidedScope>false</keepDependenciesWithProvidedScope>
                             </configuration>
                             <executions>
                                 <execution>
@@ -398,7 +459,7 @@
                                     <annotationProcessorPath>
                                         <groupId>org.projectlombok</groupId>
                                         <artifactId>lombok</artifactId>
-                                        <version>1.18.20</version>
+                                        <version>${lombok.version}</version>
                                     </annotationProcessorPath>
                                     <path>
                                         <groupId>org.mapstruct</groupId>
@@ -518,7 +579,7 @@
                             <artifactId>moditect-maven-plugin</artifactId>
                             <version>${moditect.maven.plugin.version}</version>
                             <configuration>
-                                <jvmVersion>11</jvmVersion>
+                                <jvmVersion>9</jvmVersion>
                             </configuration>
                         </plugin>
 
