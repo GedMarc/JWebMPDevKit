@@ -78,6 +78,11 @@
                                     <version>${mapstruct.version}</version>
                                 </path>
                             </annotationProcessorPaths>
+                            <annotationProcessors>
+                                <annotationProcessor>lombok.launch.AnnotationProcessorHider$AnnotationProcessor
+                                </annotationProcessor>
+                                <annotationProcessor>org.mapstruct.ap.MappingProcessor</annotationProcessor>
+                            </annotationProcessors>
                             <compilerArguments>
                                 <AaddGeneratedAnnotation>false</AaddGeneratedAnnotation>
                                 <Adebug>true</Adebug>
@@ -160,6 +165,11 @@
                                         <version>${mapstruct.version}</version>
                                     </path>
                                 </annotationProcessorPaths>
+                                <annotationProcessors>
+                                    <annotationProcessor>lombok.launch.AnnotationProcessorHider$AnnotationProcessor
+                                    </annotationProcessor>
+                                    <annotationProcessor>org.mapstruct.ap.MappingProcessor</annotationProcessor>
+                                </annotationProcessors>
                                 <compilerArguments>
                                     <AaddGeneratedAnnotation>false</AaddGeneratedAnnotation>
                                     <Adebug>true</Adebug>
@@ -228,39 +238,6 @@
                                 <skip>true</skip>
                             </configuration>
                         </plugin>
-
-                       <!-- <plugin>
-                            <groupId>org.codehaus.mojo</groupId>
-                            <artifactId>flatten-maven-plugin</artifactId>
-                            <executions>
-                                <execution>
-                                    <id>flatten</id>
-                                    <phase>verify</phase>
-                                    <goals>
-                                        <goal>flatten</goal>
-                                    </goals>
-                                    <configuration>
-                                        <flattenMode>bom</flattenMode>
-                                        <flattenDependencyMode>direct</flattenDependencyMode>
-                                        <detail>true</detail>
-                                        <includeScope>compile</includeScope>
-                                        <excludeScope>provided</excludeScope>
-                                        <scopeEraseList>test,provided</scopeEraseList>
-                                        <performEraseScopes>true</performEraseScopes>
-                                        <resolveExclusions>false</resolveExclusions>
-                                        <excludeTransitive>true</excludeTransitive>
-                                        <updatePomFile>true</updatePomFile>
-                                    </configuration>
-                                </execution>
-                                <execution>
-                                    <id>flatten.clean</id>
-                                    <phase>clean</phase>
-                                    <goals>
-                                        <goal>clean</goal>
-                                    </goals>
-                                </execution>
-                            </executions>
-                        </plugin>-->
 
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
@@ -331,6 +308,9 @@
                                 <argLine>${surefireArgLine}
                                 </argLine>
                                 <testFailureIgnore>true</testFailureIgnore>
+                                <classpathDependencyExcludes>
+                                    <classpathDependencyExclude>org.projectlombok:lombok</classpathDependencyExclude>
+                                </classpathDependencyExcludes>
                             </configuration>
                         </plugin>
 
