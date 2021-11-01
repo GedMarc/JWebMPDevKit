@@ -18,6 +18,12 @@
     <description>The core maven build properties</description>
     <url>https://jwebmp.com</url>
 
+    <properties>
+        <ignore.moditect>false</ignore.moditect>
+        <flatten.pom>false</flatten.pom>
+        <module.file.location>src/moditect/module-info.java</module.file.location>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -172,7 +178,6 @@
                     <plugin>
                         <groupId>org.moditect</groupId>
                         <artifactId>moditect-maven-plugin</artifactId>
-                        <version>${moditect.maven.plugin.version}</version>
                         <configuration>
                             <skip>true</skip>
                         </configuration>
@@ -187,6 +192,76 @@
                     </plugin>
                 </plugins>
             </build>
+            <activation>
+                <property>
+                    <name>ignore.moditect</name>
+                    <value>true</value>
+                </property>
+            </activation>
+        </profile>
+
+        <profile>
+            <id>flatten</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>flatten-maven-plugin</artifactId>
+                        <version>1.2.7</version>
+                        <configuration>
+                            <flattenMode>ossrh</flattenMode>
+                            <flattenDependencyMode>direct</flattenDependencyMode>
+                            <detail>true</detail>
+                            <updatePomFile>true</updatePomFile>
+                            <flattenedPomFilename>flatter.pom</flattenedPomFilename>
+                        </configuration>
+                        <executions>
+                            <!-- enable flattening -->
+                            <execution>
+                                <id>flatten</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>flatten</goal>
+                                </goals>
+                            </execution>
+                            <!-- ensure proper cleanup -->
+                            <execution>
+                                <id>flatten.clean</id>
+                                <phase>clean</phase>
+                                <goals>
+                                    <goal>clean</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>com.coderplus.maven.plugins</groupId>
+                        <artifactId>copy-rename-maven-plugin</artifactId>
+                        <version>1.0</version>
+                        <executions>
+                            <execution>
+                                <id>copy-file</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>copy</goal>
+                                </goals>
+                                <configuration>
+                                    <sourceFile>flatter.pom</sourceFile>
+                                    <destinationFile>dependency-reduced-pom.xml</destinationFile>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
+            <activation>
+                <property>
+                    <name>flatten.pom</name>
+                    <value>true</value>
+                </property>
+            </activation>
         </profile>
 
         <profile>
@@ -230,8 +305,9 @@
                                 <configuration>
                                     <overwriteExistingFiles>true</overwriteExistingFiles>
                                     <module>
-                                        <moduleInfoFile>src/moditect/module-info.java</moduleInfoFile>
+                                        <moduleInfoFile>${module.file.location}</moduleInfoFile>
                                     </module>
+                                    <skip>${ignore.moditect}</skip>
                                 </configuration>
                             </execution>
                         </executions>
