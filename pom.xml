@@ -22,6 +22,7 @@
         <ignore.moditect>false</ignore.moditect>
         <flatten.pom>false</flatten.pom>
         <module.file.location>src/moditect/module-info.java</module.file.location>
+
     </properties>
 
     <dependencyManagement>
