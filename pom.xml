@@ -123,6 +123,8 @@
                         <version>${maven.compiler.version}</version>
                         <configuration>
                             <release>${jdk.release}</release>
+                            <source>${jdk.release}</source>
+                            <target>${jdk.release}</target>
                             <fork>true</fork>
                             <annotationProcessorPaths>
                                 <annotationProcessorPath>
@@ -229,11 +231,11 @@
                                 <id>prepare</id>
                                 <phase>none</phase>
                                 <configuration>
-                                    <tasks>
+                                    <target>
                                         <echo message="prepare sources "/>
                                         <unzip src="target/${project.artifactId}-${project.version}-sources.jar"
                                                dest="target/source-output/"/>
-                                    </tasks>
+                                    </target>
                                     <failOnError>false</failOnError>
                                 </configuration>
                                 <goals>
@@ -243,6 +245,7 @@
                         </executions>
                         <configuration>
                             <failOnError>false</failOnError>
+                            <skip>${maven.javadoc.skip}</skip>
                         </configuration>
                     </plugin>
 
@@ -324,7 +327,7 @@
                                         <sourcepath>target/source-output/:src/main/java:src/jre11/java</sourcepath>
                                         <verbose>false</verbose>
                                         <quiet>true</quiet>
-                                        <skip>false</skip>
+                                        <skip>${maven.javadoc.skip}</skip>
                                         <additionalDependencies>
                                             <dependency>
                                                 <groupId>com.google.code.findbugs</groupId>
