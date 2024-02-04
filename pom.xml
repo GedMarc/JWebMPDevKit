@@ -5,24 +5,24 @@
     <parent>
         <groupId>com.guicedee</groupId>
         <artifactId>versioner</artifactId>
-        <version>0.0.0_0-SNAPSHOT</version>
+        <version>2.0.0-SNAPSHOT</version>
         <relativePath>Guiced-EE/BOM/Versioner</relativePath>
     </parent>
 
     <groupId>com.guicedee</groupId>
     <artifactId>dev-kit</artifactId>
-    <version>0.0.0_0-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Development Kit</name>
     <description>The core maven build properties</description>
-    <url>https://jwebmp.com</url>
+    <url>https://guicedee.com</url>
 
     <properties>
         <ignore.moditect>false</ignore.moditect>
         <flatten.pom>false</flatten.pom>
         <module.file.location>src/moditect/module-info.java</module.file.location>
-
+        <!--<maven.javadoc.skip>true</maven.javadoc.skip>-->
     </properties>
 
     <dependencyManagement>
@@ -109,242 +109,56 @@
                 <module>EntityAssist</module>
             </modules>
         </profile>
+    </profiles>
 
-        <profile>
-            <id>jdk16</id>
-            <activation>
-                <jdk>[16,)</jdk>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>${maven.compiler.version}</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
                         <configuration>
-                            <release>${jdk.release}</release>
-                            <source>${jdk.release}</source>
-                            <target>${jdk.release}</target>
-                            <fork>true</fork>
-                            <annotationProcessorPaths>
-                                <annotationProcessorPath>
-                                    <groupId>org.projectlombok</groupId>
-                                    <artifactId>lombok</artifactId>
-                                    <version>${lombok.version}</version>
-                                </annotationProcessorPath>
-                                <path>
-                                    <groupId>org.mapstruct</groupId>
-                                    <artifactId>mapstruct-processor</artifactId>
-                                    <version>${mapstruct.version}</version>
-                                </path>
-                            </annotationProcessorPaths>
-                            <annotationProcessors>
-                                <annotationProcessor>lombok.launch.AnnotationProcessorHider$AnnotationProcessor
-                                </annotationProcessor>
-                                <annotationProcessor>org.mapstruct.ap.MappingProcessor</annotationProcessor>
-                            </annotationProcessors>
-                            <compilerArguments>
-                                <AaddGeneratedAnnotation>false</AaddGeneratedAnnotation>
-                                <Adebug>true</Adebug>
-                            </compilerArguments>
-                            <compilerArgs>
-                                <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
-                                <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
-                                <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
-                                <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
-                                <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED</arg>
-                                <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</arg>
-                                <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
-                                <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
-                                <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
-                                <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED</arg>
-                                <arg>-J--illegal-access=permit</arg>
-                            </compilerArgs>
-                            <failOnError>true</failOnError>
+                            <sources>
+                                <source>src/main/java</source>
+                                <source>src/jre11/java</source>
+                            </sources>
                         </configuration>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.ow2.asm</groupId>
-                                <artifactId>asm</artifactId>
-                                <version>${maven.asm.version}</version>
-                            </dependency>
-                        </dependencies>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+                    </execution>
+                </executions>
+            </plugin>
 
-        <profile>
-            <id>jdk9</id>
-            <activation>
-                <jdk>[9,)</jdk>
-            </activation>
+        </plugins>
 
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>build-helper-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>add-source</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>add-source</goal>
-                                </goals>
-                                <configuration>
-                                    <sources>
-                                        <source>src/main/java</source>
-                                        <source>src/jre11/java</source>
-                                    </sources>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.moditect</groupId>
-                        <artifactId>moditect-maven-plugin</artifactId>
-                        <version>${moditect.maven.plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <id>add-module-infos</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>add-module-info</goal>
-                                </goals>
-                                <configuration>
-                                    <overwriteExistingFiles>true</overwriteExistingFiles>
-                                    <module>
-                                        <moduleInfoFile>${module.file.location}</moduleInfoFile>
-                                    </module>
-                                    <skip>${ignore.moditect}</skip>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
+        <pluginManagement>
+            <plugins>
 
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-antrun-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>prepare</id>
-                                <phase>none</phase>
-                                <configuration>
-                                    <target>
-                                        <echo message="prepare sources "/>
-                                        <unzip src="target/${project.artifactId}-${project.version}-sources.jar"
-                                               dest="target/source-output/"/>
-                                    </target>
-                                    <failOnError>false</failOnError>
-                                </configuration>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <failOnError>false</failOnError>
-                            <skip>${maven.javadoc.skip}</skip>
-                        </configuration>
-                    </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.version}</version>
+                    <configuration>
+                        <release>${jdk.release}</release>
+                        <failOnError>true</failOnError>
+                    </configuration>
+                </plugin>
 
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>${maven.javadoc.version}</version>
-                    </plugin>
-                </plugins>
-
-                <pluginManagement>
-                    <plugins>
-
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-compiler-plugin</artifactId>
-                            <version>${maven.compiler.version}</version>
-                            <configuration>
-                                <release>${jdk.release}</release>
-                                <fork>true</fork>
-                                <annotationProcessorPaths>
-                                    <annotationProcessorPath>
-                                        <groupId>org.projectlombok</groupId>
-                                        <artifactId>lombok</artifactId>
-                                        <version>${lombok.version}</version>
-                                    </annotationProcessorPath>
-                                    <path>
-                                        <groupId>org.mapstruct</groupId>
-                                        <artifactId>mapstruct-processor</artifactId>
-                                        <version>${mapstruct.version}</version>
-                                    </path>
-                                </annotationProcessorPaths>
-                                <annotationProcessors>
-                                    <annotationProcessor>lombok.launch.AnnotationProcessorHider$AnnotationProcessor
-                                    </annotationProcessor>
-                                    <annotationProcessor>org.mapstruct.ap.MappingProcessor</annotationProcessor>
-                                </annotationProcessors>
-                                <compilerArguments>
-                                    <AaddGeneratedAnnotation>false</AaddGeneratedAnnotation>
-                                    <Adebug>true</Adebug>
-                                </compilerArguments>
-                                <failOnError>true</failOnError>
-                            </configuration>
-                            <dependencies>
-                                <dependency>
-                                    <groupId>org.ow2.asm</groupId>
-                                    <artifactId>asm</artifactId>
-                                    <version>${maven.asm.version}</version>
-                                </dependency>
-                            </dependencies>
-                        </plugin>
-
-
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-javadoc-plugin</artifactId>
-                            <version>${maven.javadoc.version}</version>
-                            <executions>
-                                <execution>
-                                    <id>javadoc</id>
-                                    <phase>verify</phase>
-                                    <goals>
-                                        <goal>jar</goal>
-                                    </goals>
-                                    <configuration>
-                                        <detectJavaApiLink>false</detectJavaApiLink>
-                                        <offlineLinks>
-                                            <offlineLink>
-                                                <!--suppress UnresolvedMavenProperty -->
-                                                <url>https://docs.oracle.com/javase/${jdk.release}/docs/api/</url>
-                                                <location>${project.basedir}</location>
-                                            </offlineLink>
-                                        </offlineLinks>
-                                        <failOnError>false</failOnError>
-                                        <javadocExecutable>/opt/jdk${jdk.release}/bin/javadoc</javadocExecutable>
-                                        <additionalOptions>
-                                            <additionalOption>-Xdoclint:none</additionalOption>
-                                        </additionalOptions>
-                                        <sourcepath>target/source-output/:src/main/java:src/jre11/java</sourcepath>
-                                        <verbose>false</verbose>
-                                        <quiet>true</quiet>
-                                        <skip>${maven.javadoc.skip}</skip>
-                                        <additionalDependencies>
-                                            <dependency>
-                                                <groupId>com.google.code.findbugs</groupId>
-                                                <artifactId>jsr305</artifactId>
-                                                <version>${jsr305.version}</version>
-                                            </dependency>
-
-                                            <dependency>
-                                                <groupId>com.google.code.findbugs</groupId>
-                                                <artifactId>findbugs-annotations</artifactId>
-                                                <version>${findbugs.annotation.version}</version>
-                                            </dependency>
-
-                                        </additionalDependencies>
-                                    </configuration>
-                                </execution>
-                            </executions>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${maven.javadoc.version}</version>
+                    <executions>
+                        <execution>
+                            <id>javadoc</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
                             <configuration>
                                 <detectJavaApiLink>false</detectJavaApiLink>
                                 <offlineLinks>
@@ -359,246 +173,61 @@
                                 <additionalOptions>
                                     <additionalOption>-Xdoclint:none</additionalOption>
                                 </additionalOptions>
-                                <sourcepath>target/source-output/</sourcepath>
+                                <sourcepath>target/source-output/:src/main/java:src/jre11/java</sourcepath>
                                 <verbose>false</verbose>
                                 <quiet>true</quiet>
-                                <skip>true</skip>
+                                <skip>${maven.javadoc.skip}</skip>
+                                <additionalDependencies>
+                                    <dependency>
+                                        <groupId>com.google.code.findbugs</groupId>
+                                        <artifactId>jsr305</artifactId>
+                                        <version>${jsr305.version}</version>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>com.google.code.findbugs</groupId>
+                                        <artifactId>findbugs-annotations</artifactId>
+                                        <version>${findbugs.annotation.version}</version>
+                                    </dependency>
+                                </additionalDependencies>
                             </configuration>
-                        </plugin>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <detectJavaApiLink>false</detectJavaApiLink>
+                        <offlineLinks>
+                            <offlineLink>
+                                <!--suppress UnresolvedMavenProperty -->
+                                <url>https://docs.oracle.com/javase/${jdk.release}/docs/api/</url>
+                                <location>${project.basedir}</location>
+                            </offlineLink>
+                        </offlineLinks>
+                        <failOnError>false</failOnError>
+                        <javadocExecutable>/opt/jdk${jdk.release}/bin/javadoc</javadocExecutable>
+                        <additionalOptions>
+                            <additionalOption>-Xdoclint:none</additionalOption>
+                        </additionalOptions>
+                        <sourcepath>target/source-output/</sourcepath>
+                        <verbose>false</verbose>
+                        <quiet>true</quiet>
+                        <skip>true</skip>
+                    </configuration>
+                </plugin>
 
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-shade-plugin</artifactId>
-                            <version>${maven.shade.version}</version>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>${maven.shade.version}</version>
+                    <configuration>
+                        <createDependencyReducedPom>true</createDependencyReducedPom>
+                        <createSourcesJar>true</createSourcesJar>
+                        <shadeSourcesContent>true</shadeSourcesContent>
+                        <shadeTestJar>false</shadeTestJar>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>shade</id>
+                            <phase>package</phase>
                             <configuration>
-                                <createDependencyReducedPom>true</createDependencyReducedPom>
-                                <createSourcesJar>true</createSourcesJar>
-                                <shadeSourcesContent>true</shadeSourcesContent>
-                                <shadeTestJar>false</shadeTestJar>
-                            </configuration>
-                            <executions>
-                                <execution>
-                                    <id>shade</id>
-                                    <phase>package</phase>
-                                    <configuration>
-                                        <filters>
-                                            <filter>
-                                                <artifact>*:*</artifact>
-                                                <excludes>
-                                                    <exclude>module-info.java</exclude>
-                                                    <exclude>META-INF/*.SF</exclude>
-                                                    <exclude>META-INF/*.DSA</exclude>
-                                                    <exclude>META-INF/*.RSA</exclude>
-                                                </excludes>
-                                            </filter>
-                                        </filters>
-                                        <transformers>
-                                            <transformer
-                                                    implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                                            <transformer
-                                                    implementation="io.yupiik.maven.shade.transformer.RelocationTransformer"/>
-                                        </transformers>
-                                    </configuration>
-                                </execution>
-                            </executions>
-                            <dependencies>
-                                <dependency>
-                                    <groupId>org.ow2.asm</groupId>
-                                    <artifactId>asm</artifactId>
-                                    <version>${maven.asm.version}</version>
-                                </dependency>
-                                <dependency>
-                                    <groupId>io.yupiik.maven</groupId>
-                                    <artifactId>maven-shade-transformers</artifactId>
-                                    <version>0.0.1</version>
-                                </dependency>
-                            </dependencies>
-                        </plugin>
-
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-surefire-plugin</artifactId>
-                            <version>${maven.surefire.version}</version>
-                            <dependencies>
-                                <dependency>
-                                    <groupId>org.junit.jupiter</groupId>
-                                    <artifactId>junit-jupiter-engine</artifactId>
-                                    <version>${junit.jupiter.version}</version>
-                                </dependency>
-                                <dependency>
-                                    <groupId>org.mapstruct</groupId>
-                                    <artifactId>mapstruct-processor</artifactId>
-                                    <version>${mapstruct.version}</version>
-                                </dependency>
-                            </dependencies>
-                            <configuration>
-                                <argLine>${surefireArgLine}
-                                </argLine>
-                                <testFailureIgnore>true</testFailureIgnore>
-                                <classpathDependencyExcludes>
-                                    <classpathDependencyExclude>org.projectlombok:lombok</classpathDependencyExclude>
-                                </classpathDependencyExcludes>
-                            </configuration>
-                        </plugin>
-
-                    </plugins>
-                </pluginManagement>
-
-                <resources>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                        <excludes>
-                            <exclude>.gitignore</exclude>
-                        </excludes>
-                    </resource>
-                    <resource>
-                        <directory>src/jre11/resources</directory>
-                        <excludes>
-                            <exclude>.gitignore</exclude>
-                        </excludes>
-                    </resource>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                        <excludes>
-                            <exclude>.gitignore</exclude>
-                        </excludes>
-                    </resource>
-                    <resource>
-                        <directory>src/main/java</directory>
-                        <includes>
-                            <include>*.properties</include>
-                            <include>*.xsd</include>
-                            <include>*.xml</include>
-                            <include>*.json</include>
-                            <include>*.txt</include>
-                            <include>*.sql</include>
-                            <include>*.html</include>
-                        </includes>
-                    </resource>
-                    <resource>
-                        <directory>src/jre11/java</directory>
-                        <includes>
-                            <include>*.properties</include>
-                            <include>*.xsd</include>
-                            <include>*.xml</include>
-                            <include>*.json</include>
-                            <include>*.txt</include>
-                            <include>*.sql</include>
-                            <include>*.html</include>
-                        </includes>
-                    </resource>
-                    <resource>
-                        <directory>src/jre11/webapp</directory>
-                        <targetPath>${project.build.outputDirectory}/</targetPath>
-                        <excludes>
-                            <exclude>**/*.gzip</exclude>
-                            <exclude>**/*.map</exclude>
-                            <exclude>**/*.md</exclude>
-                            <exclude>**/*.md</exclude>
-                            <exclude>**/package.json</exclude>
-                            <exclude>**/bower.json</exclude>
-                            <exclude>**/.bower.json</exclude>
-                            <exclude>**/.gitignore</exclude>
-                            <exclude>**/.jshint</exclude>
-                            <exclude>**/.jshint</exclude>
-                            <exclude>**/Gruntfile.js</exclude>
-                            <exclude>**/*.sh</exclude>
-                        </excludes>
-                    </resource>
-                </resources>
-            </build>
-        </profile>
-
-        <profile>
-            <id>jdk8</id>
-            <activation>
-                <jdk>8</jdk>
-            </activation>
-
-            <properties>
-                <jdk.release>8</jdk.release>
-                <maven.compiler.source>1.8</maven.compiler.source>
-                <maven.compiler.target>1.8</maven.compiler.target>
-            </properties>
-
-            <build>
-
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>build-helper-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>add-source</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>add-source</goal>
-                                </goals>
-                                <configuration>
-                                    <sources>
-                                        <source>src/main/java</source>
-                                        <source>src/jre8/java</source>
-                                    </sources>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-
-                <pluginManagement>
-                    <plugins>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-compiler-plugin</artifactId>
-                            <version>${maven.compiler.version}</version>
-                            <inherited>false</inherited>
-                            <configuration>
-                                <excludes>
-                                    <exclude>module-info.java</exclude>
-                                    <exclude>src/main/java/module-info.java</exclude>
-                                    <exclude>src/jre11/java/module-info.java</exclude>
-                                    <exclude>**/module-info.java</exclude>
-                                </excludes>
-                                <source>1.8</source>
-                                <target>1.8</target>
-                                <release>8</release>
-                                <annotationProcessorPaths>
-                                    <annotationProcessorPath>
-                                        <groupId>org.projectlombok</groupId>
-                                        <artifactId>lombok</artifactId>
-                                        <version>${lombok.version}</version>
-                                    </annotationProcessorPath>
-                                    <path>
-                                        <groupId>org.mapstruct</groupId>
-                                        <artifactId>mapstruct-processor</artifactId>
-                                        <version>${mapstruct.version}</version>
-                                    </path>
-                                </annotationProcessorPaths>
-                                <compilerArguments>
-                                    <AaddGeneratedAnnotation>false</AaddGeneratedAnnotation>
-                                    <Adebug>true</Adebug>
-                                </compilerArguments>
-                                <failOnError>true</failOnError>
-                            </configuration>
-                            <dependencies>
-                                <dependency>
-                                    <groupId>org.ow2.asm</groupId>
-                                    <artifactId>asm</artifactId>
-                                    <version>${maven.asm.version}</version>
-                                </dependency>
-                            </dependencies>
-                        </plugin>
-
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-shade-plugin</artifactId>
-                            <version>${maven.shade.version}</version>
-                            <configuration>
-                                <createDependencyReducedPom>true</createDependencyReducedPom>
-                                <createSourcesJar>true</createSourcesJar>
-                                <shadeSourcesContent>true</shadeSourcesContent>
-                                <shadeTestJar>false</shadeTestJar>
-                                <keepDependenciesWithProvidedScope>false</keepDependenciesWithProvidedScope>
                                 <filters>
                                     <filter>
                                         <artifact>*:*</artifact>
@@ -611,154 +240,142 @@
                                     </filter>
                                 </filters>
                                 <transformers>
+                                    <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
+                                    </transformer>
+                                    <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer">
+                                        <addHeader>false</addHeader>
+                                    </transformer>
                                     <transformer
                                             implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                                     <transformer
                                             implementation="io.yupiik.maven.shade.transformer.RelocationTransformer"/>
                                 </transformers>
                             </configuration>
-                            <executions>
-                                <execution>
-                                    <id>shade</id>
-                                    <phase>package</phase>
-                                </execution>
-                            </executions>
-                            <dependencies>
-                                <dependency>
-                                    <groupId>org.ow2.asm</groupId>
-                                    <artifactId>asm</artifactId>
-                                    <version>${maven.asm.version}</version>
-                                </dependency>
-                                <dependency>
-                                    <groupId>io.yupiik.maven</groupId>
-                                    <artifactId>maven-shade-transformers</artifactId>
-                                    <version>0.0.1</version>
-                                </dependency>
-                            </dependencies>
-                        </plugin>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.ow2.asm</groupId>
+                            <artifactId>asm</artifactId>
+                            <version>${maven.asm.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>io.yupiik.maven</groupId>
+                            <artifactId>maven-shade-transformers</artifactId>
+                            <version>0.0.1</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
 
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-javadoc-plugin</artifactId>
-                            <version>${maven.javadoc.version}</version>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven.surefire.version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.junit.jupiter</groupId>
+                            <artifactId>junit-jupiter-engine</artifactId>
+                            <version>${junit.jupiter.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${mapstruct.version}</version>
+                        </dependency>
+                    </dependencies>
+                    <configuration>
+                        <argLine>${surefireArgLine}</argLine>
+                        <testFailureIgnore>true</testFailureIgnore>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.moditect</groupId>
+                    <artifactId>moditect-maven-plugin</artifactId>
+                    <version>${moditect.maven.plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>add-module-infos</id>
+                            <phase>package</phase>
                             <goals>
-                                <goal>aggregate-jar</goal>
+                                <goal>add-module-info</goal>
                             </goals>
                             <configuration>
-                                <detectJavaApiLink>false</detectJavaApiLink>
-                                <offlineLinks>
-                                    <offlineLink>
-                                        <!--suppress UnresolvedMavenProperty -->
-                                        <url>https://docs.oracle.com/javase/${jdk.release}/docs/api/</url>
-                                        <location>${project.basedir}</location>
-                                    </offlineLink>
-                                </offlineLinks>
-                                <failOnError>false</failOnError>
-                                <javadocExecutable>/opt/jdk8/bin/javadoc</javadocExecutable>
-                                <additionalOptions>
-                                    <additionalOption>-Xdoclint:none</additionalOption>
-                                </additionalOptions>
+                                <overwriteExistingFiles>true</overwriteExistingFiles>
+                                <module>
+                                    <moduleInfoFile>${module.file.location}</moduleInfoFile>
+                                </module>
+                                <skip>${ignore.moditect}</skip>
                             </configuration>
-                        </plugin>
+                        </execution>
+                    </executions>
+                </plugin>
 
-                        <plugin>
-                            <groupId>org.codehaus.mojo</groupId>
-                            <artifactId>build-helper-maven-plugin</artifactId>
-                            <executions>
-                                <execution>
-                                    <id>add-source</id>
-                                    <phase>generate-sources</phase>
-                                    <goals>
-                                        <goal>add-source</goal>
-                                    </goals>
-                                    <configuration>
-                                        <sources>
-                                            <source>src/main/java</source>
-                                            <source>src/jre8/java</source>
-                                        </sources>
-                                    </configuration>
-                                </execution>
-                            </executions>
-                        </plugin>
+            </plugins>
+        </pluginManagement>
 
-                        <plugin>
-                            <groupId>org.moditect</groupId>
-                            <artifactId>moditect-maven-plugin</artifactId>
-                            <version>${moditect.maven.plugin.version}</version>
-                            <configuration>
-                                <jvmVersion>9</jvmVersion>
-                            </configuration>
-                        </plugin>
-
-                    </plugins>
-                </pluginManagement>
-
-                <resources>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                        <excludes>
-                            <exclude>.gitignore</exclude>
-                        </excludes>
-                    </resource>
-                    <resource>
-                        <directory>src/jre8/resources</directory>
-                        <excludes>
-                            <exclude>.gitignore</exclude>
-                        </excludes>
-                    </resource>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                        <excludes>
-                            <exclude>.gitignore</exclude>
-                        </excludes>
-                    </resource>
-                    <resource>
-                        <directory>src/main/java</directory>
-                        <includes>
-                            <include>*.properties</include>
-                            <include>*.xsd</include>
-                            <include>*.xml</include>
-                            <include>*.json</include>
-                            <include>*.txt</include>
-                            <include>*.sql</include>
-                            <include>*.html</include>
-                        </includes>
-                    </resource>
-                    <resource>
-                        <directory>src/jre8/java</directory>
-                        <includes>
-                            <include>*.properties</include>
-                            <include>*.xsd</include>
-                            <include>*.xml</include>
-                            <include>*.json</include>
-                            <include>*.txt</include>
-                            <include>*.sql</include>
-                            <include>*.html</include>
-                        </includes>
-                    </resource>
-                    <resource>
-                        <directory>src/jre8/webapp</directory>
-                        <targetPath>${project.build.outputDirectory}/</targetPath>
-                        <excludes>
-                            <exclude>**/*.gzip</exclude>
-                            <exclude>**/*.map</exclude>
-                            <exclude>**/*.md</exclude>
-                            <exclude>**/*.md</exclude>
-                            <exclude>**/package.json</exclude>
-                            <exclude>**/bower.json</exclude>
-                            <exclude>**/.bower.json</exclude>
-                            <exclude>**/.gitignore</exclude>
-                            <exclude>**/.jshint</exclude>
-                            <exclude>**/.jshint</exclude>
-                            <exclude>**/Gruntfile.js</exclude>
-                            <exclude>**/*.sh</exclude>
-                        </excludes>
-                    </resource>
-                </resources>
-            </build>
-        </profile>
-
-    </profiles>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>.gitignore</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/jre11/resources</directory>
+                <excludes>
+                    <exclude>.gitignore</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>.gitignore</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>*.properties</include>
+                    <include>*.xsd</include>
+                    <include>*.xml</include>
+                    <include>*.json</include>
+                    <include>*.txt</include>
+                    <include>*.sql</include>
+                    <include>*.html</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/jre11/java</directory>
+                <includes>
+                    <include>*.properties</include>
+                    <include>*.xsd</include>
+                    <include>*.xml</include>
+                    <include>*.json</include>
+                    <include>*.txt</include>
+                    <include>*.sql</include>
+                    <include>*.html</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/jre11/webapp</directory>
+                <targetPath>${project.build.outputDirectory}/</targetPath>
+                <excludes>
+                    <exclude>**/*.gzip</exclude>
+                    <exclude>**/*.map</exclude>
+                    <exclude>**/*.md</exclude>
+                    <exclude>**/*.md</exclude>
+                    <exclude>**/package.json</exclude>
+                    <exclude>**/bower.json</exclude>
+                    <exclude>**/.bower.json</exclude>
+                    <exclude>**/.gitignore</exclude>
+                    <exclude>**/.jshint</exclude>
+                    <exclude>**/.jshint</exclude>
+                    <exclude>**/Gruntfile.js</exclude>
+                    <exclude>**/*.sh</exclude>
+                </excludes>
+            </resource>
+        </resources>
+    </build>
 
     <reporting>
         <plugins>

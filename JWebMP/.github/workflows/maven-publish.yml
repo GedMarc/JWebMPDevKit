@@ -1,0 +1,219 @@
+name: JWebMP / JWebSwing
+on:
+  workflow_dispatch:
+  push:
+jobs:
+  BOM:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    with:
+      baseDir: 'JWebMPBOM/'
+      name: 'JWebMPBOM'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+  Builder:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs: BOM
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder'
+      name: 'Builder'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+  TestsLib:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs: Builder
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder/JWebMPCore/JWebMPTestLib'
+      name: 'Test Lib'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+  Core:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs: Builder
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder/JWebMPCore/JWebMPCore'
+      name: 'Core'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+  AngularClient:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs: Core
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder/JWebMPPlugins/AngularPlugins/AngularTypescriptClient'
+      name: 'Angular'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+  Angular:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs: AngularClient
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder/JWebMPPlugins/AngularPlugins/AngularTypescript'
+      name: 'AngularClient'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+  AngularNgSelect:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs: AngularClient
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder/JWebMPPlugins/AngularPlugins/NgSelect'
+      name: 'NgSelect'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+  LocalStorage:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs: Core
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder/JWebMPPlugins/SecurityPlugins/LocalStorageSecurity'
+      name: 'Local Storage'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+  JQuery:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs: Core
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/JQuery'
+      name: 'JQuery'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+  CounterUp:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs: JQuery
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/CounterUp'
+      name: 'CounterUp'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+  WayPoints:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs: JQuery
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/WayPoints'
+      name: 'WayPoints'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+  SimpleBar:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs: JQuery
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/SimpleBar'
+      name: 'Simple Bar'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+  FullCalendar:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs: JQuery
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/FullCalendar'
+      name: 'CounterUp'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+  FullCalendarPro:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs: FullCalendar
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder/JWebMPPlugins/JQueryPlugins/FullCalendarPro'
+      name: 'FullCalendar Pro'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+
+
+  Moment:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs: Core
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder/JWebMPPlugins/JavascriptPlugins/MomentJS'
+      name: 'Moment'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+  Globalize:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs: Core
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder/JWebMPPlugins/JavascriptPlugins/Globalize'
+      name: 'Globalize'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+  EasingEffects:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs: Core
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder/JWebMPPlugins/JavascriptPlugins/EasingEffects'
+      name: 'EasingEffects'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+  JQueryUI:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs:
+      - JQuery
+      - Globalize
+      - EasingEffects
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder/JWebMPPlugins/JavascriptPlugins/EasingEffects'
+      name: 'EasingEffects'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
+  Gallery:
+    uses: GuicedEE/Workflows/.github/workflows/bom.yml@master
+    needs:
+      - Angular
+    with:
+      baseDir: 'JWebMPParent/JWebMPBuilder/JWebMPPlugins/JavascriptPlugins/EasingEffects'
+      name: 'EasingEffects'
+    secrets:
+      USERNAME: ${{secrets.USERNAME}}
+      USER_TOKEN: ${{secrets.USER_TOKEN}}
+      SONA_USERNAME: ${{secrets.SONA_USERNAME}}
+      SONA_PASSWORD: ${{secrets.SONA_PASSWORD}}
